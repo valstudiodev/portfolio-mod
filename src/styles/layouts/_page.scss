@@ -1,0 +1,11 @@
+@use '../settings/settings' as *;
+@use '../settings/mixins' as *;
+
+.link {
+   background-color: blue;
+   padding: toRem(20);
+   font-size: toRem(24);
+   text-transform: uppercase;
+   border-radius: toRem(20);
+   color: $white;
+}
