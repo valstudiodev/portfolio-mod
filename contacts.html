@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+   <link rel="stylesheet" href="/src/pages/contacts/_contacts.scss">
+   <title>Page-Contacts</title>
+</head>
+
+<body>
+
+   <div class="wrapper">
+      <header class="header">
+         <div class="header__container">
+            <div class="header__inner">
+               <div class="header__logo logo">
+                  <a href="#" class="logo__link">
+                     <svg class="logo__image">
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-slash"></use>
+                     </svg>
+                  </a>
+               </div>
+               <nav class="header__menu menu-header">
+                  <ul class="menu-header__list">
+                     <li class="menu-header__item">
+                        <a href="#" target="_blank" class="menu-header__link">About</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="#" target="_blank" class="menu-header__link">Work</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="#" class="menu-header__link">Skills</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="#" class="menu-header__link">Contacts</a>
+                     </li>
+                     <li class="menu-header__item">
+                        <a href="#"
+                           class="menu-header__link menu-header__link--submenu menu-header__link--icon-chevron">Pages</a>
+                     </li>
+                  </ul>
+               </nav>
+               <div class="header__media media-social">
+                  <a target="_blank" href="#"
+                     class="media-social__instagram media-social__instagram--icon-at-sign">Email</a>
+                  <a target="_blank" href="#"
+                     class="media-social__discord media-social__discord--icon-discord">Discord</a>
+                  <a target="_blank" href="#" class="media-social__github media-social__github--icon-github">Github</a>
+               </div>
+               <button class="icon-menu">
+                  <span></span>
+               </button>
+            </div>
+         </div>
+      </header>
+
+      <main class="page-contacts contacts-page">
+         <div class="contacts-page__container">
+            <div class="contacts-page__content">
+               <h2 class="contacts-page__title">Got a project in <span>mind?</span> </h2>
+               <div class="contacts-page__image">
+                  <img src="/src/assets/img/png/man-step.png" alt="">
+               </div>
+            </div>
+            <form action="#" class="contacts-page__form form-contacts">
+               <div class="form-contacts__top">
+                  <div class="form-contacts__name">
+                     <label for="">Your name</label>
+                     <input class="form-contacts__input" type="text" placeholder="Name">
+                  </div>
+                  <div class="form-contacts__email">
+                     <label for="">Your email</label>
+                     <input class="form-contacts__input" type="email" placeholder="Email">
+                  </div>
+               </div>
+               <div class="form-contacts__text">
+                  <label for="message">Your Message</label>
+                  <textarea class="form-contacts__area" name="message" id="message" placeholder="Message"></textarea>
+               </div>
+               <button type="submit" class="form-contacts__button button-regular button-regular--icon-send">Send
+                  Message</button>
+            </form>
+         </div>
+      </main>
+
+      <footer class="footer-contacts">
+         <div class="footer-contacts__container">
+
+         </div>
+      </footer>
+   </div>
+
+   <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
