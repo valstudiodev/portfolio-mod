@@ -1,0 +1,114 @@
+@use '../settings/settings' as *;
+@use '../settings/_mixins.scss' as *;
+
+
+.projects-page {
+   @include adaptiveValue('padding-top', 250, 150);
+   @include adaptiveValue('padding-bottom', 120, 50);
+   position: relative;
+   // background-color: $bgPrimary;
+   background-color: $bgSecondary;
+
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../assets/img/png/works-img.webp");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.3;
+   }
+
+   &__container {}
+
+   &__inner {}
+
+   &__header {
+      .mouse-scroll {
+         fill: $brandSecondary;
+         // fill: red;
+      }
+   }
+
+   &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(50);
+   }
+
+   // .projects__menu
+   &__menu {}
+
+   // .projects__carts
+   &__carts {}
+}
+
+.menu-projects {
+
+   // .menu-projects__list
+   &__list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: toRem(16);
+      flex-wrap: wrap;
+
+      @media (max-width: toEm(525)) {
+         display: flex;
+         overflow: auto;
+         flex-wrap: nowrap;
+         margin-inline: toRem(-15);
+         padding-inline: toRem(15);
+      }
+   }
+
+   // .menu-projects__item
+   &__item {}
+
+   // .menu-projects__button
+   &__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: toRem(18);
+      font-weight: 700;
+      text-transform: capitalize;
+      background-color: rgba(57, 62, 70, 0.5);
+      padding-block: toRem(10);
+      // @include adaptiveValue('padding-inline',32,30);
+      padding-inline: toRem(32);
+      backdrop-filter: blur(8px);
+      border-radius: toRem(24);
+      transition: all 0.3s;
+
+      span {}
+
+      &.active {
+         background-color: $brandDark;
+         box-shadow:
+            0 0 14px rgba(20, 120, 80, 0.40),
+            0 0 28px rgba(20, 120, 80, 0.25),
+            0 0 45px rgba(20, 120, 80, 0.15);
+      }
+
+      // @media (any-hover: hover) and (any-pointer: fine) {
+      //   &:hover {
+      //    background-color: $butHovGreen;
+      //   }
+      // }
+   }
+}
+
+.carts-project {
+
+   // .carts-project__container
+   &__inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(toRem(400), 100%), 1fr));
+      gap: toRem(30);
+   }
+}

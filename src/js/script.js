@@ -14,7 +14,7 @@ function windowLoad() {
 
    slidersInit();
    scrollHeader();
-   // toggleCardContent();
+   toggleCardContent();
    // showList();
    // typeSwitcher();
 }
@@ -106,47 +106,47 @@ function slidersInit() {
 // -----------------------------
 // filter
 // -----------------------------
-// document.addEventListener('DOMContentLoaded', () => {
-//    const menuButtons = document.querySelectorAll('[data-filter]');
-//    const galleryItems = document.querySelectorAll('[data-group]');
+document.addEventListener('DOMContentLoaded', () => {
+   const menuButtons = document.querySelectorAll('[data-filter]');
+   const galleryItems = document.querySelectorAll('[data-group]');
 
-//    function filterItems(category) {
-//       galleryItems.forEach(item => {
-//          item.style.display = item.dataset.group === category ? 'grid' : 'none';
-//       });
-//    }
+   function filterItems(category) {
+      galleryItems.forEach(item => {
+         item.style.display = item.dataset.group === category ? 'grid' : 'none';
+      });
+   }
 
-//    menuButtons.forEach((btn, index) => {
-//       btn.addEventListener('click', () => {
-//          menuButtons.forEach(b => b.classList.remove('active'));
-//          btn.classList.add('active');
-//          filterItems(btn.dataset.filter);
-//       });
+   menuButtons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+         menuButtons.forEach(b => b.classList.remove('active'));
+         btn.classList.add('active');
+         filterItems(btn.dataset.filter);
+      });
 
-//       if (index === 0) {
-//          btn.classList.add('active');
-//          filterItems(btn.dataset.filter);
-//       }
-//    });
-// });
+      if (index === 0) {
+         btn.classList.add('active');
+         filterItems(btn.dataset.filter);
+      }
+   });
+});
 
 // ===========================================================================================
 // -----------------------------
 // flip-cart
 // -----------------------------
-// function toggleCardContent() {
-//    const cards = document.querySelectorAll('.cart-work__inner');
+function toggleCardContent() {
+   const cards = document.querySelectorAll('.cart-work__inner');
 
-//    cards.forEach(card => {
-//       card.addEventListener('click', () => {
-//          // При кліку додаємо або прибираємо клас активного стану
-//          if (window.innerWidth <= 768) {
-//             card.classList.toggle('animCart');
-//          }
+   cards.forEach(card => {
+      card.addEventListener('click', () => {
+         // При кліку додаємо або прибираємо клас активного стану
+         if (window.innerWidth <= 768) {
+            card.classList.toggle('animCart');
+         }
 
-//       });
-//    });
-// }
+      });
+   });
+}
 
 // ===========================================================================================
 // -----------------------------
@@ -197,10 +197,6 @@ function slidersInit() {
 // }
 
 
-// ===========================================================================================
-// -----------------------------
-// typeSwitcher form
-// -----------------------------
 // ===========================================================================================
 // -----------------------------
 // typeSwitcher form

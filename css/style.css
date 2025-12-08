@@ -450,6 +450,125 @@
   margin-bottom: 1.5rem;
 }
 
+.projects-page {
+  position: relative;
+  background-color: #1A1E23;
+}
+@media (min-width: 105.875em) {
+  .projects-page {
+    padding-top: 250px;
+  }
+}
+@media (min-width: 20em) and (max-width: 105.875em) {
+  .projects-page {
+    padding-top: clamp( 150px , 126.7103347889px  +  7.2780203785vw , 250px );
+  }
+}
+@media (max-width: 20em) {
+  .projects-page {
+    padding-top: 150px;
+  }
+}
+@media (min-width: 105.875em) {
+  .projects-page {
+    padding-bottom: 120px;
+  }
+}
+@media (min-width: 20em) and (max-width: 105.875em) {
+  .projects-page {
+    padding-bottom: clamp( 50px , 33.6972343523px  +  5.0946142649vw , 120px );
+  }
+}
+@media (max-width: 20em) {
+  .projects-page {
+    padding-bottom: 50px;
+  }
+}
+.projects-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/img/png/works-img.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+}
+.projects-page__header .mouse-scroll {
+  fill: #98FAEC;
+}
+.projects-page__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3.125rem;
+}
+.menu-projects__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+@media (max-width: 32.8125em) {
+  .menu-projects__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: auto;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    margin-inline: -0.9375rem;
+    padding-inline: 0.9375rem;
+  }
+}
+.menu-projects__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  background-color: rgba(57, 62, 70, 0.5);
+  padding-block: 0.625rem;
+  padding-inline: 2rem;
+  backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.menu-projects__button.active {
+  background-color: #00ADB5;
+  -webkit-box-shadow: 0 0 14px rgba(20, 120, 80, 0.4), 0 0 28px rgba(20, 120, 80, 0.25), 0 0 45px rgba(20, 120, 80, 0.15);
+          box-shadow: 0 0 14px rgba(20, 120, 80, 0.4), 0 0 28px rgba(20, 120, 80, 0.25), 0 0 45px rgba(20, 120, 80, 0.15);
+}
+
+.carts-project__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(25rem, 100%), 1fr));
+  gap: 1.875rem;
+}
+
 *,
 *::before,
 *::after {
