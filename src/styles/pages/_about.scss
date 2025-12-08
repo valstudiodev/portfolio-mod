@@ -1,0 +1,147 @@
+@use '../settings/settings' as *;
+@use '../settings/_mixins.scss' as *;
+
+
+.page-about {
+   background-color: $bgSecondary;
+
+   // .page-about__container
+   &__container {}
+
+   // .page-about__about
+   &__about {}
+}
+
+.about-page {
+   @include adaptiveValue('padding-top', 200, 150);
+   @include adaptiveValue('padding-bottom', 120, 50);
+
+   // .about-page__container
+   &__container {}
+
+   // .about-page__inner
+   &__inner {}
+
+   // .about-page__header
+   &__header {
+      @include adaptiveValue('margin-bottom', 100, 40);
+
+      .mouse-scroll {
+         fill: $brandPrimary;
+      }
+
+      .block-header__title {
+         @include adaptiveValue('font-size', 64, 40);
+      }
+   }
+
+   // .about-page__body
+   &__body {}
+
+   &__title {
+      // font-family: "Ubuntu",sans-serif;
+      // @include adaptiveValue('font-size',64,44);
+      // color: $brandDark;
+   }
+
+   &__text {
+      font-size: toRem(22);
+      max-width: toRem(800);
+   }
+}
+
+.body-about {
+
+   &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(toRem(600), 100%), 1fr));
+      @include adaptiveValue('gap', 50, 25);
+   }
+
+   // .body-about__inner
+   &__inner {
+      // display: flex;
+      display: flex;
+      flex-direction: column;
+      gap: toRem(50);
+   }
+
+   // .body-about__info
+   &__info {
+      background-color: $bgPrimary;
+      border-radius: toRem(40);
+      @include adaptiveValue('padding-inline', 40, 15);
+      padding-block: toRem(24);
+      @include adaptiveValue('font-size', 18, 14);
+      line-height: 1.8;
+      height: auto;
+   }
+
+   // .body-about__name
+   &__name {
+      font-size: toRem(14);
+      margin-bottom: toRem(10);
+   }
+
+   // .body-about__title
+   &__title {
+      @include adaptiveValue('font-size', 40, 24);
+      margin-bottom: toRem(20);
+      line-height: 1.5;
+   }
+
+   // .body-about__desc
+   &__desc {
+      display: flex;
+      flex-direction: column;
+
+      // gap: toRem(16);
+      p {
+         padding-inline-start: toRem(20);
+
+         span {
+            color: $brandPrimary;
+         }
+      }
+   }
+
+   // .body-about__image
+   &__image {
+      aspect-ratio: 1;
+      // border-radius: toRem(40);
+      // border: toRem(2) solid $bgPrimary;
+      // overflow: hidden;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         object-position: top;
+         // object-position: center;
+      }
+   }
+
+   &__img {
+      aspect-ratio: 1;
+
+      img {
+         width: 100%;
+         height: auto;
+         object-fit: cover;
+         object-position: top;
+      }
+   }
+
+   &__teg {
+      width: toRem(40);
+      height: toRem(20);
+      fill: $brandPrimary;
+   }
+
+   &__buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(toRem(250), 100%), 1fr));
+      gap: toRem(16);
+      grid-column: 2 / 3;
+   }
+}
