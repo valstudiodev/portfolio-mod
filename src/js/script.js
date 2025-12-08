@@ -4,7 +4,7 @@ window.addEventListener('load', windowLoad)
 
 document.addEventListener('click', documentActions)
 
-// window.addEventListener('scroll', scrollHeader)
+window.addEventListener('scroll', scrollHeader)
 
 let isMobile
 
@@ -12,8 +12,8 @@ function windowLoad() {
    isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
    isMobile.any() ? document.body.setAttribute('data-touch', '') : null
 
-   // slidersInit();
-   // scrollHeader();
+   slidersInit();
+   scrollHeader();
    // toggleCardContent();
    // showList();
    // typeSwitcher();
@@ -34,18 +34,18 @@ function windowLoad() {
 //    }
 // }
 
-// let lastScroll = 0;
-// const header = document.querySelector(".header");
+let lastScroll = 0;
+const header = document.querySelector(".header");
 
-// function scrollHeader() {
-//    const current = window.pageYOffset;
-//    if (header && current > lastScroll) {
-//       header.classList.add("scrolled");
-//    } else {
-//       header.classList.remove("scrolled");
-//    }
-//    lastScroll = current;
-// }
+function scrollHeader() {
+   const current = window.pageYOffset;
+   if (header && current > lastScroll) {
+      header.classList.add("scrolled");
+   } else {
+      header.classList.remove("scrolled");
+   }
+   lastScroll = current;
+}
 
 
 // ===========================================================================================
@@ -65,40 +65,42 @@ function documentActions(e) {
 // -----------------------------
 // SLIDER
 // -----------------------------
-// function slidersInit() {
-//    if (document.querySelector('.slider-review')) {
-//       const swiper = new Swiper('.slider-review', {
-//          loop: true,
-//          // slidesPerView: 2.5,
-//          // spaceBetween: 30,
+function slidersInit() {
+   if (document.querySelector('.slider-projects')) {
+      const swiper = new Swiper('.slider-projects', {
+         loop: true,
+         slidesPerView: 1,
+         spaceBetween: 30,
+         centteredSlides: false,
 
-//          pagination: {
-//             el: ".swiper-pagination",
-//          },
+         navigation: {
+            nextEl: ".button-arrow--next",
+            prevEl: ".button-arrow--prev",
+         },
 
-//          breakpoints: {
-//             320: {
-//                slidesPerView: 1.3,
-//                spaceBetween: 10,
-//             },
-//             630: {
-//                slidesPerView: 1.5,
-//                spaceBetween: 15,
-//                centteredSlides: true,
-//             },
-//             930: {
-//                slidesPerView: 2.2,
-//                spaceBetween: 25,
-//                centteredSlides: false,
-//             },
-//             1440: {
-//                slidesPerView: 2.5,
-//                spaceBetween: 30,
-//             },
-//          },
-//       });
-//    }
-// }
+         // breakpoints: {
+         //    320: {
+         //       slidesPerView: 1.1,
+         //       spaceBetween: 10,
+         //    },
+         //    420: {
+         //       slidesPerView: 1.2,
+         //       spaceBetween: 15,
+         //       centteredSlides: true,
+         //    },
+         //    // 768: {
+         //    //    slidesPerView: 2,
+         //    //    spaceBetween: 20,
+         //    //    centteredSlides: false,
+         //    // },
+         //    768: {
+         //       slidesPerView: 1,
+         //       spaceBetween: 0,
+         //    },
+         // },
+      });
+   }
+}
 
 // ===========================================================================================
 // -----------------------------

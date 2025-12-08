@@ -20,11 +20,10 @@
 
 
 body {
-   font-family: "Poppins", sans-serif;
+   font-family: "IBM Plex Mono", sans-serif;
    // @include typography("M", 400, 0);
    line-height: 1.5;
-   color: $black;
-   background-color: lightgray;
+   color: $white;
 
    &.scroll-lock {
       overflow: hidden;
