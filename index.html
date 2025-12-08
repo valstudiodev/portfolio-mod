@@ -5,9 +5,10 @@
    <meta charset="UTF-8" />
    <link rel="icon" type="image/svg+xml" href="/portfolio-mod/assets/favicon.153ec204.ico" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
    <title>Portfolio</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.8a610410.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/index.794db204.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.d556c18e.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/index.473052dd.css">
 </head>
 
 <body>
@@ -57,21 +58,517 @@
       </header>
 
       <main class="page">
-         <div class="page__container">
-            <h1>Привіт, це New Project!</h1>
 
-         </div>
+         <section class="page__hero hero">
+            <div class="hero__container">
+               <div class="hero__inner">
+                  <h1 class="hero__title">Web-Developer</h1>
+                  <div class="hero__body">
+                     <article class="hero__cart cart-info">
+                        <div class="cart-info__inner">
+                           <div class="cart-info__top">
+                              <div class="cart-info__logo">
+                                 <img src="data:image/webp;base64,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" alt="">
+                              </div>
+                              <h3 class="cart-info__title">Valentyn</h3>
+                              <div class="cart-info__label">
+                                 <p>Front-End Developer</p>
+                              </div>
+                           </div>
+                           <div class="cart-info__body body-info">
+                              <div class="body-info__content">
+                                 <a target="_blank" href="emailto:tkachenko6591@gmail.com"
+                                    class="body-info__email body-info__email--icon-mail">tkachenko6591@gmail.com</a>
+                                 <div class="body-info__location body-info__location--icon-location">Canada</div>
+                                 <div class="body-info__schedulle body-info__schedulle--icon-briefcase">Full-time /
+                                    Freelancer
+                                 </div>
+                                 <a target="_blank" href="#"
+                                    class="body-info__link body-info__link--icon-link">tkachenko6591</a>
+                                 <div class="body-info__skills">
+                                    <span>html</span>
+                                    <span>css</span>
+                                    <span>sass</span>
+                                    <span>js</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <button type="button" class="button-download button-download--icon-download">Download
+                              CV</button>
+                        </div>
+                     </article>
+                     <div class="hero__content content-hero">
+                        <div class="content-hero__wrapper">
+                           <svg class="content-hero__teg">
+                              <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-h1-open"></use>
+                           </svg>
+                           <h2 class="content-hero__title">Hi there, <br> I'm <span>Valentyn Tkachenko, <br></span>
+                              Front-End
+                              Developer</h2>
+                           <svg class="content-hero__teg">
+                              <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-h1-closed"></use>
+                           </svg>
+                        </div>
+                        <div class="content-hero__wrapper">
+                           <svg class="content-hero__teg-p">
+                              <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-p-open"></use>
+                           </svg>
+                           <div class="content-hero__text">
+                              <p>I help business grow by crafting amazing web experiences. If you’re looking for a
+                                 developer that likes to get stuff
+                                 done.
+                              </p>
+                           </div>
+                           <svg class="content-hero__teg-p">
+                              <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-p-closed"></use>
+                           </svg>
+                        </div>
+                        <!-- <button type="button"
+                                 class="content-hero__button button button--dark button--icon-mail"><span>Let's
+                                    talk</span>
+                              </button> -->
+                        <button type="button" class="content-hero__button button-figure button-figure--icon-mail">Let's
+                           talk</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="page__about about">
+            <div class="about__container">
+               <div class="about__inner">
+                  <svg class="about__scroll mouse-scroll">
+                     <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
+                  </svg>
+                  <div class="about__body">
+                     <div class="about__desc">
+                        <h2 class="about__title">About <span>me</span></h2>
+                        <div class="about__content content-about">
+                           <svg class="content-about__teg">
+                              <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-p-open"></use>
+                           </svg>
+                           <h3 class="content-about__tilte"></h3>
+                           <div class="content-about__text">
+                              <p><span>Hello!</span>
+                                 My name is Valentyn and I specialize in web developement that utilizes HTML, CSS and
+                                 JS.
+                              </p>
+                              <p>I love turning ideas into clean and functional web experiences.</p>
+                              <p>I focus on detail, balance, and smooth interaction in every interface I create.
+                                 For me, design isn’t just about looks — it’s about how it feels and works.
+                              </p>
+                              <p>Striving to never stop learning and improving.
+                                 When I’m not coding, you’ll probably find me playing basketball, enjoying nature,
+                                 fishing,or diving into video games.
+                              </p>
+                           </div>
+                           <svg class="content-about__teg">
+                              <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-p-closed"></use>
+                           </svg>
+                        </div>
+                     </div>
+                     <div class="about__image">
+                        <img src="/portfolio-mod/assets/man-rest.9b0bfd4e.webp" alt="men rests at the table">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="page__approach approach">
+            <div class="approach__container">
+               <svg class="approach__scroll mouse-scroll">
+                  <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
+               </svg>
+               <h2 class="approach__title">My <span>Approach</span></h2>
+               <div class="approach__items">
+                  <article class="item-approach">
+                     <div class="item-approach__inner">
+                        <svg class="item-approach__icon">
+                           <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-power"></use>
+                        </svg>
+                        <h3 class="item-approach__title">Reliability</h3>
+                        <div class="item-approach__text">
+                           <p>I build websites that stay stable even after content updates or changes. Everything
+                              remains in its
+                              place.
+                           </p>
+                        </div>
+                     </div>
+                  </article>
+                  <article class="item-approach">
+                     <div class="item-approach__inner">
+                        <svg class="item-approach__icon">
+                           <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-monitor"></use>
+                        </svg>
+                        <h3 class="item-approach__title">Responsiveness</h3>
+                        <div class="item-approach__text">
+                           <p>I use adaptive techniques instead of relying only on breakpoints, ensuring perfect display
+                              on any screen size.
+                           </p>
+                        </div>
+                     </div>
+                  </article>
+                  <article class="item-approach">
+                     <div class="item-approach__inner">
+                        <svg class="item-approach__icon">
+                           <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-smartphone"></use>
+                        </svg>
+                        <h3 class="item-approach__title">Usability</h3>
+                        <div class="item-approach__text">
+                           <p>I focus on creating an intuitive experience across all devices — desktop, laptop, or
+                              mobile.
+                           </p>
+                        </div>
+                     </div>
+                  </article>
+                  <article class="item-approach">
+                     <div class="item-approach__inner">
+                        <svg class="item-approach__icon">
+                           <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-mouse"></use>
+                        </svg>
+                        <h3 class="item-approach__title">Optimization</h3>
+                        <div class="item-approach__text">
+                           <p>I carefully optimize all images to reduce weight while preserving quality.</p>
+                        </div>
+                     </div>
+                  </article>
+                  <article class="item-approach">
+                     <div class="item-approach__inner">
+                        <svg class="item-approach__icon">
+                           <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-slash"></use>
+                        </svg>
+                        <h3 class="item-approach__title">Semantics</h3>
+                        <div class="item-approach__text">
+                           <p>I apply semantic HTML to improve accessibility and SEO visibility.</p>
+                        </div>
+                     </div>
+                  </article>
+                  <article class="item-approach">
+                     <div class="item-approach__inner">
+                        <svg class="item-approach__icon">
+                           <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-rocket"></use>
+                        </svg>
+                        <h3 class="item-approach__title">Responsibility</h3>
+                        <div class="item-approach__text">
+                           <p>I treat every project as my own, ensuring reliability, precision, and timely delivery at
+                              every stage.
+                           </p>
+                        </div>
+                     </div>
+                  </article>
+               </div>
+            </div>
+         </section>
+
+         <section class="page__work work">
+            <div class="work__container">
+               <div class="work__block block-header">
+                  <svg class="block-header__scroll mouse-scroll">
+                     <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
+                  </svg>
+                  <h2 class="block-header__title">Your <span>Website</span> <br>
+                     in 5 steps
+                  </h2>
+                  <div class="block-header__text">
+                     <p>I had the pleasure of working with these awesome projects</p>
+                  </div>
+               </div>
+               <div class="work__items">
+                  <article class="item-step">
+                     <div class="item-step__inner">
+                        <h3 class="item-step__title">Contact</h3>
+                        <div class="item-step__text">
+                           <p>You reach out with your idea or project.</p>
+                        </div>
+                        <ul class="item-step__list">
+                           <li class="item-step__item">We get to know each other better.</li>
+                           <li class="item-step__item">Send a short description or message about your idea.</li>
+                           <li class="item-step__item">Understand the goals you have for your website.</li>
+                        </ul>
+                     </div>
+                  </article>
+                  <article class="item-step">
+                     <div class="item-step__inner">
+                        <h3 class="item-step__title">Discussion</h3>
+                        <div class="item-step__text">
+                           <p>We talk about goals, design vision, and technical details.</p>
+                        </div>
+                        <ul class="item-step__list">
+                           <li class="item-step__item">Define project structure and main features.</li>
+                           <li class="item-step__item">Discuss visual style, mood, and color palette</li>
+                           <li class="item-step__item">Agree on deadlines and workflow format.</li>
+                        </ul>
+                     </div>
+                  </article>
+                  <article class="item-step">
+                     <div class="item-step__inner">
+                        <h3 class="item-step__title">Development</h3>
+                        <div class="item-step__text">
+                           <p>I build and optimize your website for performance and usability.</p>
+                        </div>
+                        <ul class="item-step__list">
+                           <li class="item-step__item">Turn design into a responsive and functional site.</li>
+                           <li class="item-step__item">Add animations, effects, and interactive elements.</li>
+                           <li class="item-step__item">Test on different devices and browsers.</li>
+                        </ul>
+                     </div>
+                  </article>
+                  <article class="item-step">
+                     <div class="item-step__inner">
+                        <h3 class="item-step__title">Launch</h3>
+                        <div class="item-step__text">
+                           <p>You receive a ready, responsive, and well-structured website.</p>
+                        </div>
+                        <ul class="item-step__list">
+                           <li class="item-step__item">Final review and optimization for SEO & speed.</li>
+                           <li class="item-step__item">Upload files to hosting or help with deployment.</li>
+                           <li class="item-step__item">Make sure everything works perfectly.</li>
+                        </ul>
+                     </div>
+                  </article>
+                  <article class="item-step">
+                     <div class="item-step__inner">
+                        <h3 class="item-step__title">Support</h3>
+                        <div class="item-step__text">
+                           <p>I stay in touch to make sure everything runs smoothly.</p>
+                        </div>
+                        <ul class="item-step__list">
+                           <li class="item-step__item">Monitor performance and fix possible bugs.</li>
+                           <li class="item-step__item">Apply updates or small improvements.</li>
+                           <li class="item-step__item">Stay available for future collaboration.</li>
+                        </ul>
+                     </div>
+                  </article>
+               </div>
+
+            </div>
+         </section>
+
+         <section class="page__skills skills">
+            <div class="skills__container">
+               <div class="skills__inner">
+                  <div class="skills__top top-skills">
+                     <svg class="top-skills__scroll mouse-scroll">
+                        <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
+                     </svg>
+                     <div class="top-skills__block block-header">
+                        <h2 class="block-header__title">Skills</h2>
+                        <div class="block-header__text">
+                           <p>I am striving to never stop learning and improving</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="skills__body body-skills">
+                     <div class="body-skills__inner">
+                        <article class="body-skills__item skill-item">
+                           <svg class="skill-item__icon">
+                              <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-monitor"></use>
+                           </svg>
+                           <h4 class="skill-item__title">web developement</h4>
+                           <div class="skill-item__skills">
+                              <span>HTML</span>
+                              <span>CSS</span>
+                              <span>JS</span>
+                           </div>
+                        </article>
+                        <div class="body-skills__lang lang-skill">
+                           <div class="lang-skill__wrap">
+                              <div class="lang-skill__item lang-skill__item--html">
+                                 <svg class="lang-skill__icon">
+                                    <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-html"></use>
+                                 </svg>
+                              </div>
+                              <span class="lang-skill__title lang-skill__title--html">HTML</span>
+                           </div>
+                           <div class="lang-skill__wrap">
+                              <div class="lang-skill__item lang-skill__item--css">
+                                 <svg class="lang-skill__icon">
+                                    <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-css"></use>
+                                 </svg>
+                              </div>
+                              <span class="lang-skill__title lang-skill__title--css">css</span>
+                           </div>
+                           <div class="lang-skill__wrap">
+                              <div class="lang-skill__item lang-skill__item--js">
+                                 <svg class="lang-skill__icon">
+                                    <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-js"></use>
+                                 </svg>
+                              </div>
+                              <span class="lang-skill__title lang-skill__title--js">js</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="page__projects projects">
+            <div class="projects__container">
+               <div class="projects__inner">
+                  <div class="projects__header block-header block-header--margin">
+                     <svg class="block-header__scroll mouse-scroll">
+                        <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
+                     </svg>
+                     <h2 class="block-header__title">My recent <span>work</span></h2>
+                     <div class="block-header__text">
+                        <p>I had the pleasure of working with these awesome projects</p>
+                     </div>
+                  </div>
+
+                  <div class="projects__wrapper">
+                     <button
+                        class="button-arrow button-arrow--left button-arrow--prev button-arrow--icon-chevron"></button>
+                     <!-- Slider main container -->
+                     <div class="projects__slider slider-projects swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="slider-projects__wrapper swiper-wrapper">
+                           <!-- Slides -->
+                           <div class="slider-projects__slide swiper-slide">
+                              <article class="cart-work">
+                                 <div class="cart-work__inner">
+                                    <div class="cart-work__image">
+                                       <img src="/portfolio-mod/assets/meta-v.0c07a454.webp" alt="">
+                                    </div>
+                                    <div class="cart-work__content">
+                                       <h3 class="cart-work__title">Creative Project</h3>
+                                       <div class="cart-work__text">
+                                          <p>A modern web experience using motion and neon design.</p>
+                                       </div>
+                                       <div class="cart-work__buttons">
+                                          <a href="https://valstudiodev.github.io/metaV/" target="_blank"
+                                             class="button-active button-active--demo"><span>demo</span></a>
+                                          <a href="https://github.com/valstudiodev/metaV.git" target="_blank"
+                                             class="button-active button-active--code"><span>code</span></a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </article>
+                           </div>
+                           <div class="slider-projects__slide swiper-slide">
+                              <article class="cart-work">
+                                 <div class="cart-work__inner">
+                                    <div class="cart-work__image">
+                                       <img src="/portfolio-mod/assets/bean-scene.ea15c7cc.webp" alt="">
+                                    </div>
+                                    <div class="cart-work__content">
+                                       <h3 class="cart-work__title">Creative Project</h3>
+                                       <div class="cart-work__text">
+                                          <p>A modern web experience using motion and neon design.</p>
+                                       </div>
+                                       <div class="cart-work__buttons">
+                                          <a href="https://valstudiodev.github.io/beanScene/" target="_blank"
+                                             class="button-active button-active--demo"><span>demo</span></a>
+                                          <a href="https://github.com/valstudiodev/beanScene.git" target="_blank"
+                                             class="button-active button-active--code"><span>code</span></a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </article>
+                           </div>
+                           <div class="slider-projects__slide swiper-slide">
+                              <article class="cart-work">
+                                 <div class="cart-work__inner">
+                                    <div class="cart-work__image">
+                                       <img src="/portfolio-mod/assets/foodi.efb30eaa.webp" alt="">
+                                    </div>
+                                    <div class="cart-work__content">
+                                       <h3 class="cart-work__title">Creative Project</h3>
+                                       <div class="cart-work__text">
+                                          <p>A modern web experience using motion and neon design.</p>
+                                       </div>
+                                       <div class="cart-work__buttons">
+                                          <a href="https://valstudiodev.github.io/project-foodi/" target="_blank"
+                                             class="button-active button-active--demo"><span>demo</span></a>
+                                          <a href="https://github.com/valstudiodev/project-foodi.git" target="_blank"
+                                             class="button-active button-active--code"><span>code</span></a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </article>
+                           </div>
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                     </div>
+                     <button class="button-arrow button-arrow--next button-arrow--icon-chevron"></button>
+                  </div>
+
+               </div>
+            </div>
+         </section>
+
       </main>
 
+      <aside class="page__intro intro">
+         <div class="intro__container">
+            <div class="intro__header block-header">
+               <div class="block-header__content">
+                  <span class="block-header__label">Got a project in mind?</span>
+                  <h2 class="block-header__title">Let’s make your <br> <span>Website unforgettable</span></h2>
+                  <div class="block-header__text">
+                     <p>Modern, responsive, and visually clean websites that reflect your vision and keep users
+                        engaged.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <button type="button" class="intro__button button-figure button-figure--green ">
+               Send me a message
+            </button>
+         </div>
+      </aside>
+
       <footer class="footer">
-         <div class="footer__container">
-            <p>Footer</p>
+         <div class="footer__body body-footer">
+            <div class="body-footer__container">
+               <div class="body-footer__menu menu-footer">
+                  <ul class="menu-footer__list">
+                     <li class="menu-footer__item">
+                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-home">Home</a>
+                     </li>
+                     <li class="menu-footer__item">
+                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-user">About me</a>
+                     </li>
+                     <li class="menu-footer__item">
+                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
+                     </li>
+                  </ul>
+               </div>
+               <address class="body-footer__social social-footer">
+                  <ul class="social-footer__list">
+                     <li class="social-footer__item">
+                        <a target="_blank" href="#" class="social-footer__link social-footer__link--icon-fb"></a>
+                     </li>
+                     <li class="social-footer__item">
+                        <a target="_blank" href="#" class="social-footer__link social-footer__link--icon-instagram"></a>
+                     </li>
+                     <li class="social-footer__item">
+                        <a target="_blank" href="#" class="social-footer__link social-footer__link--icon-watsup"></a>
+                     </li>
+                     <li class="social-footer__item">
+                        <a target="_blank" href="#" class="social-footer__link social-footer__link--icon-telegram"></a>
+                     </li>
+                  </ul>
+               </address>
+            </div>
+         </div>
+         <div class="footer__bottom bottom-footer">
+            <div class="bottom-footer__container">
+               <div class="bottom-footer__policy">
+                  <p>© 2025 Valentyn Tkachenko | Crafted in code & creativity ⚡</p>
+               </div>
+            </div>
          </div>
       </footer>
    </div>
 
 
    <div id="app"></div>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
    
 </body>
 
