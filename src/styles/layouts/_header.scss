@@ -1,2 +1,241 @@
 @use '../settings/settings' as *;
 @use '../settings/mixins' as *;
+
+
+.header {
+   // display: none;
+   position: relative;
+   @include adaptiveValue('padding-block', 30, 15);
+   position: fixed;
+   width: 100%;
+   left: 0;
+   top: 0;
+   z-index: 100;
+   transition: all 0.5s;
+   // border-bottom: toRem(1) solid $grey;
+
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(26, 30, 35, 0.6);
+      backdrop-filter: blur(10px);
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+   }
+
+   &.scrolled {
+      &::before {
+         // opacity: 1;
+         background: rgba(26, 30, 35, 0.6);
+         backdrop-filter: blur(10px);
+      }
+   }
+
+   &.scrolled {
+      transform: translateY(-100%);
+   }
+
+   // .header__container
+   &__container {}
+
+   &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include adaptiveValue('gap', 30, 15);
+
+      // &::before {
+      //    content: "";
+      //    position: absolute;
+      //    top: 0;
+      //    left: 0;
+      //    width: 100%;
+      //    height: 100%;
+      //    border-radius: toRem(6);
+      //    overflow: hidden;
+      //    backdrop-filter: blur(toRem(30));
+      //    z-index: 0;
+      // }
+   }
+}
+
+.menu-header {
+   // flex-grow: 1;
+   color: $white;
+
+   // .menu-header__list
+   &__list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      @include adaptiveValue('gap', 30, 10);
+
+      @media (max-width: toEm(650)) {
+         display: flex;
+         flex-direction: column;
+         gap: toRem(30);
+         // align-items: center;
+         align-items: flex-end;
+      }
+   }
+
+   // .menu-header__item
+   &__item {
+      font-family: "IBM Plex Mono", sans-serif;
+      text-transform: uppercase;
+
+      @media (max-width: toEm(650)) {
+         font-size: toRem(24);
+         color: $white;
+      }
+   }
+
+   // .menu-header__link
+   &__link {
+      position: relative;
+      // transition: color 0.3s;
+      transition: all 0.3s;
+
+      // &::after {
+      //    content: "";
+      //    position: absolute;
+      //    bottom: 0;
+      //    left: 50%;
+      //    translate: -50% 0;
+      //    width: 0;
+      //    height: toRem(2);
+      //    background-color: $butHovGreen;
+      //    transition: width 0.3s;
+      // }
+
+      &--submenu {
+         display: flex;
+         flex-direction: row-reverse;
+         gap: toRem(8);
+         align-items: center;
+
+         &::before {
+            font-size: toRem(22);
+            rotate: -90deg;
+            transition: rotate 0.3s;
+         }
+
+         @media (any-hover: hover) and (any-pointer: fine) {
+            &:hover {
+               &::before {
+                  rotate: 90deg;
+               }
+            }
+         }
+      }
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: $butHovGreen;
+            text-shadow:
+               0 0 8px rgba(218, 197, 167, 0.6),
+               0 0 15px rgba(218, 197, 167, 0.3),
+               0 0 25px rgba(218, 197, 167, 0.15);
+
+            &::after {
+               width: 100%;
+            }
+         }
+      }
+   }
+
+   @media (max-width: toEm(650)) {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: $bgPrimary;
+      padding: toRem(120) toRem(15) toRem(30) toRem(15);
+      transition: all 0.3s;
+
+      .menu-open & {
+         right: 0;
+      }
+
+      &::before {
+         content: "";
+         position: fixed;
+         top: 0;
+         right: -100%;
+         width: 100%;
+         min-height: toRem(90);
+         background-color: $bgSecondary;
+         transition: all 0.3s;
+
+         .menu-open & {
+            right: 0;
+         }
+      }
+   }
+}
+
+.media-social {
+   display: flex;
+   align-items: center;
+   @include adaptiveValue('gap', 32, 10);
+   flex-wrap: wrap;
+   flex-shrink: 0;
+   z-index: 5;
+
+   // .media-social__instagram
+   &__instagram {
+
+      // .media-social__instagram--icon-instagram
+      &--icon-instagram {}
+   }
+
+   // .media-social__discord
+   &__discord {
+
+      // .media-social__discord--icon-discord
+      &--icon-discord {}
+   }
+
+   // .media-social__github
+   &__github {
+
+      // .media-social__github--icon-github
+      &--icon-github {}
+   }
+
+   &__instagram,
+   &__discord,
+   &__github {
+      display: flex;
+      align-items: center;
+      gap: toRem(8);
+
+      &::before {
+         color: $brandPrimary;
+         transition: color 0.3s;
+      }
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            &::before {
+               color: $butHovGreen;
+            }
+         }
+      }
+
+      @media (max-width: toEm(870)) {
+         font-size: 0;
+
+         &::before {
+            font-size: toRem(20);
+         }
+      }
+   }
+
+   @media (max-width: toEm(1348)) {}
+}

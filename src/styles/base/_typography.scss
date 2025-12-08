@@ -1,0 +1,192 @@
+@font-face {
+   font-family: 'iconfont';
+   src:
+      url('/src/assets/fonts/icomoon.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+   font-display: block;
+}
+
+
+[class*="--icon-"]::before {
+   font-family: 'iconfont';
+   line-height: 1 !important;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+[class*="--icon-css"]::before {
+   content: "\e906";
+}
+
+[class*="--icon-discord"]::before {
+   content: "\e922";
+}
+
+[class*="--icon-html"]::before {
+   content: "\e920";
+}
+
+[class*="--icon-js"]::before {
+   content: "\e91f";
+}
+
+[class*="--icon-react"]::before {
+   content: "\e921";
+}
+
+[class*="--icon-mouse"]::before {
+   content: "\e923";
+}
+
+[class*="--icon-h1-closed"]::before {
+   content: "\e924";
+}
+
+[class*="--icon-h1-open"]::before {
+   content: "\e925";
+}
+
+[class*="--icon-p-closed"]::before {
+   content: "\e926";
+}
+
+[class*="--icon-p-open"]::before {
+   content: "\e927";
+}
+
+[class*="--icon-scroll"]::before {
+   content: "\e928";
+}
+
+[class*="--icon-slash"]::before {
+   content: "\e929";
+}
+
+[class*="--icon-arrow-up"]::before {
+   content: "\e900";
+}
+
+[class*="--icon-ball"]::before {
+   content: "\e901";
+}
+
+[class*="--icon-check"]::before {
+   content: "\e902";
+}
+
+[class*="--icon-fb"]::before {
+   content: "\e903";
+}
+
+[class*="--icon-home"]::before {
+   content: "\e904";
+}
+
+[class*="--icon-arrow-down-circle"]::before {
+   content: "\e905";
+}
+
+[class*="--icon-at-sign"]::before {
+   content: "\e907";
+}
+
+[class*="--icon-briefcase"]::before {
+   content: "\e908";
+}
+
+[class*="--icon-chevron"]::before {
+   content: "\e909";
+}
+
+[class*="--icon-chevrons"]::before {
+   content: "\e90a";
+}
+
+[class*="--icon-code"]::before {
+   content: "\e90b";
+}
+
+[class*="--icon-corner"]::before {
+   content: "\e90c";
+}
+
+[class*="--icon-download"]::before {
+   content: "\e90d";
+}
+
+[class*="--icon-edit"]::before {
+   content: "\e90e";
+}
+
+[class*="--icon-location"]::before {
+   content: "\e90f";
+}
+
+[class*="--icon-monitor"]::before {
+   content: "\e910";
+}
+
+[class*="--icon-mouse-pointer"]::before {
+   content: "\e911";
+}
+
+[class*="--icon-search"]::before {
+   content: "\e912";
+}
+
+[class*="--icon-send"]::before {
+   content: "\e913";
+}
+
+[class*="--icon-smartphone"]::before {
+   content: "\e914";
+}
+
+[class*="--icon-user"]::before {
+   content: "\e915";
+}
+
+[class*="--icon-info"]::before {
+   content: "\e916";
+}
+
+[class*="--icon-instagram"]::before {
+   content: "\e917";
+}
+
+[class*="--icon-link"]::before {
+   content: "\e918";
+}
+
+[class*="--icon-mail"]::before {
+   content: "\e919";
+}
+
+[class*="--icon-massage"]::before {
+   content: "\e91a";
+}
+
+[class*="--icon-minus"]::before {
+   content: "\e91b";
+}
+
+[class*="--icon-phone"]::before {
+   content: "\e91c";
+}
+
+[class*="--icon-plus"]::before {
+   content: "\e91d";
+}
+
+[class*="--icon-watsup"]::before {
+   content: "\e91e";
+}
+
+[class*="--icon-telegram"]::before {
+   content: "\e92c";
+}
+
+[class*="--icon-github"]::before {
+   content: "\eab0";
+}

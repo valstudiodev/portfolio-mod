@@ -3,7 +3,8 @@
 @use './settings/_mixins.scss' as *;
 
 .components {
-
+      padding-block: toRem(100);
+      background-color: $bgPrimary;
    // .components__container
    &__container {
       display: flex;
@@ -38,7 +39,7 @@
       width: 100%;
       height: toRem(3);
       border-radius: toRem(10);
-      background-color: $black;
+      background-color: $brandPrimary;
       transition: all 0.3s;
    }
 
@@ -55,15 +56,15 @@
       top: 50%;
       right: 0;
       translate: 0 -50%;
-      background-color: $black;
+      background-color: $brandPrimary;
       width: 70%;
       height: toRem(3);
       border-radius: toRem(10);
       transition: all 0.3s;
    }
 
-   @media (min-width: toEm($mobile)) {
-      // display: none;
+   @media (min-width: toEm(651)) {
+      display: none;
    }
 }
 
@@ -83,6 +84,1176 @@
 
       span {
          width: 0;
+      }
+   }
+}
+
+// ===========================================================================================
+// -----------------------------
+// Buttons
+// -----------------------------
+.button {
+   position: relative;
+   font-family: "Ubuntu", sans-serif;
+   font-size: toRem(20);
+   // font-weight: 700;
+   text-transform: capitalize;
+   color: $bgPrimary;
+   display: inline-flex;
+   align-items: center;
+   flex-direction: row-reverse;
+   gap: toRem(16);
+   padding-block: toRem(16);
+   padding-inline: toRem(32);
+   border-radius: toRem(32);
+   line-height: 1.2;
+   height: toRem(56);
+   text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+   overflow: hidden;
+   transition: all 0.3s;
+   z-index: 2;
+   flex-shrink: 0;
+
+   &::before {
+      transition: transform 0.4s cubic-bezier(.25, .46, .45, .94);
+   }
+
+   &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 120%;
+      translate: toRem(-600) toRem(0);
+      transition: translate 0.3s;
+      overflow: hidden;
+      z-index: -1;
+   }
+
+   &--green {
+      background-color: $brandPrimary;
+      border: toRem(2) solid $brandPrimary;
+
+      &::after {
+         background-color: $bgPrimary;
+      }
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: $white;
+         }
+      }
+   }
+
+   &--white {
+      background-color: $white;
+      border: toRem(2) solid $brandPrimary;
+
+      &::after {
+         background-color: $bgPrimary;
+      }
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            // text-shadow: 0 4px 3px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 3px 3px rgba(255, 255, 255, 0.4);
+            color: $white;
+         }
+      }
+   }
+
+   &--dark {
+      // border-radius: toRem(40) toRem(0) toRem(40) toRem(0);
+      border: toRem(2) solid $brandPrimary;
+      background-color: $bgSecondary;
+      color: $white;
+      // border: toRem(2) solid $brandPrimary;
+      text-shadow: 0 3px 3px rgba(255, 255, 255, 0.4);
+
+      &::after {
+         background-color: $white;
+      }
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            text-shadow: 0 4px 3px rgba(0, 0, 0, 0.4);
+            color: $bgPrimary;
+         }
+      }
+   }
+
+
+   @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover {
+         &::before {
+            // transform: translateX(6px);
+            animation: arrowMove 0.6s ease forwards infinite;
+         }
+
+         &::after {
+            translate: 0 0;
+         }
+      }
+   }
+}
+
+.button-regular {
+   font-family: "Ubuntu", sans-serif;
+   font-size: toRem(20);
+   text-transform: capitalize;
+   color: $bgPrimary;
+   display: inline-flex;
+   align-items: center;
+   flex-direction: row-reverse;
+   gap: toRem(16);
+   padding-block: toRem(16);
+   padding-inline: toRem(32);
+   border-radius: toRem(32);
+   border: toRem(2) solid $brandPrimary;
+   line-height: 1.2;
+   height: toRem(56);
+   background-color: $brandPrimary;
+   text-shadow: 0 4px 3px rgba(0, 0, 0, 0.4);
+   transition: all 0.3s;
+
+   // .button-sent-message--icon-i-send
+   &--icon-send {
+      &::before {
+         font-size: toRem(24);
+         transition: translate 0.3s;
+         will-change: translate;
+      }
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: $white;
+            background-color: transparent;
+
+            &::before {
+               // animation: jumpArrow 0.6s ease-in-out infinite;
+               translate: toRem(4) toRem(-4);
+            }
+         }
+      }
+   }
+
+   &--view {
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: $white;
+            background-color: transparent;
+
+            &::before {
+               // animation: jumpArrow 0.6s ease-in-out infinite;
+               translate: toRem(4) toRem(-4);
+            }
+         }
+      }
+   }
+
+   &--subscribe {
+      color: $white;
+      border: toRem(2) solid $brandPrimary;
+      background-color: $bgPrimary;
+      transition: all 0.3s;
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: $bgPrimary;
+            background-color: $white;
+         }
+      }
+   }
+}
+
+.button-figure {
+   display: inline-grid;
+   position: relative;
+   font-family: "Ubuntu", sans-serif;
+   padding-block: toRem(16);
+   @include adaptiveValue('padding-inline', 48, 42);
+   border: toRem(2) solid $brandPrimary;
+   background-color: $bgSecondary;
+   color: $white;
+   text-transform: capitalize;
+   @include adaptiveValue('font-size', 32, 22);
+   line-height: 1.12;
+   // border-radius: toRem(40) toRem(0) toRem(40) toRem(0);
+   border-radius: toRem(16);
+   align-items: center;
+   gap: toRem(16);
+   flex-direction: row-reverse;
+   text-shadow: 0 3px 6px rgba(255, 255, 255, 0.4);
+   transition: all 0.3s;
+   z-index: 1;
+   overflow: hidden;
+
+   &::before,
+   &::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      width: 150%;
+      height: 200%;
+      background-color: $brandDark;
+      z-index: -1;
+      transition: all 0.4s;
+      border-radius: toRem(40);
+      opacity: 0.5;
+   }
+
+   &::before {
+      left: 0;
+      translate: -95% 0;
+      // transform: skewX(-20deg);
+   }
+
+   &::after {
+      right: 0;
+      translate: 95% 0;
+      // transform: skewX(-20deg);
+   }
+
+
+
+   &--green {
+      color: $brandPrimary;
+
+      &::before {
+         font-size: toRem(26);
+      }
+   }
+
+   &--demo {
+      position: relative;
+
+      &::before,
+      &::after {
+         content: "";
+
+      }
+   }
+
+   &--small {
+      height: toRem(28);
+   }
+
+   &:active {
+
+      &::before,
+      &::after {
+         background-color: $blue;
+      }
+   }
+
+   @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover {
+         color: $bgSecondary;
+
+         &::before,
+         &::after {
+            translate: 0 0;
+            opacity: 1;
+            transform: skew(0);
+         }
+      }
+   }
+}
+
+.button-download {
+   font-family: "Ubuntu", sans-serif;
+   font-size: toRem(20);
+   color: $bgPrimary;
+   padding-block: toRem(16);
+   // padding-inline: toRem(32);
+   @include adaptiveValue('padding-inline', 32, 20);
+   background-color: $white;
+   border-radius: toRem(32);
+   border: toRem(1) solid $white;
+   display: inline-flex;
+   align-items: center;
+   gap: toRem(16);
+   flex-direction: row-reverse;
+   line-height: 1.2;
+   transition: all 0.3s;
+
+   &::before {
+      font-size: toRem(22);
+   }
+
+   @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover {
+         background-color: transparent;
+         color: $white;
+         border: toRem(1) solid $brandPrimary;
+
+         &::before {
+            animation: jumpArrow 0.6s ease-in-out infinite;
+         }
+      }
+   }
+}
+
+.button-active {
+   position: relative;
+   display: inline-grid;
+   border-radius: toRem(10);
+   padding-inline: toRem(40);
+   // @include adaptiveValue('padding-inline',40,20);
+   // padding-block: toRem(16);
+   @include adaptiveValue('padding-block', 16, 10);
+   background-color: transparent;
+   text-transform: uppercase;
+   letter-spacing: toRem(1.5);
+   z-index: 5;
+   overflow: hidden;
+   transition: translate 0.5s ease-in-out, opacity 0.5s;
+   background-color: transparent;
+
+   &--demo {
+      border: toRem(2) solid $brandSecondary;
+
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         top: -50%;
+         width: 150%;
+         background-color: $blue;
+         height: 200%;
+         transition: translate 0.5s ease-in-out, opacity 0.5s;
+         z-index: -5;
+         opacity: 0.6;
+
+      }
+
+      &::before {
+         left: 0;
+         translate: -90% 0;
+         border-radius: toRem(40);
+      }
+
+      &::after {
+         right: 0;
+         translate: 90% 0;
+         border-radius: toRem(40);
+      }
+
+      &:active {
+
+         &::before,
+         &::after {
+            background-color: $brandDark;
+         }
+      }
+   }
+
+   &--code {
+      border: toRem(2) solid $butHovGreen;
+      transition: color 0.3s;
+
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         top: -50%;
+         width: 150%;
+         background-color: $brandSecondary;
+         height: 200%;
+         transition: translate 0.5s ease-in-out, opacity 0.5s;
+         z-index: -5;
+         opacity: 0.6;
+
+      }
+
+      &::before {
+         left: 0;
+         translate: -90% 0;
+         border-radius: toRem(40);
+      }
+
+      &::after {
+         right: 0;
+         translate: 90% 0;
+         border-radius: toRem(40);
+      }
+
+      &:active {
+
+         &::before,
+         &::after {
+            background-color: $blueLight;
+         }
+      }
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: $black;
+         }
+      }
+   }
+
+
+   @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover {
+
+         &::before,
+         &::after {
+            translate: 0 0;
+            opacity: 1;
+         }
+      }
+   }
+}
+
+.button-arrow {
+   border-radius: 50%;
+   background-color: $bgPrimary;
+   padding: toRem(16);
+   width: toRem(72);
+   aspect-ratio: 1;
+   flex-shrink: 0;
+   backdrop-filter: blur(20px);
+   transition: all 0.4s;
+
+   &--left {
+      &::before {
+         rotate: 180deg;
+      }
+   }
+
+   &::before {
+      font-size: toRem(30);
+      transition: translate 0.3s;
+   }
+
+   // .button-arrow--icon-chevron
+   &--icon-chevron {}
+
+
+   @media (max-width: toEm($mobile)) {
+      display: none;
+   }
+
+   @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover {
+         background-color: $butHovGreen;
+      }
+
+      &:active {
+         background-color: $brandDark;
+      }
+   }
+}
+
+.button-media {
+   position: relative;
+   display: inline-flex;
+   align-items: center;
+   gap: toRem(16);
+   background-color: $bgPrimary;
+   padding-block: toRem(16);
+   padding-inline: toRem(24);
+   border-radius: toRem(2);
+   border-left: toRem(1) solid $blue;
+   border-bottom: toRem(1) solid $blue;
+   text-transform: uppercase;
+   overflow: hidden;
+   transition: all 0.4s;
+   // color: $brandPrimary;
+   color: $white;
+
+   &::before {
+      z-index: 10;
+   }
+
+   &::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 150%;
+      height: 150%;
+      translate: -100% 0;
+      background-color: $butHovGreen;
+      transition: translate 0.3s;
+   }
+
+   // .button-media__span
+   &__span {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      flex-grow: 1;
+      justify-content: space-between;
+
+      // gap: toRem(80);
+      &::before {
+         rotate: 45deg;
+      }
+   }
+
+   @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover {
+         &::after {
+            translate: 0 0;
+         }
+
+         .button-media__span {
+            &::before {
+               animation: jumpArrow 0.6s ease-in-out infinite;
+            }
+         }
+      }
+   }
+}
+
+
+
+// ===========================================================================================
+// -----------------------------
+// block-header
+// -----------------------------
+.block-header {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: toRem(16);
+
+   &--margin {
+      @include adaptiveValue('margin-bottom', 60, 30);
+   }
+
+   // .block-header__title
+   &__title {
+      position: relative;
+      font-family: "Ubuntu", sans-serif;
+      @include adaptiveValue('font-size', 64, 45);
+      color: $white;
+      border-bottom: toRem(2) solid $brandPrimary;
+      padding-bottom: toRem(16);
+      text-align: center;
+      font-weight: 600;
+
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         width: toRem(10);
+         height: toRem(10);
+         border-radius: 50%;
+         background-color: $brandPrimary;
+      }
+
+      &::before {
+         top: 100%;
+         translate: -50% -43%;
+         left: 0;
+      }
+
+      &::after {
+         top: 100%;
+         translate: 0 -43%;
+         right: 0;
+      }
+
+      span {
+         color: $brandDark;
+      }
+   }
+
+   // .block-header__text
+   &__text {
+      text-align: center;
+      max-width: toRem(500);
+   }
+
+   &__content {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(20);
+      align-items: center;
+   }
+}
+
+.mouse-scroll {
+   position: relative;
+   width: toRem(32);
+   height: toRem(140);
+   fill: $orange;
+
+   @media (max-width: toEm($mobile)) {
+      display: none;
+   }
+}
+
+.logo {
+   display: flex;
+   align-items: center;
+   z-index: 5;
+   flex-shrink: 0;
+
+   &__image {
+      width: toRem(77);
+      height: toRem(42);
+      fill: $brandPrimary;
+   }
+
+   &__title {
+      font-size: toRem(20);
+      font-weight: 500;
+   }
+
+   @media (max-width: toEm(650)) {
+      flex-grow: 1;
+   }
+}
+
+// ===========================================================================================
+// -----------------------------
+// cart-info
+// -----------------------------
+.cart-info {
+   border: toRem(4) solid $white;
+   border-radius: toRem(160) toRem(0) toRem(160) toRem(0);
+   box-shadow: -4px -4px 2px 0px rgba(18, 247, 214, 1);
+
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: toRem(32);
+      // padding-inline-start: toRem(24);
+      // padding-inline-end: toRem(69);
+      @include adaptiveValue('padding-inline-start', 24, 20);
+      @include adaptiveValue('padding-inline-end', 69, 50);
+      padding-block: toRem(37);
+      // @include adaptiveValue('padding-block',37,34);
+   }
+
+   // .cart-info__top
+   &__top {
+      // align-self: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-inline-start: toRem(53);
+
+      >* {
+         margin-bottom: toRem(16);
+
+         &:last-child {
+            margin-bottom: toRem(0);
+         }
+      }
+   }
+
+   // .cart-info__logo
+   &__logo {
+      aspect-ratio: 1;
+      width: toRem(96);
+      overflow: hidden;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 50%;
+         border: toRem(2) solid $brandPrimary;
+      }
+   }
+
+   // .cart-info__title
+   &__title {
+      font-size: toRem(32);
+      font-weight: 500;
+      margin-bottom: toRem(5);
+   }
+
+   // .cart-info__label
+   &__label {
+      font-size: toRem(14);
+   }
+
+   // .cart-info__body
+   &__body {}
+}
+
+.body-info {
+   font-size: toRem(14);
+
+   &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: toRem(16);
+   }
+
+   // .body-info__email
+   &__email {}
+
+   // .body-info__location
+   &__location {}
+
+   // .body-info__schedulle
+   &__schedulle {}
+
+   // .body-info__link
+   &__link {}
+
+   // .body-info__skills
+   &__skills {
+      display: flex;
+      align-items: center;
+      gap: toRem(16);
+      align-items: flex-start;
+      text-transform: uppercase;
+
+      span {
+         color: $bgPrimary;
+         background-color: $brandPrimary;
+         padding-inline: toRem(8);
+         border-radius: toRem(8);
+      }
+   }
+
+   &__email,
+   &__location,
+   &__schedulle,
+   &__link {
+      display: flex;
+      align-items: center;
+      gap: toRem(16);
+
+      &::before {
+         color: $brandPrimary;
+      }
+   }
+}
+
+
+// ===========================================================================================
+// -----------------------------
+// items
+// -----------------------------
+.item-approach {
+   position: relative;
+   // background-color: $brandSecondary;
+   // background-color: $bgSecondary;
+   background-color: $bgPrimary;
+   border-radius: toRem(8);
+   counter-increment: item;
+   border-right: toRem(8) solid $blue;
+   box-shadow:
+      0 0 14px rgba(20, 120, 80, 0.40),
+      0 0 28px rgba(20, 120, 80, 0.25),
+      0 0 45px rgba(20, 120, 80, 0.15);
+
+   &::before {
+      content: counter(item, decimal-leading-zero);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: toRem(40);
+      height: toRem(40);
+      background-color: $bgSecondary;
+      border: toRem(1) solid $blue;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      translate: -30% -30%;
+      backdrop-filter: blur(30px);
+   }
+
+   // .item-approach__inner
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100%;
+      padding: toRem(40);
+      text-align: center;
+
+      >* {
+         margin-bottom: toRem(8);
+
+         &:last-child {
+            margin-bottom: toRem(0);
+         }
+      }
+   }
+
+   &__icon {
+      width: toRem(50);
+      aspect-ratio: 1;
+      fill: $brandDark;
+      fill: $gold;
+      // fill: $orange;
+   }
+
+   // .item-approach__title
+   &__title {
+      position: relative;
+      @include adaptiveValue('font-size', 24, 20);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: toRem(1.5);
+      border-bottom: toRem(2) solid $brandPrimary;
+      padding-bottom: toRem(10);
+      color: $white;
+
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         width: toRem(10);
+         height: toRem(10);
+         border-radius: 50%;
+         background-color: $brandPrimary;
+      }
+
+      &::before {
+         top: 100%;
+         translate: -50% -43%;
+      }
+
+      &::after {
+         top: 100%;
+         translate: 0 -43%;
+         right: 0;
+      }
+   }
+
+   // .item-approach__text
+   &__text {
+      // color: $bgPrimary;
+      color: $white;
+      max-width: toRem(350);
+      @include adaptiveValue('margin-bottom', 20, 10);
+      flex-grow: 1;
+   }
+
+
+   // @media (min-width: toEm(989.98)) {
+   //    &:nth-child(2),
+   //    &:nth-child(5) {
+   //       translate: 0 toRem(40);
+   //    }
+   // }
+}
+
+.item-step {
+   position: relative;
+   width: 50%;
+   @include adaptiveValue('padding-right', 99.5, 40);
+   padding-left: toRem(0);
+   counter-increment: item;
+
+   // .item-step__inner
+   &__inner {
+      // background-color: $bgSecondary;
+      background-color: $bgPrimary;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      @include adaptiveValue('gap', 20, 10);
+      @include adaptiveValue('padding', 50, 25);
+   }
+
+   // .item-step__title
+   &__title {
+      font-family: "Ubuntu", sans-serif;
+      font-size: toRem(24);
+      font-weight: 500;
+   }
+
+   // .item-step__text
+   &__text {
+      @include adaptiveValue('font-size', 18, 16);
+      color: $brandPrimary;
+
+      @media (max-width: toEm(600)) {
+         text-align: center;
+      }
+   }
+
+   // .item-step__list
+   &__list {}
+
+   // .item-step__item
+   &__item {
+      display: flex;
+      align-items: flex-start;
+      gap: toRem(10);
+
+      &::before {
+         content: "";
+         width: toRem(4);
+         height: toRem(4);
+         background-color: $brandDark;
+         border-radius: 50%;
+         flex-shrink: 0;
+         margin-top: toRem(6);
+      }
+
+      &:not(:last-child) {
+         margin-bottom: toRem(12);
+      }
+   }
+
+   &::before {
+      content: "";
+      position: absolute;
+      right: toRem(-1);
+      width: toRem(1);
+      height: 100%;
+      background-color: $butHovGreen;
+   }
+
+   &::after {
+      content: counter(item, decimal-leading-zero);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      translate: 50% -50%;
+      background-color: $bgPrimary;
+      border: toRem(1) solid $brandPrimary;
+      border-radius: 50%;
+      width: toRem(40);
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(30px);
+      outline: toRem(16) solid $bgSecondary;
+   }
+
+   &:last-child {
+      &::before {
+         height: 50%;
+      }
+   }
+
+   @media (max-width: toEm(600)) {
+      width: 100%;
+      padding-right: toRem(0);
+
+      &::before {
+         display: none;
+      }
+
+      &::after {
+         left: 50%;
+         top: 0;
+         outline: none;
+         translate: -50% -50%;
+      }
+
+      .item-step__inner {
+         align-items: center;
+      }
+   }
+}
+
+.item-step:nth-child(odd) {
+   @include adaptiveValue('padding-left', 99.5, 40);
+   padding-right: toRem(0);
+   align-self: flex-end;
+
+   &::before {
+      left: auto;
+      left: toRem(0);
+   }
+
+   &::after {
+      left: 0;
+      translate: -50% -50%;
+      right: auto;
+   }
+
+   @media (max-width: toEm(600)) {
+      padding-left: toRem(0);
+
+      &::after {
+         // translate: 0 0;
+         left: 50%;
+      }
+   }
+}
+
+.skill-item {
+   background-color: $brandSecondary;
+   border-radius: toRem(8);
+   border-left: toRem(8) solid $blue;
+   padding-block: toRem(16);
+   padding-inline: toRem(24);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: toRem(8);
+
+   &__icon {
+      width: toRem(32);
+      aspect-ratio: 1;
+   }
+
+   // .skill-item__title
+   &__title {
+      font-size: toRem(24);
+      text-transform: capitalize;
+      color: $bgPrimary;
+   }
+
+   // .skill-item__skills
+   &__skills {
+      color: $grey;
+
+      span {
+         position: relative;
+
+         &:not(:last-child) {
+            &::after {
+               content: "";
+               position: absolute;
+               top: 50%;
+               left: 100%;
+               translate: toRem(3) -50%;
+               width: toRem(2);
+               aspect-ratio: 1;
+               background-color: $grey;
+            }
+         }
+      }
+
+   }
+}
+
+// ===========================================================================================
+// -----------------------------
+// card-work
+// -----------------------------
+.cart-work {
+   // width: toRem(500);
+   background: $bgPrimary;
+   box-shadow: 0 0 10px rgba(20, 60, 40, 0.25),
+      0 0 18px rgba(20, 60, 40, 0.15);
+   transition: transform 0.4s ease, box-shadow 0.4s ease;
+   cursor: pointer;
+   overflow: hidden;
+   perspective: 1000px;
+   perspective-origin: center;
+
+   // .cart-work__inner
+   &__inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s;
+      transform-style: preserve-3d;
+
+      &.animCart {
+         transform: rotateX(180deg);
+
+         .cart-work__image {
+            // transform: rotateX(180deg);
+            transform: rotateX(0deg);
+            backface-visibility: hidden;
+         }
+
+         .cart-work__content {
+            translate: 0 0;
+            transform: rotateX(180deg);
+            top: 0;
+            left: 0;
+            justify-content: flex-end;
+            border-top: none;
+         }
+      }
+   }
+
+   // .cart-work__image
+   &__image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         filter: brightness(0.9);
+      }
+
+      @media (max-width: toEm($mobile)) {}
+   }
+
+   // .cart-work__content
+   &__content {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      translate: 0 105%;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue('gap', 20, 10);
+      align-items: flex-start;
+      background-color: $bgPrimary;
+      border-top: toRem(1) solid $brandDark;
+      backdrop-filter: blur(30px);
+      @include adaptiveValue('padding', 20, 10);
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      backface-visibility: hidden;
+   }
+
+   // .cart-work__title
+   &__title {
+      font-family: "Gambetta";
+      @include adaptiveValue('font-size', 24, 18);
+   }
+
+   // .cart-work__text
+   &__text {
+      @include adaptiveValue('font-size', 18, 14);
+   }
+
+   // .cart-work__buttons
+   &__buttons {}
+
+   @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover {
+         transform: translateY(-6px);
+         box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
+            0 0 28px rgba(20, 120, 80, 0.25),
+            0 0 45px rgba(20, 120, 80, 0.15);
+
+         .cart-work__content {
+            translate: 0 0;
+         }
+      }
+   }
+
+   // @media (max-width: toEm($mobile)) {
+   //    .cart-work__content {
+   //       translate: 0 0;
+   //    }
+   // }
+   @media (max-width: toEm(400)) {
+      .cart-work__buttons {
+         .button {
+            // flex-grow: 1;
+         }
       }
    }
 }

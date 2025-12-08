@@ -5,13 +5,27 @@
 // Variables
 // -----------------------------
 $black: #000;
-$white: #fff;
+$bgPrimary: #292F36;
+$bgSecondary: #1A1E23;
+$grey: #43454D;
+$white: #FFFFFF;
+$brandPrimary: #12F7D6;
+$brandSecondary: #98FAEC;
+$brandDark: #00ADB5;
+$orange: #E54F26;
+$blue: #0C73B8;
+$blueLight: #28A9E0;
+$gold: #E7A020;
+
+$butHovGreen: rgb(8, 167, 143);
+$butHovWhite: rgb(173, 170, 170);
 
 // ===========================================================================================
 // -----------------------------
 // FONTS
 // -----------------------------
-
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,200,300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,regular,500,700);
 // ===========================================================================================
 // -----------------------------
 // COMMON
