@@ -273,14 +273,16 @@
    font-family: "Ubuntu", sans-serif;
    padding-block: toRem(16);
    @include adaptiveValue('padding-inline', 48, 42);
-   border: toRem(2) solid $brandPrimary;
+   // border: toRem(2) solid $brandPrimary;
+   border-left: toRem(3) solid $white;
+   border-bottom: toRem(3) solid $white;
    background-color: $bgSecondary;
-   color: $white;
+   // color: $white;
+   color: $brandPrimary;
    text-transform: capitalize;
    @include adaptiveValue('font-size', 32, 22);
    line-height: 1.12;
-   // border-radius: toRem(40) toRem(0) toRem(40) toRem(0);
-   border-radius: toRem(16);
+   border-radius: toRem(20);
    align-items: center;
    gap: toRem(16);
    flex-direction: row-reverse;
@@ -296,26 +298,22 @@
       top: -50%;
       width: 150%;
       height: 200%;
-      background-color: $brandDark;
+      background-color: $butHovGreen;
       z-index: -1;
       transition: all 0.4s;
-      border-radius: toRem(40);
+      border-radius: toRem(60);
       opacity: 0.5;
    }
 
    &::before {
       left: 0;
       translate: -95% 0;
-      // transform: skewX(-20deg);
    }
 
    &::after {
       right: 0;
       translate: 95% 0;
-      // transform: skewX(-20deg);
    }
-
-
 
    &--green {
       color: $brandPrimary;
@@ -327,12 +325,6 @@
 
    &--demo {
       position: relative;
-
-      &::before,
-      &::after {
-         content: "";
-
-      }
    }
 
    &--small {
@@ -340,7 +332,6 @@
    }
 
    &:active {
-
       &::before,
       &::after {
          background-color: $blue;
@@ -349,8 +340,9 @@
 
    @media (any-hover: hover) and (any-pointer: fine) {
       &:hover {
-         color: $bgSecondary;
-
+         // color: $bgSecondary;
+         color: $white;
+         text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
          &::before,
          &::after {
             translate: 0 0;
@@ -551,21 +543,24 @@
    position: relative;
    display: inline-flex;
    align-items: center;
+   justify-content: space-between;
+   flex-direction: row-reverse;
    gap: toRem(16);
    background-color: $bgPrimary;
    padding-block: toRem(16);
    padding-inline: toRem(24);
-   border-radius: toRem(2);
+   border-radius: toRem(20);
    border-left: toRem(1) solid $blue;
    border-bottom: toRem(1) solid $blue;
-   text-transform: uppercase;
+   text-transform: capitalize;
    overflow: hidden;
    transition: all 0.4s;
-   // color: $brandPrimary;
    color: $white;
+   z-index: 10;
 
    &::before {
       z-index: 10;
+      font-size: toRem(20);
    }
 
    &::after {
@@ -576,24 +571,9 @@
       width: 150%;
       height: 150%;
       translate: -100% 0;
-      background-color: $butHovGreen;
+      background-color: $brandDark;
       transition: translate 0.3s;
-   }
-
-   // .button-media__span
-   &__span {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      flex-direction: row-reverse;
-      flex-grow: 1;
-      justify-content: space-between;
-
-      // gap: toRem(80);
-      &::before {
-         rotate: 45deg;
-      }
+      z-index: -1;
    }
 
    @media (any-hover: hover) and (any-pointer: fine) {
@@ -611,7 +591,34 @@
    }
 }
 
+.media-social-link {
+   position: relative;
 
+   &::after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 50%;
+     translate: -50% 0;
+     background-color: $brandDark;
+     width: 0;
+     height: toRem(2);
+     transition: width 0.3s;
+   }
+
+   @media (any-hover: hover) and (any-pointer: fine) {
+     &:hover {
+      color: $brandDark;
+      text-shadow:
+         0 0 8px rgba(218, 197, 167, 0.6),
+         0 0 15px rgba(218, 197, 167, 0.3),
+         0 0 25px rgba(218, 197, 167, 0.15);
+      &::after {
+         width: 100%;
+      }
+     }
+   }
+}
 
 // ===========================================================================================
 // -----------------------------
@@ -632,7 +639,7 @@
    &__title {
       position: relative;
       font-family: "Ubuntu", sans-serif;
-      @include adaptiveValue('font-size', 64, 45);
+      @include adaptiveValue('font-size', 64, 40);
       color: $white;
       border-bottom: toRem(2) solid $brandPrimary;
       padding-bottom: toRem(16);

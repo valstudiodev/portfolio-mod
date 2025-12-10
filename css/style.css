@@ -1964,10 +1964,6 @@ address {
     gap: 25px;
   }
 }
-.intro__button.button-figure {
-  color: #FFFFFF;
-}
-
 @-webkit-keyframes jumpArrow {
   0%, 100% {
     -webkit-transform: translateY(0);
@@ -1978,7 +1974,6 @@ address {
             transform: translateY(-4px);
   }
 }
-
 @keyframes jumpArrow {
   0%, 100% {
     -webkit-transform: translateY(0);
@@ -2514,12 +2509,13 @@ address {
   position: relative;
   font-family: "Ubuntu", sans-serif;
   padding-block: 1rem;
-  border: 0.125rem solid #12F7D6;
+  border-left: 0.1875rem solid #FFFFFF;
+  border-bottom: 0.1875rem solid #FFFFFF;
   background-color: #1A1E23;
-  color: #FFFFFF;
+  color: #12F7D6;
   text-transform: capitalize;
   line-height: 1.12;
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2570,11 +2566,11 @@ address {
   top: -50%;
   width: 150%;
   height: 200%;
-  background-color: #00ADB5;
+  background-color: rgb(8, 167, 143);
   z-index: -1;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  border-radius: 2.5rem;
+  border-radius: 3.75rem;
   opacity: 0.5;
 }
 .button-figure::before {
@@ -2594,9 +2590,6 @@ address {
 .button-figure--demo {
   position: relative;
 }
-.button-figure--demo::before, .button-figure--demo::after {
-  content: "";
-}
 .button-figure--small {
   height: 1.75rem;
 }
@@ -2605,7 +2598,8 @@ address {
 }
 @media (any-hover: hover) and (any-pointer: fine) {
   .button-figure:hover {
-    color: #1A1E23;
+    color: #FFFFFF;
+    text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
   }
   .button-figure:hover::before, .button-figure:hover::after {
     translate: 0 0;
@@ -2810,21 +2804,30 @@ address {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   gap: 1rem;
   background-color: #292F36;
   padding-block: 1rem;
   padding-inline: 1.5rem;
-  border-radius: 0.125rem;
+  border-radius: 1.25rem;
   border-left: 0.0625rem solid #0C73B8;
   border-bottom: 0.0625rem solid #0C73B8;
-  text-transform: uppercase;
+  text-transform: capitalize;
   overflow: hidden;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   color: #FFFFFF;
+  z-index: 10;
 }
 .button-media::before {
   z-index: 10;
+  font-size: 1.25rem;
 }
 .button-media::after {
   content: "";
@@ -2834,32 +2837,10 @@ address {
   width: 150%;
   height: 150%;
   translate: -100% 0;
-  background-color: rgb(8, 167, 143);
+  background-color: #00ADB5;
   -webkit-transition: translate 0.3s;
   transition: translate 0.3s;
-}
-.button-media__span {
-  position: relative;
-  z-index: 10;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.button-media__span::before {
-  rotate: 45deg;
+  z-index: -1;
 }
 @media (any-hover: hover) and (any-pointer: fine) {
   .button-media:hover::after {
@@ -2868,6 +2849,31 @@ address {
   .button-media:hover .button-media__span::before {
     -webkit-animation: jumpArrow 0.6s ease-in-out infinite;
             animation: jumpArrow 0.6s ease-in-out infinite;
+  }
+}
+
+.media-social-link {
+  position: relative;
+}
+.media-social-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 0;
+  background-color: #00ADB5;
+  width: 0;
+  height: 0.125rem;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+}
+@media (any-hover: hover) and (any-pointer: fine) {
+  .media-social-link:hover {
+    color: #00ADB5;
+    text-shadow: 0 0 8px rgba(218, 197, 167, 0.6), 0 0 15px rgba(218, 197, 167, 0.3), 0 0 25px rgba(218, 197, 167, 0.15);
+  }
+  .media-social-link:hover::after {
+    width: 100%;
   }
 }
 
@@ -2918,12 +2924,12 @@ address {
 }
 @media (min-width: 20em) and (max-width: 105.875em) {
   .block-header__title {
-    font-size: clamp( 45px , 40.5749636099px  +  1.3828238719vw , 64px );
+    font-size: clamp( 40px , 34.4104803493px  +  1.7467248908vw , 64px );
   }
 }
 @media (max-width: 20em) {
   .block-header__title {
-    font-size: 45px;
+    font-size: 40px;
   }
 }
 .block-header__title::before, .block-header__title::after {
