@@ -3,6 +3,7 @@
 @use './pages/about';
 @use './pages/contacts';
 @use './pages/works';
+@use './pages/skills';
 // =====================Settings===========================
 @use './settings/settings' as *;
 @use './settings/reset';
@@ -48,4 +49,56 @@ body {
    max-width: toRem($containerWidth);
    padding-inline: toRem(math.div($containerPadding, 2));
    margin: 0 auto;
+}
+
+html[data-input="mouse"] {
+   .menu-dropdown__item--submenu {
+      &:hover> {
+         .menu-dropdown__submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+         }
+      }
+   }
+}
+html[data-input="mouse"] {
+   .menu-header__item--submenu:hover {
+      >.menu-header__link {
+         &::before {
+            rotate: 90deg;
+         }
+      }
+   }
+}
+
+
+
+html[data-input="keyboard"] {
+   >  * :focus-visible {
+      outline: toRem(2) solid $brandDark;
+      outline-offset: toRem(4);
+   }
+   .is-active {
+      .submenu-dropdowne {
+         display: block;
+      }
+      .menu-dropdown__link {
+         &::before {
+            rotate: 90deg;
+         }
+      }
+   }
+}
+html[data-input="touch"] {
+   .menu-dropdown__item--submenu {
+      &.is-active {
+         .menu-dropdown__link {
+            &::before {
+               rotate: 90deg;
+            }
+         }
+      }
+   }
 }

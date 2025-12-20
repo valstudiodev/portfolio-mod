@@ -1,0 +1,150 @@
+@use '../settings/settings' as *;
+@use '../settings/_mixins.scss' as *;
+
+// ===========================================================================================
+// -----------------------------
+// page__skills
+// -----------------------------
+.skills {
+   position: relative;
+   background-color: $bgPrimary;
+   @include adaptiveValue('padding-top',250,120);
+   @include adaptiveValue('padding-bottom',120,50);
+
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("../assets/img/png/skills-img.webp");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+   }
+
+   // .skills__container
+   &__container {}
+
+   // .skills__inner
+   &__inner {}
+
+   // .skills__top
+   &__top {}
+
+   // .skills__body
+   &__body {}
+}
+
+.top-skills {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: toRem(64);
+   @include adaptiveValue('margin-bottom', 64, 30);
+
+   // .top-skills__scroll
+   &__scroll {
+      fill: $orange;
+   }
+
+   // .top-skills__block
+   &__block {
+      .block-header__title {
+         color: $brandDark;
+      }
+   }
+}
+
+.body-skills {
+   position: relative;
+
+   // .body-skills__inner
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include adaptiveValue('gap', 90, 35);
+   }
+
+   // .body-skills__item
+   &__item {}
+
+   // .body-skills__lang
+   &__lang {}
+}
+
+.lang-skill {
+   display: flex;
+   align-items: center;
+   @include adaptiveValue('gap', 120, 20);
+   // flex-wrap: wrap;
+
+   &__wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include adaptiveValue('gap', 24, 12);
+      flex-shrink: 0;
+   }
+
+   // .lang-skill__item
+   &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // .lang-skill__item--html
+      &--html {
+         background-color: $orange;
+         border-radius: 50%;
+         @include adaptiveValue('padding', 40, 20);
+      }
+
+      // .lang-skill__item--css
+      &--css {
+         background-color: $blue;
+         border-radius: 50%;
+         @include adaptiveValue('padding', 40, 20);
+      }
+
+      // .lang-skill__item--js
+      &--js {
+         background-color: $gold;
+         border-radius: 50%;
+         @include adaptiveValue('padding', 40, 20);
+      }
+
+   }
+
+   &__title {
+      font-size: toRem(32);
+      text-transform: uppercase;
+      font-weight: 500;
+
+      &--html {
+         color: $orange;
+      }
+
+      &--css {
+         color: $blue;
+      }
+
+      &--js {
+         color: $gold;
+      }
+   }
+
+   // .lang-skill__icon
+   &__icon {
+      width: toRem(64);
+      aspect-ratio: 1;
+   }
+
+   @media (max-width: toEm(450)) {
+      flex-direction: column;
+   }
+}

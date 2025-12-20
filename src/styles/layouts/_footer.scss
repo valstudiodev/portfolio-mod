@@ -83,17 +83,15 @@
       // .menu-footer__link--icon-phone
       &--icon-phone {}
 
-      @media (any-hover: hover) and (any-pointer: fine) {
-         &:hover {
-            color: $brandDark;
-            text-shadow:
-               0 0 8px rgba(218, 197, 167, 0.6),
-               0 0 15px rgba(218, 197, 167, 0.3),
-               0 0 25px rgba(218, 197, 167, 0.15);
+      @include hover {
+         color: $brandDark;
+         text-shadow:
+            0 0 8px rgba(218, 197, 167, 0.6),
+            0 0 15px rgba(218, 197, 167, 0.3),
+            0 0 25px rgba(218, 197, 167, 0.15);
 
-            &::after {
-               width: 100%;
-            }
+         &::after {
+            width: 100%;
          }
       }
    }
@@ -141,8 +139,12 @@
       &--icon-telegram {}
 
       @media (any-hover: hover) and (any-pointer: fine) {
+
+      }
+      @include hover {
          &:hover {
             background-color: $brandDark;
+            box-shadow:  3px 6px 8px rgba(0, 0, 0, 0.6);
             translate: 0 toRem(-4);
          }
       }

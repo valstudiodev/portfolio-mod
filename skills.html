@@ -5,36 +5,32 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-   <link rel="stylesheet" href="/src/pages/contacts/_contacts.scss">
-   <title>Page-Contacts</title>
+   <title>Skills</title>
 </head>
 
 <body>
-
    <div class="wrapper">
       <header class="header">
          <div class="header__container">
             <div class="header__inner">
-               <div class="header__logo logo">
-                  <a href="./index.html" class="logo__link">
-                     <svg class="logo__image">
-                        <use href="/src/assets/icons/symbol-defs.svg#icon-slash"></use>
-                     </svg>
-                  </a>
-               </div>
+               <a href="./index.html" class="header__logo logo">
+                  <svg class="logo__image">
+                     <use href="/src/assets/icons/symbol-defs.svg#icon-slash"></use>
+                  </svg>
+               </a>
                <nav class="header__menu menu-header">
                   <ul class="menu-header__list">
                      <li class="menu-header__item">
                         <a href="./about.html" target="_blank" class="menu-header__link">About</a>
                      </li>
                      <li class="menu-header__item">
-                        <a href="#" target="_blank" class="menu-header__link">Work</a>
+                        <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
                      </li>
                      <li class="menu-header__item">
-                        <a href="./skills.html" target="_blank" class="menu-header__link">Skills</a>
+                        <a href="#" class="menu-header__link">Skills</a>
                      </li>
                      <li class="menu-header__item">
-                        <a href="#" class="menu-header__link">Contacts</a>
+                        <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
                      </li>
                      <li class="menu-header__item">
                         <a href="#"
@@ -50,6 +46,7 @@
                   <a target="_blank" href="https://github.com/valstudiodev"
                      class="media-social-link media-social__github media-social__github--icon-github">Github</a>
                </div>
+               <!-- <button type="button" class="button-regular button-regular--subscribe">Let's talk</button> -->
                <button class="icon-menu">
                   <span></span>
                </button>
@@ -57,33 +54,65 @@
          </div>
       </header>
 
-      <main class="page-contacts contacts-page">
-         <div class="contacts-page__container">
-            <div class="contacts-page__content">
-               <h2 class="contacts-page__title">Got a project in <span>mind?</span> </h2>
-               <div class="contacts-page__image">
-                  <img src="/src/assets/img/png/man-step.png" alt="">
+      <main class="page page--skills">
+         <section class="page__skills skills">
+            <div class="skills__container">
+               <div class="skills__inner">
+                  <div class="skills__top top-skills">
+                     <svg class="top-skills__scroll mouse-scroll">
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
+                     </svg>
+                     <div class="top-skills__block block-header">
+                        <h2 class="block-header__title">Skills</h2>
+                        <div class="block-header__text">
+                           <p>I am striving to never stop learning and improving</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="skills__body body-skills">
+                     <div class="body-skills__inner">
+                        <article class="body-skills__item skill-item">
+                           <svg class="skill-item__icon">
+                              <use href="src/assets/icons/symbol-defs.svg#icon-monitor"></use>
+                           </svg>
+                           <h4 class="skill-item__title">web developement</h4>
+                           <div class="skill-item__skills">
+                              <span>HTML</span>
+                              <span>CSS</span>
+                              <span>JS</span>
+                           </div>
+                        </article>
+                        <div class="body-skills__lang lang-skill">
+                           <div class="lang-skill__wrap">
+                              <div class="lang-skill__item lang-skill__item--html">
+                                 <svg class="lang-skill__icon">
+                                    <use href="/src/assets/icons/symbol-defs.svg#icon-html"></use>
+                                 </svg>
+                              </div>
+                              <span class="lang-skill__title lang-skill__title--html">HTML</span>
+                           </div>
+                           <div class="lang-skill__wrap">
+                              <div class="lang-skill__item lang-skill__item--css">
+                                 <svg class="lang-skill__icon">
+                                    <use href="/src/assets/icons/symbol-defs.svg#icon-css"></use>
+                                 </svg>
+                              </div>
+                              <span class="lang-skill__title lang-skill__title--css">css</span>
+                           </div>
+                           <div class="lang-skill__wrap">
+                              <div class="lang-skill__item lang-skill__item--js">
+                                 <svg class="lang-skill__icon">
+                                    <use href="/src/assets/icons/symbol-defs.svg#icon-js"></use>
+                                 </svg>
+                              </div>
+                              <span class="lang-skill__title lang-skill__title--js">js</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
-            <form action="#" class="contacts-page__form form-contacts">
-               <div class="form-contacts__top">
-                  <div class="form-contacts__name">
-                     <label for="">Your name</label>
-                     <input class="form-contacts__input" type="text" placeholder="Name">
-                  </div>
-                  <div class="form-contacts__email">
-                     <label for="">Your email</label>
-                     <input class="form-contacts__input" type="email" placeholder="Email">
-                  </div>
-               </div>
-               <div class="form-contacts__text">
-                  <label for="message">Your Message</label>
-                  <textarea class="form-contacts__area" name="message" id="message" placeholder="Message"></textarea>
-               </div>
-               <button type="submit" class="form-contacts__button button-regular button-regular--icon-send">Send
-                  Message</button>
-            </form>
-         </div>
+         </section>
       </main>
 
       <aside class="page__intro intro">
@@ -115,11 +144,11 @@
                            class="menu-footer__link menu-footer__link--icon-home">Home</a>
                      </li>
                      <li class="menu-footer__item">
-                        <a target="_blank" href="./about.html"
-                           class="menu-footer__link menu-footer__link--icon-user">About me</a>
+                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-user">About me</a>
                      </li>
                      <li class="menu-footer__item">
-                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
+                        <a target="_blank" href="./contacts.html"
+                           class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
                      </li>
                   </ul>
                </div>

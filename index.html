@@ -20,23 +20,35 @@
                      <use href="/src/assets/icons/symbol-defs.svg#icon-slash"></use>
                   </svg>
                </div>
-               <nav class="header__menu menu-header">
-                  <ul class="menu-header__list">
-                     <li class="menu-header__item">
+               <nav class="header__menu menu-header menu-dropdown">
+                  <ul class="menu-header__list menu-dropdown__list">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./about.html" target="_blank" class="menu-header__link">About</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
                      </li>
-                     <li class="menu-header__item">
-                        <a href="#" class="menu-header__link">Skills</a>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./skills.html" target="_blank" class="menu-header__link">Skills</a>
                      </li>
-                     <li class="menu-header__item">
-                        <a href="./contacts.html" class="menu-header__link">Contacts</a>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
                         <a href="#"
-                           class="menu-header__link menu-header__link--submenu menu-header__link--icon-chevron">Pages</a>
+                           class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">Pages</a>
+                        <ul class="menu-dropdown__submenu submenu-dropdown">
+                           <li class="submenu-dropdown__item">
+                              <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
+                                 class="submenu-dropdown__link">Accordion-menu</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="#" class="submenu-dropdown__link">Item 2</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="#" class="submenu-dropdown__link">Item 3</a>
+                           </li>
+                        </ul>
                      </li>
                   </ul>
                </nav>
@@ -345,7 +357,7 @@
             </div>
          </section>
 
-         <section class="page__skills skills">
+         <!-- <section class="page__skills skills">
             <div class="skills__container">
                <div class="skills__inner">
                   <div class="skills__top top-skills">
@@ -402,7 +414,7 @@
                   </div>
                </div>
             </div>
-         </section>
+         </section> -->
 
          <section class="page__projects projects">
             <div class="projects__container">

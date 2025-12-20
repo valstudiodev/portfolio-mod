@@ -139,7 +139,7 @@
          background-color: $bgPrimary;
       }
 
-      @media (any-hover: hover) and (any-pointer: fine) {
+      @include hover {
          &:hover {
             color: $white;
          }
@@ -154,7 +154,7 @@
          background-color: $bgPrimary;
       }
 
-      @media (any-hover: hover) and (any-pointer: fine) {
+      @include hover {
          &:hover {
             // text-shadow: 0 4px 3px rgba(0, 0, 0, 0.4);
             text-shadow: 0 3px 3px rgba(255, 255, 255, 0.4);
@@ -175,7 +175,7 @@
          background-color: $white;
       }
 
-      @media (any-hover: hover) and (any-pointer: fine) {
+      @include hover {
          &:hover {
             text-shadow: 0 4px 3px rgba(0, 0, 0, 0.4);
             color: $bgPrimary;
@@ -183,8 +183,7 @@
       }
    }
 
-
-   @media (any-hover: hover) and (any-pointer: fine) {
+   @include hover {
       &:hover {
          &::before {
             // transform: translateX(6px);
@@ -225,7 +224,7 @@
          will-change: translate;
       }
 
-      @media (any-hover: hover) and (any-pointer: fine) {
+      @include hover {
          &:hover {
             color: $white;
             background-color: transparent;
@@ -239,7 +238,7 @@
    }
 
    &--view {
-      @media (any-hover: hover) and (any-pointer: fine) {
+      @include hover {
          &:hover {
             color: $white;
             background-color: transparent;
@@ -258,7 +257,7 @@
       background-color: $bgPrimary;
       transition: all 0.3s;
 
-      @media (any-hover: hover) and (any-pointer: fine) {
+      @include hover {
          &:hover {
             color: $bgPrimary;
             background-color: $white;
@@ -273,9 +272,7 @@
    font-family: "Ubuntu", sans-serif;
    padding-block: toRem(16);
    @include adaptiveValue('padding-inline', 48, 42);
-   // border: toRem(2) solid $brandPrimary;
-   border-left: toRem(3) solid $white;
-   border-bottom: toRem(3) solid $white;
+   border: toRem(3) solid $brandPrimary;
    background-color: $bgSecondary;
    // color: $white;
    color: $brandPrimary;
@@ -550,8 +547,8 @@
    padding-block: toRem(16);
    padding-inline: toRem(24);
    border-radius: toRem(20);
-   border-left: toRem(1) solid $blue;
-   border-bottom: toRem(1) solid $blue;
+   border-left: toRem(1) solid $brandDark;
+   border-bottom: toRem(1) solid $brandDark;
    text-transform: capitalize;
    overflow: hidden;
    transition: all 0.4s;
@@ -576,18 +573,15 @@
       z-index: -1;
    }
 
-   @media (any-hover: hover) and (any-pointer: fine) {
-      &:hover {
-         &::after {
+   @include hover {
+      &::after {
             translate: 0 0;
          }
-
-         .button-media__span {
+      .button-media__span {
             &::before {
                animation: jumpArrow 0.6s ease-in-out infinite;
             }
          }
-      }
    }
 }
 
@@ -606,17 +600,18 @@
      transition: width 0.3s;
    }
 
-   @media (any-hover: hover) and (any-pointer: fine) {
-     &:hover {
-      color: $brandDark;
-      text-shadow:
-         0 0 8px rgba(218, 197, 167, 0.6),
-         0 0 15px rgba(218, 197, 167, 0.3),
-         0 0 25px rgba(218, 197, 167, 0.15);
-      &::after {
-         width: 100%;
+   @include hover {
+      &:hover {
+         color: $brandDark;
+         text-shadow:
+            0 0 8px rgba(218, 197, 167, 0.6),
+            0 0 15px rgba(218, 197, 167, 0.3),
+            0 0 25px rgba(218, 197, 167, 0.15);
+
+         &::after {
+            width: 100%;
+         }
       }
-     }
    }
 }
 
@@ -841,7 +836,6 @@
       }
    }
 }
-
 
 // ===========================================================================================
 // -----------------------------
@@ -1136,7 +1130,6 @@
             }
          }
       }
-
    }
 }
 
@@ -1145,10 +1138,9 @@
 // card-work
 // -----------------------------
 .cart-work {
-   // width: toRem(500);
    background: $bgPrimary;
    box-shadow: 0 0 10px rgba(20, 60, 40, 0.25),
-      0 0 18px rgba(20, 60, 40, 0.15);
+               0 0 18px rgba(20, 60, 40, 0.15);
    transition: transform 0.4s ease, box-shadow 0.4s ease;
    cursor: pointer;
    overflow: hidden;
@@ -1238,7 +1230,7 @@
    // .cart-work__buttons
    &__buttons {}
 
-   @media (any-hover: hover) and (any-pointer: fine) {
+   @include hover {
       &:hover {
          transform: translateY(-6px);
          box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),

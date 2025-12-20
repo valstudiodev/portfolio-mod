@@ -67,7 +67,9 @@
    }
 
    // .menu-projects__item
-   &__item {}
+   &__item {
+      flex-shrink: 0;
+   }
 
    // .menu-projects__button
    &__button {
@@ -85,8 +87,6 @@
       border-radius: toRem(24);
       transition: all 0.3s;
 
-      span {}
-
       &.active {
          background-color: $brandDark;
          box-shadow:
@@ -94,12 +94,6 @@
             0 0 28px rgba(20, 120, 80, 0.25),
             0 0 45px rgba(20, 120, 80, 0.15);
       }
-
-      // @media (any-hover: hover) and (any-pointer: fine) {
-      //   &:hover {
-      //    background-color: $butHovGreen;
-      //   }
-      // }
    }
 }
 
