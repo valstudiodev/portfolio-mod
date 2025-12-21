@@ -7,8 +7,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
    <title>Portfolio</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.4c4f06dc.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.93074d7b.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.4d5ba059.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.73f3dfcf.css">
 </head>
 
 <body>
@@ -22,23 +22,35 @@
                      <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-slash"></use>
                   </svg>
                </div>
-               <nav class="header__menu menu-header">
-                  <ul class="menu-header__list">
-                     <li class="menu-header__item">
+               <nav class="header__menu menu-header menu-dropdown">
+                  <ul class="menu-header__list menu-dropdown__list">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./about.html" target="_blank" class="menu-header__link">About</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
                      </li>
-                     <li class="menu-header__item">
-                        <a href="#" class="menu-header__link">Skills</a>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./skills.html" target="_blank" class="menu-header__link">Skills</a>
                      </li>
-                     <li class="menu-header__item">
-                        <a href="./contacts.html" class="menu-header__link">Contacts</a>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
                         <a href="#"
-                           class="menu-header__link menu-header__link--submenu menu-header__link--icon-chevron">Pages</a>
+                           class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">Pages</a>
+                        <ul class="menu-dropdown__submenu submenu-dropdown">
+                           <li class="submenu-dropdown__item">
+                              <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
+                                 class="submenu-dropdown__link">Accordion-menu</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="#" class="submenu-dropdown__link">Item 2</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="#" class="submenu-dropdown__link">Item 3</a>
+                           </li>
+                        </ul>
                      </li>
                   </ul>
                </nav>
@@ -347,12 +359,12 @@
             </div>
          </section>
 
-         <section class="page__skills skills">
+         <!-- <section class="page__skills skills">
             <div class="skills__container">
                <div class="skills__inner">
                   <div class="skills__top top-skills">
                      <svg class="top-skills__scroll mouse-scroll">
-                        <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
                      </svg>
                      <div class="top-skills__block block-header">
                         <h2 class="block-header__title">Skills</h2>
@@ -365,7 +377,7 @@
                      <div class="body-skills__inner">
                         <article class="body-skills__item skill-item">
                            <svg class="skill-item__icon">
-                              <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-monitor"></use>
+                              <use href="src/assets/icons/symbol-defs.svg#icon-monitor"></use>
                            </svg>
                            <h4 class="skill-item__title">web developement</h4>
                            <div class="skill-item__skills">
@@ -378,7 +390,7 @@
                            <div class="lang-skill__wrap">
                               <div class="lang-skill__item lang-skill__item--html">
                                  <svg class="lang-skill__icon">
-                                    <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-html"></use>
+                                    <use href="/src/assets/icons/symbol-defs.svg#icon-html"></use>
                                  </svg>
                               </div>
                               <span class="lang-skill__title lang-skill__title--html">HTML</span>
@@ -386,7 +398,7 @@
                            <div class="lang-skill__wrap">
                               <div class="lang-skill__item lang-skill__item--css">
                                  <svg class="lang-skill__icon">
-                                    <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-css"></use>
+                                    <use href="/src/assets/icons/symbol-defs.svg#icon-css"></use>
                                  </svg>
                               </div>
                               <span class="lang-skill__title lang-skill__title--css">css</span>
@@ -394,7 +406,7 @@
                            <div class="lang-skill__wrap">
                               <div class="lang-skill__item lang-skill__item--js">
                                  <svg class="lang-skill__icon">
-                                    <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-js"></use>
+                                    <use href="/src/assets/icons/symbol-defs.svg#icon-js"></use>
                                  </svg>
                               </div>
                               <span class="lang-skill__title lang-skill__title--js">js</span>
@@ -404,7 +416,7 @@
                   </div>
                </div>
             </div>
-         </section>
+         </section> -->
 
          <section class="page__projects projects">
             <div class="projects__container">
