@@ -284,6 +284,11 @@
    z-index: 10;
    padding: toRem(10);
 
+   @media (max-width: toEm(650)) {
+      left: 50%;
+      translate: -50% 0;
+   }
+
    // .submenu-dropdowne__link
    &__link {
       font-size: toRem(14);

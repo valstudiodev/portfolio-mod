@@ -359,12 +359,17 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.form-contacts {
+.form-contact {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
           flex: 1 1 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5rem;
 }
-.form-contacts__top {
+.form-contact__fields {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -378,14 +383,14 @@
   margin-bottom: 1.5rem;
 }
 @media (max-width: 78.125em) {
-  .form-contacts__top {
+  .form-contact__fields {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
 }
-.form-contacts__name {
+.form-contact__field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -396,7 +401,7 @@
   gap: 0.625rem;
   width: 100%;
 }
-.form-contacts__input {
+.form-contact__input {
   background-color: rgba(57, 62, 70, 0.5);
   border-radius: 1rem;
   line-height: 150%;
@@ -406,27 +411,57 @@
   color: #43454D;
   font-size: 1.125rem;
   font-weight: 700;
+  color: #FFFFFF;
 }
-.form-contacts__email {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 0.625rem;
-  width: 100%;
+.form-contact__input::-webkit-input-placeholder {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__input::-moz-placeholder {
+  opacity: 1;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__input:-ms-input-placeholder {
+  opacity: 1;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__input::-ms-input-placeholder {
+  opacity: 1;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__input::placeholder {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.form-contact__input:focus::-moz-placeholder {
+  opacity: 0;
+}
+.form-contact__input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+.form-contact__input:focus::-ms-input-placeholder {
+  opacity: 0;
+}
+.form-contact__input:focus::placeholder {
+  opacity: 0;
 }
 @media (max-width: 27.5em) {
-  .form-contacts__button {
+  .form-contact__button {
     width: 100%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
 }
-.form-contacts__area {
+.form-contact__area {
   background-color: rgba(57, 62, 70, 0.5);
   border-radius: 1rem;
   min-height: 17.5rem;
@@ -436,8 +471,49 @@
   padding-top: 1rem;
   padding-left: 1.5rem;
   resize: none;
+  color: #FFFFFF;
 }
-.form-contacts__text {
+.form-contact__area::-webkit-input-placeholder {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__area::-moz-placeholder {
+  opacity: 1;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__area:-ms-input-placeholder {
+  opacity: 1;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__area::-ms-input-placeholder {
+  opacity: 1;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__area::placeholder {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.form-contact__area:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.form-contact__area:focus::-moz-placeholder {
+  opacity: 0;
+}
+.form-contact__area:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+.form-contact__area:focus::-ms-input-placeholder {
+  opacity: 0;
+}
+.form-contact__area:focus::placeholder {
+  opacity: 0;
+}
+.form-contact__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1227,6 +1303,12 @@ html[data-input=mouse] .menu-dropdown__item--submenu:hover .menu-dropdown__link:
   min-width: 9.375rem;
   z-index: 10;
   padding: 0.625rem;
+}
+@media (max-width: 40.625em) {
+  .submenu-dropdown {
+    left: 50%;
+    translate: -50% 0;
+  }
 }
 .submenu-dropdown__link {
   font-size: 0.875rem;

@@ -106,13 +106,13 @@
    &__form {}
 }
 
-.form-contacts {
-   // max-width: toRem(600);
-   // flex-grow: 1;
+.form-contact {
    flex: 1 1 50%;
+   flex-direction: column;
+   gap: toRem(24);
 
    // .form-contacts__top
-   &__top {
+   &__fields {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -124,8 +124,8 @@
       }
    }
 
-   // .form-contacts__name
-   &__name {
+   // .form-contacts__field
+   &__field {
       display: flex;
       flex-direction: column;
       gap: toRem(10);
@@ -141,14 +141,18 @@
       color: $grey;
       font-size: toRem(18);
       font-weight: 700;
-   }
+      color: $white;
 
-   // .form-contacts__email
-   &__email {
-      display: flex;
-      flex-direction: column;
-      gap: toRem(10);
-      width: 100%;
+      &::placeholder {
+         opacity: 1;
+         transition: opacity 0.3s;
+      }
+
+      &:focus {
+         &::placeholder {
+            opacity: 0;
+         }
+      }
    }
 
    &__button {
@@ -169,11 +173,22 @@
       padding-top: toRem(16);
       padding-left: toRem(24);
       resize: none;
+      color: $white;
+
+      &::placeholder {
+         opacity: 1;
+         transition: opacity 0.3s;
+      }
+
+      &:focus {
+         &::placeholder {
+            opacity: 0;
+         }
+       }
    }
 
    // .form-contacts__text
    &__text {
-      // width: toRem(600);
       display: flex;
       flex-direction: column;
       gap: toRem(10);
