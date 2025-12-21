@@ -38,7 +38,8 @@ export default defineConfig({
             main: resolve(__dirname, 'index.html'),
             about: resolve(__dirname, 'about.html'),
             contacts: resolve(__dirname, 'contacts.html'),
-            works: resolve(__dirname, 'works.html')
+            works: resolve(__dirname, 'works.html'),
+            skills: resolve(__dirname, 'skills.html')
          },
          output: {
             assetFileNames: 'assets/[name].[hash].[ext]',
