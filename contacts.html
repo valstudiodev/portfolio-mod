@@ -5,10 +5,10 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" type="image/svg+xml" href="/portfolio-mod/favicon.ico" />
-   <link rel="stylesheet" href="/src/pages/contacts/_contacts.scss">
+   <!-- <link rel="stylesheet" href=""> -->
    <title>Page-Contacts</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.4d5ba059.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.73f3dfcf.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.a17b0a9f.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.5b329c1d.css">
 </head>
 
 <body>
@@ -18,29 +18,39 @@
          <div class="header__container">
             <div class="header__inner">
                <div class="header__logo logo">
-                  <a href="./index.html" class="logo__link">
-                     <svg class="logo__image">
-                        <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-slash"></use>
-                     </svg>
-                  </a>
+                  <svg class="logo__image">
+                     <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-slash"></use>
+                  </svg>
                </div>
-               <nav class="header__menu menu-header">
-                  <ul class="menu-header__list">
-                     <li class="menu-header__item">
+               <nav class="header__menu menu-header menu-dropdown">
+                  <ul class="menu-header__list menu-dropdown__list">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./about.html" target="_blank" class="menu-header__link">About</a>
                      </li>
-                     <li class="menu-header__item">
-                        <a href="#" target="_blank" class="menu-header__link">Work</a>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./skills.html" target="_blank" class="menu-header__link">Skills</a>
                      </li>
-                     <li class="menu-header__item">
-                        <a href="#" class="menu-header__link">Contacts</a>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
                         <a href="#"
-                           class="menu-header__link menu-header__link--submenu menu-header__link--icon-chevron">Pages</a>
+                           class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">Pages</a>
+                        <ul class="menu-dropdown__submenu submenu-dropdown">
+                           <li class="submenu-dropdown__item">
+                              <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
+                                 class="submenu-dropdown__link">Accordion-menu</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="#" class="submenu-dropdown__link">Item 2</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="#" class="submenu-dropdown__link">Item 3</a>
+                           </li>
+                        </ul>
                      </li>
                   </ul>
                </nav>
@@ -52,6 +62,7 @@
                   <a target="_blank" href="https://github.com/valstudiodev"
                      class="media-social-link media-social__github media-social__github--icon-github">Github</a>
                </div>
+               <!-- <button type="button" class="button-regular button-regular--subscribe">Let's talk</button> -->
                <button class="icon-menu">
                   <span></span>
                </button>
@@ -67,23 +78,36 @@
                   <img src="/portfolio-mod/assets/man-step.ab92299f.png" alt="">
                </div>
             </div>
-            <form action="#" class="contacts-page__form form-contacts">
-               <div class="form-contacts__top">
-                  <div class="form-contacts__name">
-                     <label for="">Your name</label>
-                     <input class="form-contacts__input" type="text" placeholder="Name">
+            <!-- form -->
+            <form id="contact-form" action="https://formspree.io/f/mwveozpn" method="post"
+               class="contacts-page__form form-contact">
+               <div class="hidden-field" style="display:none;">
+                  <label>Keep this field empty</label>
+                  <input type="text" name="_gotcha">
+               </div>
+               <div class="form-contact__fields">
+                  <div class="form-contact__field">
+                     <label for="name">Your name</label>
+                     <input type="text" id="name" name="name" class="form-contact__input" placeholder="Name" required
+                        minlength="2">
                   </div>
-                  <div class="form-contacts__email">
-                     <label for="">Your email</label>
-                     <input class="form-contacts__input" type="email" placeholder="Email">
+                  <div class="form-contact__field">
+                     <label for="email">Your email</label>
+                     <input type="email" id="email" name="email" class="form-contact__input" placeholder="Email"
+                        required>
                   </div>
                </div>
-               <div class="form-contacts__text">
-                  <label for="message">Your Message</label>
-                  <textarea class="form-contacts__area" name="message" id="message" placeholder="Message"></textarea>
+               <div class="form-contact__text">
+                  <div class="form-contact__field">
+                     <label for="message">Your Message</label>
+                     <textarea class="form-contact__area" name="message" id="message" placeholder="Message" required
+                        minlength="10"></textarea>
+                  </div>
                </div>
-               <button type="submit" class="form-contacts__button button-regular button-regular--icon-send">Send
+               <button id="submit-button" type="submit" class="form-contact__button button-regular
+                  button-regular--icon-send">Send
                   Message</button>
+               <p id="status-message"></p>
             </form>
          </div>
       </main>
