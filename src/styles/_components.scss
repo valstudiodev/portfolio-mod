@@ -335,17 +335,15 @@
       }
    }
 
-   @media (any-hover: hover) and (any-pointer: fine) {
-      &:hover {
-         // color: $bgSecondary;
-         color: $white;
-         text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
-         &::before,
-         &::after {
-            translate: 0 0;
-            opacity: 1;
-            transform: skew(0);
-         }
+   @include hover {
+      color: $white;
+      text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
+
+      &::before,
+      &::after {
+         translate: 0 0;
+         opacity: 1;
+         transform: skew(0);
       }
    }
 }

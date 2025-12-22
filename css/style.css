@@ -2747,18 +2747,16 @@ html[data-input=mouse] .button-regular--subscribe:hover:hover {
 .button-figure:active::before, .button-figure:active::after {
   background-color: #0C73B8;
 }
-@media (any-hover: hover) and (any-pointer: fine) {
-  .button-figure:hover {
-    color: #FFFFFF;
-    text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
-  }
-  .button-figure:hover::before, .button-figure:hover::after {
-    translate: 0 0;
-    opacity: 1;
-    -webkit-transform: skew(0);
-        -ms-transform: skew(0);
-            transform: skew(0);
-  }
+html[data-input=mouse] .button-figure:hover {
+  color: #FFFFFF;
+  text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
+}
+html[data-input=mouse] .button-figure:hover::before, html[data-input=mouse] .button-figure:hover::after {
+  translate: 0 0;
+  opacity: 1;
+  -webkit-transform: skew(0);
+      -ms-transform: skew(0);
+          transform: skew(0);
 }
 
 .button-download {
