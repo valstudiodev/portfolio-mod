@@ -4,23 +4,58 @@
 // -----------------------------
 // ВИЗНАЧЕННЯ ТИПУ ВВОДУ (Input Mode)
 // -----------------------------
+// export function initInputMode() {
+//    const html = document.documentElement;
+//    let lockedByKeyboard = false;
+
+//    // const set = (type) => {
+//    //    if (html.dataset.input !== type) {
+//    //       html.dataset.input = type;
+//    //    }
+//    // };
+
+//    function setInputMode(type) {
+//       html.dataset.input = type;
+//    }
+
+//    const isTouchInitial = window.matchMedia('(pointer: coarse)').matches;
+//    setInputMode(isTouchInitial ? 'touch' : 'mouse');
+
+//    window.addEventListener('keydown', (e) => {
+//       if (e.key === 'Tab') {
+//          lockedByKeyboard = true;
+//          setInputMode('keyboard');
+//       }
+//    });
+
+//    window.addEventListener('pointermove', (e) => {
+//       if (e.pointerType === 'mouse' && !lockedByKeyboard) {
+//          setInputMode('mouse');
+//       }
+//    }, { passive: true });
+
+//    window.addEventListener('pointerdown', (e) => {
+//       lockedByKeyboard = false;
+//       setInputMode(e.pointerType);
+//    });
+// }
+
+
+
 export function initInputMode() {
    const html = document.documentElement;
    let lockedByKeyboard = false;
 
-   // const set = (type) => {
-   //    if (html.dataset.input !== type) {
-   //       html.dataset.input = type;
-   //    }
-   // };
-
    function setInputMode(type) {
-      html.dataset.input = type;
+      if (html.dataset.input !== type) {
+         html.dataset.input = type;
+      }
    }
 
-   const isTouchInitial = window.matchMedia('(pointer: coarse)').matches;
-   setInputMode(isTouchInitial ? 'touch' : 'mouse');
+   // ✅ На старті завжди touch
+   setInputMode('touch');
 
+   // Keyboard
    window.addEventListener('keydown', (e) => {
       if (e.key === 'Tab') {
          lockedByKeyboard = true;
@@ -28,14 +63,27 @@ export function initInputMode() {
       }
    });
 
-   window.addEventListener('pointermove', (e) => {
-      if (e.pointerType === 'mouse' && !lockedByKeyboard) {
-         setInputMode('mouse');
-      }
-   }, { passive: true });
+   // Mouse рух — єдиний спосіб увімкнути hover
+   window.addEventListener(
+      'pointermove',
+      (e) => {
+         if (e.pointerType === 'mouse' && !lockedByKeyboard) {
+            setInputMode('mouse');
+         }
+      },
+      { passive: true }
+   );
 
+   // Pointer down
    window.addEventListener('pointerdown', (e) => {
       lockedByKeyboard = false;
-      setInputMode(e.pointerType);
+
+      if (e.pointerType === 'mouse') {
+         setInputMode('mouse');
+      } else {
+         // ❗️touch / pen НІКОЛИ не вмикають hover
+         setInputMode('touch');
+      }
    });
 }
+
