@@ -16,7 +16,7 @@ function initApp() {
    initInputMode()
    initDropdowns()
    initEffects()
-   // movingElements()
+   movingElements()
    // formUtils()
    initUtils()
 }
@@ -26,24 +26,6 @@ if (document.readyState === 'loading') {
 } else {
    initApp();
 }
-
-
-// ===========================================================================================
-// -----------------------------
-// active-link
-// -----------------------------
-// const links = document.querySelectorAll('.menu-header__link')
-// const current = window.location.pathname
-
-// links.forEach(link => {
-//    link.addEventListener('active', () => {
-//       if (link.getAttribute('href') === current) {
-//          link.classList.toggle('active-page')
-//       }
-//       console.log("works");
-//    })
-// })
-
 
 
 

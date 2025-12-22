@@ -72,9 +72,6 @@ html[data-input="mouse"] {
       }
    }
 }
-
-
-
 html[data-input="keyboard"] {
    >  * :focus-visible {
       outline: toRem(2) solid $brandDark;

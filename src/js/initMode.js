@@ -4,52 +4,6 @@
 // -----------------------------
 // ВИЗНАЧЕННЯ ТИПУ ВВОДУ (Input Mode)
 // -----------------------------
-// export function initInputMode() {
-//    const html = document.documentElement;
-//    let lockedByKeyboard = false;
-
-//    function setInputMode(type) {
-//       if (html.dataset.input !== type) {
-//          html.dataset.input = type;
-//       }
-//    }
-
-//    // ✅ На старті завжди touch
-//    setInputMode('touch');
-
-//    // Keyboard
-//    window.addEventListener('keydown', (e) => {
-//       if (e.key === 'Tab') {
-//          lockedByKeyboard = true;
-//          setInputMode('keyboard');
-//       }
-//    });
-
-//    // Mouse рух — єдиний спосіб увімкнути hover
-//    window.addEventListener(
-//       'pointermove',
-//       (e) => {
-//          if (e.pointerType === 'mouse' && !lockedByKeyboard) {
-//             setInputMode('mouse');
-//          }
-//       },
-//       { passive: true }
-//    );
-
-//    // Pointer down
-//    window.addEventListener('pointerdown', (e) => {
-//       lockedByKeyboard = false;
-
-//       if (e.pointerType === 'mouse') {
-//          setInputMode('mouse');
-//       } else {
-//          // ❗️touch / pen НІКОЛИ не вмикають hover
-//          setInputMode('touch');
-//       }
-//    });
-// }
-
-
 export function initInputMode() {
    const html = document.documentElement;
    let lockedByKeyboard = false;
@@ -87,3 +41,5 @@ export function initInputMode() {
       setInputMode(e.pointerType === 'mouse' ? 'mouse' : 'touch');
    });
 }
+
+

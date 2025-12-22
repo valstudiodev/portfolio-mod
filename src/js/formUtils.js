@@ -85,18 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
                }
             });
 
-            // if (response.ok) {
-            //    // 3. Успішна відправка
-            //    statusMsg.style.color = "#2ecc71";
-            //    statusMsg.innerText = "Message sent successfully!";
-            //    contactForm.reset(); // Очищуємо форму
-            // } else {
-            //    // Обробка помилок від сервера
-            //    const data = await response.json();
-            //    statusMsg.style.color = "#e74c3c";
-            //    statusMsg.innerText = data.errors ? data.errors[0].message : "Error. Please try again.";
-            // }
-
             if (response.ok) {
                // 1. Показуємо повідомлення про успіх
                statusMsg.style.color = "#12F7D6";

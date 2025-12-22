@@ -274,8 +274,8 @@
    @include adaptiveValue('padding-inline', 48, 42);
    border: toRem(3) solid $brandPrimary;
    background-color: $bgSecondary;
-   // color: $white;
-   color: $brandPrimary;
+   // color: $brandPrimary;
+   color: $brandSecondary;
    text-transform: capitalize;
    @include adaptiveValue('font-size', 32, 22);
    line-height: 1.12;
@@ -304,12 +304,12 @@
 
    &::before {
       left: 0;
-      translate: -95% 0;
+      translate: -100% 0;
    }
 
    &::after {
       right: 0;
-      translate: 95% 0;
+      translate: 100% 0;
    }
 
    &--green {
@@ -495,39 +495,39 @@
 }
 
 .button-arrow {
-   border-radius: 50%;
    background-color: $bgPrimary;
-   padding: toRem(16);
-   width: toRem(72);
+   @include adaptiveValue('padding-block',18,10);
+   @include adaptiveValue('padding-inline',23,12);
    aspect-ratio: 1;
    flex-shrink: 0;
    backdrop-filter: blur(20px);
    transition: all 0.4s;
+   border: toRem(1) solid $brandDark;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 
    &--left {
+      border-radius: toRem(40) toRem(0) toRem(0) toRem(40);
       &::before {
          rotate: 180deg;
       }
    }
 
+   &--right {
+      border-radius: toRem(0) toRem(40) toRem(40) toRem(0);
+   }
+
    &::before {
-      font-size: toRem(30);
-      transition: translate 0.3s;
+      @include adaptiveValue('font-size',26,20);
+      transition: translate 0.3s, animation 0.4s ease;
    }
 
-   // .button-arrow--icon-chevron
-   &--icon-chevron {}
-
-
-   @media (max-width: toEm($mobile)) {
-      display: none;
-   }
-
-   @media (any-hover: hover) and (any-pointer: fine) {
-      &:hover {
-         background-color: $butHovGreen;
+   @include hover {
+      background-color: $butHovGreen;
+      &::before {
+         animation: arrowMove 0.5s forwards infinite;
       }
-
       &:active {
          background-color: $brandDark;
       }
@@ -580,36 +580,6 @@
                animation: jumpArrow 0.6s ease-in-out infinite;
             }
          }
-   }
-}
-
-.media-social-link {
-   position: relative;
-
-   &::after {
-     content: "";
-     position: absolute;
-     bottom: 0;
-     left: 50%;
-     translate: -50% 0;
-     background-color: $brandDark;
-     width: 0;
-     height: toRem(2);
-     transition: width 0.3s;
-   }
-
-   @include hover {
-      &:hover {
-         color: $brandDark;
-         text-shadow:
-            0 0 8px rgba(218, 197, 167, 0.6),
-            0 0 15px rgba(218, 197, 167, 0.3),
-            0 0 25px rgba(218, 197, 167, 0.15);
-
-         &::after {
-            width: 100%;
-         }
-      }
    }
 }
 
