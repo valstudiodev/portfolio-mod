@@ -6,8 +6,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" type="image/svg+xml" href="/portfolio-mod/favicon.ico" />
    <title>Skills</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.e8406909.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.06024077.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.c717a5cd.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.22a20bc3.css">
 </head>
 
 <body>
@@ -15,40 +15,52 @@
       <header class="header">
          <div class="header__container">
             <div class="header__inner">
-               <a href="./index.html" class="header__logo logo">
+               <div class="header__logo logo">
                   <svg class="logo__image">
                      <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-slash"></use>
                   </svg>
-               </a>
-               <nav class="header__menu menu-header">
-                  <ul class="menu-header__list">
-                     <li class="menu-header__item">
+               </div>
+               <nav class="header__menu menu-header menu-dropdown">
+                  <ul class="menu-header__list menu-dropdown__list">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./about.html" target="_blank" class="menu-header__link">About</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
                      </li>
-                     <li class="menu-header__item">
-                        <a href="#" class="menu-header__link">Skills</a>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./skills.html" target="_blank" class="menu-header__link">Skills</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item">
                         <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
                      </li>
-                     <li class="menu-header__item">
+                     <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
                         <a href="#"
-                           class="menu-header__link menu-header__link--submenu menu-header__link--icon-chevron">Pages</a>
+                           class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">
+                           Pages</a>
+                        <ul class="menu-dropdown__submenu submenu-dropdown">
+                           <li class="submenu-dropdown__item">
+                              <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
+                                 class="submenu-dropdown__link">Accordion-menu</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="#" class="submenu-dropdown__link">Item 2</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="#" class="submenu-dropdown__link">Item 3</a>
+                           </li>
+                        </ul>
                      </li>
                   </ul>
                </nav>
                <div class="header__media media-social">
-                  <a target="_blank" href="#"
-                     class="media-social-link media-social__instagram media-social__instagram--icon-at-sign">Email</a>
-                  <a target="_blank" href="#"
-                     class="media-social-link media-social__discord media-social__discord--icon-discord">Discord</a>
+                  <a target="_blank" href="https://t.me/Tkach06"
+                     class="media-social__link media-social__telegram media-social__telegram--icon-telegram">Telegram</a>
+                  <a target="_blank" href="https://discord.gg/dpDqppvm"
+                     class="media-social__link media-social__discord media-social__discord--icon-discord">Discord</a>
                   <a target="_blank" href="https://github.com/valstudiodev"
-                     class="media-social-link media-social__github media-social__github--icon-github">Github</a>
+                     class="media-social__link media-social__github media-social__github--icon-github">Github</a>
                </div>
-               <!-- <button type="button" class="button-regular button-regular--subscribe">Let's talk</button> -->
                <button class="icon-menu">
                   <span></span>
                </button>
@@ -142,31 +154,33 @@
                <div class="body-footer__menu menu-footer">
                   <ul class="menu-footer__list">
                      <li class="menu-footer__item">
-                        <a target="_blank" href="./index.html"
-                           class="menu-footer__link menu-footer__link--icon-home">Home</a>
+                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-home">Home</a>
                      </li>
                      <li class="menu-footer__item">
                         <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-user">About me</a>
                      </li>
                      <li class="menu-footer__item">
-                        <a target="_blank" href="./contacts.html"
-                           class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
+                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
                      </li>
                   </ul>
                </div>
                <address class="body-footer__social social-footer">
                   <ul class="social-footer__list">
                      <li class="social-footer__item">
-                        <a target="_blank" href="#" class="social-footer__link social-footer__link--icon-fb"></a>
+                        <a target="_blank" href="https://t.me/Tkach06"
+                           class="social-footer__link social-footer__link--icon-telegram"></a>
                      </li>
                      <li class="social-footer__item">
-                        <a target="_blank" href="#" class="social-footer__link social-footer__link--icon-instagram"></a>
+                        <a target="_blank" href="https://discord.gg/dpDqppvm"
+                           class="social-footer__link social-footer__link--icon-discord"></a>
                      </li>
                      <li class="social-footer__item">
-                        <a target="_blank" href="#" class="social-footer__link social-footer__link--icon-watsup"></a>
+                        <a target="_blank" href="https://wa.me/0973906454"
+                           class="social-footer__link social-footer__link--icon-watsup"></a>
                      </li>
                      <li class="social-footer__item">
-                        <a target="_blank" href="#" class="social-footer__link social-footer__link--icon-telegram"></a>
+                        <a target="_blank" href="https://m.me/@valentyn.tkachenko"
+                           class="social-footer__link social-footer__link--icon-fb"></a>
                      </li>
                   </ul>
                </address>
