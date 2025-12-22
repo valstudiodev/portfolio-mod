@@ -8,19 +8,16 @@
 //    const html = document.documentElement;
 //    let lockedByKeyboard = false;
 
-//    // const set = (type) => {
-//    //    if (html.dataset.input !== type) {
-//    //       html.dataset.input = type;
-//    //    }
-//    // };
-
 //    function setInputMode(type) {
-//       html.dataset.input = type;
+//       if (html.dataset.input !== type) {
+//          html.dataset.input = type;
+//       }
 //    }
 
-//    const isTouchInitial = window.matchMedia('(pointer: coarse)').matches;
-//    setInputMode(isTouchInitial ? 'touch' : 'mouse');
+//    // ✅ На старті завжди touch
+//    setInputMode('touch');
 
+//    // Keyboard
 //    window.addEventListener('keydown', (e) => {
 //       if (e.key === 'Tab') {
 //          lockedByKeyboard = true;
@@ -28,18 +25,29 @@
 //       }
 //    });
 
-//    window.addEventListener('pointermove', (e) => {
-//       if (e.pointerType === 'mouse' && !lockedByKeyboard) {
-//          setInputMode('mouse');
-//       }
-//    }, { passive: true });
+//    // Mouse рух — єдиний спосіб увімкнути hover
+//    window.addEventListener(
+//       'pointermove',
+//       (e) => {
+//          if (e.pointerType === 'mouse' && !lockedByKeyboard) {
+//             setInputMode('mouse');
+//          }
+//       },
+//       { passive: true }
+//    );
 
+//    // Pointer down
 //    window.addEventListener('pointerdown', (e) => {
 //       lockedByKeyboard = false;
-//       setInputMode(e.pointerType);
+
+//       if (e.pointerType === 'mouse') {
+//          setInputMode('mouse');
+//       } else {
+//          // ❗️touch / pen НІКОЛИ не вмикають hover
+//          setInputMode('touch');
+//       }
 //    });
 // }
-
 
 
 export function initInputMode() {
@@ -52,10 +60,9 @@ export function initInputMode() {
       }
    }
 
-   // ✅ На старті завжди touch
+   // ✅ Mobile First: старт з touch
    setInputMode('touch');
 
-   // Keyboard
    window.addEventListener('keydown', (e) => {
       if (e.key === 'Tab') {
          lockedByKeyboard = true;
@@ -63,27 +70,20 @@ export function initInputMode() {
       }
    });
 
-   // Mouse рух — єдиний спосіб увімкнути hover
-   window.addEventListener(
-      'pointermove',
-      (e) => {
-         if (e.pointerType === 'mouse' && !lockedByKeyboard) {
+   window.addEventListener('pointermove', (e) => {
+      // 🛡 Додатковий захист: перевіряємо e.movement (чи реально рухається миша)
+      // Або просто суворо фільтруємо тип
+      if (e.pointerType === 'mouse' && !lockedByKeyboard) {
+         // На деяких тачах рух пальцем викликає pointermove з mouse і movement: 0
+         if (e.movementX !== 0 || e.movementY !== 0) {
             setInputMode('mouse');
          }
-      },
-      { passive: true }
-   );
+      }
+   }, { passive: true });
 
-   // Pointer down
    window.addEventListener('pointerdown', (e) => {
       lockedByKeyboard = false;
-
-      if (e.pointerType === 'mouse') {
-         setInputMode('mouse');
-      } else {
-         // ❗️touch / pen НІКОЛИ не вмикають hover
-         setInputMode('touch');
-      }
+      // Суворе розділення
+      setInputMode(e.pointerType === 'mouse' ? 'mouse' : 'touch');
    });
 }
-
