@@ -77,6 +77,13 @@
       }
    }
 
+   &__form {
+      flex: 1 1 50%;
+      @include adaptiveValue('padding',20,5);
+      overflow-x: hidden;
+      max-width: 100%;
+   }
+
    // .contacts-page__title
    &__title {
       @include adaptiveValue('font-size', 64, 40);

@@ -328,6 +328,28 @@
     display: none;
   }
 }
+.contacts-page__form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+@media (min-width: 105.875em) {
+  .contacts-page__form {
+    padding: 20px;
+  }
+}
+@media (min-width: 20em) and (max-width: 105.875em) {
+  .contacts-page__form {
+    padding: clamp( 5px , 1.5065502183px  +  1.0917030568vw , 20px );
+  }
+}
+@media (max-width: 20em) {
+  .contacts-page__form {
+    padding: 5px;
+  }
+}
 .contacts-page__title {
   font-weight: 700;
   max-width: 40.625rem;
