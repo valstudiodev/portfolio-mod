@@ -53,7 +53,7 @@
 
 .modal-close {
    position: absolute;
-   @include adaptiveValue('top',10,5);
+   @include adaptiveValue('top',0,0);
    @include adaptiveValue('right',20,10);
    font-size: toRem(40);
    color: $white;

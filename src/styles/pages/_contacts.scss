@@ -5,7 +5,7 @@
 .contacts-page {
    background-color: $bgPrimary;
    // background-color: $bgSecondary;
-   @include adaptiveValue('padding-top', 350, 170);
+   @include adaptiveValue('padding-top', 350, 130);
    @include adaptiveValue('padding-bottom', 120, 50);
 
 
@@ -150,6 +150,8 @@
       }
 
       &:focus {
+         outline: none;
+         box-shadow: 0 0 0 2px $brandDark;
          &::placeholder {
             opacity: 0;
          }
@@ -194,5 +196,14 @@
       flex-direction: column;
       gap: toRem(10);
       margin-bottom: toRem(24);
+   }
+}
+
+textarea {
+   &.form-contact__area {
+      &:focus {
+         outline: none;
+         box-shadow: 0 0 0 2px $brandDark;
+      }
    }
 }

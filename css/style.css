@@ -221,12 +221,12 @@
 }
 @media (min-width: 20em) and (max-width: 105.875em) {
   .contacts-page {
-    padding-top: clamp( 170px , 128.0786026201px  +  13.1004366812vw , 350px );
+    padding-top: clamp( 130px , 78.7627365357px  +  16.0116448326vw , 350px );
   }
 }
 @media (max-width: 20em) {
   .contacts-page {
-    padding-top: 170px;
+    padding-top: 130px;
   }
 }
 @media (min-width: 105.875em) {
@@ -453,6 +453,11 @@
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
+.form-contact__input:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px #00ADB5;
+          box-shadow: 0 0 0 2px #00ADB5;
+}
 .form-contact__input:focus::-webkit-input-placeholder {
   opacity: 0;
 }
@@ -580,6 +585,12 @@
           flex-direction: column;
   gap: 0.625rem;
   margin-bottom: 1.5rem;
+}
+
+textarea.form-contact__area:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px #00ADB5;
+          box-shadow: 0 0 0 2px #00ADB5;
 }
 
 .projects-page {
@@ -1048,17 +1059,17 @@
 }
 @media (min-width: 105.875em) {
   .modal-close {
-    top: 10px;
+    top: 0.000001px;
   }
 }
 @media (min-width: 20em) and (max-width: 105.875em) {
   .modal-close {
-    top: clamp( 5px , 3.8355167394px  +  0.3639010189vw , 10px );
+    top: clamp( 0.000001px , 0.000001px  +  0vw , 0.000001px );
   }
 }
 @media (max-width: 20em) {
   .modal-close {
-    top: 5px;
+    top: 0.000001px;
   }
 }
 @media (min-width: 105.875em) {
