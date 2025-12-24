@@ -1010,6 +1010,13 @@
   overflow-y: auto;
   pointer-events: auto;
   z-index: 1;
+  -webkit-transform: translateY(-1.875rem);
+      -ms-transform: translateY(-1.875rem);
+          transform: translateY(-1.875rem);
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, -webkit-transform 0.3s ease;
 }
 @media (min-width: 105.875em) {
   .modal-window {
@@ -1025,6 +1032,12 @@
   .modal-window {
     padding: 20px;
   }
+}
+.is-open .modal-window {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
 }
 
 .modal-close {
