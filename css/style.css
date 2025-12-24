@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,200,300,regular,500,600,700);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,regular,500,700);
 .page-about {
@@ -1074,6 +1075,84 @@
   .modal-close {
     right: 10px;
   }
+}
+
+.success-active {
+  background-color: #1A1E23;
+  color: #00ADB5;
+  padding: 1.875rem;
+  border-radius: 1.25rem;
+}
+
+/* Унікальний Overlay для статусів */
+.status-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  /* Трохи темніший фон */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 9999;
+  /* Максимальний пріоритет, щоб бути поверх усього */
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.status-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.status-overlay.is-visible .status-modal-content {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.status-modal-content {
+  background: #43454D;
+  padding: 1.875rem;
+  border-radius: 1rem;
+  text-align: center;
+  -webkit-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+          transform: scale(0.7);
+  -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Ефект "вистрибування" */
+}
+.status-modal-content.status-text {
+  font-size: 2.5rem;
+}
+
+/* Стилі для тексту */
+#status-text {
+  font-size: 1.375rem;
+  margin: 0;
+}
+
+.status-success #status-text {
+  color: #00ADB5;
+}
+
+.status-error #status-text {
+  color: #e74c3c;
+}
+
+/* Блокування кнопки */
+#submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 *,
