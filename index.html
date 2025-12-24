@@ -7,8 +7,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
    <title>Portfolio</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.c717a5cd.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.22a20bc3.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.f8266df6.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.f3364925.css">
 </head>
 
 <body>
@@ -140,7 +140,8 @@
                                  class="content-hero__button button button--dark button--icon-mail"><span>Let's
                                     talk</span>
                               </button> -->
-                        <button type="button" class="content-hero__button button-figure button-figure--icon-mail">Let's
+                        <button id="open-btn-modal" type="button"
+                           class="content-hero__button button-figure button-figure--icon-mail open-btn-modal">Let's
                            talk</button>
                      </div>
                   </div>
@@ -496,7 +497,8 @@
                   </div>
                </div>
             </div>
-            <button type="button" class="intro__button button-figure button-figure--green ">
+            <button type="button" id="open-btn-modal"
+               class="intro__button button-figure button-figure--green open-btn-modal">
                Send me a message
             </button>
          </div>
@@ -550,6 +552,10 @@
       </footer>
    </div>
 
+   <div id="modal-overlay" class="modal-overlay">
+      <div id="modal-content" class="modal-window">
+      </div>
+   </div>
 
    <div id="app"></div>
    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
