@@ -131,64 +131,63 @@ export function formUtils() {
 
 
 // Використовуємо window.onload або DOMContentLoaded для впевненості
-// window.addEventListener('DOMContentLoaded', () => {
-//    const contactForm = document.getElementById('contact-form');
-//    const submitBtn = document.getElementById('submit-button');
-//    const statusOverlay = document.getElementById('status-overlay');
-//    const statusText = document.getElementById('status-text');
+window.addEventListener('DOMContentLoaded', () => {
+   const contactForm = document.getElementById('contact-form');
+   const submitBtn = document.getElementById('submit-button');
+   const statusOverlay = document.getElementById('status-overlay');
+   const statusText = document.getElementById('status-text');
 
-//    // Перевірка в консолі: якщо ви бачите це повідомлення, значить елементи знайдені
-//    if (!contactForm) {
-//       console.error("Помилка: Форму з id='contact-form' не знайдено!");
-//       return;
-//    }
+   // Перевірка в консолі: якщо ви бачите це повідомлення, значить елементи знайдені
+   if (!contactForm) {
+      console.error("Помилка: Форму з id='contact-form' не знайдено!");
+      return;
+   }
 
-//    const triggerStatus = (message, isSuccess) => {
-//       statusText.innerText = message;
-//       statusOverlay.classList.remove('status-success', 'status-error'); // скидаємо класи
-//       statusOverlay.classList.add('is-visible', isSuccess ? 'status-success' : 'status-error');
+   const triggerStatus = (message, isSuccess) => {
+      statusText.innerText = message;
+      statusOverlay.classList.remove('status-success', 'status-error'); // скидаємо класи
+      statusOverlay.classList.add('is-visible', isSuccess ? 'status-success' : 'status-error');
 
-//       setTimeout(() => {
-//          statusOverlay.classList.remove('is-visible');
-//       }, 4000);
-//    };
+      setTimeout(() => {
+         statusOverlay.classList.remove('is-visible');
+      }, 4000);
+   };
 
-//    // ГОЛОВНА ЧАСТИНА: перехоплення події
-//    contactForm.addEventListener('submit', async function (e) {
-//       e.preventDefault(); // ЦЕЙ РЯДОК ЗАБОРОНЯЄ ПЕРЕХІД НА FORMSPREE
+   // ГОЛОВНА ЧАСТИНА: перехоплення події
+   contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault(); // ЦЕЙ РЯДОК ЗАБОРОНЯЄ ПЕРЕХІД НА FORMSPREE
 
-//       // Блокуємо кнопку відразу
-//       submitBtn.disabled = true;
-//       const originalBtnText = submitBtn.innerText;
-//       submitBtn.innerText = "Sending...";
+      // Блокуємо кнопку відразу
+      submitBtn.disabled = true;
+      const originalBtnText = submitBtn.innerText;
+      submitBtn.innerText = "Sending...";
 
-//       const formData = new FormData(this);
+      const formData = new FormData(this);
 
-//       try {
-//          const response = await fetch(this.action, {
-//             method: 'POST',
-//             body: formData,
-//             headers: {
-//                'Accept': 'application/json'
-//             }
-//          });
+      try {
+         const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+               'Accept': 'application/json'
+            }
+         });
 
-//          if (response.ok) {
-//             this.reset();
-//             triggerStatus("✅ Message sent successfully!", true);
-//          } else {
-//             const result = await response.json();
-//             triggerStatus("❌ Error: " + (result.errors ? result.errors[0].message : "Try again"), false);
-//          }
-//       } catch (err) {
-//          triggerStatus("❌ Connection lost. Check your internet.", false);
-//       } finally {
-//          submitBtn.disabled = false;
-//          submitBtn.innerText = originalBtnText;
-//       }
-//    });
-// });
-
+         if (response.ok) {
+            this.reset();
+            triggerStatus("✅ Message sent successfully!", true);
+         } else {
+            const result = await response.json();
+            triggerStatus("❌ Error: " + (result.errors ? result.errors[0].message : "Try again"), false);
+         }
+      } catch (err) {
+         triggerStatus("❌ Connection lost. Check your internet.", false);
+      } finally {
+         submitBtn.disabled = false;
+         submitBtn.innerText = originalBtnText;
+      }
+   });
+});
 
 document.addEventListener('submit', async function (e) {
    // Перевіряємо, чи форма має атрибут action з посиланням на formspree
@@ -253,3 +252,62 @@ function showStatusModal(message, isSuccess, overlay, textElem) {
       overlay.classList.remove('is-visible', 'status-success', 'status-error');
    }, 4000);
 }
+
+
+// document.addEventListener('submit', async function (e) {
+//    const form = e.target;
+//    if (!form.action.includes("formspree.io")) return;
+
+//    e.preventDefault();
+
+//    const submitBtn = form.querySelector('[type="submit"]');
+//    const statusOverlay = document.getElementById('status-overlay');
+//    const statusText = document.getElementById('status-text');
+
+//    if (submitBtn) {
+//       submitBtn.disabled = true;
+//       submitBtn.dataset.originalText = submitBtn.innerText;
+//       submitBtn.innerText = "Sending...";
+//    }
+
+//    try {
+//       const response = await fetch(form.action, {
+//          method: 'POST',
+//          body: new FormData(form),
+//          headers: { 'Accept': 'application/json' }
+//       });
+
+//       if (response.ok) {
+//          form.reset();
+//          handleNotification("✅ Message sent successfully!", true, statusOverlay, statusText);
+//       } else {
+//          handleNotification("❌ Error sending message.", false, statusOverlay, statusText);
+//       }
+//    } catch (err) {
+//       handleNotification("❌ Connection error.", false, statusOverlay, statusText);
+//    } finally {
+//       if (submitBtn) {
+//          submitBtn.disabled = false;
+//          submitBtn.innerText = submitBtn.dataset.originalText;
+//       }
+//    }
+// });
+
+// function handleNotification(message, isSuccess, overlay, textElem) {
+//    if (overlay && textElem) {
+//       textElem.innerText = message;
+//       overlay.classList.remove('status-success', 'status-error');
+//       overlay.classList.add('is-visible', isSuccess ? 'status-success' : 'status-error');
+
+//       // Фікс скролу
+//       document.body.classList.add('no-scroll');
+
+//       setTimeout(() => {
+//          overlay.classList.remove('is-visible');
+//          document.body.classList.remove('no-scroll');
+//       }, 4000);
+//    } else {
+//       // Якщо модалки немає в HTML, вискочить це вікно
+//       alert(message);
+//    }
+// }

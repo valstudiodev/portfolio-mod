@@ -34,6 +34,10 @@ body {
       touch-action: none;
       overscroll-behavior: none;
    }
+   &.no-scroll {
+      overflow: hidden;
+      height: 100vh;
+   }
 }
 
 .wrapper {

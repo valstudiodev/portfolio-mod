@@ -332,7 +332,7 @@
   -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
           flex: 1 1 50%;
-  overflow-x: hidden;
+  overflow: hidden;
   max-width: 100%;
 }
 @media (min-width: 105.875em) {
@@ -613,6 +613,12 @@ textarea.form-contact__area:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 2px #00ADB5;
           box-shadow: 0 0 0 2px #00ADB5;
+}
+
+input:invalid {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
 }
 
 .projects-page {
@@ -1243,6 +1249,8 @@ textarea {
   line-height: inherit;
   color: inherit;
   background-color: transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 input,
@@ -4215,6 +4223,10 @@ body.scroll-lock {
       touch-action: none;
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
+}
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
 
 .wrapper {

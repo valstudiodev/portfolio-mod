@@ -80,7 +80,7 @@
    &__form {
       flex: 1 1 50%;
       @include adaptiveValue('padding',20,5);
-      overflow-x: hidden;
+      overflow: hidden;
       max-width: 100%;
    }
 
@@ -213,4 +213,9 @@ textarea {
          box-shadow: 0 0 0 2px $brandDark;
       }
    }
+}
+
+input:invalid {
+   box-shadow: none;
+   outline: none;
 }
