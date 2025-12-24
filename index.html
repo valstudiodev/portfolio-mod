@@ -138,7 +138,8 @@
                                  class="content-hero__button button button--dark button--icon-mail"><span>Let's
                                     talk</span>
                               </button> -->
-                        <button type="button" class="content-hero__button button-figure button-figure--icon-mail">Let's
+                        <button id="open-btn-modal" type="button"
+                           class="content-hero__button button-figure button-figure--icon-mail open-btn-modal">Let's
                            talk</button>
                      </div>
                   </div>
@@ -494,7 +495,8 @@
                   </div>
                </div>
             </div>
-            <button type="button" class="intro__button button-figure button-figure--green ">
+            <button type="button" id="open-btn-modal"
+               class="intro__button button-figure button-figure--green open-btn-modal">
                Send me a message
             </button>
          </div>
@@ -548,6 +550,10 @@
       </footer>
    </div>
 
+   <div id="modal-overlay" class="modal-overlay">
+      <div id="modal-content" class="modal-window">
+      </div>
+   </div>
 
    <div id="app"></div>
    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>

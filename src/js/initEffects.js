@@ -187,3 +187,61 @@ menuItems.forEach(item => {
    });
 });
 
+
+
+
+
+// const openBtn = document.querySelector('#open-btn-modal');
+// const modal = document.querySelector('#modal-overlay');
+// const modalContent = document.querySelector('#modal-content');
+
+// let isLoaded = false;
+
+// async function openModal() {
+//    try {
+//       if (!isLoaded) {
+//          const response = await fetch('modal.html');
+//          if (!response.ok) throw new Error('Load error');
+
+//          const html = await response.text();
+//          modalContent.innerHTML = html;
+
+//          isLoaded = true;
+//       }
+
+//       modal.classList.add('is-open');
+//       document.body.classList.add('no-scroll');
+
+//    } catch (error) {
+//       console.error(error);
+//    }
+// }
+
+// function closeModal() {
+//    modal.classList.remove('is-open');
+//    document.body.classList.remove('no-scroll');
+// }
+
+// openBtn.addEventListener('click', openModal);
+
+// // закриття по overlay
+// modal.addEventListener('click', (e) => {
+//    if (e.target === modal) {
+//       closeModal();
+//    }
+// });
+
+// // закриття по Escape
+// document.addEventListener('keydown', (e) => {
+//    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+//       closeModal();
+//    }
+// });
+
+
+
+
+
+
+
+

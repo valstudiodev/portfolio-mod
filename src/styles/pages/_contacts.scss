@@ -107,6 +107,7 @@
 }
 
 .form-contact {
+   // position: relative;
    flex: 1 1 50%;
    flex-direction: column;
    gap: toRem(24);
@@ -139,7 +140,7 @@
       padding-block: toRem(16);
       padding-inline-start: toRem(24);
       color: $grey;
-      font-size: toRem(18);
+      @include adaptiveValue('font-size',18,13);
       font-weight: 700;
       color: $white;
 
@@ -168,10 +169,10 @@
       border-radius: toRem(16);
       min-height: toRem(280);
       color: $grey;
-      font-size: toRem(18);
+      @include adaptiveValue('font-size',18,16);
       font-weight: 700;
-      padding-top: toRem(16);
-      padding-left: toRem(24);
+      @include adaptiveValue('padding-block',16,10);
+      @include adaptiveValue('padding-inline',24,10);
       resize: none;
       color: $white;
 
