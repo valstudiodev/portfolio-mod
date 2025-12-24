@@ -7,8 +7,8 @@
    <link rel="icon" type="image/svg+xml" href="/portfolio-mod/favicon.ico" />
    <!-- <link rel="stylesheet" href=""> -->
    <title>Page-Contacts</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.794cdde6.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.bb5729ac.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.d9951e63.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.296e3807.css">
 </head>
 
 <body>
@@ -79,37 +79,35 @@
                </div>
             </div>
             <!-- form -->
-            <div class="contacts-page__form">
-               <form id="contact-form" action="https://formspree.io/f/mwveozpn" method="POST"
-                  class="contacts-page__form form-contact">
-                  <div class="hidden-field" style="display:none;">
-                     <label>Keep this field empty</label>
-                     <input type="text" name="_gotcha">
+            <form id="contact-form" action="https://formspree.io/f/mwveozpn" method="POST"
+               class="contacts-page__form form-contact" novalidate>
+               <div class="hidden-field" style="display:none;">
+                  <label>Keep this field empty</label>
+                  <input type="text" name="_gotcha">
+               </div>
+               <div class="form-contact__fields">
+                  <div class="form-contact__field">
+                     <label for="name">Your name</label>
+                     <input type="text" id="name" name="name" class="form-contact__input" placeholder="Name" required
+                        minlength="2">
                   </div>
-                  <div class="form-contact__fields">
-                     <div class="form-contact__field">
-                        <label for="name">Your name</label>
-                        <input type="text" id="name" name="name" class="form-contact__input" placeholder="Name" required
-                           minlength="2">
-                     </div>
-                     <div class="form-contact__field">
-                        <label for="email">Your email</label>
-                        <input type="email" id="email" name="email" class="form-contact__input" placeholder="Email"
-                           required>
-                     </div>
+                  <div class="form-contact__field">
+                     <label for="email">Your email</label>
+                     <input type="email" id="email" name="email" class="form-contact__input" placeholder="Email"
+                        required>
                   </div>
-                  <div class="form-contact__text">
-                     <div class="form-contact__field">
-                        <label for="message">Your Message</label>
-                        <textarea class="form-contact__area" name="message" id="message" placeholder="Message" required
-                           minlength="10"></textarea>
-                     </div>
+               </div>
+               <div class="form-contact__text">
+                  <div class="form-contact__field">
+                     <label for="message">Your Message</label>
+                     <textarea class="form-contact__area" name="message" id="message" placeholder="Message" required
+                        minlength="10"></textarea>
                   </div>
-                  <button id="submit-button" type="submit" class="form-contact__button button-regular
+               </div>
+               <button id="submit-button" type="submit" class="form-contact__button button-regular
                                  button-regular--icon-send">Send
-                     Message</button>
-               </form>
-            </div>
+                  Message</button>
+            </form>
          </div>
       </main>
 
