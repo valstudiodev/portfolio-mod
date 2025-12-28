@@ -2171,7 +2171,7 @@ html[data-input=mouse] .social-footer__link:hover:hover {
 }
 .about__desc {
   opacity: 0;
-  translate: -80% 0;
+  translate: -70% 0;
   -webkit-transition: translate 0.5s ease, opacity 0.6s ease;
   transition: translate 0.5s ease, opacity 0.6s ease;
   will-change: transform, opacity;
@@ -2413,6 +2413,17 @@ html[data-input=mouse] .social-footer__link:hover:hover {
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.3;
+}
+.projects__inner {
+  opacity: 0;
+  translate: 0 -3.125rem;
+  will-change: translate, opacity;
+  -webkit-transition: translate 0.5s ease, opacity 0.5s ease;
+  transition: translate 0.5s ease, opacity 0.5s ease;
+}
+.projects__inner.animate {
+  opacity: 1;
+  translate: 0 0;
 }
 @media (max-width: 48.06125em) {
   .projects__buttons-inner {
@@ -4338,6 +4349,12 @@ html[data-input=mouse] .cart-work:hover:hover {
 }
 html[data-input=mouse] .cart-work:hover:hover .cart-work__content {
   translate: 0 0.375rem;
+}
+
+html, body {
+  background-color: #292F36;
+  margin: 0;
+  padding: 0;
 }
 
 body {

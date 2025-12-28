@@ -205,7 +205,7 @@
 
    &__desc {
       opacity: 0;
-      translate: -80% 0;
+      translate: -70% 0;
       transition: translate 0.5s ease, opacity 0.6s ease;
       will-change: transform, opacity;
       &.animate {
@@ -459,7 +459,17 @@
    &__container {}
 
    // .projects__inner
-   &__inner {}
+   &__inner {
+      opacity: 0;
+      translate: 0 toRem(-50);
+      will-change: translate, opacity;
+      transition: translate 0.5s ease, opacity 0.5s ease;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
+   }
 
    &__buttons-inner {
       @media (max-width: toEm(768.98)) {

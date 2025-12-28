@@ -71,7 +71,7 @@
             <div class="skills__container">
                <div class="skills__inner">
                   <div class="skills__top top-skills">
-                     <svg class="top-skills__scroll mouse-scroll">
+                     <svg class="top-skills__scroll mouse-scroll mouse-scroll--anim">
                         <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
                      </svg>
                      <div class="top-skills__block block-header">
@@ -128,7 +128,7 @@
       </main>
 
       <aside class="page-intro intro">
-         <div class="intro__container">
+         <div class="intro__container intro__container--anim">
             <div class="intro__header block-header">
                <div class="block-header__content">
                   <span class="block-header__label">Got a project in mind?</span>
@@ -140,7 +140,8 @@
                   </div>
                </div>
             </div>
-            <button type="button" class="intro__button button-figure button-figure--green open-btn-modal">
+            <button type="button" id="open-btn-modal"
+               class="intro__button intro__button--anim button-figure button-figure--green open-btn-modal">
                Send me a message
             </button>
          </div>
@@ -150,36 +151,38 @@
          <div class="footer__body body-footer">
             <div class="body-footer__container">
                <div class="body-footer__menu menu-footer">
-                  <ul class="menu-footer__list">
-                     <li class="menu-footer__item">
-                        <a target="_blank" href="./index.html"
-                           class="menu-footer__link menu-footer__link--icon-home">Home</a>
+                  <ul class="menu-footer__list menu-footer__list--anim" data-threshold="0.1" data-delay="200"
+                     data-step="200">
+                     <li class="menu-footer__item anim-child">
+                        <a href="#" class="menu-footer__link menu-footer__link--icon-home">Home</a>
                      </li>
-                     <li class="menu-footer__item">
+                     <li class="menu-footer__item anim-child">
                         <a target="_blank" href="./about.html"
-                           class="menu-footer__link menu-footer__link--icon-user">About me</a>
+                           class="menu-footer__link menu-footer__link--icon-user">About
+                           me</a>
                      </li>
-                     <li class="menu-footer__item">
+                     <li class="menu-footer__item anim-child">
                         <a target="_blank" href="./contacts.html"
                            class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
                      </li>
                   </ul>
                </div>
                <address class="body-footer__social social-footer">
-                  <ul class="social-footer__list">
-                     <li class="social-footer__item">
+                  <ul class="social-footer__list social-footer__list--anim" data-threshold="0.1" data-delay="200"
+                     data-step="200">
+                     <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://t.me/Tkach06"
                            class="social-footer__link social-footer__link--icon-telegram"></a>
                      </li>
-                     <li class="social-footer__item">
+                     <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://discord.gg/dpDqppvm"
                            class="social-footer__link social-footer__link--icon-discord"></a>
                      </li>
-                     <li class="social-footer__item">
+                     <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://wa.me/0973906454"
                            class="social-footer__link social-footer__link--icon-watsup"></a>
                      </li>
-                     <li class="social-footer__item">
+                     <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://m.me/@valentyn.tkachenko"
                            class="social-footer__link social-footer__link--icon-fb"></a>
                      </li>
