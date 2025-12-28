@@ -1696,6 +1696,17 @@ html[data-input=mouse] .submenu-dropdown__link:hover {
             align-items: flex-start;
   }
 }
+.menu-footer__item {
+  opacity: 0;
+  translate: -0.625rem 0;
+  -webkit-transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+.menu-footer__item.animate {
+  opacity: 1;
+  translate: 0 0;
+}
 .menu-footer__link {
   position: relative;
   display: -webkit-box;
@@ -1737,6 +1748,17 @@ html[data-input=mouse] .menu-footer__link:hover::after {
   gap: 1.5rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+.social-footer__item {
+  opacity: 0;
+  translate: 0rem -0.625rem;
+  -webkit-transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+.social-footer__item.animate {
+  opacity: 1;
+  translate: 0 0;
 }
 .social-footer__link {
   background-color: #12F7D6;
@@ -3872,8 +3894,10 @@ html[data-input=mouse] .button-media:hover .button-media__span::before {
   width: 50%;
   padding-left: 0rem;
   counter-increment: item;
-  -webkit-transition: translate 0.3s, opacity 0.3s;
-  transition: translate 0.3s, opacity 0.3s;
+  -webkit-transition: translate 0.5s, opacity 0.5s;
+  transition: translate 0.5s, opacity 0.5s;
+  will-change: transform, opacity;
+  opacity: 0;
 }
 @media (min-width: 105.875em) {
   .item-step {
@@ -3890,21 +3914,17 @@ html[data-input=mouse] .button-media:hover .button-media__span::before {
     padding-right: 40px;
   }
 }
-.item-step:nth-child(odd).anim-child {
-  opacity: 0;
+.item-step:nth-child(odd) {
   translate: 80% 0;
-  will-change: transform, opacity;
 }
-.item-step:nth-child(odd).anim-child.animate {
+.item-step:nth-child(odd).animate {
   opacity: 1;
   translate: 0 0;
 }
-.item-step:nth-child(even).anim-child {
-  opacity: 0;
+.item-step:nth-child(even) {
   translate: -80% 0;
-  will-change: transform, opacity;
 }
-.item-step:nth-child(even).anim-child.animate {
+.item-step:nth-child(even).animate {
   opacity: 1;
   translate: 0 0;
 }

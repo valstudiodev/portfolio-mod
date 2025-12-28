@@ -967,40 +967,29 @@
    @include adaptiveValue('padding-right', 99.5, 40);
    padding-left: toRem(0);
    counter-increment: item;
-   transition: translate 0.3s, opacity 0.3s;
+   transition: translate 0.5s, opacity 0.5s;
+   will-change: transform, opacity;
+   opacity: 0;
 
    &:nth-child(odd) {
-      &.anim-child {
-         opacity: 0;
-         translate: 80% 0;
-         will-change: transform, opacity;
+      translate: 80% 0;
 
          &.animate {
             opacity: 1;
             translate: 0 0;
          }
-      }
    }
    &:nth-child(even) {
-      &.anim-child {
-         opacity: 0;
-         translate: -80% 0;
-         will-change: transform, opacity;
+      translate: -80% 0;
 
          &.animate {
             opacity: 1;
             translate: 0 0;
          }
-      }
    }
-
-
-
-
 
    // .item-step__inner
    &__inner {
-      // background-color: $bgSecondary;
       background-color: $bgPrimary;
       display: flex;
       flex-direction: column;
