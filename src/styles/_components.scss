@@ -583,6 +583,33 @@
    }
 }
 
+.arrow-point {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   translate: -50% 0;
+   background: rgba(218, 197, 167, 0.05);
+   backdrop-filter: blur(30px);
+   padding-block: toRem(8);
+   padding-inline: toRem(12);
+   border: toRem(1) solid $butHovGreen;
+   border-radius: 50%;
+   width: toRem(46);
+   aspect-ratio: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: $white;
+   rotate: 45deg;
+   transition: all 0.3s;
+   rotate: 45deg;
+   animation: jumpArrow 0.8s forwards infinite;
+
+   @media (min-width: toEm(859.98)) {
+     display: none;
+   }
+}
+
 // ===========================================================================================
 // -----------------------------
 // block-header
@@ -1122,7 +1149,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      transition: all 0.5s;
+      transition: transform 0.4s;
       transform-style: preserve-3d;
 
       &.animCart {
@@ -1182,6 +1209,7 @@
       overflow: hidden;
       transition: all 0.3s ease-in-out;
       backface-visibility: hidden;
+      z-index: 10;
    }
 
    // .cart-work__title

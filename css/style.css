@@ -1065,7 +1065,7 @@ input:invalid {
 .modal-close {
   position: absolute;
   font-size: 2.5rem;
-  color: #FFFFFF;
+  color: #12F7D6;
 }
 @media (min-width: 105.875em) {
   .modal-close {
@@ -3373,6 +3373,42 @@ html[data-input=mouse] .button-media:hover .button-media__span::before {
           animation: jumpArrow 0.6s ease-in-out infinite;
 }
 
+.arrow-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% 0;
+  background: rgba(218, 197, 167, 0.05);
+  backdrop-filter: blur(30px);
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  border: 0.0625rem solid rgb(8, 167, 143);
+  border-radius: 50%;
+  width: 2.875rem;
+  aspect-ratio: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFFFF;
+  rotate: 45deg;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  rotate: 45deg;
+  -webkit-animation: jumpArrow 0.8s forwards infinite;
+          animation: jumpArrow 0.8s forwards infinite;
+}
+@media (min-width: 53.74875em) {
+  .arrow-point {
+    display: none;
+  }
+}
+
 .block-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4051,8 +4087,10 @@ html[data-input=mouse] .button-media:hover .button-media__span::before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
@@ -4120,6 +4158,7 @@ html[data-input=mouse] .button-media:hover .button-media__span::before {
   transition: all 0.3s ease-in-out;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  z-index: 10;
 }
 @media (min-width: 105.875em) {
   .cart-work__content {

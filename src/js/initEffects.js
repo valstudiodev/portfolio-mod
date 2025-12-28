@@ -99,7 +99,7 @@ function toggleCardContent() {
    cards.forEach(card => {
       card.addEventListener('click', () => {
          // При кліку додаємо або прибираємо клас активного стану
-         if (window.innerWidth <= 768) {
+         if (window.innerWidth <= 859) {
             card.classList.toggle('animCart');
          }
 

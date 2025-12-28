@@ -56,7 +56,7 @@
    @include adaptiveValue('top',0,0);
    @include adaptiveValue('right',20,10);
    font-size: toRem(40);
-   color: $white;
+   color: $brandPrimary;
 }
 
 .success-active {
