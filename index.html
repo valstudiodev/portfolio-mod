@@ -7,8 +7,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
    <title>Portfolio</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.a15afb9f.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.685a16cf.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.bdcb443a.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.57c8fe6d.css">
 </head>
 
 <body>
@@ -152,11 +152,11 @@
          <section class="page__about about">
             <div class="about__container">
                <div class="about__inner">
-                  <svg class="about__scroll mouse-scroll">
+                  <svg class="about__scroll mouse-scroll mouse-scroll--anim">
                      <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
                   </svg>
-                  <div class="about__body">
-                     <div class="about__desc">
+                  <div class="about__body about__body--anim" data-threshold="0.1" data-delay="400" data-step="200">
+                     <div class="about__desc anim-child">
                         <h2 class="about__title">About <span>me</span></h2>
                         <div class="about__content content-about">
                            <svg class="content-about__teg">
@@ -182,7 +182,7 @@
                            </svg>
                         </div>
                      </div>
-                     <div class="about__image">
+                     <div class="about__image anim-child">
                         <img src="/portfolio-mod/assets/man-rest.9b0bfd4e.webp" alt="men rests at the table">
                      </div>
                   </div>
@@ -192,12 +192,12 @@
 
          <section class="page__approach approach">
             <div class="approach__container">
-               <svg class="approach__scroll mouse-scroll">
+               <svg class="approach__scroll mouse-scroll mouse-scroll--anim">
                   <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
                </svg>
                <h2 class="approach__title">My <span>Approach</span></h2>
-               <div class="approach__items">
-                  <article class="item-approach">
+               <div class="approach__items approach__items--anim" data-step="200" data-delay="200" data-threshold="0.1">
+                  <article class="item-approach anim-child">
                      <div class="item-approach__inner">
                         <svg class="item-approach__icon">
                            <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-power"></use>
@@ -211,7 +211,7 @@
                         </div>
                      </div>
                   </article>
-                  <article class="item-approach">
+                  <article class="item-approach anim-child">
                      <div class="item-approach__inner">
                         <svg class="item-approach__icon">
                            <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-monitor"></use>
@@ -224,7 +224,7 @@
                         </div>
                      </div>
                   </article>
-                  <article class="item-approach">
+                  <article class="item-approach anim-child">
                      <div class="item-approach__inner">
                         <svg class="item-approach__icon">
                            <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-smartphone"></use>
@@ -237,7 +237,7 @@
                         </div>
                      </div>
                   </article>
-                  <article class="item-approach">
+                  <article class="item-approach anim-child">
                      <div class="item-approach__inner">
                         <svg class="item-approach__icon">
                            <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-mouse"></use>
@@ -248,7 +248,7 @@
                         </div>
                      </div>
                   </article>
-                  <article class="item-approach">
+                  <article class="item-approach anim-child">
                      <div class="item-approach__inner">
                         <svg class="item-approach__icon">
                            <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-slash"></use>
@@ -259,7 +259,7 @@
                         </div>
                      </div>
                   </article>
-                  <article class="item-approach">
+                  <article class="item-approach anim-child">
                      <div class="item-approach__inner">
                         <svg class="item-approach__icon">
                            <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-rocket"></use>
@@ -279,7 +279,7 @@
          <section class="page__work work">
             <div class="work__container">
                <div class="work__block block-header">
-                  <svg class="block-header__scroll mouse-scroll">
+                  <svg class="block-header__scroll mouse-scroll mouse-scroll--anim">
                      <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
                   </svg>
                   <h2 class="block-header__title">Your <span>Website</span> <br>
@@ -289,8 +289,8 @@
                      <p>I had the pleasure of working with these awesome projects</p>
                   </div>
                </div>
-               <div class="work__items">
-                  <article class="item-step">
+               <div class="work__items work__items--anim" data-threshold="0.1" data-delay="300" data-step="500">
+                  <article class="item-step anim-child">
                      <div class="item-step__inner">
                         <h3 class="item-step__title">Contact</h3>
                         <div class="item-step__text">
@@ -303,7 +303,7 @@
                         </ul>
                      </div>
                   </article>
-                  <article class="item-step">
+                  <article class="item-step anim-child">
                      <div class="item-step__inner">
                         <h3 class="item-step__title">Discussion</h3>
                         <div class="item-step__text">
@@ -316,7 +316,7 @@
                         </ul>
                      </div>
                   </article>
-                  <article class="item-step">
+                  <article class="item-step anim-child">
                      <div class="item-step__inner">
                         <h3 class="item-step__title">Development</h3>
                         <div class="item-step__text">
@@ -329,7 +329,7 @@
                         </ul>
                      </div>
                   </article>
-                  <article class="item-step">
+                  <article class="item-step anim-child">
                      <div class="item-step__inner">
                         <h3 class="item-step__title">Launch</h3>
                         <div class="item-step__text">
@@ -342,7 +342,7 @@
                         </ul>
                      </div>
                   </article>
-                  <article class="item-step">
+                  <article class="item-step anim-child">
                      <div class="item-step__inner">
                         <h3 class="item-step__title">Support</h3>
                         <div class="item-step__text">
@@ -364,7 +364,7 @@
             <div class="projects__container">
                <div class="projects__inner">
                   <div class="projects__header block-header block-header--margin">
-                     <svg class="block-header__scroll mouse-scroll">
+                     <svg class="block-header__scroll mouse-scroll mouse-scroll--anim">
                         <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
                      </svg>
                      <h2 class="block-header__title">My recent <span>work</span></h2>
@@ -387,6 +387,7 @@
                                  <div class="cart-work__inner">
                                     <div class="cart-work__image">
                                        <img src="/portfolio-mod/assets/e-scooter.ab269dfa.png" alt="project image">
+                                       <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                     </div>
                                     <div class="cart-work__content">
                                        <h3 class="cart-work__title">E-scooter</h3>
@@ -400,7 +401,6 @@
                                              class="button-active button-active--code"><span>code</span></a>
                                        </div>
                                     </div>
-                                    <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                  </div>
                               </article>
                            </div>
@@ -410,6 +410,7 @@
                                  <div class="cart-work__inner">
                                     <div class="cart-work__image">
                                        <img src="/portfolio-mod/assets/taste-eat.2bad0931.webp" alt="project image">
+                                       <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                     </div>
                                     <div class="cart-work__content">
                                        <h3 class="cart-work__title">Taste Eat</h3>
@@ -423,7 +424,6 @@
                                              class="button-active button-active--code"><span>code</span></a>
                                        </div>
                                     </div>
-                                    <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                  </div>
                               </article>
                            </div>
@@ -433,6 +433,7 @@
                                  <div class="cart-work__inner">
                                     <div class="cart-work__image">
                                        <img src="/portfolio-mod/assets/meta-v.0c07a454.webp" alt="project image">
+                                       <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                     </div>
                                     <div class="cart-work__content">
                                        <h3 class="cart-work__title">Meta-V</h3>
@@ -446,30 +447,29 @@
                                              class="button-active button-active--code"><span>code</span></a>
                                        </div>
                                     </div>
-                                    <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                  </div>
                               </article>
                            </div>
                            <div class="slider-projects__slide swiper-slide">
-                              <!-- bean-scene -->
+                              <!-- woodendot -->
                               <article class="cart-work">
                                  <div class="cart-work__inner">
                                     <div class="cart-work__image">
-                                       <img src="/portfolio-mod/assets/bean-scene.ea15c7cc.webp" alt="project image">
+                                       <img src="/portfolio-mod/assets/woodendot.922f8e02.png" alt="project image">
+                                       <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                     </div>
                                     <div class="cart-work__content">
-                                       <h3 class="cart-work__title">Bean-scene</h3>
+                                       <h3 class="cart-work__title">Woodendot</h3>
                                        <div class="cart-work__text">
                                           <p>A modern web experience using motion and neon design.</p>
                                        </div>
                                        <div class="cart-work__buttons">
-                                          <a href="https://valstudiodev.github.io/beanScene/" target="_blank"
+                                          <a href="https://valstudiodev.github.io/woodendot/" target="_blank"
                                              class="button-active button-active--demo"><span>demo</span></a>
-                                          <a href="https://github.com/valstudiodev/beanScene.git" target="_blank"
+                                          <a href="https://github.com/valstudiodev/woodendot.git" target="_blank"
                                              class="button-active button-active--code"><span>code</span></a>
                                        </div>
                                     </div>
-                                    <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                  </div>
                               </article>
                            </div>
@@ -489,7 +489,7 @@
       </main>
 
       <aside class="page-intro intro">
-         <div class="intro__container">
+         <div class="intro__container intro__container--anim">
             <div class="intro__header block-header">
                <div class="block-header__content">
                   <span class="block-header__label">Got a project in mind?</span>
@@ -502,7 +502,7 @@
                </div>
             </div>
             <button type="button" id="open-btn-modal"
-               class="intro__button button-figure button-figure--green open-btn-modal">
+               class="intro__button intro__button--anim button-figure button-figure--green open-btn-modal">
                Send me a message
             </button>
          </div>
@@ -514,13 +514,15 @@
                <div class="body-footer__menu menu-footer">
                   <ul class="menu-footer__list">
                      <li class="menu-footer__item">
-                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-home">Home</a>
+                        <a href="#" class="menu-footer__link menu-footer__link--icon-home">Home</a>
                      </li>
                      <li class="menu-footer__item">
-                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-user">About me</a>
+                        <a target="_blank" href="./about.html"
+                           class="menu-footer__link menu-footer__link--icon-user">About me</a>
                      </li>
                      <li class="menu-footer__item">
-                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
+                        <a target="_blank" href="./contacts.html"
+                           class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
                      </li>
                   </ul>
                </div>
