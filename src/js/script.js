@@ -7,6 +7,7 @@ import { initUtils } from './initUtils'
 import { formUtils } from './formUtils'
 import { movingElements } from './movingElement'
 import { openModal } from './modal'
+import { initAnimations } from './initAnimation'
 
 
 // ===========================================================================================
@@ -21,6 +22,7 @@ function initApp() {
    // formUtils()
    initUtils()
    openModal()
+   initAnimations()
 }
 
 if (document.readyState === 'loading') {

@@ -95,16 +95,16 @@ function documentActions(e) {
 // -----------------------------
 function toggleCardContent() {
    const cards = document.querySelectorAll('.cart-work__inner');
+   const btnArrow = document.querySelectorAll(`.arrow-point`)
 
    cards.forEach(card => {
       card.addEventListener('click', () => {
-         // При кліку додаємо або прибираємо клас активного стану
          if (window.innerWidth <= 859) {
             card.classList.toggle('animCart');
          }
-
       });
    });
+
 }
 
 // ===========================================================================================

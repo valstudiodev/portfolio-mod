@@ -274,7 +274,6 @@
    @include adaptiveValue('padding-inline', 48, 42);
    border: toRem(3) solid $brandPrimary;
    background-color: $bgSecondary;
-   // color: $brandPrimary;
    color: $brandSecondary;
    text-transform: capitalize;
    @include adaptiveValue('font-size', 32, 22);
@@ -287,6 +286,7 @@
    transition: all 0.3s;
    z-index: 1;
    overflow: hidden;
+   transition: opacity 0.5s;
 
    &::before,
    &::after {
@@ -388,8 +388,7 @@
    border-radius: toRem(10);
    padding-inline: toRem(40);
    // @include adaptiveValue('padding-inline',40,20);
-   // padding-block: toRem(16);
-   @include adaptiveValue('padding-block', 16, 10);
+   @include adaptiveValue('padding-block', 16, 5);
    background-color: transparent;
    text-transform: uppercase;
    letter-spacing: toRem(1.5);
@@ -682,6 +681,14 @@
    width: toRem(32);
    height: toRem(140);
    fill: $orange;
+   opacity: 0;
+   translate: 0 toRem(-40);
+   transition: opacity 0.3s ease, translate 0.3s ease-in-out;
+
+   &.animate {
+      opacity: 1;
+      translate: 0 0;
+   }
 
    @media (max-width: toEm($mobile)) {
       display: none;
@@ -849,6 +856,17 @@
       0 0 28px rgba(20, 120, 80, 0.25),
       0 0 45px rgba(20, 120, 80, 0.15);
 
+      &.anim-child {
+         opacity: 0;
+         transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+         will-change: transform, opacity;
+         transform: translateY(30px);
+      }
+      &.animate {
+         opacity: 1;
+         transform: translateY(0) scale(1);
+      }
+
    &::before {
       content: counter(item, decimal-leading-zero);
       position: absolute;
@@ -949,6 +967,36 @@
    @include adaptiveValue('padding-right', 99.5, 40);
    padding-left: toRem(0);
    counter-increment: item;
+   transition: translate 0.3s, opacity 0.3s;
+
+   &:nth-child(odd) {
+      &.anim-child {
+         opacity: 0;
+         translate: 80% 0;
+         will-change: transform, opacity;
+
+         &.animate {
+            opacity: 1;
+            translate: 0 0;
+         }
+      }
+   }
+   &:nth-child(even) {
+      &.anim-child {
+         opacity: 0;
+         translate: -80% 0;
+         will-change: transform, opacity;
+
+         &.animate {
+            opacity: 1;
+            translate: 0 0;
+         }
+      }
+   }
+
+
+
+
 
    // .item-step__inner
    &__inner {
@@ -1174,6 +1222,7 @@
 
    // .cart-work__image
    &__image {
+      position: relative;
       aspect-ratio: 16 / 9;
       overflow: hidden;
       width: 100%;
@@ -1186,8 +1235,6 @@
          object-fit: cover;
          filter: brightness(0.9);
       }
-
-      @media (max-width: toEm($mobile)) {}
    }
 
    // .cart-work__content
@@ -1195,13 +1242,14 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      translate: 0 105%;
+      translate: 0 102%;
       width: 100%;
       height: auto;
       display: flex;
       flex-direction: column;
       @include adaptiveValue('gap', 20, 10);
       align-items: flex-start;
+      justify-content: flex-start;
       background-color: $bgPrimary;
       border-top: toRem(1) solid $brandDark;
       backdrop-filter: blur(30px);
@@ -1221,10 +1269,8 @@
    // .cart-work__text
    &__text {
       @include adaptiveValue('font-size', 18, 14);
+      flex-grow: 1;
    }
-
-   // .cart-work__buttons
-   &__buttons {}
 
    @include hover {
       &:hover {
@@ -1234,20 +1280,7 @@
             0 0 45px rgba(20, 120, 80, 0.15);
 
          .cart-work__content {
-            translate: 0 0;
-         }
-      }
-   }
-
-   // @media (max-width: toEm($mobile)) {
-   //    .cart-work__content {
-   //       translate: 0 0;
-   //    }
-   // }
-   @media (max-width: toEm(400)) {
-      .cart-work__buttons {
-         .button {
-            // flex-grow: 1;
+            translate: 0 toRem(6);
          }
       }
    }
