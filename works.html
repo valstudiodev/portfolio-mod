@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page-is-loading">
 
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" type="image/svg+xml" href="/portfolio-mod/favicon.ico" />
    <title>Works-page</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.501213aa.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.08224c97.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.221c6e0b.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.515570e8.css">
 </head>
 
 <body>
@@ -414,7 +414,7 @@
                            <article class="cart-work">
                               <div class="cart-work__inner">
                                  <div class="cart-work__image">
-                                    <img src="/src/assets/img/works/foodi.webp" alt="project image">
+                                    <img src="/portfolio-mod/assets/foodi.619d4400.png" alt="project image">
                                     <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                  </div>
                                  <div class="cart-work__content">
@@ -435,7 +435,7 @@
                            <article class="cart-work">
                               <div class="cart-work__inner">
                                  <div class="cart-work__image">
-                                    <img src="/src/assets/img/works/spoon.webp" alt="project image">
+                                    <img src="/portfolio-mod/assets/spoon.f2a8fa9a.png" alt="project image">
                                     <button class="arrow-point arrow-point--icon-arrow-up"></button>
                                  </div>
                                  <div class="cart-work__content">
@@ -600,7 +600,7 @@
       </main>
 
       <aside class="page-intro intro">
-         <div class="intro__container">
+         <div class="intro__container intro__container--anim">
             <div class="intro__header block-header">
                <div class="block-header__content">
                   <span class="block-header__label">Got a project in mind?</span>
@@ -612,7 +612,8 @@
                   </div>
                </div>
             </div>
-            <button type="button" class="intro__button button-figure button-figure--green open-btn-modal">
+            <button type="button" id="open-btn-modal"
+               class="intro__button intro__button--anim button-figure button-figure--green open-btn-modal">
                Send me a message
             </button>
          </div>
@@ -622,36 +623,38 @@
          <div class="footer__body body-footer">
             <div class="body-footer__container">
                <div class="body-footer__menu menu-footer">
-                  <ul class="menu-footer__list">
-                     <li class="menu-footer__item">
-                        <a target="_blank" href="./index.html"
-                           class="menu-footer__link menu-footer__link--icon-home">Home</a>
+                  <ul class="menu-footer__list menu-footer__list--anim" data-threshold="0.1" data-delay="200"
+                     data-step="200">
+                     <li class="menu-footer__item anim-child">
+                        <a href="#" class="menu-footer__link menu-footer__link--icon-home">Home</a>
                      </li>
-                     <li class="menu-footer__item">
+                     <li class="menu-footer__item anim-child">
                         <a target="_blank" href="./about.html"
-                           class="menu-footer__link menu-footer__link--icon-user">About me</a>
+                           class="menu-footer__link menu-footer__link--icon-user">About
+                           me</a>
                      </li>
-                     <li class="menu-footer__item">
+                     <li class="menu-footer__item anim-child">
                         <a target="_blank" href="./contacts.html"
                            class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
                      </li>
                   </ul>
                </div>
                <address class="body-footer__social social-footer">
-                  <ul class="social-footer__list">
-                     <li class="social-footer__item">
+                  <ul class="social-footer__list social-footer__list--anim" data-threshold="0.1" data-delay="200"
+                     data-step="200">
+                     <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://t.me/Tkach06"
                            class="social-footer__link social-footer__link--icon-telegram"></a>
                      </li>
-                     <li class="social-footer__item">
+                     <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://discord.gg/dpDqppvm"
                            class="social-footer__link social-footer__link--icon-discord"></a>
                      </li>
-                     <li class="social-footer__item">
+                     <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://wa.me/0973906454"
                            class="social-footer__link social-footer__link--icon-watsup"></a>
                      </li>
-                     <li class="social-footer__item">
+                     <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://m.me/@valentyn.tkachenko"
                            class="social-footer__link social-footer__link--icon-fb"></a>
                      </li>
