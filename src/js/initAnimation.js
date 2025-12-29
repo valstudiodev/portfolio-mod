@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', initAnimations);
 export function initAnimations() {
    initAnimationObserver()
    // initPageTransition(300)
-   // initPageLoader(400)
 }
 
 // export function initPageTransition(delay = 300) {
