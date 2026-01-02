@@ -20,4 +20,4 @@
             transition: width 0.4s ease;
         }
     `,document.head.appendChild(e);const n=document.createElement("div");n.id="loader-progress-bar",document.documentElement.appendChild(n);let i=0;const r=setInterval(()=>{i+=Math.random()*30,i>90&&(i=90),n.style.width=i+"%"},150);window.addEventListener("load",function(){clearInterval(r),n.style.width="100%",setTimeout(function(){document.body.classList.add("is-loaded"),setTimeout(()=>{n.style.opacity="0",setTimeout(()=>n.remove(),400)},300)},s)})}function f(){L(),E(),b(),A(),x(),T(),v(),M()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",f):f();console.log("Main.js підключений");
-//# sourceMappingURL=main.5ef38eb0.js.map
+//# sourceMappingURL=main.e151895e.js.map
