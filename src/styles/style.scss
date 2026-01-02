@@ -92,7 +92,7 @@ html[data-input="keyboard"] {
       }
       .menu-dropdown__link {
          &::before {
-            rotate: 90deg;
+            rotate: -90deg;
          }
       }
    }
@@ -102,9 +102,37 @@ html[data-input="touch"] {
       &.is-active {
          .menu-dropdown__link {
             &::before {
-               rotate: 90deg;
+               rotate: -90deg;
             }
          }
       }
    }
+}
+
+
+
+[data-accordion-body] {
+   height: 0;
+   overflow: hidden;
+   transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-accordion] {
+   &.active {
+      .header-approach__title {
+         color: $blue;
+      }
+      .header-approach__icon {
+         span {
+            &::after {
+               rotate: -180deg;
+            }
+         }
+      }
+   }
+}
+[data-accordion-icon] {
+   .active & {
+      background-color: $bgPrimary;
+   }
+
 }

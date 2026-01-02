@@ -8,9 +8,9 @@
 // -----------------------------
 .page {
 
-   // > *:not(.projects) {
-   //    display: none;
-   // }
+   > *:not(.approach) {
+      display: none;
+   }
 
    // .page__hero
    &__hero {
@@ -319,7 +319,11 @@
    }
 
    // .approach__container
-   &__container {}
+   &__container {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(30);
+   }
 
    &__scroll {
       display: flex;
@@ -331,9 +335,10 @@
    }
 
    &__title {
-      position: relative;
+      position: sticky;
       font-size: toRem(58);
       margin-bottom: toRem(40);
+      font-weight: 700;
 
       span {
          color: $brandDark;
@@ -344,11 +349,22 @@
       }
    }
 
+   &__body {
+      display: flex;
+      justify-content: space-evenly;
+      gap: toRem(50);
+      align-items: flex-start;
+
+      @media (max-width: toEm(690)) {
+        flex-direction: column;
+        align-items: center;
+      }
+   }
 
    // .approach__items
    &__items {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(toRem(400), 100%), 1fr));
+      // grid-template-columns: repeat(auto-fill, minmax(min(toRem(400), 100%), 1fr));
       gap: toRem(30);
    }
 }

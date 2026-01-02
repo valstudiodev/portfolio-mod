@@ -104,3 +104,99 @@ document.addEventListener('DOMContentLoaded', () => {
    });
 });
 
+// ===========================================================================================
+// -----------------------------
+// accordion-menu
+// -----------------------------
+// document.addEventListener('DOMContentLoaded', () => {
+//    const accordions = document.querySelectorAll('[data-accordion]');
+
+//    accordions.forEach(item => {
+//       const btn = item.querySelector('[data-accordion-btn]');
+//       const body = item.querySelector('[data-accordion-body]');
+
+//       if (!btn || !body) return;
+
+//       // Початкова ініціалізація: якщо вже є клас active-btn, ставимо auto
+//       if (item.classList.contains('active-btn')) {
+//          body.style.height = 'auto';
+//       } else {
+//          body.style.height = '0px';
+//       }
+
+//       btn.onclick = (e) => {
+//          e.preventDefault(); // Захист від переходу по посиланню, якщо заголовок - посилання
+//          const isOpen = item.classList.contains('active-btn');
+
+//          if (isOpen) {
+//             // ЗАКРИТТЯ
+//             // 1. Спочатку фіксуємо поточну висоту в px замість auto
+//             body.style.height = body.scrollHeight + 'px';
+
+//             // 2. На наступному кадрі запускаємо анімацію до 0
+//             requestAnimationFrame(() => {
+//                body.style.height = '0px';
+//             });
+
+//             item.classList.remove('active-btn');
+//          } else {
+//             // ВІДКРИТТЯ
+//             item.classList.add('active-btn');
+//             // Встановлюємо висоту контенту
+//             body.style.height = body.scrollHeight + 'px';
+
+//             // Після завершення анімації переводимо в auto, щоб контент був гнучким
+//             body.addEventListener('transitionend', function handler() {
+//                if (item.classList.contains('active-btn')) {
+//                   body.style.height = 'auto';
+//                }
+//                body.removeEventListener('transitionend', handler);
+//             }, { once: true });
+//          }
+//       };
+//    });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+   const accordions = document.querySelectorAll("[data-accordion]");
+
+   accordions.forEach((accordion) => {
+      const btn = accordion.querySelector("[data-accordion-btn]");
+      const body = accordion.querySelector("[data-accordion-body]");
+
+      btn.addEventListener("click", (e) => {
+         e.preventDefault();
+
+         const isOpen = accordion.classList.contains("is-open");
+
+         if (!isOpen) {
+            // ВІДКРИТТЯ
+            accordion.classList.add("is-open");
+            // Встановлюємо висоту в px для запуску transition
+            body.style.height = `${body.scrollHeight}px`;
+
+            // Після завершення анімації ставимо auto для адаптивності
+            body.addEventListener("transitionend", function handler() {
+               if (accordion.classList.contains("is-open")) {
+                  body.style.height = "auto";
+               }
+               body.removeEventListener("transitionend", handler);
+            }, { once: true });
+
+         } else {
+            // ЗАКРИТТЯ
+            // Спочатку міняємо auto на фіксовані px
+            body.style.height = `${body.scrollHeight}px`;
+
+            // Викликаємо перерахунок (force reflow)
+            body.offsetHeight;
+
+            // Запускаємо анімацію до 0
+            requestAnimationFrame(() => {
+               body.style.height = "0";
+               accordion.classList.remove("is-open");
+            });
+         }
+      });
+   });
+});

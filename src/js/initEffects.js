@@ -109,34 +109,49 @@ function toggleCardContent() {
 
 // ===========================================================================================
 // -----------------------------
-// icon-show
+// accordions
 // -----------------------------
-// function showList() {
-//    const iconShows = document.querySelectorAll(`.row-menu__icon`)
+document.addEventListener('click', (e) => {
+   const btn = e.target.closest('[data-accordion-btn]');
+   if (!btn) return;
 
-//    iconShows.forEach(iconShow => {
-//       iconShow.addEventListener('click', () => {
-//          if (iconShow) {
-//             iconShow.classList.toggle('icon-active')
-//          }
-//       })
-//    })
-// }
+   const accordionParent = btn.closest('[data-accordion]');
+   if (!accordionParent) return;
+
+   const body = accordionParent.querySelector('[data-accordion-body]');
+   const icon = btn.querySelector('[data-accordion-icon]');
+   if (!body) return;
+
+   const isOpen = accordionParent.classList.contains('active');
+
+   if (!isOpen) {
+      accordionParent.classList.add('active');
+      if (icon) icon.classList.add('icon-active');
+
+      body.style.height = body.scrollHeight + 'px';
+
+      body.addEventListener(
+         'transitionend',
+         () => {
+            if (accordionParent.classList.contains('active')) {
+               body.style.height = 'auto';
+            }
+         },
+         { once: true }
+      );
+   } else {
+      body.style.height = body.scrollHeight + 'px';
+      body.offsetHeight;
+
+      requestAnimationFrame(() => {
+         accordionParent.classList.remove('active');
+         if (icon) icon.classList.remove('icon-active');
+         body.style.height = '0px';
+      });
+   }
+});
 
 
-// function showList() {
-//    const items = document.querySelectorAll('.row-menu');
-
-//    items.forEach(item => {
-//       const icon = item.querySelector('.row-menu__icon');
-//       const wrap = item.querySelector('.row-menu__wrap');
-
-//       icon.addEventListener('click', () => {
-//          icon.classList.toggle('icon-active');
-//          wrap.classList.toggle('open');
-//       });
-//    });
-// }
 
 
 const menuItems = document.querySelectorAll('.menu-header__item--submenu');

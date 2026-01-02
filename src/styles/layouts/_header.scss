@@ -3,7 +3,7 @@
 
 
 .header {
-   // display: none;
+   display: none;
    position: relative;
    @include adaptiveValue('padding-block', 30, 15);
    position: fixed;
@@ -248,7 +248,7 @@
          @include hover {
             .menu-dropdown__link {
                &::before {
-                  rotate: 90deg;
+                  rotate: -90deg;
                }
             }
          }
@@ -275,7 +275,7 @@
 
       &::before {
          font-size: toRem(22);
-         rotate: -90deg;
+         rotate: 90deg;
          transition: rotate 0.3s;
          will-change: rotate;
       }
