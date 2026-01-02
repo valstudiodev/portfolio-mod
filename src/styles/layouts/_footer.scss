@@ -2,7 +2,7 @@
 @use '../settings/mixins' as *;
 
 .footer {
-   display: none;
+   // display: none;
    background-color: $bgSecondary;
    @include adaptiveValue('padding-top', 110, 50);
    // @include adaptiveValue('padding-bottom',50,25);

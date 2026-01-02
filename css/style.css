@@ -1267,7 +1267,6 @@ address {
 }
 
 .header {
-  display: none;
   position: relative;
   position: fixed;
   width: 100%;
@@ -1619,7 +1618,6 @@ html[data-input=mouse] .submenu-dropdown__link:hover {
 }
 
 .footer {
-  display: none;
   background-color: #1A1E23;
 }
 @media (min-width: 105.875em) {
@@ -1830,9 +1828,6 @@ html[data-input=mouse] .social-footer__link:hover:hover {
   }
 }
 
-.page > *:not(.approach) {
-  display: none;
-}
 @media (min-width: 105.875em) {
   .page__hero {
     padding-top: 150px;
