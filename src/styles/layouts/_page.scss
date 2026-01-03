@@ -322,7 +322,7 @@
    &__container {
       display: flex;
       flex-direction: column;
-      gap: toRem(30);
+      gap: toRem(40);
    }
 
    &__scroll {
@@ -336,8 +336,8 @@
 
    &__title {
       position: sticky;
+      top: toRem(100);
       font-size: toRem(58);
-      margin-bottom: toRem(40);
       font-weight: 700;
 
       span {
@@ -346,6 +346,9 @@
 
       @media (max-width: toEm(425)) {
          text-align: center;
+      }
+      @media (max-width: toEm(690)) {
+        @include adaptiveValue('margin-bottom', 40, 20);
       }
    }
 
