@@ -5,10 +5,26 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+   <style>
+      /* 1. Початковий стан: коли атрибут порожній */
+      [init-page-loader] {
+         opacity: 0 !important;
+         visibility: hidden !important;
+         background-color: #292F36;
+         /* Твій колір */
+         transition: opacity 0.6s ease-in-out, visibility 0.6s;
+      }
+
+      /* 2. Стан після завантаження: коли ми додаємо значення "ready" */
+      [init-page-loader="ready"] {
+         opacity: 1 !important;
+         visibility: visible !important;
+      }
+   </style>
    <title>Skills</title>
 </head>
 
-<body>
+<body init-page-loader>
    <div class="wrapper">
       <header class="header">
          <div class="header__container">
@@ -68,7 +84,7 @@
          <section class="page__skills skills">
             <div class="skills__container">
                <div class="skills__inner">
-                  <div class="skills__top top-skills">
+                  <div class="skills__top top-skills" data-delay="650">
                      <svg class="top-skills__scroll mouse-scroll mouse-scroll--anim">
                         <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
                      </svg>
@@ -79,9 +95,9 @@
                         </div>
                      </div>
                   </div>
-                  <div class="skills__body body-skills">
+                  <div class="skills__body body-skills" data-delay="850">
                      <div class="body-skills__inner">
-                        <article class="body-skills__item skill-item">
+                        <article class="body-skills__item skill-item" data-delay="750">
                            <svg class="skill-item__icon">
                               <use href="src/assets/icons/symbol-defs.svg#icon-monitor"></use>
                            </svg>
@@ -92,8 +108,8 @@
                               <span>JS</span>
                            </div>
                         </article>
-                        <div class="body-skills__lang lang-skill">
-                           <div class="lang-skill__wrap">
+                        <div class="body-skills__lang lang-skill lang-skill--anim" data-delay="850" data-step="200">
+                           <div class="lang-skill__wrap anim-child">
                               <div class="lang-skill__item lang-skill__item--html">
                                  <svg class="lang-skill__icon">
                                     <use href="/src/assets/icons/symbol-defs.svg#icon-html"></use>
@@ -101,7 +117,7 @@
                               </div>
                               <span class="lang-skill__title lang-skill__title--html">HTML</span>
                            </div>
-                           <div class="lang-skill__wrap">
+                           <div class="lang-skill__wrap anim-child">
                               <div class="lang-skill__item lang-skill__item--css">
                                  <svg class="lang-skill__icon">
                                     <use href="/src/assets/icons/symbol-defs.svg#icon-css"></use>
@@ -109,7 +125,7 @@
                               </div>
                               <span class="lang-skill__title lang-skill__title--css">css</span>
                            </div>
-                           <div class="lang-skill__wrap">
+                           <div class="lang-skill__wrap anim-child">
                               <div class="lang-skill__item lang-skill__item--js">
                                  <svg class="lang-skill__icon">
                                     <use href="/src/assets/icons/symbol-defs.svg#icon-js"></use>
@@ -126,7 +142,7 @@
       </main>
 
       <aside class="page-intro intro">
-         <div class="intro__container intro__container--anim">
+         <div class="intro__container intro__container--anim" data-threshold="0.2">
             <div class="intro__header block-header">
                <div class="block-header__content">
                   <span class="block-header__label">Got a project in mind?</span>

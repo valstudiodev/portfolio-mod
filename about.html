@@ -5,10 +5,26 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+   <style>
+      /* 1. Початковий стан: коли атрибут порожній */
+      [init-page-loader] {
+         opacity: 0 !important;
+         visibility: hidden !important;
+         background-color: #292F36;
+         /* Твій колір */
+         transition: opacity 0.6s ease-in-out, visibility 0.6s;
+      }
+
+      /* 2. Стан після завантаження: коли ми додаємо значення "ready" */
+      [init-page-loader="ready"] {
+         opacity: 1 !important;
+         visibility: visible !important;
+      }
+   </style>
    <title>Page-About</title>
 </head>
 
-<body>
+<body init-page-loader>
 
    <div class="wrapper">
       <header class="header">
@@ -157,7 +173,7 @@
       </main>
 
       <aside class="page-intro intro">
-         <div class="intro__container intro__container--anim">
+         <div class="intro__container intro__container--anim" data-threshold="0.2">
             <div class="intro__header block-header">
                <div class="block-header__content">
                   <span class="block-header__label">Got a project in mind?</span>

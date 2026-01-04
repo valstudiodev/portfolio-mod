@@ -1,111 +1,117 @@
 "use strict"
 
-document.addEventListener('DOMContentLoaded', initAnimations);
+// document.addEventListener('DOMContentLoaded', initAnimations);
 
-export function initAnimations() {
+export function initLoadAnimation() {
+   initPageLoader()
    initAnimationObserver()
-   // initPageTransition(300)
 }
 
-// export function initPageTransition(delay = 300) {
-//    const html = document.documentElement;
+/**
+ * 1. Функція ініціалізації анімацій (Observer)
+ */
+function initAnimationObserver() {
+   const elements = document.querySelectorAll('[class*="--anim"]');
 
-//    // 1. ВХІД: Показуємо контент після завантаження всього (img, css, js)
-//    if (document.readyState === 'complete') {
-//       handlePageLoad();
-//    } else {
-//       window.addEventListener('load', handlePageLoad);
-//    }
-
-//    function handlePageLoad() {
-//       setTimeout(() => {
-//          html.classList.add('page-loaded');
-//       }, delay);
-//    }
-
-//    // 2. ВИХІД: Плавний перехід при натисканні на посилання
-//    document.addEventListener('click', e => {
-//       const link = e.target.closest('a');
-
-//       // Перевірки: чи це звичайне посилання на наш сайт
-//       if (!link ||
-//          link.target === '_blank' ||
-//          link.origin !== location.origin ||
-//          link.hasAttribute('download') ||
-//          link.href.includes('#') && link.pathname === location.pathname // ігноруємо якорі
-//       ) return;
-
-//       e.preventDefault();
-//       const targetUrl = link.href;
-
-//       // Додаємо клас виходу
-//       html.classList.add('page-is-leaving');
-
-//       // Чекаємо завершення анімації виходу і переходимо
-//       setTimeout(() => {
-//          window.location.href = targetUrl;
-//       }, delay);
-//    });
-// }
-
-
-// ===========================================================================================
-// -----------------------------
-// initAnimationObserver
-// -----------------------------
-function initAnimationObserver(selector = '[class*="--anim"]') {
-   // Налаштування за замовчуванням
-   const defaultOptions = {
-      threshold: 0.2,
-      rootMargin: '0px 0px -10% 0px'
+   const observerOptions = {
+      threshold: 0.15
    };
 
-   const handleIntersect = (entries, observer) => {
+   const callback = (entries, observer) => {
       entries.forEach(entry => {
          const el = entry.target;
-         const once = el.dataset.once !== 'false';
-         const baseDelay = +el.dataset.delay || 0;
-         const step = +el.dataset.step || 200;
+         const isOnce = el.getAttribute('data-once') !== "false"; // true за замовчуванням
 
          if (entry.isIntersecting) {
-            if (el._animated) return;
-            el._animated = true;
-
             const children = el.querySelectorAll('.anim-child');
+            const delay = parseInt(el.dataset.delay) || 0;
+            const step = parseInt(el.dataset.step) || 150;
 
-            if (children.length) {
-               children.forEach((child, i) => {
-                  setTimeout(() => child.classList.add('animate'),
-                     baseDelay + i * step
-                  );
+            if (children.length > 0) {
+               children.forEach((child, index) => {
+                  setTimeout(() => {
+                     child.classList.add('animate');
+                  }, delay + (index * step));
                });
             } else {
-               setTimeout(() => el.classList.add('animate'), baseDelay);
+               setTimeout(() => {
+                  el.classList.add('animate');
+               }, delay);
             }
 
-            if (once) observer.unobserve(el);
-         } else if (!once) {
-            // Логіка скидання, якщо потрібно програвати анімацію знову
-            el._animated = false;
-            el.classList.remove('animate');
-            el.querySelectorAll('.anim-child').forEach(child => {
-               child.classList.remove('animate');
-            });
+            // Якщо data-once не "false", припиняємо стежити
+            if (isOnce) {
+               observer.unobserve(el);
+            }
+
+         } else {
+            // ЛОГІКА ДЛЯ ПОВТОРУ:
+            // Якщо ми вийшли з екрана і data-once="false", видаляємо клас
+            if (!isOnce) {
+               el.classList.remove('animate');
+               const children = el.querySelectorAll('.anim-child');
+               children.forEach(child => child.classList.remove('animate'));
+            }
          }
       });
    };
 
-   document.querySelectorAll(selector).forEach(el => {
-      el._animated = false;
-
-      // Можна задати індивідуальний threshold через data-threshold
-      const customThreshold = el.dataset.threshold ? +el.dataset.threshold : defaultOptions.threshold;
-
-      const observer = new IntersectionObserver(handleIntersect, {
-         ...defaultOptions,
-         threshold: customThreshold
-      });
-
-      observer.observe(el);
-   });
+   const observer = new IntersectionObserver(callback, observerOptions);
+   elements.forEach(el => observer.observe(el));
 }
+
+/**
+ * 2. Функція завантаження сторінки (Loader)
+ */
+function initPageLoader(delay = 600, barColor = '#00ADB5') {
+   const loaderTarget = document.querySelector('[init-page-loader]');
+   if (!loaderTarget) return;
+
+   const progressBar = document.createElement('div');
+   progressBar.id = 'loader-progress-bar';
+
+   const barStyle = document.createElement('style');
+   barStyle.innerHTML = `
+        #loader-progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px;
+            background-color: ${barColor}; z-index: 100000;
+            width: 0%; transition: width 0.4s ease, opacity 0.3s ease;
+            box-shadow: 0 0 10px ${barColor};
+        }
+    `;
+   document.head.appendChild(barStyle);
+   document.documentElement.appendChild(progressBar);
+
+   let progress = 0;
+   const interval = setInterval(() => {
+      progress += Math.random() * 25;
+      if (progress > 90) progress = 90;
+      progressBar.style.width = progress + '%';
+   }, 150);
+
+   const showPage = () => {
+      if (loaderTarget.getAttribute('init-page-loader') === 'ready') return;
+
+      clearInterval(interval);
+      progressBar.style.width = '100%';
+
+      setTimeout(() => {
+         // 1. Встановлюємо статус ready (для твоїх SCSS стилів)
+         loaderTarget.setAttribute('init-page-loader', 'ready');
+
+         // 2. ВАЖЛИВО: Запускаємо обсервер анімацій саме тут!
+         initAnimationObserver();
+
+         setTimeout(() => {
+            progressBar.style.opacity = '0';
+            setTimeout(() => progressBar.remove(), 400);
+         }, 300);
+      }, delay);
+   };
+
+   window.addEventListener('load', showPage);
+   setTimeout(showPage, 4000);
+}
+
+// Запуск
+initPageLoader(600, '#ff4500');

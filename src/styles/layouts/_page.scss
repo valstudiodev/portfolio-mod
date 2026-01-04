@@ -56,6 +56,14 @@
       color: $brandSecondary;
       text-align: center;
       @include adaptiveValue('margin-bottom', 64, 35);
+      opacity: 0;
+      translate: 0 20%;
+      transition: translate 0.4s ease, opacity 2s ease;
+
+      [init-page-loader="ready"] & {
+        opacity: 1;
+        translate: 0 0;
+      }
    }
 
    // .hero__body
@@ -64,6 +72,14 @@
       align-items: center;
       @include adaptiveValue('gap', 120, 40);
       justify-content: center;
+      opacity: 0;
+      translate: 0 20%;
+      transition: translate 0.6s ease, opacity 1.6s ease;
+
+      [init-page-loader="ready"] & {
+        opacity: 1;
+        translate: 0 0;
+      }
 
       @media (max-width: toEm(735)) {
          flex-direction: column;
@@ -348,7 +364,9 @@
          text-align: center;
       }
       @media (max-width: toEm(690)) {
-        @include adaptiveValue('margin-bottom', 40, 20);
+      //   @include adaptiveValue('margin-bottom', 40, 20);
+        position: relative;
+        top: 0;
       }
    }
 
@@ -547,12 +565,14 @@
       align-items: center;
       @include adaptiveValue('gap', 50, 25);
       opacity: 0;
-      translate: 0 toRem(50);
-      transition: opacity 0.4s ease, translate 0.4s ease;
+      // translate: 0 toRem(50);
+      scale: 0.6;
+      transition: opacity 0.4s ease, scale 0.6s ease;
 
       &.animate {
          opacity: 1;
-         translate: 0 0;
+         // translate: 0 0;
+         scale: 1;
       }
    }
 

@@ -45,6 +45,14 @@
    align-items: center;
    gap: toRem(64);
    @include adaptiveValue('margin-bottom', 64, 30);
+   opacity: 0;
+   translate: 0 30%;
+   transition: opacity 0.4s, translate 0.4s ease;
+
+   [init-page-loader="ready"] & {
+     opacity: 1;
+     translate: 0 0;
+   }
 
    // .top-skills__scroll
    &__scroll {
@@ -61,6 +69,14 @@
 
 .body-skills {
    position: relative;
+   opacity: 0;
+   translate: 0 30%;
+   transition: opacity 0.4s, translate 0.4s ease;
+
+   [init-page-loader="ready"] & {
+      opacity: 1;
+      translate: 0 0;
+   }
 
    // .body-skills__inner
    &__inner {
@@ -89,6 +105,14 @@
       align-items: center;
       @include adaptiveValue('gap', 24, 12);
       flex-shrink: 0;
+      opacity: 0;
+      transition: opacity 0.4s, translate 0.4s ease;
+      translate: 0 toRem(30);
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
    }
 
    // .lang-skill__item
