@@ -43,12 +43,6 @@
 .hero {
    background-color: $bgPrimary;
 
-   // .hero__container
-   &__container {}
-
-   // .hero__inner
-   &__inner {}
-
    // .hero__title
    &__title {
       font-family: "Ubuntu", sans-serif;
@@ -85,10 +79,6 @@
          flex-direction: column;
       }
    }
-
-   // .hero__content
-   &__content {}
-
 }
 
 .content-hero {
@@ -97,9 +87,6 @@
    @include adaptiveValue('gap', 32, 20);
    align-items: flex-start;
    max-width: toRem(820);
-
-   // .content-hero__wrapper
-   &__wrapper {}
 
    // .content-hero__title
    &__title {
@@ -299,9 +286,6 @@
       fill: $brandPrimary;
    }
 
-   // .content-about__tilte
-   &__tilte {}
-
    // .content-about__text
    &__text {
       padding-inline-start: toRem(16);
@@ -385,7 +369,6 @@
    // .approach__items
    &__items {
       display: grid;
-      // grid-template-columns: repeat(auto-fill, minmax(min(toRem(400), 100%), 1fr));
       gap: toRem(30);
    }
 }

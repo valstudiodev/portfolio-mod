@@ -328,6 +328,7 @@
    &__link {
       font-size: toRem(14);
       transition: all 0.3s;
+      text-transform: capitalize;
       @include hover {
          color: $butHovGreen;
          text-shadow:
