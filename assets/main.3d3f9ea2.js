@@ -6,4 +6,4 @@
             box-shadow: 0 0 10px ${t};
         }
     `,document.head.appendChild(n),document.documentElement.appendChild(e);let i=0;const a=setInterval(()=>{i+=Math.random()*25,i>90&&(i=90),e.style.width=i+"%"},150),r=()=>{o.getAttribute("init-page-loader")!=="ready"&&(clearInterval(a),e.style.width="100%",setTimeout(()=>{o.setAttribute("init-page-loader","ready"),v(),setTimeout(()=>{e.style.opacity="0",setTimeout(()=>e.remove(),400)},300)},s))};window.addEventListener("load",r),setTimeout(r,4e3)}g(600,"#ff4500");function f(){w(),b(),S(),T(),k(),M(),_()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",f):f();console.log("Main.js підключений");
-//# sourceMappingURL=main.bd0f9c5b.js.map
+//# sourceMappingURL=main.3d3f9ea2.js.map
