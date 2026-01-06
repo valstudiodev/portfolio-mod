@@ -9,20 +9,17 @@
          background-color: #292F36;
       }
 
-      /* Ховаємо контент, поки немає статусу "ready" */
-      html[init-page-loader] body {
+      html:not([init-page-loader="ready"]) body {
          opacity: 0 !important;
+         overflow: hidden !important;
          visibility: hidden !important;
-         overflow: hidden;
-         /* Блокуємо скрол під час завантаження */
       }
 
-      /* Повертаємо видимість та скрол */
       html[init-page-loader="ready"] body {
-         opacity: 1 !important;
-         visibility: visible !important;
+         opacity: 1;
          overflow: visible;
-         transition: opacity 0.6s ease-in-out !important;
+         transition: opacity 0.4s ease;
+         visibility: visible;
       }
 
       /* Стиль прогрес-бару (щоб не чекати завантаження файлу CSS) */
@@ -41,8 +38,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" type="image/svg+xml" href="/portfolio-mod/favicon.ico" />
    <title>Page-Contacts</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.3125d00d.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.91f18a6c.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.eeede044.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.d7a2d52b.css">
 </head>
 
 <body>
