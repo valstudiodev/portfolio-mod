@@ -35,8 +35,7 @@
    &::after {
       content: "";
       position: absolute;
-      left: 0;
-      width: 100%;
+      right: 0;
       height: toRem(3);
       border-radius: toRem(10);
       background-color: $brandPrimary;
@@ -45,10 +44,12 @@
 
    &::before {
       top: 0;
+      width: 100%;
    }
 
    &::after {
       bottom: 0;
+      width: 50%;
    }
 
    span {
@@ -57,7 +58,7 @@
       right: 0;
       translate: 0 -50%;
       background-color: $brandPrimary;
-      width: 70%;
+      width: 75%;
       height: toRem(3);
       border-radius: toRem(10);
       transition: all 0.3s;
@@ -80,6 +81,7 @@
          top: 50%;
          rotate: -45deg;
          translate: 0 -50%;
+         width: 100%;
       }
 
       span {

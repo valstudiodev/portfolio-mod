@@ -11,7 +11,17 @@
    left: 0;
    top: 0;
    z-index: 100;
-   transition: transform 0.3s ease;
+   // transition: transform 0.3s ease;
+   // will-change: transform;
+
+   // transform: translateY(-30px);
+   // opacity: 0;
+   // transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+
+   // [init-page-loader="ready"] & {
+   //    transform: translateY(0);
+   //    opacity: 1;
+   // }
 
    &::before {
       content: "";

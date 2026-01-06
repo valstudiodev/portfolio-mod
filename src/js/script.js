@@ -7,7 +7,7 @@ import { initUtils } from './initUtils'
 import { formUtils } from './formUtils'
 import { movingElements } from './movingElement'
 import { openModal } from './modal'
-import { initLoadAnimation } from './initAnimation'
+import { appInit } from './appInit'
 
 
 // ===========================================================================================
@@ -16,6 +16,7 @@ import { initLoadAnimation } from './initAnimation'
 // -----------------------------
 function initApp() {
    initInputMode()
+   appInit()
    initDropdowns()
    initEffects()
    movingElements()
