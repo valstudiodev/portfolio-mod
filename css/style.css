@@ -1948,9 +1948,9 @@ html[data-input=mouse] .social-footer__link:hover:hover {
   color: #98FAEC;
   text-align: center;
   opacity: 0;
-  translate: 0 20%;
-  -webkit-transition: translate 0.4s ease, opacity 2s ease;
-  transition: translate 0.4s ease, opacity 2s ease;
+  translate: 0 50%;
+  -webkit-transition: translate 0.6s ease, opacity 0.6s ease;
+  transition: translate 0.6s ease, opacity 0.6s ease;
 }
 @media (min-width: 105.875em) {
   .hero__title {
@@ -1982,9 +1982,9 @@ html[data-input=mouse] .social-footer__link:hover:hover {
     margin-bottom: 35px;
   }
 }
-[init-page-loader=ready] .hero__title {
-  opacity: 1;
-  translate: 0 0;
+html[init-page-loader=ready] .hero__title {
+  opacity: 1 !important;
+  translate: 0 0 !important;
 }
 .hero__body {
   display: -webkit-box;
@@ -1997,9 +1997,9 @@ html[data-input=mouse] .social-footer__link:hover:hover {
       -ms-flex-pack: center;
           justify-content: center;
   opacity: 0;
-  translate: 0 20%;
-  -webkit-transition: translate 0.6s ease, opacity 1.6s ease;
-  transition: translate 0.6s ease, opacity 1.6s ease;
+  translate: 0 50%;
+  -webkit-transition: translate 0.8s ease, opacity 0.8s ease;
+  transition: translate 0.8s ease, opacity 0.8s ease;
 }
 @media (min-width: 105.875em) {
   .hero__body {

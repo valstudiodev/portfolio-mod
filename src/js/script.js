@@ -7,7 +7,7 @@ import { initUtils } from './initUtils'
 import { formUtils } from './formUtils'
 import { movingElements } from './movingElement'
 import { openModal } from './modal'
-import { appInit } from './appInit'
+import { initLoader } from './initLoader'
 
 
 // ===========================================================================================
@@ -15,8 +15,8 @@ import { appInit } from './appInit'
 // ГОЛОВНИЙ ЗАПУСК
 // -----------------------------
 function initApp() {
+   initLoader()
    initInputMode()
-   appInit()
    initDropdowns()
    initEffects()
    movingElements()

@@ -1,21 +1,30 @@
 "use strict"
 
-export function appInit() {
-   initPageMaster()
-}
 
-/**
- * УНІВЕРСАЛЬНИЙ СКРИПТ ЗАВАНТАЖЕННЯ ТА АНІМАЦІЙ
- */
+export function initLoader() {
+   initPageMaster(600, '#00ADB5');
+}
 
 function initPageMaster(delay = 600, barColor = '#00ADB5') {
    const html = document.documentElement;
 
-   // 1. Створюємо прогрес-бар
+   html.removeAttribute('page-animate')
+
+   if (html.getAttribute('init-page-loader') === 'ready') return;
+
    const progressBar = document.createElement('div');
    progressBar.id = 'loader-progress-bar';
-   progressBar.style.backgroundColor = barColor;
-   html.appendChild(progressBar);
+   progressBar.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    z-index: 100000;
+    background-color: ${barColor};
+    transition: width 0.4s ease, opacity 0.3s ease;
+  `;
+   document.body.prepend(progressBar);
 
    let progress = 0;
    const interval = setInterval(() => {
@@ -24,7 +33,6 @@ function initPageMaster(delay = 600, barColor = '#00ADB5') {
       progressBar.style.width = progress + '%';
    }, 150);
 
-   // 2. Функція активації сторінки
    const activatePage = () => {
       if (html.getAttribute('init-page-loader') === 'ready') return;
 
@@ -32,21 +40,32 @@ function initPageMaster(delay = 600, barColor = '#00ADB5') {
       progressBar.style.width = '100%';
 
       setTimeout(() => {
+         // 1️⃣ loader finished
          html.setAttribute('init-page-loader', 'ready');
 
-         // Запускаємо обсервер для скрол-анімацій
+         // 2️⃣ дати браузеру repaint
+         requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+               html.setAttribute('page-animate', 'on');
+            });
+         });
+
          initAnimationObserver();
 
          setTimeout(() => {
             progressBar.style.opacity = '0';
             setTimeout(() => progressBar.remove(), 400);
          }, 300);
+
       }, delay);
    };
 
-   // Слухачі завантаження
-   window.addEventListener('load', activatePage);
-   setTimeout(activatePage, 4000); // Запобіжник (fail-safe)
+   if (document.readyState === 'complete') {
+      activatePage();
+   } else {
+      window.addEventListener('load', activatePage);
+      setTimeout(activatePage, 3000);
+   }
 }
 
 function initAnimationObserver() {
@@ -83,5 +102,4 @@ function initAnimationObserver() {
    elements.forEach(el => observer.observe(el));
 }
 
-// ЗАПУСК
-initPageMaster(600, '#ff4500');
+

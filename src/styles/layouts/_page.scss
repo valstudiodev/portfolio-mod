@@ -51,12 +51,12 @@
       text-align: center;
       @include adaptiveValue('margin-bottom', 64, 35);
       opacity: 0;
-      translate: 0 20%;
-      transition: translate 0.4s ease, opacity 2s ease;
+      translate: 0 50%;
+      transition: translate 0.6s ease, opacity 0.6s ease;
 
-      [init-page-loader="ready"] & {
-        opacity: 1;
-        translate: 0 0;
+      html[init-page-loader="ready"] & {
+        opacity: 1 !important;
+        translate: 0 0 !important;
       }
    }
 
@@ -67,8 +67,8 @@
       @include adaptiveValue('gap', 120, 40);
       justify-content: center;
       opacity: 0;
-      translate: 0 20%;
-      transition: translate 0.6s ease, opacity 1.6s ease;
+      translate: 0 50%;
+      transition: translate 0.8s ease, opacity 0.8s ease;
 
       [init-page-loader="ready"] & {
         opacity: 1;
@@ -381,8 +381,6 @@
    // background-color: $bgPrimary;
    background-color: $bgSecondary;
    overflow: hidden;
-   // .work__container
-   &__container {}
 
    &__block {
       @include adaptiveValue('margin-bottom', 250, 50);
