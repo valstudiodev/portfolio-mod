@@ -1,93 +1,101 @@
 "use strict"
 
-// Запуск при завантаженні сторінки
-document.addEventListener('DOMContentLoaded', initModal);
 
 export function openModal() {
    initModal()
 }
 // ===========================================================================================
 async function initModal() {
-   const openButtons = document.querySelectorAll('.open-btn-modal')
-   const modalOverlay = document.querySelector('#modal-overlay')
-   const modalContent = document.querySelector('#modal-content')
-   const fixedElements = document.querySelectorAll('.header, .fixed-element')
+   const openButtons = document.querySelectorAll('.open-btn-modal');
+   const modalOverlay = document.querySelector('#modal-overlay');
+   const modalContent = document.querySelector('#modal-content');
+   const fixedElements = document.querySelectorAll('.header, .fixed-element');
 
-   if (!openButtons.length || !modalOverlay || !modalContent) return
+   if (!openButtons.length || !modalOverlay || !modalContent) return;
 
+   // ПРИМУСОВИЙ метод обчислення ширини скролбару
    function getScrollbarWidth() {
-      return window.innerWidth - document.documentElement.clientWidth
+      const outer = document.createElement('div');
+      outer.style.visibility = 'hidden';
+      outer.style.overflow = 'scroll';
+      document.body.appendChild(outer);
+      const inner = document.createElement('div');
+      outer.appendChild(inner);
+      const width = outer.offsetWidth - inner.offsetWidth;
+      outer.parentNode.removeChild(outer);
+      return width;
    }
 
    function openModal() {
-      const scrollbarWidth = getScrollbarWidth()
-      if (scrollbarWidth > 0) {
-         document.body.style.paddingRight = `${scrollbarWidth}px`
-         fixedElements.forEach(el => el.style.paddingRight = `${scrollbarWidth}px`)
-      }
+      const scrollWidth = getScrollbarWidth();
 
-      document.body.classList.add('no-scroll')
-      modalOverlay.classList.add('is-open')
-      modalOverlay.setAttribute('aria-hidden', 'false')
+      // Встановлюємо CSS-змінну для всього документа
+      document.documentElement.style.setProperty('--lock-padding', `${scrollWidth}px`);
+
+      document.body.classList.add('no-scroll');
+      modalOverlay.classList.add('is-open');
+      modalOverlay.setAttribute('aria-hidden', 'false');
    }
 
    function closeModal() {
-      modalOverlay.classList.remove('is-open')
-      modalOverlay.setAttribute('aria-hidden', 'true')
+      modalOverlay.classList.remove('is-open');
+      modalOverlay.setAttribute('aria-hidden', 'true');
+      // Клас no-scroll і змінну видаляємо ПІСЛЯ завершення анімації (transitionend вже є нижче)
    }
 
-   // Повернення scroll після закриття через transitionend
-   modalOverlay.addEventListener('transitionend', () => {
-      if (!modalOverlay.classList.contains('is-open')) {
-         document.body.classList.remove('no-scroll')
-         document.body.style.paddingRight = ''
-         fixedElements.forEach(el => el.style.paddingRight = '')
+   modalOverlay.addEventListener('transitionend', (e) => {
+      // Перевіряємо, що анімувався саме оверлей (opacity), а не внутрішні елементи
+      if (e.target === modalOverlay && !modalOverlay.classList.contains('is-open')) {
+         document.body.classList.remove('no-scroll');
+         document.documentElement.style.removeProperty('--lock-padding');
       }
    });
 
-   // Відкриття на всі кнопки
    openButtons.forEach(btn => {
       btn.addEventListener('click', async (e) => {
-         e.preventDefault()
+         e.preventDefault();
 
-         if (!modalContent.innerHTML.trim()) {
+         // 1. Якщо контент ще не завантажений
+         if (modalContent.innerHTML.trim() === '') {
             try {
-               const response = await fetch('modal.html')
-               if (!response.ok) throw new Error('Network response was not ok')
-               modalContent.innerHTML = await response.text()
+               // Показуємо лоадер прямо у вікні перед тим, як відкрити його
+               modalContent.innerHTML = '<div class="modal-loader">Loading...</div>';
+
+               // Відкриваємо "порожнє" вікно з лоадером (користувач бачить, що щось відбувається)
+               openModal();
+
+               const response = await fetch('modal.html');
+               if (!response.ok) throw new Error('Помилка завантаження');
+               const html = await response.text();
+
+               // 2. Коли дані прийшли — замінюємо лоадер на форму
+               // Робимо це з невеликою затримкою для плавності
+               setTimeout(() => {
+                  modalContent.innerHTML = html;
+               }, 100);
+
             } catch (err) {
-               console.error('Modal Load Error:', err)
-               modalContent.innerHTML = '<div style="padding:20px; text-align:center;">Помилка завантаження форми.</div>'
+               modalContent.innerHTML = '<p>Помилка завантаження форми.</p>';
             }
+         } else {
+            // Якщо контент вже завантажений раніше — просто відкриваємо
+            openModal();
          }
+      });
+   });
 
-         openModal()
-      })
-   })
-
-   // Закриття overlay або кнопки
    modalOverlay.addEventListener('click', (e) => {
       if (e.target === modalOverlay || e.target.closest('[data-modal-close]')) {
-         closeModal()
+         closeModal();
       }
    });
 
-   // Закриття на Escape
    document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) {
-         closeModal()
+         closeModal();
       }
    });
-
-   // Accessibility
-   modalOverlay.setAttribute('role', 'dialog')
-   modalOverlay.setAttribute('aria-modal', 'true')
-   modalOverlay.setAttribute('aria-hidden', 'true')
 }
-
-
-
-
 
 
 

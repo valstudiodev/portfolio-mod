@@ -24,7 +24,8 @@ function initPageMaster(delay = 600, barColor = '#00ADB5') {
     background-color: ${barColor};
     transition: width 0.4s ease, opacity 0.3s ease;
   `;
-   document.body.prepend(progressBar);
+   // document.body.prepend(progressBar);
+   html.appendChild(progressBar);
 
    let progress = 0;
    const interval = setInterval(() => {
@@ -101,5 +102,6 @@ function initAnimationObserver() {
 
    elements.forEach(el => observer.observe(el));
 }
+
 
 

@@ -16,10 +16,10 @@
       }
 
       html[init-page-loader="ready"] body {
-         opacity: 1;
+         opacity: 1 !important;
          overflow: visible;
          transition: opacity 0.4s ease;
-         visibility: visible;
+         visibility: visible !important;
       }
 
       /* Стиль прогрес-бару (щоб не чекати завантаження файлу CSS) */
@@ -38,22 +38,6 @@
    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-   <!-- <style>
-      /* 1. Початковий стан: коли атрибут порожній */
-      [init-page-loader] {
-         opacity: 0 !important;
-         visibility: hidden !important;
-         background-color: #292F36;
-         /* Твій колір */
-         transition: opacity 0.6s ease-in-out, visibility 0.6s;
-      }
-
-      /* 2. Стан після завантаження: коли ми додаємо значення "ready" */
-      [init-page-loader="ready"] {
-         opacity: 1 !important;
-         visibility: visible !important;
-      }
-   </style> -->
    <title>Portfolio</title>
 </head>
 

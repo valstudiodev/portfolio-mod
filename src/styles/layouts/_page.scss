@@ -52,7 +52,7 @@
       @include adaptiveValue('margin-bottom', 64, 35);
       opacity: 0;
       translate: 0 50%;
-      transition: translate 0.6s ease, opacity 0.6s ease;
+      transition: translate 0.4s ease, opacity 0.4s ease;
 
       html[init-page-loader="ready"] & {
         opacity: 1 !important;
