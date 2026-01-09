@@ -43,6 +43,17 @@
 .hero {
    background-color: $bgPrimary;
 
+   &__inner {
+      opacity: 0;
+      translate: 0 50%;
+      transition: translate 0.8s ease, opacity 0.8s ease;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
+   }
+
    // .hero__title
    &__title {
       font-family: "Ubuntu", sans-serif;
@@ -50,14 +61,6 @@
       color: $brandSecondary;
       text-align: center;
       @include adaptiveValue('margin-bottom', 64, 35);
-      opacity: 0;
-      translate: 0 50%;
-      transition: translate 0.4s ease, opacity 0.4s ease;
-
-      html[init-page-loader="ready"] & {
-        opacity: 1 !important;
-        translate: 0 0 !important;
-      }
    }
 
    // .hero__body
@@ -66,14 +69,7 @@
       align-items: center;
       @include adaptiveValue('gap', 120, 40);
       justify-content: center;
-      opacity: 0;
-      translate: 0 50%;
-      transition: translate 0.8s ease, opacity 0.8s ease;
 
-      [init-page-loader="ready"] & {
-        opacity: 1;
-        translate: 0 0;
-      }
 
       @media (max-width: toEm(735)) {
          flex-direction: column;
@@ -378,8 +374,8 @@
 // page__work
 // -----------------------------
 .work {
-   // background-color: $bgPrimary;
-   background-color: $bgSecondary;
+   background-color: $bgPrimary;
+   // background-color: $bgSecondary;
    overflow: hidden;
 
    &__block {
@@ -474,17 +470,7 @@
    }
 
    // .projects__inner
-   &__inner {
-      opacity: 0;
-      translate: 0 toRem(-50);
-      will-change: translate, opacity;
-      transition: translate 0.5s ease, opacity 0.5s ease;
-
-      &.animate {
-         opacity: 1;
-         translate: 0 0;
-      }
-   }
+   &__inner {}
 
    &__buttons-inner {
       @media (max-width: toEm(768.98)) {
@@ -513,6 +499,14 @@
       align-items: center;
       gap: toRem(30);
       max-width: toRem(1000);
+      opacity: 0;
+      translate: 0 toRem(60);
+      transition: opacity 0.5s, translate 0.5s ease;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
 
       @media (max-width: toEm(768.98)) {
         display: block;

@@ -622,6 +622,15 @@
    align-items: center;
    justify-content: center;
    gap: toRem(16);
+   opacity: 0;
+   translate: 0 toRem(50);
+   transition: opacity 0.5s ease,translate 0.5s ease;
+
+   &.animate {
+      opacity: 1;
+      translate: 0 0;
+   }
+
 
    &--margin {
       @include adaptiveValue('margin-bottom', 60, 30);
@@ -684,14 +693,6 @@
    width: toRem(32);
    height: toRem(140);
    fill: $orange;
-   opacity: 0;
-   translate: 0 toRem(-40);
-   transition: opacity 0.3s ease, translate 0.3s ease-in-out;
-
-   &.animate {
-      opacity: 1;
-      translate: 0 0;
-   }
 
    @media (max-width: toEm($mobile)) {
       display: none;
@@ -846,112 +847,6 @@
 // -----------------------------
 // items
 // -----------------------------
-// .item-approach {
-//    position: relative;
-//    background-color: $bgPrimary;
-//    border-radius: toRem(8);
-//    counter-increment: item;
-//    border-right: toRem(8) solid $blue;
-//    box-shadow:
-//       0 0 14px rgba(20, 120, 80, 0.40),
-//       0 0 28px rgba(20, 120, 80, 0.25),
-//       0 0 45px rgba(20, 120, 80, 0.15);
-
-//       &.anim-child {
-//          opacity: 0;
-//          transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-//          will-change: transform, opacity;
-//          transform: translateY(30px);
-//       }
-//       &.animate {
-//          opacity: 1;
-//          transform: translateY(0) scale(1);
-//       }
-
-//    &::before {
-//       content: counter(item, decimal-leading-zero);
-//       position: absolute;
-//       top: 0;
-//       left: 0;
-//       width: toRem(40);
-//       height: toRem(40);
-//       background-color: $bgSecondary;
-//       border: toRem(1) solid $blue;
-//       border-radius: 50%;
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//       translate: -30% -30%;
-//       backdrop-filter: blur(30px);
-//    }
-
-//    // .item-approach__inner
-//    &__inner {
-//       display: flex;
-//       flex-direction: column;
-//       align-items: center;
-//       min-height: 100%;
-//       padding: toRem(40);
-//       text-align: center;
-
-//       >* {
-//          margin-bottom: toRem(8);
-
-//          &:last-child {
-//             margin-bottom: toRem(0);
-//          }
-//       }
-//    }
-
-//    &__icon {
-//       width: toRem(50);
-//       aspect-ratio: 1;
-//       fill: $brandDark;
-//    }
-
-//    // .item-approach__title
-//    &__title {
-//       position: relative;
-//       @include adaptiveValue('font-size', 24, 20);
-//       font-weight: 500;
-//       text-transform: uppercase;
-//       letter-spacing: toRem(1.5);
-//       border-bottom: toRem(2) solid $brandPrimary;
-//       padding-bottom: toRem(10);
-//       color: $white;
-
-//       &::before,
-//       &::after {
-//          content: "";
-//          position: absolute;
-//          width: toRem(10);
-//          height: toRem(10);
-//          border-radius: 50%;
-//          background-color: $brandPrimary;
-//       }
-
-//       &::before {
-//          top: 100%;
-//          translate: -50% -43%;
-//       }
-
-//       &::after {
-//          top: 100%;
-//          translate: 0 -43%;
-//          right: 0;
-//       }
-//    }
-
-//    // .item-approach__text
-//    &__text {
-//       // color: $bgPrimary;
-//       color: $white;
-//       max-width: toRem(350);
-//       @include adaptiveValue('margin-bottom', 20, 10);
-//       flex-grow: 1;
-//    }
-// }
-
 .approach-item {
    max-width: toRem(500);
    position: relative;
@@ -1121,35 +1016,33 @@
    @include adaptiveValue('padding-right', 99.5, 40);
    padding-left: toRem(0);
    counter-increment: item;
-   transition: translate 0.5s, opacity 0.5s;
-   will-change: transform, opacity;
-   opacity: 0;
+   transition: opacity 0.5s,transform 0.5s ease;
 
-   &:nth-child(odd) {
-      translate: 80% 0;
-
-         &.animate {
-            opacity: 1;
-            translate: 0 0;
-         }
-   }
-   &:nth-child(even) {
-      translate: -80% 0;
-
-         &.animate {
-            opacity: 1;
-            translate: 0 0;
-         }
+   &.animate {
+      &::after {
+         opacity: 1;
+         transform: scale(1);
+      }
    }
 
    // .item-step__inner
    &__inner {
-      background-color: $bgPrimary;
+      // background-color: $bgPrimary;
+      background-color: $bgSecondary;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       @include adaptiveValue('gap', 20, 10);
       @include adaptiveValue('padding', 50, 25);
+      transition: opacity 0.6s,translate 0.4s ease-in-out;
+      translate: 0 toRem(50);
+      opacity: 0;
+      will-change: transform, opacity;
+
+      &.animate {
+         opacity: 1;
+         translate: 0 0;
+      }
    }
 
    // .item-step__title
@@ -1168,9 +1061,6 @@
          text-align: center;
       }
    }
-
-   // .item-step__list
-   &__list {}
 
    // .item-step__item
    &__item {
@@ -1211,13 +1101,15 @@
       background-color: $bgPrimary;
       border: toRem(1) solid $brandPrimary;
       border-radius: 50%;
-      width: toRem(40);
+      width: toRem(50);
       aspect-ratio: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       backdrop-filter: blur(30px);
-      outline: toRem(16) solid $bgSecondary;
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.6s,transform 0.6s;
    }
 
    &:last-child {

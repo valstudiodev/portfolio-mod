@@ -106,7 +106,7 @@
 
          <section class="page__hero hero">
             <div class="hero__container">
-               <div class="hero__inner">
+               <div class="hero__inner hero__inner--anim">
                   <h1 class="hero__title">Web-Developer</h1>
                   <div class="hero__body">
                      <article class="hero__cart cart-info">
@@ -222,7 +222,7 @@
             </div>
          </section>
 
-         <section class="page__approach approach">
+         <!-- <section class="page__approach approach">
             <div class="approach__container">
                <svg class="approach__scroll mouse-scroll mouse-scroll--anim">
                   <use href="src/assets/icons/symbol-defs.svg#icon-scroll"></use>
@@ -367,12 +367,12 @@
                </div>
             </div>
 
-         </section>
+         </section> -->
 
          <section class="page__work work">
             <div class="work__container">
-               <div class="work__block block-header">
-                  <svg class="block-header__scroll mouse-scroll mouse-scroll--anim">
+               <div class="work__block block-header block-header--anim">
+                  <svg class="block-header__scroll mouse-scroll">
                      <use href="src/assets/icons/symbol-defs.svg#icon-scroll"></use>
                   </svg>
                   <h2 class="block-header__title">Your <span>Website</span> <br>
@@ -383,8 +383,8 @@
                   </div>
                </div>
                <div class="work__items">
-                  <article class="item-step item-step--anim">
-                     <div class="item-step__inner">
+                  <article class="item-step item-step--anim" data-threshold="0.8">
+                     <div class="item-step__inner item-step__inner--anim">
                         <h3 class="item-step__title">Contact</h3>
                         <div class="item-step__text">
                            <p>You reach out with your idea or project.</p>
@@ -455,9 +455,9 @@
 
          <section class="page__projects projects">
             <div class="projects__container">
-               <div class="projects__inner projects__inner--anim" data-threshold="0.3">
-                  <div class="projects__header block-header block-header--margin">
-                     <svg class="block-header__scroll mouse-scroll mouse-scroll--anim">
+               <div class="projects__inner">
+                  <div class="projects__header block-header block-header--anim block-header--margin">
+                     <svg class="block-header__scroll mouse-scroll">
                         <use href="src/assets/icons/symbol-defs.svg#icon-scroll"></use>
                      </svg>
                      <h2 class="block-header__title">My recent <span>work</span></h2>
@@ -466,7 +466,7 @@
                      </div>
                   </div>
 
-                  <div class="projects__wrapper">
+                  <div class="projects__wrapper projects__wrapper--anim">
                      <button
                         class="button-arrow button-arrow--left button-arrow--prev button-arrow--icon-chevron"></button>
                      <!-- Slider main container -->
