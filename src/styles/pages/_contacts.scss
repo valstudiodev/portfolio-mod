@@ -117,7 +117,6 @@
    align-items: start;
    gap: toRem(24);
    max-width: toRem(600);
-
    // .form-contacts__top
    &__fields {
       display: flex;
@@ -150,6 +149,7 @@
       color: $white;
       width: 100%;
       min-width: 0;
+      max-width: toRem(288);
 
 
       &::placeholder {

@@ -622,9 +622,12 @@
    align-items: center;
    justify-content: center;
    gap: toRem(16);
-   opacity: 0;
-   translate: 0 toRem(50);
    transition: opacity 0.5s ease,translate 0.5s ease;
+
+   &--anim {
+      opacity: 0;
+      translate: 0 toRem(50);
+   }
 
    &.animate {
       opacity: 1;
@@ -693,6 +696,16 @@
    width: toRem(32);
    height: toRem(140);
    fill: $orange;
+   transition: opacity 0.4s, translate 0.4s ease;
+
+   &--anim {
+      translate: 0 toRem(30);
+      opacity: 0;
+   }
+   &.animate {
+      translate: 0 0;
+      opacity: 1;
+   }
 
    @media (max-width: toEm($mobile)) {
       display: none;
@@ -1219,6 +1232,8 @@
    }
 }
 
+
+
 // ===========================================================================================
 // -----------------------------
 // card-work
@@ -1227,11 +1242,36 @@
    background: $bgPrimary;
    box-shadow: 0 0 10px rgba(20, 60, 40, 0.25),
                0 0 18px rgba(20, 60, 40, 0.15);
-   transition: transform 0.4s ease, box-shadow 0.4s ease;
+   // transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s;
+   transition: translate 0.4s ease-in-out, opacity 0.4s;
+   will-change: translate, opacity;
+   box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
+               0 0 28px rgba(20, 120, 80, 0.25),
+               0 0 45px rgba(20, 120, 80, 0.15);
    cursor: pointer;
-   overflow: hidden;
    perspective: 1000px;
    perspective-origin: center;
+
+   &--slide {
+      translate: 0 0 !important;
+
+      @include hover {
+         .cart-work__content {
+            translate: toRem(50) 0 !important;
+         }
+      }
+   }
+
+   @include hover {
+      translate: 0 toRem(-8);
+
+      .cart-work__content {
+         opacity: 1;
+         translate: toRem(50) toRem(-50);
+         pointer-events: auto;
+         z-index: 200;
+      }
+   }
 
    // .cart-work__inner
    &__inner {
@@ -1283,24 +1323,17 @@
    // .cart-work__content
    &__content {
       position: absolute;
+      top: 0;
       left: 0;
-      bottom: 0;
-      translate: 0 102%;
-      width: 100%;
+      background-color: $grey;
+      padding: toRem(40);
+      transition: translate 0.6s, opacity 0.6s, transform 0.6s ease;
+      opacity: 0;
+      pointer-events: none;
       height: auto;
-      display: flex;
-      flex-direction: column;
-      @include adaptiveValue('gap', 20, 10);
-      align-items: flex-start;
-      justify-content: flex-start;
-      background-color: $bgPrimary;
-      border-top: toRem(1) solid $brandDark;
-      backdrop-filter: blur(30px);
-      @include adaptiveValue('padding', 20, 10);
-      overflow: hidden;
-      transition: all 0.3s ease-in-out;
-      backface-visibility: hidden;
-      z-index: 10;
+      box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
+         0 0 28px rgba(20, 120, 80, 0.25),
+         0 0 45px rgba(20, 120, 80, 0.15);
    }
 
    // .cart-work__title
@@ -1314,18 +1347,96 @@
    &__text {
       @include adaptiveValue('font-size', 18, 14);
       flex-grow: 1;
+      max-width: toRem(400);
    }
+}
+
+.card-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill,minmax(min(toRem(550),100%),1fr));
+   gap: toRem(30);
+
+   &:has(.card:hover) .card:not(:hover) {
+         opacity: 0.2;
+      }
+}
+
+.card {
+   // max-width: toRem(700);
+   // overflow: hidden;
+   transition: translate 0.4s ease-in-out, opacity 0.4s;
+   will-change: translate;
+   box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
+         0 0 28px rgba(20, 120, 80, 0.25),
+         0 0 45px rgba(20, 120, 80, 0.15);
 
    @include hover {
-      &:hover {
-         transform: translateY(-6px);
-         box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
-            0 0 28px rgba(20, 120, 80, 0.25),
-            0 0 45px rgba(20, 120, 80, 0.15);
+      translate: 0 toRem(-8);
+      .card__content {
+         opacity: 1;
+         translate: toRem(50) toRem(-50);
+         pointer-events: auto;
+      }
+   }
 
-         .cart-work__content {
-            translate: 0 toRem(6);
+   // .card__inner
+   &__inner {
+      position: relative;
+   }
+
+   // .card__image
+   &__image {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         filter: brightness(0.9);
+         transition: scale 0.6s;
+         will-change: scale;
+         cursor: pointer;
+
+         @include hover {
+         //   scale: 1.01;
          }
       }
    }
+
+   // .card__content
+   &__content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $grey;
+      padding: toRem(40);
+      transition: translate 0.6s, opacity 0.6s,transform 0.6s ease;
+      opacity: 0;
+      pointer-events: none;
+      height: auto;
+      box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
+            0 0 28px rgba(20, 120, 80, 0.25),
+            0 0 45px rgba(20, 120, 80, 0.15);
+   }
+
+   // .card__title
+   &__title {}
+
+   // .card__text
+   &__text {}
+
+   // .card__buttons
+   &__buttons {}
 }
+
+
+
+
+
+
+

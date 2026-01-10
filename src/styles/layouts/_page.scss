@@ -42,15 +42,27 @@
 // -----------------------------
 .hero {
    background-color: $bgPrimary;
+   // opacity: 0;
+   // // scale: 0;
+   // transition: opacity 0.8s, scale 0.8s, translate 0.8s ease-in-out;
+   // translate: 0 toRem(200);
+   // will-change: opacity,scale,translate;
+
+
+   // [init-page-loader="ready"] & {
+   //       opacity: 1;
+   //       scale: 1;
+   //       translate: 0 0;
+   //    }
 
    &__inner {
       opacity: 0;
-      translate: 0 50%;
-      transition: translate 0.8s ease, opacity 0.8s ease;
-
-      &.animate {
+      scale: 0;
+      transition: opacity 0.8s, scale 0.8s;
+      will-change: opacity, scale;
+      [init-page-loader="ready"] & {
          opacity: 1;
-         translate: 0 0;
+         scale: 1;
       }
    }
 
@@ -204,9 +216,10 @@
 
    &__desc {
       opacity: 0;
-      translate: -70% 0;
-      transition: translate 0.5s ease, opacity 0.6s ease;
+      translate: 0 toRem(50);
+      transition: translate 0.5s ease, opacity 0.5s ease;
       will-change: transform, opacity;
+
       &.animate {
          opacity: 1;
          translate: 0 0;
@@ -229,8 +242,9 @@
       z-index: 2;
       will-change: transform, opacity;
       opacity: 0;
-      translate: 80% 0;
-      transition: translate 0.5s ease, opacity 0.6s ease;
+      translate: 0 toRem(50);
+      transition: translate 0.5s ease, opacity 0.5s ease;
+      transition-delay: 0.5s;
       &.animate {
          opacity: 1;
          translate: 0 0;
@@ -538,8 +552,8 @@
       @include adaptiveValue('gap', 50, 25);
       opacity: 0;
       // translate: 0 toRem(50);
-      scale: 0.6;
-      transition: opacity 0.4s ease, scale 0.6s ease;
+      scale: 0.7;
+      transition: opacity 0.8s ease, scale 0.8s ease;
 
       &.animate {
          opacity: 1;
@@ -550,10 +564,64 @@
 
    // .intro__header
    &__header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: toRem(16);
+   }
 
-      .block-header__title {
-         // max-width: toRem(700);
+   &__content {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(20);
+      align-items: center;
+   }
+
+   &__title {
+      position: relative;
+      font-family: "Ubuntu", sans-serif;
+      @include adaptiveValue('font-size', 64, 40);
+      color: $white;
+      border-bottom: toRem(2) solid $brandPrimary;
+      padding-bottom: toRem(16);
+      text-align: center;
+      font-weight: 600;
+
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         width: toRem(10);
+         height: toRem(10);
+         border-radius: 50%;
+         background-color: $brandPrimary;
       }
+
+      &::before {
+         top: 100%;
+         translate: -50% -43%;
+         left: 0;
+      }
+
+      &::after {
+         top: 100%;
+         translate: 0 -43%;
+         right: 0;
+      }
+
+      span {
+         color: $brandDark;
+      }
+   }
+
+   &__label {
+      color: $brandDark;
+   }
+
+   &__text {
+      text-align: center;
+      max-width: toRem(500);
    }
 
    // .intro__button

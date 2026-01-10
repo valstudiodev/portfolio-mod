@@ -23,10 +23,6 @@
       opacity: 0.3;
    }
 
-   &__container {}
-
-   &__inner {}
-
    &__header {
       .mouse-scroll {
          fill: $brandSecondary;
@@ -39,12 +35,6 @@
       flex-direction: column;
       gap: toRem(50);
    }
-
-   // .projects__menu
-   &__menu {}
-
-   // .projects__carts
-   &__carts {}
 }
 
 .menu-projects {
@@ -99,12 +89,14 @@
 
 .carts-project {
 
+   &:has(.cart-work:hover) .cart-work:not(:hover) {
+      opacity: 0.2;
+   }
    // .carts-project__container
    &__inner {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(toRem(400), 100%), 1fr));
-      gap: toRem(30);
-
-
+      grid-template-columns: repeat(auto-fill, minmax(min(toRem(540), 100%), 1fr));
+      @include adaptiveValue('row-gap', 60, 30);
+      @include adaptiveValue('column-gap', 60, 30);
    }
 }
