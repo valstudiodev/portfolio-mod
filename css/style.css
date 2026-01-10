@@ -370,7 +370,6 @@
       -ms-flex-align: start;
           align-items: start;
   gap: 1.5rem;
-  max-width: 37.5rem;
 }
 .form-contact__fields {
   display: -webkit-box;
@@ -415,7 +414,6 @@
   color: #FFFFFF;
   width: 100%;
   min-width: 0;
-  max-width: 18rem;
 }
 @media (min-width: 105.875em) {
   .form-contact__input {
@@ -2707,6 +2705,37 @@ html[data-input=mouse] .social-footer__link:hover:hover {
   text-align: center;
   max-width: 31.25rem;
 }
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.swiper--side {
+  margin-top: 0.625rem;
+}
+.swiper--side .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+.swiper--side .swiper-slide-thumb-active {
+  opacity: 1;
+}
+.swiper--main {
+  height: 100%;
+  width: 100%;
+}
+
 @-webkit-keyframes jumpArrow {
   0%, 100% {
     -webkit-transform: translateY(0);
@@ -2717,6 +2746,7 @@ html[data-input=mouse] .social-footer__link:hover:hover {
             transform: translateY(-4px);
   }
 }
+
 @keyframes jumpArrow {
   0%, 100% {
     -webkit-transform: translateY(0);

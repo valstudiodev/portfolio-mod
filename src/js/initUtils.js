@@ -40,38 +40,33 @@ document.addEventListener("DOMContentLoaded", function () {
 // SLIDER
 // -----------------------------
 function slidersInit() {
-   if (document.querySelector('.slider-projects')) {
-      const swiper = new Swiper('.slider-projects', {
+   if (document.querySelector('.swiper--side')) {
+      const swiper = new Swiper('.swiper--side', {
          loop: true,
-         slidesPerView: 1,
-         spaceBetween: 0,
-         centteredSlides: false,
+         slidesPerView: 4,
+         spaceBetween: 10,
+         freeMode: true,
+         watchSlidesProgress: true,
+         // centteredSlides: false,
 
+         // navigation: {
+         //    nextEl: ".button-arrow--next",
+         //    prevEl: ".button-arrow--prev",
+         // },
+
+
+      });
+
+      var swiper2 = new Swiper(".swiper--main", {
+         loop: true,
+         spaceBetween: 10,
          navigation: {
             nextEl: ".button-arrow--next",
             prevEl: ".button-arrow--prev",
          },
-
-         // breakpoints: {
-         //    320: {
-         //       slidesPerView: 1.2,
-         //       spaceBetween: 10,
-         //    },
-         //    420: {
-         //       slidesPerView: 2.2,
-         //       spaceBetween: 20,
-         //       centteredSlides: true,
-         //    },
-         //    // 768: {
-         //    //    slidesPerView: 2,
-         //    //    spaceBetween: 20,
-         //    //    centteredSlides: false,
-         //    // },
-         //    768: {
-         //       slidesPerView: 3,
-         //       spaceBetween: 30,
-         //    },
-         // },
+         thumbs: {
+            swiper: swiper,
+         },
       });
    }
 }
