@@ -12,7 +12,19 @@
 
    // .about-page__header
    &__header {
-      @include adaptiveValue('margin-bottom', 100, 40);
+
+      &.block-header--about {
+         opacity: 0;
+         scale: 0;
+         transition: opacity 0.8s, scale 0.8s;
+         will-change: transition,opacity,scale;
+         @include adaptiveValue('margin-bottom', 60, 40);
+
+         [init-page-loader="ready"] & {
+            opacity: 1;
+            scale: 1;
+         }
+      }
 
       .mouse-scroll {
          fill: $brandPrimary;
@@ -21,12 +33,6 @@
       .block-header__title {
          @include adaptiveValue('font-size', 64, 40);
       }
-   }
-
-   &__title {
-      // font-family: "Ubuntu",sans-serif;
-      // @include adaptiveValue('font-size',64,44);
-      // color: $brandDark;
    }
 
    &__text {
@@ -38,6 +44,7 @@
 .body-about {
 
    &__wrapper {
+      overflow: hidden;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(min(toRem(600), 100%), 1fr));
       @include adaptiveValue('gap', 50, 25);
@@ -45,10 +52,26 @@
 
    // .body-about__inner
    &__inner {
-      // display: flex;
       display: flex;
       flex-direction: column;
       gap: toRem(50);
+      opacity: 0;
+      scale: 0;
+      translate: 0 toRem(60);
+      transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
+      will-change: opacity, translate;
+
+      // &.animate {
+      //    opacity: 1;
+      //    translate: 0 0;
+      //    scale: 1;
+      // }
+
+      [init-page-loader="ready"] & {
+         opacity: 1;
+         scale: 1;
+         translate: 0 0;
+      }
    }
 
    // .body-about__info
@@ -93,16 +116,30 @@
    // .body-about__image
    &__image {
       aspect-ratio: 1;
-      // border-radius: toRem(40);
-      // border: toRem(2) solid $bgPrimary;
-      // overflow: hidden;
+      overflow: hidden;
+      opacity: 0;
+      scale: 0;
+      translate: 0 toRem(60);
+      transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
+      will-change: opacity,translate;
+
+      // &.animate {
+      //    opacity: 1;
+      //    scale: 1;
+      //    translate: 0 0;
+      // }
+
+      [init-page-loader="ready"] & {
+        opacity: 1;
+        scale: 1;
+        translate: 0 0;
+      }
 
       img {
          width: 100%;
          height: 100%;
          object-fit: cover;
          object-position: top;
-         // object-position: center;
       }
    }
 

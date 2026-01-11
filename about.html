@@ -19,6 +19,7 @@
 
       html[init-page-loader="ready"] body {
          opacity: 1;
+         /* overflow: hidden; */
          overflow: visible;
          transition: opacity 0.4s ease;
          visibility: visible;
@@ -105,8 +106,8 @@
          <section class="page-about__about about-page">
             <div class="about-page__container">
                <div class="about-page__inner">
-                  <div class="about-page__header block-header block-header--anim block-header--margin">
-                     <svg class="block-header__scroll mouse-scroll mouse-scroll--anim">
+                  <div class="about-page__header block-header block-header--about block-header--margin">
+                     <svg class="block-header__scroll mouse-scroll">
                         <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
                      </svg>
                      <h2 class="block-header__title">A bit about
@@ -121,10 +122,10 @@
                   </div>
                   <div class="about-page__body body-about">
                      <div class="body-about__wrapper">
-                        <div class="body-about__image">
+                        <div class="body-about__image body-about__image--anim" data-threshold="0.1">
                            <img src="/src/assets/img/png/man-works.webp" alt="">
                         </div>
-                        <div class="body-about__inner">
+                        <div class="body-about__inner body-about__inner--anim" data-threshold="0.1">
                            <div class="body-about__info">
                               <div class="body-about__name">Valentyn Tkachenko</div>
                               <h2 class="body-about__title">

@@ -29,6 +29,7 @@
       opacity: 0;
       scale: 0;
       transition: opacity 0.8s, scale 0.8s;
+      will-change: transition, opacity, scale;
       @include adaptiveValue('margin-bottom', 100, 50);
 
       [init-page-loader="ready"] & {
@@ -49,7 +50,7 @@
       opacity: 0;
       scale: 0;
       translate: 0 toRem(60);
-      transition: opacity 0.8s, translate 0.8s ease-in-out, scale 0.8s;
+      transition: opacity 1.2s, translate 1.2s ease-in-out, scale 1.2s;
 
       [init-page-loader="ready"] & {
          opacity: 1;
