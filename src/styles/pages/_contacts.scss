@@ -8,7 +8,6 @@
    @include adaptiveValue('padding-top', 350, 130);
    @include adaptiveValue('padding-bottom', 120, 50);
 
-
    // .contacts-page__container
    &__container {
       position: relative;
@@ -17,6 +16,14 @@
       display: flex;
       // justify-content: space-between;
       gap: toRem(50);
+      opacity: 0;
+      scale: 0;
+      transition: opacity 0.8s, scale 0.8s;
+
+      [init-page-loader="ready"] & {
+            opacity: 1;
+            scale: 1;
+         }
 
       &::before {
          content: "";
@@ -107,15 +114,13 @@
          object-fit: cover;
       }
    }
-
-   // .contacts-page__form
-   &__form {}
 }
 
 .form-contact {
    // position: relative;
    align-items: start;
    gap: toRem(24);
+
    // .form-contacts__top
    &__fields {
       display: flex;

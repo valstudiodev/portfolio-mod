@@ -5,7 +5,10 @@ window.addEventListener('scroll', scrollHeader)
 
 export function initEffects() {
    scrollHeader()
-   toggleCardContent()
+   // toggleCardContent()
+   initSlideSheet({
+      maxWidth: 859
+   });
 }
 // ===========================================================================================
 
@@ -13,14 +16,22 @@ export function initEffects() {
 // -----------------------------
 // scroll-header
 // -----------------------------
+// function scrollHeader() {
+//    const header = document.querySelector(`.header`)
+//    if (header && window.scrollY > 50) {
+//       header.classList.add('scrolled')
+//    } else {
+//       header.classList.remove('scrolled')
+//    }
+// }
+
 function scrollHeader() {
-   const header = document.querySelector(`.header`)
-   if (header && window.scrollY > 50) {
-      header.classList.add('scrolled')
-   } else {
-      header.classList.remove('scrolled')
-   }
+   const header = document.querySelector('.header');
+   if (!header) return;
+
+   header.classList.toggle('scrolled', window.scrollY > 50);
 }
+
 
 // function initScrollHeader() {
 //    const header = document.querySelector('.header');
@@ -255,8 +266,72 @@ menuItems.forEach(item => {
 
 
 
+function initSlideSheet({
+   cardSelector = '.card',
+   contentSelector = '.card__content',
+   sheetSelector = '.sheet',
+   bodySelector = '.sheet__body',
+   overlaySelector = '.sheet-overlay',
+   maxWidth = 1024 // <= активний режим
+} = {}) {
 
+   const sheet = document.querySelector(sheetSelector);
+   const overlay = document.querySelector(overlaySelector);
+   const cards = document.querySelectorAll(cardSelector);
 
+   if (!sheet || !overlay || !cards.length) return;
+
+   const sheetBody = sheet.querySelector(bodySelector);
+   if (!sheetBody) return;
+
+   const body = document.body;
+
+   function isActive() {
+      return window.innerWidth <= maxWidth;
+   }
+
+   function getScrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
+   }
+
+   function openSheet(content) {
+      if (!isActive()) return;
+
+      sheetBody.innerHTML = content.innerHTML;
+
+      body.style.paddingRight = getScrollbarWidth() + 'px';
+      body.classList.add('lock-sheet');
+
+      sheet.classList.add('active-sheet');
+      overlay.classList.add('active-sheet');
+   }
+
+   function closeSheet() {
+      sheet.classList.remove('active-sheet');
+      overlay.classList.remove('active-sheet');
+      body.classList.remove('lock-sheet');
+      body.style.paddingRight = '';
+      sheetBody.innerHTML = '';
+   }
+
+   cards.forEach(card => {
+      card.addEventListener('click', () => {
+         if (!isActive()) return;
+
+         const content = card.querySelector(contentSelector);
+         if (!content) return;
+
+         openSheet(content);
+      });
+   });
+
+   overlay.addEventListener('click', closeSheet);
+
+   // auto-close при ресайзі
+   window.addEventListener('resize', () => {
+      if (!isActive()) closeSheet();
+   });
+}
 
 
 

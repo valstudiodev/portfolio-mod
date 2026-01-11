@@ -2,7 +2,7 @@
 
 
 export function initLoader() {
-   initPageMaster(600, '#00ADB5');
+   initPageMaster(600, '#00ADB5')
 }
 
 function initPageMaster(delay = 600, barColor = '#00ADB5') {
@@ -22,7 +22,7 @@ function initPageMaster(delay = 600, barColor = '#00ADB5') {
     width: 0%;
     z-index: 100000;
     background-color: ${barColor};
-    transition: width 0.4s ease, opacity 0.3s ease;
+    transition: width 0.4s ease, opacity 0.4s ease;
   `;
    // document.body.prepend(progressBar);
    html.appendChild(progressBar);

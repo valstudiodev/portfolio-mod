@@ -24,9 +24,21 @@
    }
 
    &__header {
+
+   &.block-header--works {
+      opacity: 0;
+      scale: 0;
+      transition: opacity 0.8s, scale 0.8s;
+      @include adaptiveValue('margin-bottom', 100, 50);
+
+      [init-page-loader="ready"] & {
+         opacity: 1;
+         scale: 1;
+      }
+   }
+
       .mouse-scroll {
          fill: $brandSecondary;
-         // fill: red;
       }
    }
 
@@ -34,6 +46,16 @@
       display: flex;
       flex-direction: column;
       gap: toRem(50);
+      opacity: 0;
+      scale: 0;
+      translate: 0 toRem(60);
+      transition: opacity 0.8s, translate 0.8s ease-in-out, scale 0.8s;
+
+      [init-page-loader="ready"] & {
+         opacity: 1;
+         scale: 1;
+         translate: 0 0;
+      }
    }
 }
 
@@ -89,9 +111,12 @@
 
 .carts-project {
 
-   &:has(.cart-work:hover) .cart-work:not(:hover) {
-      opacity: 0.2;
+   @include hover {
+      &:has(.card:hover) .card:not(:hover) {
+         opacity: 0.2;
+      }
    }
+
    // .carts-project__container
    &__inner {
       display: grid;

@@ -67,6 +67,9 @@ body {
       overflow: hidden !important;
       height: 100vh;
    }
+   &.lock-sheet {
+      overflow-y: hidden !important;
+   }
 }
 
 .wrapper {
@@ -161,3 +164,7 @@ html[data-input="touch"] {
       background-color: $bgPrimary;
    }
 }
+
+
+
+

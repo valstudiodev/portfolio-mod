@@ -42,18 +42,6 @@
 // -----------------------------
 .hero {
    background-color: $bgPrimary;
-   // opacity: 0;
-   // // scale: 0;
-   // transition: opacity 0.8s, scale 0.8s, translate 0.8s ease-in-out;
-   // translate: 0 toRem(200);
-   // will-change: opacity,scale,translate;
-
-
-   // [init-page-loader="ready"] & {
-   //       opacity: 1;
-   //       scale: 1;
-   //       translate: 0 0;
-   //    }
 
    &__inner {
       opacity: 0;
@@ -427,7 +415,7 @@
          rotate: 45deg;
          transition: all 0.3s;
          rotate: 180deg;
-         transition: opacity 0.3s;
+         transition: opacity 0.34s;
       }
 
       &::after {
@@ -482,9 +470,6 @@
       background-size: cover;
       opacity: 0.3;
    }
-
-   // .projects__inner
-   &__inner {}
 
    &__buttons-inner {
       @media (max-width: toEm(768.98)) {
@@ -647,27 +632,3 @@
 
 
 
-
-
-.swiper {
-   width: 100%;
-   height: 100%;
-   margin-left: auto;
-   margin-right: auto;
-
-   &--side {
-      margin-top: toRem(10);
-      .swiper-slide {
-         width: 25%;
-         height: 100%;
-         opacity: 0.4;
-      }
-      .swiper-slide-thumb-active {
-         opacity: 1;
-      }
-   }
-   &--main {
-      height: 100%;
-      width: 100%;
-   }
-}

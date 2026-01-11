@@ -14,9 +14,6 @@
       gap: toRem(50);
       padding-top: toRem(50);
    }
-
-   // .components__item
-   &__item {}
 }
 
 
@@ -1029,12 +1026,67 @@
    @include adaptiveValue('padding-right', 99.5, 40);
    padding-left: toRem(0);
    counter-increment: item;
-   transition: opacity 0.5s,transform 0.5s ease;
+   transition: opacity 0.6s,transform 0.6s ease;
+
+   &::before {
+      content: "";
+      position: absolute;
+      right: toRem(-1);
+      width: toRem(1);
+      height: 100%;
+      background-color: $butHovGreen;
+   }
+
+   &::after {
+      content: counter(item, decimal-leading-zero);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      translate: 50% -50%;
+      background-color: $bgPrimary;
+      border: toRem(1) solid $brandPrimary;
+      border-radius: 50%;
+      width: toRem(50);
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(30px);
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.6s, transform 0.6s;
+   }
+
+   &:last-child {
+      &::before {
+         height: 50%;
+      }
+   }
 
    &.animate {
       &::after {
          opacity: 1;
          transform: scale(1);
+      }
+   }
+
+   @media (max-width: toEm(600)) {
+      width: 100%;
+      padding-right: toRem(0);
+
+      &::before {
+         display: none;
+      }
+
+      &::after {
+         left: 50%;
+         top: 0;
+         outline: none;
+         translate: -50% -50%;
+      }
+
+      .item-step__inner {
+         align-items: center;
       }
    }
 
@@ -1093,61 +1145,6 @@
 
       &:not(:last-child) {
          margin-bottom: toRem(12);
-      }
-   }
-
-   &::before {
-      content: "";
-      position: absolute;
-      right: toRem(-1);
-      width: toRem(1);
-      height: 100%;
-      background-color: $butHovGreen;
-   }
-
-   &::after {
-      content: counter(item, decimal-leading-zero);
-      position: absolute;
-      top: 50%;
-      right: 0;
-      translate: 50% -50%;
-      background-color: $bgPrimary;
-      border: toRem(1) solid $brandPrimary;
-      border-radius: 50%;
-      width: toRem(50);
-      aspect-ratio: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(30px);
-      opacity: 0;
-      transform: scale(0);
-      transition: opacity 0.6s,transform 0.6s;
-   }
-
-   &:last-child {
-      &::before {
-         height: 50%;
-      }
-   }
-
-   @media (max-width: toEm(600)) {
-      width: 100%;
-      padding-right: toRem(0);
-
-      &::before {
-         display: none;
-      }
-
-      &::after {
-         left: 50%;
-         top: 0;
-         outline: none;
-         translate: -50% -50%;
-      }
-
-      .item-step__inner {
-         align-items: center;
       }
    }
 }
@@ -1232,125 +1229,10 @@
    }
 }
 
-
-
 // ===========================================================================================
 // -----------------------------
-// card-work
+// card
 // -----------------------------
-.cart-work {
-   background: $bgPrimary;
-   box-shadow: 0 0 10px rgba(20, 60, 40, 0.25),
-               0 0 18px rgba(20, 60, 40, 0.15);
-   // transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s;
-   transition: translate 0.4s ease-in-out, opacity 0.4s;
-   will-change: translate, opacity;
-   box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
-               0 0 28px rgba(20, 120, 80, 0.25),
-               0 0 45px rgba(20, 120, 80, 0.15);
-   cursor: pointer;
-   perspective: 1000px;
-   perspective-origin: center;
-
-   &--slide {
-      translate: 0 0 !important;
-
-      @include hover {
-         .cart-work__content {
-            translate: toRem(50) 0 !important;
-         }
-      }
-   }
-
-   @include hover {
-      translate: 0 toRem(-8);
-
-      .cart-work__content {
-         opacity: 1;
-         translate: toRem(50) toRem(-50);
-         pointer-events: auto;
-         z-index: 200;
-      }
-   }
-
-   // .cart-work__inner
-   &__inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.4s;
-      transform-style: preserve-3d;
-
-      &.animCart {
-         transform: rotateX(180deg);
-
-         .cart-work__image {
-            // transform: rotateX(180deg);
-            transform: rotateX(0deg);
-            backface-visibility: hidden;
-         }
-
-         .cart-work__content {
-            translate: 0 0;
-            transform: rotateX(180deg);
-            top: 0;
-            left: 0;
-            justify-content: flex-end;
-            border-top: none;
-         }
-      }
-   }
-
-   // .cart-work__image
-   &__image {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.5s ease;
-
-      img {
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-         filter: brightness(0.9);
-      }
-   }
-
-   // .cart-work__content
-   &__content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: $grey;
-      padding: toRem(40);
-      transition: translate 0.6s, opacity 0.6s, transform 0.6s ease;
-      opacity: 0;
-      pointer-events: none;
-      height: auto;
-      box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
-         0 0 28px rgba(20, 120, 80, 0.25),
-         0 0 45px rgba(20, 120, 80, 0.15);
-   }
-
-   // .cart-work__title
-   &__title {
-      font-family: "Gambetta";
-      @include adaptiveValue('font-size', 24, 18);
-      text-transform: capitalize;
-   }
-
-   // .cart-work__text
-   &__text {
-      @include adaptiveValue('font-size', 18, 14);
-      flex-grow: 1;
-      max-width: toRem(400);
-   }
-}
-
 .card-container {
    display: grid;
    grid-template-columns: repeat(auto-fill,minmax(min(toRem(550),100%),1fr));
@@ -1362,13 +1244,23 @@
 }
 
 .card {
-   // max-width: toRem(700);
-   // overflow: hidden;
-   transition: translate 0.4s ease-in-out, opacity 0.4s;
-   will-change: translate;
+   background: $bgPrimary;
+   transition: translate 0.4s ease, box-shadow 0.4s ease, opacity 0.4s;
+   will-change: translate, opacity;
    box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
          0 0 28px rgba(20, 120, 80, 0.25),
          0 0 45px rgba(20, 120, 80, 0.15);
+   cursor: pointer;
+
+   &--slide {
+         translate: 0 0 !important;
+
+         @include hover {
+            .card__content {
+               translate: toRem(50) 0 !important;
+            }
+         }
+      }
 
    @include hover {
       translate: 0 toRem(-8);
@@ -1376,6 +1268,7 @@
          opacity: 1;
          translate: toRem(50) toRem(-50);
          pointer-events: auto;
+         z-index: 200;
       }
    }
 
@@ -1401,10 +1294,6 @@
          transition: scale 0.6s;
          will-change: scale;
          cursor: pointer;
-
-         @include hover {
-         //   scale: 1.01;
-         }
       }
    }
 
@@ -1422,21 +1311,88 @@
       box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
             0 0 28px rgba(20, 120, 80, 0.25),
             0 0 45px rgba(20, 120, 80, 0.15);
+      @media (max-width: toEm(859)) {
+      display: none;
+      }
    }
-
-   // .card__title
-   &__title {}
-
-   // .card__text
-   &__text {}
-
-   // .card__buttons
-   &__buttons {}
 }
 
+// ===========================================================================================
+// -----------------------------
+// sheet-overlay
+// -----------------------------
+.sheet-overlay {
+   position: fixed;
+   inset: 0;
+   background: rgba(0, 0, 0, .5);
+   opacity: 0;
+   pointer-events: none;
+   transition: .3s;
 
+   &.active-sheet {
+      opacity: 1;
+      pointer-events: auto;
+   }
+}
 
+.sheet {
+   position: fixed;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: $bgPrimary;
+   border-radius: 16px 16px 0 0;
+   transform: translateY(100%);
+   transition: .35s ease;
+   max-height: 80vh;
+   display: flex;
+   flex-direction: column;
 
+   &.active-sheet {
+      transform: translateY(0);
+   }
+   // .sheet__handle
+   &__handle {
+      width: 40px;
+      height: 4px;
+      background: $brandDark;
+      border-radius: 2px;
+      margin: 10px auto;
+   }
 
+   // .sheet__body
+   &__body {
+      padding: 16px;
+      overflow-y: auto;
+   }
+}
 
+// ===========================================================================================
+// -----------------------------
+// swiper
+// -----------------------------
+.swiper {
+   width: 100%;
+   height: 100%;
+   margin-left: auto;
+   margin-right: auto;
 
+   &--side {
+      margin-top: toRem(10);
+
+      .swiper-slide {
+         width: 25%;
+         height: 100%;
+         opacity: 0.4;
+      }
+
+      .swiper-slide-thumb-active {
+         opacity: 1;
+      }
+   }
+
+   &--main {
+      height: 100%;
+      width: 100%;
+   }
+}

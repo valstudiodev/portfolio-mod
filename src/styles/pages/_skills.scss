@@ -24,18 +24,6 @@
       height: 100%;
       opacity: 0.1;
    }
-
-   // .skills__container
-   &__container {}
-
-   // .skills__inner
-   &__inner {}
-
-   // .skills__top
-   &__top {}
-
-   // .skills__body
-   &__body {}
 }
 
 .top-skills {
@@ -44,14 +32,16 @@
    flex-direction: column;
    align-items: center;
    gap: toRem(64);
-   @include adaptiveValue('margin-bottom', 64, 30);
+   @include adaptiveValue('margin-bottom', 100, 50);
    opacity: 0;
-   translate: 0 30%;
-   transition: opacity 0.4s, translate 0.4s ease;
+   // translate: 0 30%;
+   scale: 0;
+   transition: opacity 0.8s, scale 0.8s;
 
    [init-page-loader="ready"] & {
      opacity: 1;
-     translate: 0 0;
+   //   translate: 0 0;
+     scale: 1;
    }
 
    // .top-skills__scroll
@@ -70,12 +60,12 @@
 .body-skills {
    position: relative;
    opacity: 0;
-   translate: 0 30%;
-   transition: opacity 0.4s, translate 0.4s ease;
+   scale: 0;
+   transition: opacity 1s, scale 1s;
 
    [init-page-loader="ready"] & {
       opacity: 1;
-      translate: 0 0;
+      scale: 1;
    }
 
    // .body-skills__inner
@@ -85,12 +75,6 @@
       align-items: center;
       @include adaptiveValue('gap', 90, 35);
    }
-
-   // .body-skills__item
-   &__item {}
-
-   // .body-skills__lang
-   &__lang {}
 }
 
 .lang-skill {
@@ -106,7 +90,7 @@
       @include adaptiveValue('gap', 24, 12);
       flex-shrink: 0;
       opacity: 0;
-      transition: opacity 0.4s, translate 0.4s ease;
+      transition: opacity 1s, translate 1s ease;
       translate: 0 toRem(30);
 
       &.animate {
