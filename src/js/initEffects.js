@@ -272,7 +272,7 @@ function initSlideSheet({
    sheetSelector = '.sheet',
    bodySelector = '.sheet__body',
    overlaySelector = '.sheet-overlay',
-   maxWidth = 1024 // <= активний режим
+   maxWidth = 1024
 } = {}) {
 
    const sheet = document.querySelector(sheetSelector);
@@ -285,6 +285,7 @@ function initSlideSheet({
    if (!sheetBody) return;
 
    const body = document.body;
+   let scrollTop = 0;
 
    function isActive() {
       return window.innerWidth <= maxWidth;
@@ -294,13 +295,25 @@ function initSlideSheet({
       return window.innerWidth - document.documentElement.clientWidth;
    }
 
+   function lockScroll() {
+      scrollTop = window.scrollY;
+      body.style.top = `-${scrollTop}px`;
+      body.style.paddingRight = getScrollbarWidth() + 'px';
+      body.classList.add('lock-sheet');
+   }
+
+   function unlockScroll() {
+      body.classList.remove('lock-sheet');
+      body.style.top = '';
+      body.style.paddingRight = '';
+      window.scrollTo(0, scrollTop);
+   }
+
    function openSheet(content) {
       if (!isActive()) return;
 
       sheetBody.innerHTML = content.innerHTML;
-
-      body.style.paddingRight = getScrollbarWidth() + 'px';
-      body.classList.add('lock-sheet');
+      lockScroll();
 
       sheet.classList.add('active-sheet');
       overlay.classList.add('active-sheet');
@@ -309,8 +322,8 @@ function initSlideSheet({
    function closeSheet() {
       sheet.classList.remove('active-sheet');
       overlay.classList.remove('active-sheet');
-      body.classList.remove('lock-sheet');
-      body.style.paddingRight = '';
+
+      unlockScroll();
       sheetBody.innerHTML = '';
    }
 
@@ -327,11 +340,11 @@ function initSlideSheet({
 
    overlay.addEventListener('click', closeSheet);
 
-   // auto-close при ресайзі
    window.addEventListener('resize', () => {
       if (!isActive()) closeSheet();
    });
 }
+
 
 
 

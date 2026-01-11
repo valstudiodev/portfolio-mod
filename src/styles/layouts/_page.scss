@@ -23,10 +23,6 @@
       @include adaptiveValue('padding-block', 120, 50);
    }
 
-   &__approach {
-      @include adaptiveValue('padding-block', 120, 50);
-   }
-
    &__work {
       @include adaptiveValue('padding-block', 120, 50);
    }
@@ -291,83 +287,6 @@
       >*:not(:last-child) {
          margin-bottom: toRem(10);
       }
-   }
-}
-
-// ===========================================================================================
-// -----------------------------
-// page__approach
-// -----------------------------
-.approach {
-   position: relative;
-   background-color: $bgPrimary;
-
-   &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image: url("../assets/img/bg-page-sort.webp");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 100%;
-      opacity: 0.5;
-   }
-
-   // .approach__container
-   &__container {
-      display: flex;
-      flex-direction: column;
-      gap: toRem(40);
-   }
-
-   &__scroll {
-      display: flex;
-      margin: 0 auto;
-
-      &.mouse-scroll {
-         fill: $gold;
-      }
-   }
-
-   &__title {
-      position: sticky;
-      top: toRem(100);
-      font-size: toRem(58);
-      font-weight: 700;
-
-      span {
-         color: $brandDark;
-      }
-
-      @media (max-width: toEm(425)) {
-         text-align: center;
-      }
-      @media (max-width: toEm(690)) {
-      //   @include adaptiveValue('margin-bottom', 40, 20);
-        position: relative;
-        top: 0;
-      }
-   }
-
-   &__body {
-      display: flex;
-      justify-content: space-evenly;
-      gap: toRem(50);
-      align-items: flex-start;
-
-      @media (max-width: toEm(690)) {
-        flex-direction: column;
-        align-items: center;
-      }
-   }
-
-   // .approach__items
-   &__items {
-      display: grid;
-      gap: toRem(30);
    }
 }
 

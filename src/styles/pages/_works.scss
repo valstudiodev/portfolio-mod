@@ -122,6 +122,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(min(toRem(540), 100%), 1fr));
       @include adaptiveValue('row-gap', 60, 30);
-      @include adaptiveValue('column-gap', 60, 30);
+      @include adaptiveValue('column-gap', 80, 30);
    }
 }
