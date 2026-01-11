@@ -69,6 +69,8 @@ body {
    }
    &.lock-sheet {
       overflow-y: hidden !important;
+      position: fixed;
+      width: 100%;
    }
 }
 

@@ -10,12 +10,6 @@
    @include adaptiveValue('padding-top', 200, 150);
    @include adaptiveValue('padding-bottom', 120, 50);
 
-   // .about-page__container
-   &__container {}
-
-   // .about-page__inner
-   &__inner {}
-
    // .about-page__header
    &__header {
       @include adaptiveValue('margin-bottom', 100, 40);
@@ -28,9 +22,6 @@
          @include adaptiveValue('font-size', 64, 40);
       }
    }
-
-   // .about-page__body
-   &__body {}
 
    &__title {
       // font-family: "Ubuntu",sans-serif;

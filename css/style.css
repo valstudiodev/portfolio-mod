@@ -4739,6 +4739,8 @@ body.no-scroll {
 }
 body.lock-sheet {
   overflow-y: hidden !important;
+  position: fixed;
+  width: 100%;
 }
 
 .wrapper {
