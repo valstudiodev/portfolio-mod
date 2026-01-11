@@ -19,6 +19,7 @@
 
       html[init-page-loader="ready"] body {
          opacity: 1;
+         /* overflow: hidden; */
          overflow: visible;
          transition: opacity 0.4s ease;
          visibility: visible;
@@ -38,8 +39,8 @@
       }
    </style>
    <title>Page-About</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.5bf53b3a.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.50927267.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.a82c4422.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.b2f2cd67.css">
 </head>
 
 <body>
@@ -107,8 +108,8 @@
          <section class="page-about__about about-page">
             <div class="about-page__container">
                <div class="about-page__inner">
-                  <div class="about-page__header block-header block-header--anim block-header--margin">
-                     <svg class="block-header__scroll mouse-scroll mouse-scroll--anim">
+                  <div class="about-page__header block-header block-header--about block-header--margin">
+                     <svg class="block-header__scroll mouse-scroll">
                         <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
                      </svg>
                      <h2 class="block-header__title">A bit about
@@ -123,10 +124,10 @@
                   </div>
                   <div class="about-page__body body-about">
                      <div class="body-about__wrapper">
-                        <div class="body-about__image">
+                        <div class="body-about__image body-about__image--anim" data-threshold="0.1">
                            <img src="/portfolio-mod/assets/man-works.ebe6b4d0.webp" alt="">
                         </div>
-                        <div class="body-about__inner">
+                        <div class="body-about__inner body-about__inner--anim" data-threshold="0.1">
                            <div class="body-about__info">
                               <div class="body-about__name">Valentyn Tkachenko</div>
                               <h2 class="body-about__title">
