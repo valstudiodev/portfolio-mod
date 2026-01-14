@@ -5,10 +5,10 @@ window.addEventListener('scroll', scrollHeader)
 
 export function initEffects() {
    scrollHeader()
-   // toggleCardContent()
    initSlideSheet({
       maxWidth: 859
    });
+   initFilter()
 }
 // ===========================================================================================
 
@@ -344,6 +344,131 @@ function initSlideSheet({
       if (!isActive()) closeSheet();
    });
 }
+
+
+function initFilter() {
+   const filter = document.querySelector('.filter');
+   if (!filter) return;
+
+   const step = +filter.dataset.step || 4;
+   const stepMore = +filter.dataset.stepMore || step;
+   const scrollOffset = +filter.dataset.scrollOffset || 100;
+
+   const allItems = [...filter.querySelectorAll('.filter__item')];
+   const btnMore = filter.querySelector('[data-load-more]');
+   const btnLess = filter.querySelector('[data-show-less]');
+   const categoryBtns = filter.querySelectorAll('[data-category]');
+   const industrySelect = filter.querySelector('[data-industry]');
+
+   // Визначаємо початкову категорію на основі кнопки з класом is-active в HTML
+   const initialActiveBtn = filter.querySelector('.nav-filter__btn.is-active');
+   let activeCategory = initialActiveBtn ? initialActiveBtn.dataset.category : 'all';
+   let activeIndustry = 'all';
+   let visibleCount = step;
+
+   function update(type = 'default') {
+      const filtered = allItems.filter(item => {
+         const cats = (item.dataset.category || '').split(' ');
+         const inds = (item.dataset.industry || '').split(' ');
+         return (activeCategory === 'all' || cats.includes(activeCategory)) &&
+            (activeIndustry === 'all' || inds.includes(activeIndustry));
+      });
+
+      const itemsToShow = filtered.slice(0, visibleCount);
+      let firstNewItem = null;
+
+      allItems.forEach((item) => {
+         const isShouldBeVisible = itemsToShow.includes(item);
+         const isAlreadyVisible = item.classList.contains('is-visible');
+
+         if (isShouldBeVisible) {
+            if (!isAlreadyVisible) {
+               if (!firstNewItem) firstNewItem = item;
+               item.style.display = 'block';
+
+               const newItems = itemsToShow.filter(el => !allItems.some(i => i.classList.contains('is-visible') && itemsToShow.includes(i)));
+               const localIndex = newItems.indexOf(item);
+               const delayIndex = type === 'more' ? (localIndex !== -1 ? localIndex : 0) : itemsToShow.indexOf(item);
+
+               item.style.transitionDelay = `${delayIndex * 0.1}s`;
+
+               requestAnimationFrame(() => {
+                  item.classList.add('is-visible');
+               });
+            } else {
+               item.style.transitionDelay = '0s';
+            }
+         } else {
+            item.style.transitionDelay = '0s';
+            item.classList.remove('is-visible');
+            setTimeout(() => {
+               if (!item.classList.contains('is-visible')) item.style.display = 'none';
+            }, 400);
+         }
+      });
+
+      // Скрол
+      if (type === 'more' && firstNewItem) {
+         const itemTop = firstNewItem.getBoundingClientRect().top + window.pageYOffset;
+         const offset = window.innerWidth < 768 ? scrollOffset : scrollOffset + 50;
+         window.scrollTo({ top: itemTop - offset, behavior: 'smooth' });
+      } else if (type === 'less') {
+         const filterTop = filter.getBoundingClientRect().top + window.pageYOffset;
+         window.scrollTo({ top: filterTop - scrollOffset, behavior: 'smooth' });
+      }
+
+      if (btnMore) btnMore.hidden = visibleCount >= filtered.length;
+      if (btnLess) btnLess.hidden = visibleCount <= step;
+   }
+
+   function setActiveCategory(category) {
+      categoryBtns.forEach(btn => {
+         btn.classList.toggle('is-active', btn.dataset.category === category);
+      });
+   }
+
+   categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+         const category = btn.dataset.category;
+         if (activeCategory === category) return;
+
+         activeCategory = category;
+         visibleCount = step;
+         setActiveCategory(category);
+
+         allItems.forEach(el => {
+            el.classList.remove('is-visible');
+            el.style.display = 'none';
+         });
+         update('filter');
+      });
+   });
+
+   industrySelect?.addEventListener('change', e => {
+      activeIndustry = e.target.value;
+      visibleCount = step;
+      update('filter');
+   });
+
+   btnMore?.addEventListener('click', () => {
+      visibleCount += stepMore;
+      update('more');
+   });
+
+   btnLess?.addEventListener('click', () => {
+      setTimeout(() => {
+         visibleCount = step;
+         update('less');
+      }, 50);
+   });
+
+   // Ініціалізація
+   setActiveCategory(activeCategory);
+   update('init');
+}
+
+document.addEventListener('DOMContentLoaded', initFilter);
+
 
 
 

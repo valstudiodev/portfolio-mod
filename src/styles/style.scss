@@ -9,6 +9,7 @@
 @use './settings/settings' as *;
 @use './settings/reset';
 @use './settings/_mixins.scss' as *;
+@use './settings/dataAttributes';
 // =====================Layouts===========================
 @use './layouts/header';
 @use './layouts/footer';
@@ -25,6 +26,11 @@ html,body {
    background-color: $bgPrimary;
    margin: 0;
    padding: 0;
+}
+
+html {
+   // scrollbar-gutter: stable;
+   // scroll-behavior: smooth;
 }
 
 // html.lock-scroll {
@@ -79,6 +85,7 @@ body {
    display: flex;
    flex-direction: column;
    padding-right: var(--lock-padding);
+   overflow: clip;
 
    >main {
       flex-grow: 1;
@@ -142,30 +149,7 @@ html[data-input="touch"] {
 
 
 
-[data-accordion-body] {
-   height: 0;
-   overflow: hidden;
-   transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-[data-accordion] {
-   &.active {
-      .header-approach__title {
-         color: $blue;
-      }
-      .header-approach__icon {
-         span {
-            &::after {
-               rotate: -180deg;
-            }
-         }
-      }
-   }
-}
-[data-accordion-icon] {
-   .active & {
-      background-color: $bgPrimary;
-   }
-}
+
 
 
 

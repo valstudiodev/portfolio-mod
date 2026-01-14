@@ -1,0 +1,75 @@
+@use '../settings/settings' as *;
+@use '../settings/_mixins.scss' as *;
+
+
+// ===========================================================================================
+// -----------------------------
+// data-accordion-body
+// -----------------------------
+[data-accordion-body] {
+   height: 0;
+   overflow: hidden;
+   transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-accordion] {
+   &.active {
+      .header-approach__title {
+         color: $blue;
+      }
+
+      .header-approach__icon {
+         span {
+            &::after {
+               rotate: -180deg;
+            }
+         }
+      }
+   }
+}
+
+[data-accordion-icon] {
+   .active & {
+      background-color: $bgPrimary;
+   }
+}
+
+// ===========================================================================================
+// -----------------------------
+// data-filter
+// -----------------------------
+[data-filter] {
+   display: grid;
+   // gap: toRem(40);
+   @include adaptiveValue('gap',80,40);
+}
+
+[data-filter-grid] {
+   display: grid;
+   grid-template-columns: repeat(auto-fill,minmax(min(toRem(550),100%),1fr));
+   gap: toRem(50);
+   align-items: start;
+}
+
+[data-filter-item] {
+   will-change: opacity;
+   opacity: 0;
+   translate: 0 toRem(40);
+   /* Зменшив зі 100px для м'якшого ефекту */
+   transition: opacity 0.5s ease,translate 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+   &.is-visible {
+      opacity: 1;
+      translate: 0 0;
+   }
+}
+
+[data-filter-more] {
+   display: flex;
+   align-items: center;
+   gap: toRem(30);
+   justify-content: center;
+   flex-wrap: wrap;
+   position: relative;
+   z-index: 10;
+}

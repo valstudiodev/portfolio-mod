@@ -195,7 +195,7 @@
    &__container {
       display: flex;
       flex-direction: column;
-      gap: toRem(40);
+      @include adaptiveValue('gap',40,20);
    }
 
    &__scroll {
