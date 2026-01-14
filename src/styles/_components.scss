@@ -271,7 +271,7 @@
    position: relative;
    font-family: "Ubuntu", sans-serif;
    padding-block: toRem(16);
-   @include adaptiveValue('padding-inline', 48, 42);
+   @include adaptiveValue('padding-inline', 48, 32);
    border: toRem(3) solid $brandPrimary;
    background-color: $bgSecondary;
    color: $brandSecondary;
@@ -896,57 +896,52 @@
 // items
 // -----------------------------
 .approach-item {
-   max-width: toRem(500);
-   position: relative;
-   border-radius: toRem(6);
-   counter-increment: item;
-   border-right: toRem(8) solid $blue;
-   background-color: $bgPrimary;
+   background-color: $brandSecondary;
+   border-radius: toRem(8);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: toRem(8);
    opacity: 0;
-   translate: 0 toRem(-20);
-   transition: opacity 0.4s ease, translate 0.3s ease-in-out;
-   box-shadow:
-         0 0 14px rgba(20, 120, 80, 0.40),
-         0 0 28px rgba(20, 120, 80, 0.25),
-         0 0 45px rgba(20, 120, 80, 0.15);
+   transition: opacity 0.4s, translate 0.4s ease;
+   translate: 0 toRem(50);
+   width: 50%;
+
+   @media (max-width: toEm(1040)) {
+     width: 100%;
+   }
+   // width: toRem(400);
+
+   &:nth-child(odd) {
+      align-self: flex-end;
+      padding-right: toRem(0);
+      border-right: toRem(8) solid $blue;
+   }
+   &:nth-child(even) {
+      align-self: flex-start;
+      padding-left: toRem(0);
+      border-left: toRem(8) solid $blue;
+   }
 
    &.animate {
       opacity: 1;
       translate: 0 0;
    }
 
-   &::before {
-         content: counter(item, decimal-leading-zero);
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: toRem(40);
-         height: toRem(40);
-         background-color: $bgSecondary;
-         border: toRem(1) solid $blue;
-         border-radius: 50%;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         translate: -30% -30%;
-         backdrop-filter: blur(30px);
-      }
-
    // .approach-item__inner
    &__inner {
-      @include adaptiveValue('padding', 32, 22);
-      // display: flex;
-      // flex-direction: column;
+      @include adaptiveValue('padding', 20, 10);
       @include adaptiveValue('row-gap', 30, 15);
    }
 
    &__top {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: toRem(10);
 
       @media (max-width: toEm(360)) {
-        flex-direction: column;
+      //   flex-direction: column;
       }
    }
 
@@ -954,11 +949,7 @@
    &__icon {
       width: toRem(40);
       aspect-ratio: 1;
-      fill: $brandDark;
-
-      @media (max-width: toEm(360)) {
-        align-self: flex-start;
-      }
+      fill: $gold;
    }
 
    // .approach-item__text
@@ -966,94 +957,42 @@
       transition: height 0.35s ease;
       will-change: height;
       padding-top: toRem(30);
+      color: $bgSecondary;
+      text-align: center;
    }
 }
 
 .header-approach {
    display: flex;
    align-items: center;
-   width: 100%;
-   justify-content: space-between;
+   flex-direction: column;
    gap: toRem(10);
    // .header-approach__title
    &__title {
-      position: relative;
       @include adaptiveValue('font-size', 24, 20);
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: toRem(1.5);
-      border-bottom: toRem(2) solid $gold;
-      padding-bottom: toRem(10);
-      color: $white;
-
-      &::before,
-      &::after {
-         content: "";
-         position: absolute;
-         width: toRem(10);
-         height: toRem(10);
-         border-radius: 50%;
-         background-color: $gold;
-      }
-
-      &::before {
-         top: 100%;
-         translate: -50% -43%;
-      }
-
-      &::after {
-         top: 100%;
-         translate: 0 -43%;
-         right: 0;
-      }
+      color: $black;
    }
 
    // .header-approach__icon
    &__icon {
-      position: relative;
-      width: toRem(30);
-      height: toRem(30);
-      flex-shrink: 0;
-      z-index: 10;
-      background-color: $bgSecondary;
-      border-radius: toRem(50);
-      border: toRem(1) solid $brandPrimary;
+      background-color: $bgPrimary;
+      border-radius: 50%;
+      width: toRem(40);
+      height: toRem(40);
+      // border: toRem(1) solid $brandDark;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
 
-      span {
-         position: relative;
-         width: toRem(10);
-         aspect-ratio: 1;
-         z-index: 10;
-         flex-shrink: 0;
-         transition: rotate 0.3s ease;
-
-         &::before,
-         &::after {
-            content: "";
-            position: absolute;
-            width: toRem(10);
-            height: toRem(1);
-            background-color: $brandDark;
-            border-radius: toRem(6);
-         }
-
-         &::before {
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-         }
-
-         &::after {
-            rotate: 90deg;
-            left: 50%;
-            top: 50%;
-            translate: -50% -50%;
-            transition: rotate 0.3s ease;
-         }
+      &::before {
+         font-size: toRem(20);
+         color: $white;
+         will-change: rotate;
+         transition: rotate 0.4s ease;
       }
    }
 }
@@ -1141,6 +1080,7 @@
       translate: 0 toRem(50);
       opacity: 0;
       will-change: transform, opacity;
+      border-radius: toRem(30);
 
       &.animate {
          opacity: 1;
@@ -1289,10 +1229,11 @@
          0 0 28px rgba(20, 120, 80, 0.25),
          0 0 45px rgba(20, 120, 80, 0.15);
    cursor: pointer;
+   border-radius: toRem(30);
 
    &--slide {
          translate: 0 0 !important;
-
+         box-shadow: none;
          @include hover {
             .card__content {
                translate: toRem(50) 0 !important;
@@ -1323,6 +1264,8 @@
       width: 100%;
       height: 100%;
       transition: transform 0.5s ease;
+      border-radius: toRem(30);
+      overflow: hidden;
 
       img {
          width: 100%;
@@ -1346,12 +1289,13 @@
       left: 0;
       background-color: $grey;
       padding: toRem(40);
-      // transition: translate 0.6s, opacity 0.6s,transform 0.6s ease;
       transition: translate 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s ease;
       opacity: 0;
       pointer-events: none;
       height: auto;
       max-width: toRem(400);
+      border-radius: toRem(20);
+      overflow: hidden;
       box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
             0 0 28px rgba(20, 120, 80, 0.25),
             0 0 45px rgba(20, 120, 80, 0.15);
@@ -1364,6 +1308,7 @@
       @include adaptiveValue('font-size', 24, 20);
       color: $brandDark;
       text-transform: capitalize;
+      font-weight: 600;
    }
 }
 
@@ -1377,11 +1322,15 @@
    background: rgba(0, 0, 0, .5);
    opacity: 0;
    pointer-events: none;
-   transition: .3s;
+   transition: opacity .6s, translate 0.3s ease-in-out;
+   translate: 0 100%;
+   z-index: 1000;
 
    &.active-sheet {
       opacity: 1;
+      backdrop-filter: blur(2px);
       pointer-events: auto;
+      translate: 0 0;
    }
 }
 
@@ -1392,14 +1341,15 @@
    bottom: 0;
    background: $bgPrimary;
    border-radius: 16px 16px 0 0;
-   transform: translateY(100%);
-   transition: .35s ease;
+   translate: 0 100%;
+   transition: 0.4s ease;
    max-height: 80vh;
    display: flex;
    flex-direction: column;
 
    &.active-sheet {
-      transform: translateY(0);
+      translate: 0 0;
+      z-index: 2000;
    }
    // .sheet__handle
    &__handle {
@@ -1412,8 +1362,12 @@
 
    // .sheet__body
    &__body {
-      padding: 16px;
+      padding: toRem(20);
       overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: toRem(15);
+      align-items: flex-start;
    }
 }
 

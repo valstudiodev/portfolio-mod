@@ -324,9 +324,10 @@
    align-items: flex-start;
    gap: toRem(15);
    background-color: $grey;
-   min-width: toRem(150);
+   min-width: toRem(180);
    z-index: 10;
-   padding: toRem(10);
+   padding: toRem(20);
+   border-radius: toRem(20);
 
    @media (max-width: toEm(650)) {
       left: 50%;

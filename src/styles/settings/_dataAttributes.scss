@@ -15,22 +15,21 @@
 [data-accordion] {
    &.active {
       .header-approach__title {
-         color: $blue;
+         color: $brandDark;
       }
 
       .header-approach__icon {
-         span {
-            &::after {
-               rotate: -180deg;
-            }
-         }
+
       }
    }
 }
 
 [data-accordion-icon] {
    .active & {
-      background-color: $bgPrimary;
+      background-color: $brandDark;
+      &::before {
+         rotate: 180deg;
+      }
    }
 }
 

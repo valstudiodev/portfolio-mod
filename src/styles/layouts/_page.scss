@@ -98,7 +98,7 @@
 
    &__button {
       @media (max-width: toEm(440)) {
-         width: 100%;
+         // width: 100%;
          align-self: center;
          justify-content: center;
       }
@@ -435,6 +435,7 @@
 
    // .projects__slider
    &__slider {
+      border-radius: toRem(30);
       @media (max-width: toEm(768.98)) {
         margin-bottom: toRem(20);
       }
