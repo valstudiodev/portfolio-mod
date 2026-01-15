@@ -4835,6 +4835,7 @@ html[data-input=mouse] .card:hover .card__content {
   transition: opacity 0.6s, translate 0.3s ease-in-out;
   translate: 0 100%;
   z-index: 1000;
+  height: 100dvh;
 }
 .sheet-overlay.active-sheet {
   opacity: 1;
@@ -4853,7 +4854,7 @@ html[data-input=mouse] .card:hover .card__content {
   translate: 0 100%;
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
-  max-height: 80vh;
+  max-height: 80dvh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4937,6 +4938,8 @@ body.lock-sheet {
   overflow-y: hidden !important;
   position: fixed;
   width: 100%;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
 }
 
 .wrapper {

@@ -319,6 +319,25 @@ function initSlideSheet({
       overlay.classList.add('active-sheet');
    }
 
+   // function openSheet(content) {
+   //    if (!isActive()) return;
+
+   //    // 1. Фіксуємо поточну видиму висоту, щоб вона не стрибала
+   //    const visualViewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+   //    document.documentElement.style.setProperty('--viewport-height', `${visualViewportHeight}px`);
+
+   //    sheetBody.innerHTML = content.innerHTML;
+
+   //    // 2. Твій код блокування
+   //    body.style.paddingRight = getScrollbarWidth() + 'px';
+   //    body.classList.add('lock-sheet');
+
+   //    requestAnimationFrame(() => {
+   //       sheet.classList.add('active-sheet');
+   //       overlay.classList.add('active-sheet');
+   //    });
+   // }
+
    function closeSheet() {
       sheet.classList.remove('active-sheet');
       overlay.classList.remove('active-sheet');
