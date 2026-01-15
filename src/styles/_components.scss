@@ -1234,6 +1234,11 @@
    &--slide {
          translate: 0 0 !important;
          box-shadow: none;
+         border-radius: none;
+         .card__image {
+            // border-radius: none;
+            overflow: visible;
+         }
          @include hover {
             .card__content {
                translate: toRem(50) 0 !important;

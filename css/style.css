@@ -4726,6 +4726,10 @@ html[data-input=mouse] .btn-action-less:hover {
   translate: 0 0 !important;
   -webkit-box-shadow: none;
           box-shadow: none;
+  border-radius: none;
+}
+.card--slide .card__image {
+  overflow: visible;
 }
 html[data-input=mouse] .card--slide:hover .card__content {
   translate: 3.125rem 0 !important;
