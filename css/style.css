@@ -4835,7 +4835,6 @@ html[data-input=mouse] .card:hover .card__content {
   transition: opacity 0.6s, translate 0.3s ease-in-out;
   translate: 0 100%;
   z-index: 1000;
-  height: var(--vh);
 }
 .sheet-overlay.active-sheet {
   opacity: 1;
@@ -4852,9 +4851,7 @@ html[data-input=mouse] .card:hover .card__content {
   background: #292F36;
   border-radius: 16px 16px 0 0;
   translate: 0 100%;
-  -webkit-transition: 0.4s ease;
-  transition: 0.4s ease;
-  max-height: calc(var(--vh) * 0.8);
+  max-height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4862,8 +4859,13 @@ html[data-input=mouse] .card:hover .card__content {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: translate 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
+  transition: translate 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
+  opacity: 0;
+  will-change: transform;
 }
 .sheet.active-sheet {
+  opacity: 1;
   translate: 0 0;
   z-index: 2000;
 }

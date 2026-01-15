@@ -406,63 +406,63 @@ function initSlideSheet({
 
    /* ---------- actions ---------- */
 
-   // function openSheet(content) {
-   //    if (!isActive()) return;
-
-   //    setViewportHeight();          // ⭐ ключовий момент
-   //    sheetBody.innerHTML = content.innerHTML;
-   //    lockScroll();
-
-   //    sheet.classList.add('active-sheet');
-   //    overlay.classList.add('active-sheet');
-   // }
-
-   // function closeSheet() {
-   //    sheet.classList.remove('active-sheet');
-   //    overlay.classList.remove('active-sheet');
-
-   //    unlockScroll();
-   //    sheetBody.innerHTML = '';
-   // }
-
    function openSheet(content) {
       if (!isActive()) return;
 
-      // 1. Запам'ятовуємо, де користувач знаходився (щоб сторінка не стрибнула вгору)
-      const scrollY = window.scrollY;
-      document.body.style.setProperty('--scroll-y', `${scrollY}px`);
-
+      setViewportHeight();          // ⭐ ключовий момент
       sheetBody.innerHTML = content.innerHTML;
+      lockScroll();
 
-      // 2. Блокуємо body
-      const body = document.body;
-      body.classList.add('lock-sheet');
-
-      // 3. Важливо: висота оверлею має бути 100% від visualViewport
-      const h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-      overlay.style.height = `${h}px`;
-
-      requestAnimationFrame(() => {
-         sheet.classList.add('active-sheet');
-         overlay.classList.add('active-sheet');
-      });
-      overlay.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+      sheet.classList.add('active-sheet');
+      overlay.classList.add('active-sheet');
    }
 
    function closeSheet() {
-      const body = document.body;
-      // 4. Отримуємо збережену позицію
-      const scrollY = body.style.getPropertyValue('--scroll-y');
-
-      body.classList.remove('lock-sheet');
-
-      // 5. Повертаємо користувача на місце
-      window.scrollTo(0, parseInt(scrollY || '0'));
-
       sheet.classList.remove('active-sheet');
       overlay.classList.remove('active-sheet');
+
+      unlockScroll();
       sheetBody.innerHTML = '';
    }
+
+   // function openSheet(content) {
+   //    if (!isActive()) return;
+
+   //    // 1. Запам'ятовуємо, де користувач знаходився (щоб сторінка не стрибнула вгору)
+   //    const scrollY = window.scrollY;
+   //    document.body.style.setProperty('--scroll-y', `${scrollY}px`);
+
+   //    sheetBody.innerHTML = content.innerHTML;
+
+   //    // 2. Блокуємо body
+   //    const body = document.body;
+   //    body.classList.add('lock-sheet');
+
+   //    // 3. Важливо: висота оверлею має бути 100% від visualViewport
+   //    const h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+   //    overlay.style.height = `${h}px`;
+
+   //    requestAnimationFrame(() => {
+   //       sheet.classList.add('active-sheet');
+   //       overlay.classList.add('active-sheet');
+   //    });
+   //    overlay.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+   // }
+
+   // function closeSheet() {
+   //    const body = document.body;
+   //    // 4. Отримуємо збережену позицію
+   //    const scrollY = body.style.getPropertyValue('--scroll-y');
+
+   //    body.classList.remove('lock-sheet');
+
+   //    // 5. Повертаємо користувача на місце
+   //    window.scrollTo(0, parseInt(scrollY || '0'));
+
+   //    sheet.classList.remove('active-sheet');
+   //    overlay.classList.remove('active-sheet');
+   //    sheetBody.innerHTML = '';
+   // }
 
    /* ---------- events ---------- */
 
