@@ -28,6 +28,7 @@ html,body {
    padding: 0;
 }
 
+
 html {
    // scrollbar-gutter: stable;
    // scroll-behavior: smooth;
@@ -64,21 +65,24 @@ body {
    line-height: 1.5;
    color: $white;
 
+   // menu-burger
    &.scroll-lock {
-      overflow: hidden;
+      overflow: hidden !important;
+      height: 100vh !important;
       touch-action: none;
       overscroll-behavior: none;
    }
+   // modal-window
    &.no-scroll {
       overflow: hidden !important;
       height: 100vh;
    }
+   // sheet-overlay
    &.lock-sheet {
       overflow-y: hidden !important;
       position: fixed;
       width: 100%;
       overscroll-behavior: none;
-      top: calc(var(--scroll-y) * -1);
       left: 0;
    }
 }

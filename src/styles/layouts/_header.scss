@@ -10,7 +10,7 @@
    width: 100%;
    left: 0;
    top: 0;
-   z-index: 100;
+   z-index: 10000;
    padding-right: var(--lock-padding) !important;
    // transition: transform 0.3s ease;
    // will-change: transform;
@@ -24,6 +24,8 @@
    //    opacity: 1;
    // }
 
+
+
    &::before {
       content: "";
       position: absolute;
@@ -32,7 +34,7 @@
       background: rgba(26, 30, 35, 1);
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: 0;
       transition: all 0.3s;
    }
 
@@ -117,11 +119,14 @@
       top: 0;
       right: -100%;
       width: 100%;
-      height: 100%;
+      // height: 100%;
+      height: 100vh;
       background-color: $bgPrimary;
-      opacity: 0.95;
+      opacity: 0.97;
       padding: toRem(120) toRem(15) toRem(30) toRem(15);
       transition: all 0.3s;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: auto;
 
       .menu-open & {
          right: 0;
@@ -133,9 +138,10 @@
          top: 0;
          right: -100%;
          width: 100%;
-         min-height: toRem(90);
+         min-height: toRem(72);
          background-color: $bgSecondary;
          transition: all 0.3s;
+         z-index: 100;
 
          .menu-open & {
             right: 0;

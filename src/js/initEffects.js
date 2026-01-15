@@ -91,6 +91,8 @@ function scrollHeader() {
 // -----------------------------
 // MENU-BURGER
 // -----------------------------
+
+
 function documentActions(e) {
    const targetElement = e.target
    if (targetElement.closest('.icon-menu')) {
@@ -100,23 +102,26 @@ function documentActions(e) {
    }
 }
 
-// ===========================================================================================
-// -----------------------------
-// flip-cart
-// -----------------------------
-function toggleCardContent() {
-   const cards = document.querySelectorAll('.cart-work__inner');
-   const btnArrow = document.querySelectorAll(`.arrow-point`)
+// function documentActions(e) {
+//    const targetElement = e.target;
 
-   cards.forEach(card => {
-      card.addEventListener('click', () => {
-         if (window.innerWidth <= 859) {
-            card.classList.toggle('animCart');
-         }
-      });
-   });
+//    if (targetElement.closest('.icon-menu')) {
+//       const isOpened = document.documentElement.classList.contains('menu-open');
 
-}
+//       // Тогглимо класи для анімації меню
+//       document.documentElement.classList.toggle('menu-open');
+//       document.body.classList.toggle('menu-open');
+
+//       // Тогглимо блокування скролу
+//       if (!isOpened) {
+//          document.documentElement.classList.add('scroll-lock');
+//          document.body.classList.add('scroll-lock');
+//       } else {
+//          document.documentElement.classList.remove('scroll-lock');
+//          document.body.classList.remove('scroll-lock');
+//       }
+//    }
+// }
 
 // ===========================================================================================
 // -----------------------------

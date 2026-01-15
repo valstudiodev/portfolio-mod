@@ -33,4 +33,20 @@ if (document.readyState === 'loading') {
 }
 
 
+const PageLock = {
+   lock() {
+      // Додаємо клас на обидва елементи
+      document.documentElement.classList.add('is-locked');
+      document.body.classList.add('is-locked');
+   },
+   unlock() {
+      document.documentElement.classList.remove('is-locked');
+      document.body.classList.remove('is-locked');
+   }
+};
 
+// При відкритті бургер-меню:
+// PageLock.lock();
+
+// При закритті:
+// PageLock.unlock();
