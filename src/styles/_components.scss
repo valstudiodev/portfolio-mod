@@ -1330,7 +1330,7 @@
    transition: opacity .6s, translate 0.3s ease-in-out;
    translate: 0 100%;
    z-index: 1000;
-   height: 100dvh;
+   height: var(--vh);
 
    &.active-sheet {
       opacity: 1;
@@ -1349,7 +1349,9 @@
    border-radius: 16px 16px 0 0;
    translate: 0 100%;
    transition: 0.4s ease;
-   max-height: 80dvh;
+   // max-height: 80vh;
+   max-height: calc(var(--vh) * 0.8);
+   // height: var(--vh);
    display: flex;
    flex-direction: column;
 

@@ -4835,7 +4835,7 @@ html[data-input=mouse] .card:hover .card__content {
   transition: opacity 0.6s, translate 0.3s ease-in-out;
   translate: 0 100%;
   z-index: 1000;
-  height: 100dvh;
+  height: var(--vh);
 }
 .sheet-overlay.active-sheet {
   opacity: 1;
@@ -4854,7 +4854,7 @@ html[data-input=mouse] .card:hover .card__content {
   translate: 0 100%;
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
-  max-height: 80dvh;
+  max-height: calc(var(--vh) * 0.8);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

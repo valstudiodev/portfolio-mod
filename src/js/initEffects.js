@@ -265,6 +265,86 @@ menuItems.forEach(item => {
 // });
 
 
+// ======================================
+// function initSlideSheet({
+//    cardSelector = '.card',
+//    contentSelector = '.card__content',
+//    sheetSelector = '.sheet',
+//    bodySelector = '.sheet__body',
+//    overlaySelector = '.sheet-overlay',
+//    maxWidth = 1024
+// } = {}) {
+
+//    const sheet = document.querySelector(sheetSelector);
+//    const overlay = document.querySelector(overlaySelector);
+//    const cards = document.querySelectorAll(cardSelector);
+
+//    if (!sheet || !overlay || !cards.length) return;
+
+//    const sheetBody = sheet.querySelector(bodySelector);
+//    if (!sheetBody) return;
+
+//    const body = document.body;
+//    let scrollTop = 0;
+
+//    function isActive() {
+//       return window.innerWidth <= maxWidth;
+//    }
+
+//    function getScrollbarWidth() {
+//       return window.innerWidth - document.documentElement.clientWidth;
+//    }
+
+//    function lockScroll() {
+//       scrollTop = window.scrollY;
+//       body.style.top = `-${scrollTop}px`;
+//       body.style.paddingRight = getScrollbarWidth() + 'px';
+//       body.classList.add('lock-sheet');
+//    }
+
+//    function unlockScroll() {
+//       body.classList.remove('lock-sheet');
+//       body.style.top = '';
+//       body.style.paddingRight = '';
+//       window.scrollTo(0, scrollTop);
+//    }
+
+//    function openSheet(content) {
+//       if (!isActive()) return;
+
+//       sheetBody.innerHTML = content.innerHTML;
+//       lockScroll();
+
+//       sheet.classList.add('active-sheet');
+//       overlay.classList.add('active-sheet');
+//    }
+
+//    function closeSheet() {
+//       sheet.classList.remove('active-sheet');
+//       overlay.classList.remove('active-sheet');
+
+//       unlockScroll();
+//       sheetBody.innerHTML = '';
+//    }
+
+//    cards.forEach(card => {
+//       card.addEventListener('click', () => {
+//          if (!isActive()) return;
+
+//          const content = card.querySelector(contentSelector);
+//          if (!content) return;
+
+//          openSheet(content);
+//       });
+//    });
+
+//    overlay.addEventListener('click', closeSheet);
+
+//    window.addEventListener('resize', () => {
+//       if (!isActive()) closeSheet();
+//    });
+// }
+
 
 function initSlideSheet({
    cardSelector = '.card',
@@ -287,6 +367,8 @@ function initSlideSheet({
    const body = document.body;
    let scrollTop = 0;
 
+   /* ---------- helpers ---------- */
+
    function isActive() {
       return window.innerWidth <= maxWidth;
    }
@@ -295,8 +377,21 @@ function initSlideSheet({
       return window.innerWidth - document.documentElement.clientWidth;
    }
 
+   // 🔒 фікс viewport (bottom bar, long-press preview)
+   function setViewportHeight() {
+      const vh = window.visualViewport
+         ? window.visualViewport.height
+         : window.innerHeight;
+
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+   }
+
    function lockScroll() {
       scrollTop = window.scrollY;
+
+      // стабілізує viewport перед fixed
+      window.scrollTo({ top: scrollTop, behavior: 'instant' });
+
       body.style.top = `-${scrollTop}px`;
       body.style.paddingRight = getScrollbarWidth() + 'px';
       body.classList.add('lock-sheet');
@@ -309,34 +404,18 @@ function initSlideSheet({
       window.scrollTo(0, scrollTop);
    }
 
+   /* ---------- actions ---------- */
+
    function openSheet(content) {
       if (!isActive()) return;
 
+      setViewportHeight();          // ⭐ ключовий момент
       sheetBody.innerHTML = content.innerHTML;
       lockScroll();
 
       sheet.classList.add('active-sheet');
       overlay.classList.add('active-sheet');
    }
-
-   // function openSheet(content) {
-   //    if (!isActive()) return;
-
-   //    // 1. Фіксуємо поточну видиму висоту, щоб вона не стрибала
-   //    const visualViewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-   //    document.documentElement.style.setProperty('--viewport-height', `${visualViewportHeight}px`);
-
-   //    sheetBody.innerHTML = content.innerHTML;
-
-   //    // 2. Твій код блокування
-   //    body.style.paddingRight = getScrollbarWidth() + 'px';
-   //    body.classList.add('lock-sheet');
-
-   //    requestAnimationFrame(() => {
-   //       sheet.classList.add('active-sheet');
-   //       overlay.classList.add('active-sheet');
-   //    });
-   // }
 
    function closeSheet() {
       sheet.classList.remove('active-sheet');
@@ -345,6 +424,8 @@ function initSlideSheet({
       unlockScroll();
       sheetBody.innerHTML = '';
    }
+
+   /* ---------- events ---------- */
 
    cards.forEach(card => {
       card.addEventListener('click', () => {
@@ -361,8 +442,15 @@ function initSlideSheet({
 
    window.addEventListener('resize', () => {
       if (!isActive()) closeSheet();
+      setViewportHeight();
    });
+
+   // реагує на появу / зникнення bottom-bar
+   if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', setViewportHeight);
+   }
 }
+
 
 
 function initFilter() {
