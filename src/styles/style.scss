@@ -78,6 +78,8 @@ body {
       position: fixed;
       width: 100%;
       overscroll-behavior: none;
+      top: calc(var(--scroll-y) * -1);
+      left: 0;
    }
 }
 

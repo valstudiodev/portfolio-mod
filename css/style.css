@@ -4940,6 +4940,8 @@ body.lock-sheet {
   width: 100%;
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
+  top: calc(var(--scroll-y) * -1);
+  left: 0;
 }
 
 .wrapper {
