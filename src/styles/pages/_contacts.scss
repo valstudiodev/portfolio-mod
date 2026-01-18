@@ -148,7 +148,7 @@
       line-height: 150%;
       padding-block: toRem(16);
       padding-inline-start: toRem(24);
-      @include adaptiveValue('font-size',18,13);
+      font-size: toRem(16);
       font-weight: 300;
       color: $white;
       width: 100%;
@@ -181,7 +181,7 @@
       background-color: rgba(57, 62, 70, 0.5);
       border-radius: toRem(16);
       min-height: toRem(280);
-      @include adaptiveValue('font-size',18,16);
+      font-size: toRem(16);
       font-weight: 300;
       @include adaptiveValue('padding-block',16,10);
       @include adaptiveValue('padding-inline',24,10);
@@ -203,8 +203,6 @@
 
    // .form-contacts__text
    &__text {
-      // display: flex;
-      // flex-direction: column;
       gap: toRem(10);
       margin-bottom: toRem(24);
    }

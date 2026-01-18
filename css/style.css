@@ -583,25 +583,11 @@
   padding-block: 1rem;
   -webkit-padding-start: 1.5rem;
           padding-inline-start: 1.5rem;
+  font-size: 1rem;
   font-weight: 300;
   color: #FFFFFF;
   width: 100%;
   min-width: 0;
-}
-@media (min-width: 105.875em) {
-  .form-contact__input {
-    font-size: 18px;
-  }
-}
-@media (min-width: 20em) and (max-width: 105.875em) {
-  .form-contact__input {
-    font-size: clamp( 13px , 11.8355167394px  +  0.3639010189vw , 18px );
-  }
-}
-@media (max-width: 20em) {
-  .form-contact__input {
-    font-size: 13px;
-  }
 }
 .form-contact__input::-webkit-input-placeholder {
   opacity: 1;
@@ -665,24 +651,10 @@
   background-color: rgba(57, 62, 70, 0.5);
   border-radius: 1rem;
   min-height: 17.5rem;
+  font-size: 1rem;
   font-weight: 300;
   resize: none;
   color: #FFFFFF;
-}
-@media (min-width: 105.875em) {
-  .form-contact__area {
-    font-size: 18px;
-  }
-}
-@media (min-width: 20em) and (max-width: 105.875em) {
-  .form-contact__area {
-    font-size: clamp( 16px , 15.5342066958px  +  0.1455604076vw , 18px );
-  }
-}
-@media (max-width: 20em) {
-  .form-contact__area {
-    font-size: 16px;
-  }
 }
 @media (min-width: 105.875em) {
   .form-contact__area {
@@ -1302,12 +1274,6 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
-}
-
-.no-scroll {
-  overflow: hidden;
-  -ms-touch-action: none;
-      touch-action: none;
 }
 
 .modal-window {
@@ -2917,15 +2883,6 @@ html[data-input=mouse] .social-footer__link:hover:hover {
   text-align: center;
   max-width: 31.25rem;
 }
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  aspect-ratio: 16/9;
-}
-
 @-webkit-keyframes jumpArrow {
   0%, 100% {
     -webkit-transform: translateY(0);
@@ -2936,7 +2893,6 @@ html[data-input=mouse] .social-footer__link:hover:hover {
             transform: translateY(-4px);
   }
 }
-
 @keyframes jumpArrow {
   0%, 100% {
     -webkit-transform: translateY(0);
@@ -4917,6 +4873,15 @@ html[data-input=mouse] .card:hover .card__content {
   width: 100%;
 }
 
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
 html, body {
   background-color: #292F36;
   margin: 0;
@@ -4939,6 +4904,8 @@ body.scroll-lock {
 body.no-scroll {
   overflow: hidden !important;
   height: 100vh;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 body.lock-sheet {
   overflow-y: hidden !important;
