@@ -4078,6 +4078,7 @@ html[data-input=mouse] .btn-action-less:hover {
   border-radius: 10rem 0rem 10rem 0rem;
   -webkit-box-shadow: -4px -4px 2px 0px rgb(18, 247, 214);
           box-shadow: -4px -4px 2px 0px rgb(18, 247, 214);
+  max-width: 21.25rem;
 }
 .cart-info__inner {
   display: -webkit-box;
@@ -4172,6 +4173,7 @@ html[data-input=mouse] .btn-action-less:hover {
 }
 .body-info {
   font-size: 0.875rem;
+  font-weight: 500;
 }
 .body-info__content {
   display: -webkit-box;
@@ -4193,6 +4195,8 @@ html[data-input=mouse] .btn-action-less:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 1rem;
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -4790,10 +4794,11 @@ html[data-input=mouse] .card:hover .card__content {
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: opacity 0.6s, translate 0.3s ease-in-out;
-  transition: opacity 0.6s, translate 0.3s ease-in-out;
+  -webkit-transition: opacity 0.6s, translate 0.6s ease-in-out;
+  transition: opacity 0.6s, translate 0.6s ease-in-out;
   translate: 0 100%;
   z-index: 1000;
+  will-change: opacity, translate;
 }
 .sheet-overlay.active-sheet {
   opacity: 1;
@@ -4818,10 +4823,10 @@ html[data-input=mouse] .card:hover .card__content {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: translate 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
-  transition: translate 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
+  -webkit-transition: translate 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.8s ease;
+  transition: translate 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.8s ease;
   opacity: 0;
-  will-change: transform;
+  will-change: translate, opacity;
 }
 .sheet.active-sheet {
   opacity: 1;
