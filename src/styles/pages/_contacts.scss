@@ -126,8 +126,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: toRem(24);
-      margin-bottom: toRem(24);
+      @include adaptiveValue('row-gap', 24, 12);
+      @include adaptiveValue('column-gap', 24, 12);
+      @include adaptiveValue('margin-bottom', 24, 12);
 
       @media (max-width: toEm(1250)) {
          flex-direction: column;
@@ -147,13 +148,13 @@
       border-radius: toRem(16);
       line-height: 150%;
       padding-block: toRem(16);
-      padding-inline-start: toRem(24);
+      // padding-inline-start: toRem(24);
+      @include adaptiveValue('padding-inline-start',24,10);
       font-size: toRem(16);
       font-weight: 300;
       color: $white;
       width: 100%;
       min-width: 0;
-
 
       &::placeholder {
          opacity: 1;
@@ -204,7 +205,7 @@
    // .form-contacts__text
    &__text {
       gap: toRem(10);
-      margin-bottom: toRem(24);
+      @include adaptiveValue('margin-bottom', 24, 12);
    }
 }
 
