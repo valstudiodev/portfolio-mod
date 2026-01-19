@@ -1348,10 +1348,10 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
           align-items: center;
   z-index: 10000;
   overflow: auto;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .modal-overlay.is-open {
   opacity: 1;
-  pointer-events: auto;
   visibility: visible;
 }
 
@@ -1368,6 +1368,8 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
   width: 90%;
   max-width: 50rem;
   height: auto;
+  max-height: 100svh;
+  max-height: calc(100svh - 2rem);
   max-height: calc(var(--vh) * 100 - 32px);
   overflow-y: auto;
   pointer-events: auto;
@@ -1447,13 +1449,13 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
 
 /* Унікальний Overlay для статусів */
 .status-overlay {
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.75);
-  /* Трохи темніший фон */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1463,8 +1465,7 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 9999;
-  /* Максимальний пріоритет, щоб бути поверх усього */
+  z-index: 9999999;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.3s ease;
@@ -1473,6 +1474,7 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
 .status-overlay.is-visible {
   opacity: 1;
   visibility: visible;
+  pointer-events: none;
 }
 .status-overlay.is-visible .status-modal-content {
   -webkit-transform: scale(1);
@@ -1490,28 +1492,55 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
           transform: scale(0.7);
   -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* Ефект "вистрибування" */
+  max-width: 25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  pointer-events: none;
 }
 .status-modal-content.status-text {
   font-size: 2.5rem;
+}
+
+.modal-content-blocked {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 /* Стилі для тексту */
 #status-text {
   font-size: 1.375rem;
   margin: 0;
+  display: block;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
-.status-success #status-text {
-  color: #00ADB5;
+.status-message {
+  display: block;
+  padding: 12px 20px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+.status-message.success {
+  background: rgba(0, 128, 0, 0.85);
+}
+.status-message.error {
+  background: rgba(220, 53, 69, 0.85);
 }
 
-.status-error #status-text {
-  color: #e74c3c;
-}
-
-/* Блокування кнопки */
-#submit-btn:disabled {
+button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
@@ -4879,8 +4908,8 @@ html[data-input=mouse] .card:hover .card__content {
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: opacity 0.6s, translate 0.6s ease-in-out;
-  transition: opacity 0.6s, translate 0.6s ease-in-out;
+  -webkit-transition: opacity 0.4s, translate 0.4s ease-in-out;
+  transition: opacity 0.4s, translate 0.4s ease-in-out;
   translate: 0 100%;
   z-index: 1000;
   will-change: opacity, translate;
@@ -4908,8 +4937,8 @@ html[data-input=mouse] .card:hover .card__content {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: translate 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.8s ease;
-  transition: translate 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.8s ease;
+  -webkit-transition: translate 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
+  transition: translate 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
   opacity: 0;
   will-change: translate, opacity;
 }

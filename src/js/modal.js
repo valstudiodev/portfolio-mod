@@ -2,97 +2,222 @@
 
 
 export function openModal() {
-   initModal()
+   document.addEventListener('DOMContentLoaded', initModal);
 }
 // ===========================================================================================
+// async function initModal() {
+//    const openButtons = document.querySelectorAll('.open-btn-modal');
+//    const modalOverlay = document.querySelector('#modal-overlay');
+//    const modalContent = document.querySelector('#modal-content');
+//    const fixedElements = document.querySelectorAll('.header, .fixed-element');
+
+//    if (!openButtons.length || !modalOverlay || !modalContent) return;
+
+//    // ПРИМУСОВИЙ метод обчислення ширини скролбару
+//    function getScrollbarWidth() {
+//       const outer = document.createElement('div');
+//       outer.style.visibility = 'hidden';
+//       outer.style.overflow = 'scroll';
+//       document.body.appendChild(outer);
+//       const inner = document.createElement('div');
+//       outer.appendChild(inner);
+//       const width = outer.offsetWidth - inner.offsetWidth;
+//       outer.parentNode.removeChild(outer);
+//       return width;
+//    }
+
+//    function openModal() {
+//       const scrollWidth = getScrollbarWidth();
+
+//       // Встановлюємо CSS-змінну для всього документа
+//       document.documentElement.style.setProperty('--lock-padding', `${scrollWidth}px`);
+
+//       document.body.classList.add('no-scroll');
+//       modalOverlay.classList.add('is-open');
+//       modalOverlay.setAttribute('aria-hidden', 'false');
+//    }
+
+//    function closeModal() {
+//       modalOverlay.classList.remove('is-open');
+//       modalOverlay.setAttribute('aria-hidden', 'true');
+//       // Клас no-scroll і змінну видаляємо ПІСЛЯ завершення анімації (transitionend вже є нижче)
+//    }
+
+//    modalOverlay.addEventListener('transitionend', (e) => {
+//       // Перевіряємо, що анімувався саме оверлей (opacity), а не внутрішні елементи
+//       if (e.target === modalOverlay && !modalOverlay.classList.contains('is-open')) {
+//          document.body.classList.remove('no-scroll');
+//          document.documentElement.style.removeProperty('--lock-padding');
+//       }
+//    });
+
+//    openButtons.forEach(btn => {
+//       btn.addEventListener('click', async (e) => {
+//          e.preventDefault();
+
+//          // 1. Якщо контент ще не завантажений
+//          if (modalContent.innerHTML.trim() === '') {
+//             try {
+//                // Показуємо лоадер прямо у вікні перед тим, як відкрити його
+//                modalContent.innerHTML = '<div class="modal-loader">Loading...</div>';
+
+//                // Відкриваємо "порожнє" вікно з лоадером (користувач бачить, що щось відбувається)
+//                openModal();
+
+//                const response = await fetch('modal.html');
+//                if (!response.ok) throw new Error('Помилка завантаження');
+//                const html = await response.text();
+
+//                // 2. Коли дані прийшли — замінюємо лоадер на форму
+//                // Робимо це з невеликою затримкою для плавності
+//                setTimeout(() => {
+//                   modalContent.innerHTML = html;
+//                }, 100);
+
+//             } catch (err) {
+//                modalContent.innerHTML = '<p>Помилка завантаження форми.</p>';
+//             }
+//          } else {
+//             // Якщо контент вже завантажений раніше — просто відкриваємо
+//             openModal();
+//          }
+//       });
+//    });
+
+//    modalOverlay.addEventListener('click', (e) => {
+//       if (e.target === modalOverlay || e.target.closest('[data-modal-close]')) {
+//          closeModal();
+//       }
+//    });
+
+//    document.addEventListener('keydown', (e) => {
+//       if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) {
+//          closeModal();
+//       }
+//    });
+// }
+
+
 async function initModal() {
    const openButtons = document.querySelectorAll('.open-btn-modal');
-   const modalOverlay = document.querySelector('#modal-overlay');
-   const modalContent = document.querySelector('#modal-content');
-   const fixedElements = document.querySelectorAll('.header, .fixed-element');
+   const modalOverlay = document.getElementById('modal-overlay');
+   const modalContent = document.getElementById('modal-content');
+   const statusText = document.getElementById('status-text');
+   const statusOverlay = document.getElementById('status-overlay');
 
-   if (!openButtons.length || !modalOverlay || !modalContent) return;
+   if (!openButtons.length || !modalOverlay || !modalContent || !statusText) return;
 
-   // ПРИМУСОВИЙ метод обчислення ширини скролбару
    function getScrollbarWidth() {
-      const outer = document.createElement('div');
-      outer.style.visibility = 'hidden';
-      outer.style.overflow = 'scroll';
-      document.body.appendChild(outer);
-      const inner = document.createElement('div');
-      outer.appendChild(inner);
-      const width = outer.offsetWidth - inner.offsetWidth;
-      outer.parentNode.removeChild(outer);
-      return width;
+      return window.innerWidth - document.documentElement.clientWidth;
    }
 
    function openModal() {
       const scrollWidth = getScrollbarWidth();
-
-      // Встановлюємо CSS-змінну для всього документа
       document.documentElement.style.setProperty('--lock-padding', `${scrollWidth}px`);
-
       document.body.classList.add('no-scroll');
       modalOverlay.classList.add('is-open');
-      modalOverlay.setAttribute('aria-hidden', 'false');
    }
 
    function closeModal() {
       modalOverlay.classList.remove('is-open');
-      modalOverlay.setAttribute('aria-hidden', 'true');
-      // Клас no-scroll і змінну видаляємо ПІСЛЯ завершення анімації (transitionend вже є нижче)
+      document.body.classList.remove('no-scroll');
+      document.documentElement.style.removeProperty('--lock-padding');
    }
 
-   modalOverlay.addEventListener('transitionend', (e) => {
-      // Перевіряємо, що анімувався саме оверлей (opacity), а не внутрішні елементи
-      if (e.target === modalOverlay && !modalOverlay.classList.contains('is-open')) {
-         document.body.classList.remove('no-scroll');
-         document.documentElement.style.removeProperty('--lock-padding');
-      }
-   });
+   function showStatus(msgText, isSuccess = true) {
+      statusText.textContent = msgText;
+      statusText.classList.remove('success', 'error');
+      statusText.classList.add(isSuccess ? 'success' : 'error');
+
+      // Блокуємо взаємодію з формою
+      modalContent.classList.add('modal-content-blocked');
+
+      statusOverlay.style.display = 'block';
+      statusText.style.opacity = '0';
+      statusText.style.transform = 'translateY(-20px)';
+
+      requestAnimationFrame(() => {
+         statusText.style.opacity = '1';
+         statusText.style.transform = 'translateY(0)';
+      });
+
+      const hideTime = isSuccess ? 2000 : 3000; // час показу
+      setTimeout(() => {
+         statusText.style.opacity = '0';
+         statusText.style.transform = 'translateY(-20px)';
+
+         setTimeout(() => {
+            statusOverlay.style.display = 'none';
+            modalContent.classList.remove('modal-content-blocked'); // знову можна взаємодіяти
+         }, 300);
+      }, hideTime);
+   }
+
+
 
    openButtons.forEach(btn => {
       btn.addEventListener('click', async (e) => {
          e.preventDefault();
 
-         // 1. Якщо контент ще не завантажений
-         if (modalContent.innerHTML.trim() === '') {
+         if (!modalContent.innerHTML.trim()) {
+            modalContent.innerHTML = '<div>Loading...</div>';
+            openModal();
+
             try {
-               // Показуємо лоадер прямо у вікні перед тим, як відкрити його
-               modalContent.innerHTML = '<div class="modal-loader">Loading...</div>';
-
-               // Відкриваємо "порожнє" вікно з лоадером (користувач бачить, що щось відбувається)
-               openModal();
-
-               const response = await fetch('modal.html');
-               if (!response.ok) throw new Error('Помилка завантаження');
-               const html = await response.text();
-
-               // 2. Коли дані прийшли — замінюємо лоадер на форму
-               // Робимо це з невеликою затримкою для плавності
-               setTimeout(() => {
-                  modalContent.innerHTML = html;
-               }, 100);
-
+               const res = await fetch('modal.html');
+               if (!res.ok) throw new Error('Failed to load');
+               const html = await res.text();
+               modalContent.innerHTML = html;
             } catch (err) {
-               modalContent.innerHTML = '<p>Помилка завантаження форми.</p>';
+               modalContent.innerHTML = '<p>Failed to load modal content.</p>';
             }
          } else {
-            // Якщо контент вже завантажений раніше — просто відкриваємо
             openModal();
          }
       });
    });
 
-   modalOverlay.addEventListener('click', (e) => {
+   modalOverlay.addEventListener('click', e => {
       if (e.target === modalOverlay || e.target.closest('[data-modal-close]')) {
          closeModal();
       }
    });
 
-   document.addEventListener('keydown', (e) => {
+   document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) {
          closeModal();
+      }
+   });
+
+   // Перехоплення submit всередині модалки
+   modalContent.addEventListener('submit', async e => {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalText = submitBtn.textContent;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+         const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+         });
+
+         if (response.ok) {
+            form.reset();
+            showStatus('Message sent successfully!', true);
+            setTimeout(closeModal, 2500); // автозакриття після успіху
+         } else {
+            throw new Error('Failed to send message. Please try again.');
+         }
+      } catch (err) {
+         showStatus(err.message, false);
+      } finally {
+         submitBtn.disabled = false;
+         submitBtn.textContent = originalText;
       }
    });
 }
@@ -100,12 +225,11 @@ async function initModal() {
 
 
 
-const setVh = () => {
-   document.documentElement.style.setProperty(
-      '--vh',
-      `${window.innerHeight * 0.01}px`
-   );
-};
 
-setVh();
-window.addEventListener('resize', setVh);
+
+
+
+
+
+
+
