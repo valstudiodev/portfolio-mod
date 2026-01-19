@@ -1328,8 +1328,7 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
 
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1347,8 +1346,8 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 100;
-  padding-top: 5rem;
+  z-index: 10000;
+  overflow: auto;
 }
 .modal-overlay.is-open {
   opacity: 1;
@@ -1369,7 +1368,7 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
   width: 90%;
   max-width: 50rem;
   height: auto;
-  max-height: 100vh;
+  max-height: calc(var(--vh) * 100 - 32px);
   overflow-y: auto;
   pointer-events: auto;
   z-index: 1;
@@ -1688,7 +1687,7 @@ address {
   width: 100%;
   left: 0;
   top: 0;
-  z-index: 10000;
+  z-index: 1000;
   padding-right: var(--lock-padding) !important;
 }
 @media (min-width: 105.875em) {

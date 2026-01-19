@@ -4,8 +4,7 @@
 
 .modal-overlay {
    position: fixed;
-   top: 0;
-   left: 0;
+   inset: 0;
    width: 100vw;
    height: 100vh;
    background-color: rgba(0, 0, 0, 0.5);
@@ -16,9 +15,8 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   z-index: 100;
-   padding-top: toRem(80);
-   // padding-bottom: toRem(50);
+   z-index: 10000;
+   overflow: auto;
 
    &.is-open {
       opacity: 1;
@@ -40,7 +38,9 @@
    width: 90%;
    max-width: toRem(800);
    height: auto;
-   max-height: 100vh;
+   // max-height: 100svh;
+   // max-height: calc(100svh - toRem(32));
+   max-height: calc(var(--vh) * 100 - 32px);
    overflow-y: auto;
    pointer-events: auto;
    z-index: 1;
