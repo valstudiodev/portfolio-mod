@@ -2506,6 +2506,7 @@ html[data-input=mouse] .social-footer__link:hover:hover {
 }
 @media (max-width: 27.5em) {
   .content-hero__button {
+    width: 100%;
     -ms-flex-item-align: center;
         align-self: center;
     -webkit-box-pack: center;
