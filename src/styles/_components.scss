@@ -387,8 +387,7 @@
    display: inline-grid;
    border-radius: toRem(10);
    padding-inline: toRem(40);
-   // @include adaptiveValue('padding-inline',40,20);
-   @include adaptiveValue('padding-block', 16, 5);
+   @include adaptiveValue('padding-block', 10, 5);
    background-color: transparent;
    text-transform: uppercase;
    letter-spacing: toRem(1.5);
@@ -896,6 +895,7 @@
    transition: opacity 0.4s, translate 0.4s ease;
    translate: 0 toRem(50);
    width: 50%;
+   border-left: toRem(8) solid $blue;
 
    @media (max-width: toEm(1040)) {
      width: 100%;
@@ -905,12 +905,12 @@
    &:nth-child(odd) {
       align-self: flex-end;
       padding-right: toRem(0);
-      border-right: toRem(8) solid $blue;
+      // border-right: toRem(8) solid $blue;
    }
    &:nth-child(even) {
       align-self: flex-start;
       padding-left: toRem(0);
-      border-left: toRem(8) solid $blue;
+      // border-left: toRem(8) solid $blue;
    }
 
    &.animate {
@@ -1237,7 +1237,7 @@
       }
 
    @include hover {
-      translate: 0 toRem(-8);
+      translate: 0 toRem(-2);
       .card__content {
          opacity: 1;
          translate: toRem(50) toRem(-50);
@@ -1278,7 +1278,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: toRem(20);
+      gap: toRem(15);
       position: absolute;
       top: 0;
       left: 0;
@@ -1291,6 +1291,7 @@
       max-width: toRem(400);
       border-radius: toRem(20);
       overflow: hidden;
+      will-change: opacity;
       box-shadow: 0 0 14px rgba(20, 120, 80, 0.40),
             0 0 28px rgba(20, 120, 80, 0.25),
             0 0 45px rgba(20, 120, 80, 0.15);
@@ -1304,6 +1305,19 @@
       color: $brandDark;
       text-transform: capitalize;
       font-weight: 600;
+      line-height: 1;
+      border-bottom: toRem(1) solid $blue;
+      padding-bottom: toRem(10);
+
+      span {
+         font-size: toRem(14);
+         color: $white;
+         text-transform: lowercase;
+      }
+   }
+
+   &__text {
+      @include adaptiveValue('font-size', 14, 12);
    }
 }
 

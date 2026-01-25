@@ -3725,12 +3725,12 @@ html[data-input=mouse] .button-figure:hover::before, html[data-input=mouse] .but
 }
 @media (min-width: 105.875em) {
   .button-active {
-    padding-block: 16px;
+    padding-block: 10px;
   }
 }
 @media (min-width: 20em) and (max-width: 105.875em) {
   .button-active {
-    padding-block: clamp( 5px , 2.4381368268px  +  0.8005822416vw , 16px );
+    padding-block: clamp( 5px , 3.8355167394px  +  0.3639010189vw , 10px );
   }
 }
 @media (max-width: 20em) {
@@ -4356,6 +4356,7 @@ html[data-input=mouse] .btn-action-less:hover {
   transition: opacity 0.4s, translate 0.4s ease;
   translate: 0 3.125rem;
   width: 50%;
+  border-left: 0.5rem solid #0C73B8;
 }
 @media (max-width: 65em) {
   .approach-item {
@@ -4366,13 +4367,11 @@ html[data-input=mouse] .btn-action-less:hover {
   -ms-flex-item-align: end;
       align-self: flex-end;
   padding-right: 0rem;
-  border-right: 0.5rem solid #0C73B8;
 }
 .approach-item:nth-child(even) {
   -ms-flex-item-align: start;
       align-self: flex-start;
   padding-left: 0rem;
-  border-left: 0.5rem solid #0C73B8;
 }
 .approach-item.animate {
   opacity: 1;
@@ -4813,7 +4812,7 @@ html[data-input=mouse] .card--slide:hover .card__content {
   translate: 3.125rem 0 !important;
 }
 html[data-input=mouse] .card:hover {
-  translate: 0 -0.5rem;
+  translate: 0 -0.125rem;
 }
 html[data-input=mouse] .card:hover .card__content {
   opacity: 1;
@@ -4860,7 +4859,7 @@ html[data-input=mouse] .card:hover .card__content {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  gap: 1.25rem;
+  gap: 0.9375rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -4874,6 +4873,7 @@ html[data-input=mouse] .card:hover .card__content {
   max-width: 25rem;
   border-radius: 1.25rem;
   overflow: hidden;
+  will-change: opacity;
   -webkit-box-shadow: 0 0 14px rgba(20, 120, 80, 0.4), 0 0 28px rgba(20, 120, 80, 0.25), 0 0 45px rgba(20, 120, 80, 0.15);
           box-shadow: 0 0 14px rgba(20, 120, 80, 0.4), 0 0 28px rgba(20, 120, 80, 0.25), 0 0 45px rgba(20, 120, 80, 0.15);
 }
@@ -4886,6 +4886,9 @@ html[data-input=mouse] .card:hover .card__content {
   color: #00ADB5;
   text-transform: capitalize;
   font-weight: 600;
+  line-height: 1;
+  border-bottom: 0.0625rem solid #0C73B8;
+  padding-bottom: 0.625rem;
 }
 @media (min-width: 105.875em) {
   .card__title {
@@ -4900,6 +4903,26 @@ html[data-input=mouse] .card:hover .card__content {
 @media (max-width: 20em) {
   .card__title {
     font-size: 20px;
+  }
+}
+.card__title span {
+  font-size: 0.875rem;
+  color: #FFFFFF;
+  text-transform: lowercase;
+}
+@media (min-width: 105.875em) {
+  .card__text {
+    font-size: 14px;
+  }
+}
+@media (min-width: 20em) and (max-width: 105.875em) {
+  .card__text {
+    font-size: clamp( 12px , 11.5342066958px  +  0.1455604076vw , 14px );
+  }
+}
+@media (max-width: 20em) {
+  .card__text {
+    font-size: 12px;
   }
 }
 
