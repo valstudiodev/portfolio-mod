@@ -1005,6 +1005,8 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
   border-radius: 2.5rem;
   color: #FFFFFF;
   font-weight: 700;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
 }
 @media (min-width: 105.875em) {
   .menu-filter__button {
@@ -1035,6 +1037,9 @@ html[data-input=mouse] .filter__body:hover:has(.card:hover) .card:not(:hover) {
   .menu-filter__button {
     padding-inline: 15px;
   }
+}
+html[data-input=mouse] .menu-filter__button:hover {
+  background-color: #00ADB5;
 }
 .menu-filter__button.is-active {
   background-color: #00ADB5;

@@ -122,6 +122,11 @@
       @include adaptiveValue('padding-inline', 32, 15);
       color: $white;
       font-weight: 700;
+      transition: background-color 0.3s;
+
+      @include hover {
+         background-color: $brandDark;
+      }
 
       &.is-active {
          background-color: $brandDark;
