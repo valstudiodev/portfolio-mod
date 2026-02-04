@@ -328,12 +328,12 @@
       height: toRem(28);
    }
 
-   &:active {
-      &::before,
-      &::after {
-         background-color: $blue;
-      }
-   }
+   // &:active {
+   //    &::before,
+   //    &::after {
+   //       background-color: $blue;
+   //    }
+   // }
 
    @include hover {
       color: $white;
@@ -410,7 +410,6 @@
          transition: translate 0.5s ease-in-out, opacity 0.5s;
          z-index: -5;
          opacity: 0.6;
-
       }
 
       &::before {
@@ -449,7 +448,6 @@
          transition: translate 0.5s ease-in-out, opacity 0.5s;
          z-index: -5;
          opacity: 0.6;
-
       }
 
       &::before {

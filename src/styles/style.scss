@@ -153,6 +153,14 @@ html[data-input="touch"] {
          }
       }
    }
+   .button-figure {
+      &:active {
+         &::before,
+         &::after {
+            background-color: $blue;
+         }
+      }
+   }
 }
 
 

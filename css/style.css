@@ -3646,9 +3646,6 @@ html[data-input=mouse] .button-regular--subscribe:hover:hover {
 .button-figure--small {
   height: 1.75rem;
 }
-.button-figure:active::before, .button-figure:active::after {
-  background-color: #0C73B8;
-}
 html[data-input=mouse] .button-figure:hover {
   color: #FFFFFF;
   text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
@@ -5114,4 +5111,7 @@ html[data-input=keyboard] .is-active .menu-dropdown__link::before {
 
 html[data-input=touch] .menu-dropdown__item--submenu.is-active .menu-dropdown__link::before {
   rotate: -90deg;
+}
+html[data-input=touch] .button-figure:active::before, html[data-input=touch] .button-figure:active::after {
+  background-color: #0C73B8;
 }
