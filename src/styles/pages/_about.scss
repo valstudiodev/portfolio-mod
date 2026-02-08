@@ -12,11 +12,11 @@
 
    // .about-page__header
    &__header {
-
       &.block-header--about {
          opacity: 0;
-         scale: 0;
-         transition: opacity 0.8s, scale 0.8s;
+         scale: 0.2;
+         transition: opacity 1s, scale 1s;
+         transform-origin: top;
          will-change: transition,opacity,scale;
          @include adaptiveValue('margin-bottom', 60, 40);
 
@@ -24,6 +24,7 @@
             opacity: 1;
             scale: 1;
          }
+
       }
 
       .mouse-scroll {
@@ -55,22 +56,18 @@
       display: flex;
       flex-direction: column;
       gap: toRem(50);
+      // @include popIn($duration: 1s, $origin: bottom right);
       opacity: 0;
-      scale: 0;
-      translate: 0 toRem(60);
+      scale: 0.2;
+      // translate: 0 toRem(60);
+      transform-origin: bottom right;
       transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
       will-change: opacity, translate;
-
-      // &.animate {
-      //    opacity: 1;
-      //    translate: 0 0;
-      //    scale: 1;
-      // }
 
       [init-page-loader="ready"] & {
          opacity: 1;
          scale: 1;
-         translate: 0 0;
+         // translate: 0 0;
       }
    }
 
@@ -118,21 +115,17 @@
       aspect-ratio: 1;
       overflow: hidden;
       opacity: 0;
-      scale: 0;
-      translate: 0 toRem(60);
+      scale: 0.2;
+      // translate: 0 toRem(60);
+      transform-origin: bottom left;
       transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
       will-change: opacity,translate;
 
-      // &.animate {
-      //    opacity: 1;
-      //    scale: 1;
-      //    translate: 0 0;
-      // }
 
       [init-page-loader="ready"] & {
         opacity: 1;
         scale: 1;
-        translate: 0 0;
+      //   translate: 0 0;
       }
 
       img {
@@ -201,6 +194,7 @@
    &__scroll {
       display: flex;
       margin: 0 auto;
+      @include reveal((0, toRem(30)));
 
       &.mouse-scroll {
          fill: $gold;
@@ -214,6 +208,7 @@
       font-weight: 700;
       width: 50%;
       text-align: center;
+      @include reveal((toRem(-20), toRem(0)), 0.8s);
 
       span {
          color: $brandDark;

@@ -328,12 +328,13 @@
       height: toRem(28);
    }
 
-   // &:active {
-   //    &::before,
-   //    &::after {
-   //       background-color: $blue;
-   //    }
-   // }
+   &:active {
+      &::before,
+      &::after {
+         // background-color: $blue;
+         background-color: $brandDark;
+      }
+   }
 
    @include hover {
       color: $white;
@@ -654,17 +655,7 @@
    align-items: center;
    justify-content: center;
    gap: toRem(16);
-   transition: opacity 0.5s ease,translate 0.5s ease;
-
-   &--anim {
-      opacity: 0;
-      translate: 0 toRem(50);
-   }
-
-   &.animate {
-      opacity: 1;
-      translate: 0 0;
-   }
+   @include reveal((0, toRem(30)));
 
 
    &--margin {
@@ -728,20 +719,6 @@
    width: toRem(32);
    @include adaptiveValue('height',140,90);
    fill: $orange;
-   transition: opacity 0.4s, translate 0.4s ease;
-
-   &--anim {
-      translate: 0 toRem(30);
-      opacity: 0;
-   }
-   &.animate {
-      translate: 0 0;
-      opacity: 1;
-   }
-
-   @media (max-width: toEm($mobile)) {
-      // display: none;
-   }
 }
 
 .logo {
@@ -889,11 +866,10 @@
    flex-direction: column;
    align-items: center;
    gap: toRem(8);
-   opacity: 0;
-   transition: opacity 0.4s, translate 0.4s ease;
-   translate: 0 toRem(50);
    width: 50%;
    border-left: toRem(8) solid $blue;
+   @include stagger($count:6);
+   @include reveal((0, toRem(30)), 1s);
 
    @media (max-width: toEm(1040)) {
      width: 100%;
@@ -903,17 +879,10 @@
    &:nth-child(odd) {
       align-self: flex-end;
       padding-right: toRem(0);
-      // border-right: toRem(8) solid $blue;
    }
    &:nth-child(even) {
       align-self: flex-start;
       padding-left: toRem(0);
-      // border-left: toRem(8) solid $blue;
-   }
-
-   &.animate {
-      opacity: 1;
-      translate: 0 0;
    }
 
    // .approach-item__inner
@@ -1018,8 +987,8 @@
       align-items: center;
       backdrop-filter: blur(30px);
       opacity: 0;
-      transform: scale(0);
-      transition: opacity 0.6s, transform 0.6s;
+      transform: scale(0.2);
+      transition: opacity 1s, transform 1s;
    }
 
    &:last-child {
@@ -1057,23 +1026,15 @@
 
    // .item-step__inner
    &__inner {
-      // background-color: $bgPrimary;
       background-color: $bgSecondary;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      border-radius: toRem(30);
       @include adaptiveValue('gap', 20, 10);
       @include adaptiveValue('padding', 50, 25);
       transition: opacity 0.6s,translate 0.4s ease-in-out;
-      translate: 0 toRem(50);
-      opacity: 0;
-      will-change: transform, opacity;
-      border-radius: toRem(30);
-
-      &.animate {
-         opacity: 1;
-         translate: 0 0;
-      }
+      @include reveal((0, toRem(50)), 1s);
    }
 
    // .item-step__title
@@ -1281,12 +1242,13 @@
       top: 0;
       left: 0;
       background-color: $grey;
-      padding: toRem(40);
+      // padding: toRem(40);
+      @include adaptiveValue('padding',40,20);
       transition: translate 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s ease;
       opacity: 0;
       pointer-events: none;
       height: auto;
-      max-width: toRem(400);
+      max-width: toRem(430);
       border-radius: toRem(20);
       overflow: hidden;
       will-change: opacity;
@@ -1315,7 +1277,7 @@
    }
 
    &__text {
-      @include adaptiveValue('font-size', 14, 12);
+      @include adaptiveValue('font-size', 16, 14);
    }
 }
 

@@ -188,11 +188,11 @@
          <section class="page__about about">
             <div class="about__container">
                <div class="about__inner">
-                  <svg class="about__scroll mouse-scroll mouse-scroll--anim">
+                  <svg class="about__scroll about__scroll--anim mouse-scroll">
                      <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
                   </svg>
                   <div class="about__body">
-                     <div class="about__desc about__desc--anim">
+                     <div class="about__desc about__desc--anim" data-delay="350">
                         <h2 class="about__title">About <span>me</span></h2>
                         <div class="about__content content-about">
                            <svg class="content-about__teg">
@@ -218,7 +218,7 @@
                            </svg>
                         </div>
                      </div>
-                     <div class="about__image about__image--anim" data-threshold="0.3">
+                     <div class="about__image about__image--anim" data-threshold="0.2" data-delay="100">
                         <img src="/src/assets/img/png/man-rest.webp" alt="men rests at the table">
                      </div>
                   </div>
@@ -228,7 +228,7 @@
 
          <section class="page__work work">
             <div class="work__container">
-               <div class="work__block block-header block-header--anim">
+               <div class="work__block block-header block-header--anim" data-delay="100">
                   <svg class="block-header__scroll mouse-scroll">
                      <use href="src/assets/icons/symbol-defs.svg#icon-scroll"></use>
                   </svg>
@@ -236,11 +236,11 @@
                      in 5 steps
                   </h2>
                   <div class="block-header__text">
-                     <p>I had the pleasure of working with these awesome projects</p>
+                     <p>The process ensures that I create a website tailored to your business needs.</p>
                   </div>
                </div>
                <div class="work__items">
-                  <article class="item-step item-step--anim" data-threshold="0.8">
+                  <article class="item-step item-step--anim" data-threshold="0.5">
                      <div class="item-step__inner item-step__inner--anim">
                         <h3 class="item-step__title">Contact</h3>
                         <div class="item-step__text">
@@ -323,7 +323,7 @@
                      </div>
                   </div>
 
-                  <div class="projects__wrapper projects__wrapper--anim">
+                  <div class="projects__wrapper projects__wrapper--anim" data-delay="100">
                      <button
                         class="button-arrow button-arrow--left button-arrow--prev button-arrow--icon-chevron"></button>
                      <!-- Slider main container -->
@@ -444,32 +444,6 @@
                               </article>
                            </div>
                            <div class="slider-projects__slide swiper-slide">
-                              <!-- meta-v -->
-                              <article class="card card--slide">
-                                 <div class="card__inner">
-                                    <div class="card__image">
-                                       <img src="/src/assets/img/works/meta-v.webp" alt="card image">
-                                       <button class="arrow-point arrow-point--icon-arrow-up"></button>
-                                    </div>
-                                    <div class="card__content">
-                                       <h3 class="card__title">meta-v<span> - is a vibrant website for VR gaming.</span>
-                                       </h3>
-                                       <div class="card__text">
-                                          <p>The project focuses on visual effects and dynamic content presentation.
-                                             The design is bold, modern, and engaging.
-                                          </p>
-                                       </div>
-                                       <div class="card__buttons">
-                                          <a href="https://valstudiodev.github.io/metaV/" target="_blank"
-                                             class="button-active button-active--demo"><span>demo</span></a>
-                                          <a href="https://github.com/valstudiodev/metaV.git" target="_blank"
-                                             class="button-active button-active--code"><span>code</span></a>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </article>
-                           </div>
-                           <div class="slider-projects__slide swiper-slide">
                               <!-- medicine -->
                               <article class="card card--slide">
                                  <div class="card__inner">
@@ -539,9 +513,6 @@
                                  <img src="/src/assets/img/works/e-scooter.png" alt="">
                               </div>
                               <div class="slider-projects__slide swiper-slide">
-                                 <img src="/src/assets/img/works/meta-v.webp" alt="">
-                              </div>
-                              <div class="slider-projects__slide swiper-slide">
                                  <img src="/src/assets/img/works/medicine.png" alt="">
                               </div>
                               <div class="slider-projects__slide swiper-slide">
@@ -564,7 +535,7 @@
       </main>
 
       <aside class="page-intro intro">
-         <div class="intro__container intro__container--anim" data-threshold="0.3">
+         <div class="intro__container intro__container--anim" data-threshold="0.1" data-delay="150">
             <div class="intro__header">
                <div class="intro__content">
                   <span class="intro__label">Got a project in mind?</span>
@@ -627,8 +598,14 @@
          </div>
          <div class="footer__bottom bottom-footer">
             <div class="bottom-footer__container">
-               <div class="bottom-footer__policy">
-                  <p>© 2025 Valentyn Tkachenko | Crafted in code & creativity ⚡</p>
+               <div class="bottom-footer__copiright">
+                  <p>&copy; <span>2025 - 2026</span> | <strong>Valentyn Tkachenko</strong> | Crafted
+                     in code &
+                     creativity ⚡</p>
+               </div>
+               <div class="bottom-footer__terms">
+                  <a href="/terms">Terms of Use</a> |
+                  <a href="/privacy">Privacy Policy</a>
                </div>
             </div>
          </div>

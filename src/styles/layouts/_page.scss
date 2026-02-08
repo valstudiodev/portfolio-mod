@@ -41,13 +41,15 @@
 
    &__inner {
       opacity: 0;
-      scale: 0;
-      transition: opacity 0.8s, scale 0.8s;
+      scale: 0.2;
+      transition: opacity 1.2s, scale 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-origin: top left;
       will-change: opacity, scale;
       [init-page-loader="ready"] & {
          opacity: 1;
          scale: 1;
       }
+
    }
 
    // .hero__title
@@ -74,11 +76,27 @@
 }
 
 .content-hero {
+   position: relative;
    display: flex;
    flex-direction: column;
    @include adaptiveValue('gap', 32, 20);
    align-items: flex-start;
    max-width: toRem(820);
+
+   &::after {
+     content: "";
+     position: absolute;
+     bottom: -20%;
+     left: 30%;
+     background-image: url("/src/assets/img/png/arrow-long.webp");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     width: toRem(90);
+     height: toRem(220);
+     rotate: 60deg;
+     @include mirror(x);
+   }
 
    // .content-hero__title
    &__title {
@@ -149,7 +167,7 @@
    }
 
    &__scroll {
-
+      @include reveal((0, toRem(30)));
       &.mouse-scroll {
          fill: $brandPrimary;
       }
@@ -161,7 +179,7 @@
       display: flex;
       align-items: center;
       @include adaptiveValue('gap', 150, 50);
-      overflow: hidden;
+      // overflow: hidden;
 
       &::before {
          content: "";
@@ -197,17 +215,7 @@
    }
 
    &__desc {
-      opacity: 0;
-      scale: 0;
-      translate: 0 toRem(60);
-      transition: translate 0.8s ease, opacity 0.8s ease, scale 0.8s;
-      will-change: transform, opacity;
-
-      &.animate {
-         opacity: 1;
-         scale: 1;
-         translate: 0 0;
-      }
+      @include popIn($duration:1.6s,$origin:top left);
    }
 
    &__title {
@@ -224,17 +232,7 @@
       position: relative;
       aspect-ratio: 412 / 353;
       z-index: 2;
-      will-change: transform, opacity;
-      opacity: 0;
-      scale: 0;
-      translate: 0 toRem(60);
-      transition: translate 0.8s ease, opacity 0.8s ease, scale 0.8s;
-
-      &.animate {
-         opacity: 1;
-         scale: 1;
-         translate: 0 0;
-      }
+      @include popIn($duration: 1.2s, $origin: top right);
 
       &::before {
          content: "";
@@ -419,14 +417,7 @@
       align-items: center;
       gap: toRem(30);
       max-width: toRem(1000);
-      opacity: 0;
-      translate: 0 toRem(60);
-      transition: opacity 0.5s, translate 0.5s ease;
-
-      &.animate {
-         opacity: 1;
-         translate: 0 0;
-      }
+      @include reveal((0, toRem(50)), 1s);
 
       @media (max-width: toEm(768.98)) {
         display: block;
@@ -457,16 +448,7 @@
       flex-direction: column;
       align-items: center;
       @include adaptiveValue('gap', 50, 25);
-      opacity: 0;
-      // translate: 0 toRem(50);
-      scale: 0.7;
-      transition: opacity 0.8s ease, scale 0.8s ease;
-
-      &.animate {
-         opacity: 1;
-         // translate: 0 0;
-         scale: 1;
-      }
+      @include popIn($duration: 1s, $origin: bottom);
    }
 
    // .intro__header

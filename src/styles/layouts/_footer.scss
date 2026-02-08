@@ -5,7 +5,6 @@
    // display: none;
    background-color: $bgSecondary;
    @include adaptiveValue('padding-top', 110, 50);
-   // @include adaptiveValue('padding-bottom',50,25);
 
    // .footer__body
    &__body {}
@@ -175,16 +174,47 @@
    @include adaptiveValue('padding-block', 50, 25);
 
    // .bottom-footer__container
-   &__container {}
+   &__container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @include adaptiveValue('gap',40,20);
+
+      @media (max-width: toEm(783)) {
+        justify-content: center;
+      }
+   }
 
    // .bottom-footer__policy
-   &__policy {
+   &__copiright {
       font-family: "Ubuntu", sans-serif;
       font-weight: 300;
       @include adaptiveValue('font-size', 16, 14);
+      text-align: center;
+
+      strong {
+         color: $brandDark;
+      }
 
       @media (max-width: toEm(600)) {
          text-align: center;
       }
+   }
+
+   &__terms {
+      display: flex;
+      align-items: center;
+      gap: toRem(10);
+      text-align: center;
+      font-size: toRem(14);
+
+      a {
+         transition: color 0.3s;
+         @include hover {
+            color: $brandDark;
+         }
+         @include link-hover-underline($height: toRem(1), $color: $brandDark);
+      }
+
    }
 }
