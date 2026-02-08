@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" init-page-loader>
+<html lang="en">
 
 <head>
    <meta charset="UTF-8">
@@ -16,11 +16,17 @@
       }
 
       html[init-page-loader="ready"] body {
-         opacity: 1;
+         opacity: 1 !important;
          overflow: visible;
          transition: opacity 0.4s ease;
-         visibility: visible;
+         visibility: visible !important;
       }
+
+      /* html[init-page-loader="ready"] body {
+               opacity: 1 !important;
+               transition: opacity 0.4s ease;
+               visibility: visible !important;
+            } */
 
       /* Стиль прогрес-бару (щоб не чекати завантаження файлу CSS) */
       #loader-progress-bar {
@@ -37,7 +43,7 @@
    </style>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" type="image/svg+xml" href="/portfolio-mod/favicon.ico" />
-   <title>Contacts</title>
+   <title>Terms of Use</title>
   <script type="module" crossorigin src="/portfolio-mod/assets/main.591bf6d7.js"></script>
   <link rel="stylesheet" href="/portfolio-mod/assets/main.004a4f06.css">
 </head>
@@ -103,44 +109,49 @@
          </div>
       </header>
 
-      <main class="page-contacts contacts-page">
-         <div class="contacts-page__container">
-            <div class="contacts-page__content">
-               <h2 class="contacts-page__title">Got a project in <span>mind?</span> </h2>
-               <div class="contacts-page__image">
-                  <img src="/portfolio-mod/assets/man-step.ab92299f.png" alt="">
-               </div>
-            </div>
-            <!-- form -->
-            <form id="contact-form" action="https://formspree.io/f/mwveozpn" method="POST"
-               class="contacts-page__form form-contact form-contact--anim" novalidate>
-               <div class="hidden-field" style="display:none;">
-                  <label>Keep this field empty</label>
-                  <input type="text" name="_gotcha">
-               </div>
-               <div class="form-contact__fields">
-                  <div class="form-contact__field">
-                     <label for="name">Your name</label>
-                     <input type="text" id="name" name="name" class="form-contact__input" placeholder="Name" required
-                        minlength="2">
-                  </div>
-                  <div class="form-contact__field">
-                     <label for="email">Your email</label>
-                     <input type="email" id="email" name="email" class="form-contact__input" placeholder="Email"
-                        required>
-                  </div>
-               </div>
-               <div class="form-contact__text">
-                  <div class="form-contact__field">
-                     <label for="message">Your Message</label>
-                     <textarea class="form-contact__area" name="message" id="message" placeholder="Message" required
-                        minlength="10"></textarea>
-                  </div>
-               </div>
-               <button id="submit-button" type="submit" class="form-contact__button button-regular
-                                 button-regular--icon-send">Send
-                  Message</button>
-            </form>
+      <main class="page-terms">
+         <div class="page-terms__container">
+            <h1 class="page-terms__title">Terms of Use</h1>
+            <ol class="page-terms__list list-terms">
+               <li class="list-terms__item">
+                  <p>
+                     <span>Intellectual Property</span> All content on this website, including texts, designs,
+                     images, graphics,
+                     and code, is the
+                     intellectual property of <span>Valentyn Tkachenko</span> unless otherwise stated. It is
+                     protected by
+                     international copyright laws.
+                  </p>
+               </li>
+               <li class="list-terms__item">
+                  <p>
+                     <span>Permitted Use</span> You are granted permission to view and download materials from this
+                     site for
+                     <span>personal, non-commercial use
+                        only</span> (e.g., reviewing my professional experience).
+                  </p>
+                  <ul class="list-terms__list">
+                     You may not:
+                     <li>Copy or reproduce my work to claim it as your own.</li>
+                     <li>Use project images for commercial purposes without my prior written consent.</li>
+                     <li>Redistribute content from this site without providing a clear, active link to the original
+                        source.</li>
+                  </ul>
+               </li>
+               <li class="list-terms__item">
+                  <span>Disclaimer</span> The projects showcased in this portfolio were created for specific clients or
+                  as
+                  conceptual studies. I am
+                  not responsible for any modifications made to these projects by third parties after my involvement has
+                  ended.
+               </li>
+               <li class="list-terms__item">
+                  <span>Privacy</span> Any personal information shared via contact forms will be used solely to
+                  communicate with
+                  you and will never
+                  be shared with third parties.
+               </li>
+            </ol>
          </div>
       </main>
 
@@ -148,8 +159,9 @@
          <div class="footer__body body-footer">
             <div class="body-footer__container">
                <div class="body-footer__menu menu-footer">
-                  <ul class="menu-footer__list menu-footer__list--anim" data-step="200">
-                     <li class="menu-footer__item anim-child">
+                  <ul class="menu-footer__list menu-footer__list--anim" data-threshold="0.1" data-delay="200"
+                     data-step="200">
+                     <li class="menu-footer__item anim-child ">
                         <a href="./index.html" class="menu-footer__link menu-footer__link--icon-home">Home</a>
                      </li>
                      <li class="menu-footer__item anim-child">
@@ -158,12 +170,14 @@
                            me</a>
                      </li>
                      <li class="menu-footer__item anim-child">
-                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
+                        <a target="_blank" href="./contacts.html"
+                           class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
                      </li>
                   </ul>
                </div>
                <address class="body-footer__social social-footer">
-                  <ul class="social-footer__list social-footer__list--anim" data-step="200">
+                  <ul class="social-footer__list social-footer__list--anim" data-threshold="0.1" data-delay="200"
+                     data-step="200">
                      <li class="social-footer__item anim-child">
                         <a target="_blank" href="https://t.me/Tkach06"
                            class="social-footer__link social-footer__link--icon-telegram"></a>
@@ -192,18 +206,12 @@
                      creativity ⚡</p>
                </div>
                <div class="bottom-footer__terms">
-                  <a href="/terms">Terms of Use</a> |
-                  <a href="/privacy">Privacy Policy</a>
+                  <a href="#" target="_blank">Terms of Use</a> |
+                  <a href="./policy.html" target="_blank">Privacy Policy</a>
                </div>
             </div>
          </div>
       </footer>
-   </div>
-
-   <div id="status-overlay" class="status-overlay">
-      <div class="status-modal-content">
-         <p id="status-text"></p>
-      </div>
    </div>
 
    
