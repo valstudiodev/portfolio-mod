@@ -40,7 +40,9 @@ export default defineConfig({
             contacts: resolve(__dirname, 'contacts.html'),
             works: resolve(__dirname, 'works.html'),
             skills: resolve(__dirname, 'skills.html'),
-            modal: resolve(__dirname, 'modal.html')
+            modal: resolve(__dirname, 'modal.html'),
+            policy: resolve(__dirname, 'policy.html'),
+            terms: resolve(__dirname, 'terms.html')
          },
          output: {
             assetFileNames: 'assets/[name].[hash].[ext]',

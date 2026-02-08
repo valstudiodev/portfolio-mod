@@ -98,6 +98,12 @@
      @include mirror(x);
    }
 
+   @media (max-width: toEm(1015)) {
+     &::after {
+      display: none;
+     }
+   }
+
    // .content-hero__title
    &__title {
       @include adaptiveValue('font-size', 58, 30);
@@ -115,7 +121,8 @@
    }
 
    &__button {
-      @media (max-width: toEm(440)) {
+      letter-spacing: toRem(4);
+      @media (max-width: toEm(590)) {
          width: 100%;
          align-self: center;
          justify-content: center;
@@ -518,7 +525,9 @@
       &.button-figure {
          // color: $white;
       }
-
+      @media (max-width: toEm(590)) {
+        width: 100%;
+      }
    }
 }
 

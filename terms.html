@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <style>
+      /* Миттєвий фон для всього вікна */
+      html {
+         background-color: #292F36;
+      }
+
+      html:not([init-page-loader="ready"]) body {
+         opacity: 0 !important;
+         overflow: hidden !important;
+         visibility: hidden !important;
+      }
+
+      html[init-page-loader="ready"] body {
+         opacity: 1 !important;
+         overflow: visible;
+         transition: opacity 0.4s ease;
+         visibility: visible !important;
+      }
+
+      /* html[init-page-loader="ready"] body {
+               opacity: 1 !important;
+               transition: opacity 0.4s ease;
+               visibility: visible !important;
+            } */
+
+      /* Стиль прогрес-бару (щоб не чекати завантаження файлу CSS) */
+      #loader-progress-bar {
+         position: fixed;
+         top: 0;
+         left: 0;
+         height: 2px;
+         background-color: #00ADB5;
+         z-index: 100100;
+         width: 0%;
+         transition: width 0.4s ease, opacity 0.3s ease;
+         box-shadow: 0 0 10px #0C73B8;
+      }
+   </style>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+   <title>Terms of Use</title>
+</head>
+
+<body>
+
+   <div class="wrapper">
+      <header class="header">
+         <div class="header__container">
+            <div class="header__inner">
+               <a href="./index.html" class="header__logo logo">
+                  <svg class="logo__image">
+                     <use href="/src/assets/icons/symbol-defs.svg#icon-slash"></use>
+                  </svg>
+               </a>
+               <nav class="header__menu menu-header menu-dropdown">
+                  <ul class="menu-header__list menu-dropdown__list">
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./about.html" target="_blank" class="menu-header__link">About</a>
+                     </li>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
+                     </li>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./skills.html" target="_blank" class="menu-header__link">Skills</a>
+                     </li>
+                     <li class="menu-header__item menu-dropdown__item">
+                        <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
+                     </li>
+                     <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
+                        <a href="#"
+                           class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">
+                           Pages</a>
+                        <ul class="menu-dropdown__submenu submenu-dropdown">
+                           <li class="submenu-dropdown__item">
+                              <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
+                                 class="submenu-dropdown__link">Accordion-menu</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="https://valstudiodev.github.io/dropdowne-menu/" target="_blank"
+                                 class="submenu-dropdown__link">Dropdowne-menu</a>
+                           </li>
+                           <li class="submenu-dropdown__item">
+                              <a href="https://valstudiodev.github.io/animation/" target="_blank"
+                                 class="submenu-dropdown__link">Animation</a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </nav>
+               <div class="header__media media-social">
+                  <a target="_blank" href="https://t.me/Tkach06"
+                     class="media-social__link media-social__telegram media-social__telegram--icon-telegram">Telegram</a>
+                  <a target="_blank" href="https://discord.gg/dpDqppvm"
+                     class="media-social__link media-social__discord media-social__discord--icon-discord">Discord</a>
+                  <a target="_blank" href="https://github.com/valstudiodev"
+                     class="media-social__link media-social__github media-social__github--icon-github">Github</a>
+               </div>
+               <button class="icon-menu">
+                  <span></span>
+               </button>
+            </div>
+         </div>
+      </header>
+
+      <main class="page-terms">
+         <div class="page-terms__container">
+            <h1 class="page-terms__title">Terms of Use</h1>
+            <ol class="page-terms__list list-terms">
+               <li class="list-terms__item">
+                  <p>
+                     <span>Intellectual Property</span> All content on this website, including texts, designs,
+                     images, graphics,
+                     and code, is the
+                     intellectual property of <span>Valentyn Tkachenko</span> unless otherwise stated. It is
+                     protected by
+                     international copyright laws.
+                  </p>
+               </li>
+               <li class="list-terms__item">
+                  <p>
+                     <span>Permitted Use</span> You are granted permission to view and download materials from this
+                     site for
+                     <span>personal, non-commercial use
+                        only</span> (e.g., reviewing my professional experience).
+                  </p>
+                  <ul class="list-terms__list">
+                     You may not:
+                     <li>Copy or reproduce my work to claim it as your own.</li>
+                     <li>Use project images for commercial purposes without my prior written consent.</li>
+                     <li>Redistribute content from this site without providing a clear, active link to the original
+                        source.</li>
+                  </ul>
+               </li>
+               <li class="list-terms__item">
+                  <span>Disclaimer</span> The projects showcased in this portfolio were created for specific clients or
+                  as
+                  conceptual studies. I am
+                  not responsible for any modifications made to these projects by third parties after my involvement has
+                  ended.
+               </li>
+               <li class="list-terms__item">
+                  <span>Privacy</span> Any personal information shared via contact forms will be used solely to
+                  communicate with
+                  you and will never
+                  be shared with third parties.
+               </li>
+            </ol>
+         </div>
+      </main>
+
+      <footer class="footer">
+         <div class="footer__body body-footer">
+            <div class="body-footer__container">
+               <div class="body-footer__menu menu-footer">
+                  <ul class="menu-footer__list menu-footer__list--anim" data-threshold="0.1" data-delay="200"
+                     data-step="200">
+                     <li class="menu-footer__item anim-child ">
+                        <a href="./index.html" class="menu-footer__link menu-footer__link--icon-home">Home</a>
+                     </li>
+                     <li class="menu-footer__item anim-child">
+                        <a target="_blank" href="./about.html"
+                           class="menu-footer__link menu-footer__link--icon-user">About
+                           me</a>
+                     </li>
+                     <li class="menu-footer__item anim-child">
+                        <a target="_blank" href="./contacts.html"
+                           class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
+                     </li>
+                  </ul>
+               </div>
+               <address class="body-footer__social social-footer">
+                  <ul class="social-footer__list social-footer__list--anim" data-threshold="0.1" data-delay="200"
+                     data-step="200">
+                     <li class="social-footer__item anim-child">
+                        <a target="_blank" href="https://t.me/Tkach06"
+                           class="social-footer__link social-footer__link--icon-telegram"></a>
+                     </li>
+                     <li class="social-footer__item anim-child">
+                        <a target="_blank" href="https://discord.gg/dpDqppvm"
+                           class="social-footer__link social-footer__link--icon-discord"></a>
+                     </li>
+                     <li class="social-footer__item anim-child">
+                        <a target="_blank" href="https://wa.me/0973906454"
+                           class="social-footer__link social-footer__link--icon-watsup"></a>
+                     </li>
+                     <li class="social-footer__item anim-child">
+                        <a target="_blank" href="https://m.me/@valentyn.tkachenko"
+                           class="social-footer__link social-footer__link--icon-fb"></a>
+                     </li>
+                  </ul>
+               </address>
+            </div>
+         </div>
+         <div class="footer__bottom bottom-footer">
+            <div class="bottom-footer__container">
+               <div class="bottom-footer__copiright">
+                  <p>&copy; <span>2025 - 2026</span> | <strong>Valentyn Tkachenko</strong> | Crafted
+                     in code &
+                     creativity ⚡</p>
+               </div>
+               <div class="bottom-footer__terms">
+                  <a href="#" target="_blank">Terms of Use</a> |
+                  <a href="./policy.html" target="_blank">Privacy Policy</a>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+
+   <script type="module" src="src/main.js"></script>
+</body>
+
+</html>
