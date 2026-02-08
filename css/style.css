@@ -340,20 +340,23 @@
   width: 50%;
   text-align: center;
   opacity: 0;
+  -webkit-transform: scale(0.2);
+      -ms-transform: scale(0.2);
+          transform: scale(0.2);
+  -webkit-transform-origin: top;
+      -ms-transform-origin: top;
+          transform-origin: top;
   will-change: transform, opacity;
-  -webkit-transform: translate(-1.25rem, 0rem);
-      -ms-transform: translate(-1.25rem, 0rem);
-          transform: translate(-1.25rem, 0rem);
-  -webkit-transition: opacity 0.8s ease 0s, -webkit-transform 0.8s ease 0s;
-  transition: opacity 0.8s ease 0s, -webkit-transform 0.8s ease 0s;
-  transition: transform 0.8s ease 0s, opacity 0.8s ease 0s;
-  transition: transform 0.8s ease 0s, opacity 0.8s ease 0s, -webkit-transform 0.8s ease 0s;
+  -webkit-transition: opacity 0.8s ease 0s, -webkit-transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0s;
+  transition: opacity 0.8s ease 0s, -webkit-transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0s;
+  transition: opacity 0.8s ease 0s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0s;
+  transition: opacity 0.8s ease 0s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0s, -webkit-transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0s;
 }
 .approach__title.animate {
   opacity: 1;
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 .approach__title span {
   color: #00ADB5;
@@ -1423,7 +1426,7 @@ html[data-input=mouse] .menu-filter__button:hover {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
+  pointer-events: all;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: opacity 0.3s, visibility 0.3s;
@@ -1746,7 +1749,7 @@ button:disabled {
 }
 .list-policy__item,
 .list-terms__item {
-  list-style: decimal;
+  list-style: decimal !important;
   max-width: 50rem;
 }
 .list-policy__title,
@@ -1799,19 +1802,19 @@ button:disabled {
 @media (min-width: 105.625em) {
   .list-policy__subtitle,
   .list-terms__subtitle {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 @media (min-width: 20em) and (max-width: 105.625em) {
   .list-policy__subtitle,
   .list-terms__subtitle {
-    font-size: clamp( 18px , 17.0656934307px  +  0.2919708029vw , 22px );
+    font-size: clamp( 16px , 15.5328467153px  +  0.1459854015vw , 18px );
   }
 }
 @media (max-width: 20em) {
   .list-policy__subtitle,
   .list-terms__subtitle {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @media (min-width: 105.625em) {
@@ -1870,7 +1873,7 @@ button:disabled {
 }
 
 .list-terms__item {
-  list-style: decimal;
+  list-style: decimal !important;
 }
 .list-terms__item span {
   color: #12F7D6;
@@ -1890,6 +1893,7 @@ button:disabled {
     font-size: 16px;
   }
 }
+
 *,
 *::before,
 *::after {
@@ -2061,7 +2065,7 @@ address {
   width: 100%;
   left: 0;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
   padding-right: var(--lock-padding) !important;
 }
 @media (min-width: 105.625em) {
@@ -4293,10 +4297,8 @@ html[data-input=mouse] .button-figure:hover::before, html[data-input=mouse] .but
 .button-active--code:active::before, .button-active--code:active::after {
   background-color: #28A9E0;
 }
-@media (any-hover: hover) and (any-pointer: fine) {
-  .button-active--code:hover {
-    color: #000;
-  }
+html[data-input=mouse] .button-active--code:hover {
+  color: #000;
 }
 @media (any-hover: hover) and (any-pointer: fine) {
   .button-active:hover::before, .button-active:hover::after {
@@ -4360,8 +4362,14 @@ html[data-input=mouse] .button-figure:hover::before, html[data-input=mouse] .but
 .button-arrow--left::before {
   rotate: 180deg;
 }
+html[data-input=mouse] .button-arrow--left:hover::before {
+  translate: -0.5rem 0rem;
+}
 .button-arrow--right {
   border-radius: 0rem 2.5rem 2.5rem 0rem;
+}
+html[data-input=mouse] .button-arrow--right:hover::before {
+  translate: 0.5rem 0rem;
 }
 .button-arrow::before {
   -webkit-transition: translate 0.3s, -webkit-animation 0.4s ease;
@@ -4386,10 +4394,6 @@ html[data-input=mouse] .button-figure:hover::before, html[data-input=mouse] .but
 }
 html[data-input=mouse] .button-arrow:hover {
   background-color: rgb(8, 167, 143);
-}
-html[data-input=mouse] .button-arrow:hover::before {
-  -webkit-animation: arrowMove 0.5s forwards infinite;
-          animation: arrowMove 0.5s forwards infinite;
 }
 html[data-input=mouse] .button-arrow:hover:active {
   background-color: #00ADB5;
@@ -5595,6 +5599,13 @@ body.no-scroll {
   height: 100vh;
   -ms-touch-action: none;
       touch-action: none;
+}
+body.no-scroll .wrapper {
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 body.lock-sheet {
   overflow-y: hidden !important;

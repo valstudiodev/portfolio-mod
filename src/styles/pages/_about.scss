@@ -208,7 +208,7 @@
       font-weight: 700;
       width: 50%;
       text-align: center;
-      @include reveal((toRem(-20), toRem(0)), 0.8s);
+      @include popIn($duration: 0.8s, $origin: top);
 
       span {
          color: $brandDark;

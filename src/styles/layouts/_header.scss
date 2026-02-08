@@ -10,8 +10,9 @@
    width: 100%;
    left: 0;
    top: 0;
-   z-index: 1000;
+   z-index: 100;
    padding-right: var(--lock-padding) !important;
+
 
 
    &::before {

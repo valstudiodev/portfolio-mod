@@ -78,6 +78,10 @@ body {
       overflow: hidden !important;
       height: 100vh;
       touch-action: none;
+      .wrapper {
+         pointer-events: none;
+         user-select: none;
+      }
    }
    // sheet-overlay
    &.lock-sheet {

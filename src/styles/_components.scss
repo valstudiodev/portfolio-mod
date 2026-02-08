@@ -470,11 +470,8 @@
             background-color: $blueLight;
          }
       }
-
-      @media (any-hover: hover) and (any-pointer: fine) {
-         &:hover {
-            color: $black;
-         }
+      @include hover {
+         color: $black;
       }
    }
 
@@ -509,10 +506,20 @@
       &::before {
          rotate: 180deg;
       }
+      @include hover {
+         &::before {
+            translate: toRem(-8) toRem(0);
+         }
+      }
    }
 
    &--right {
       border-radius: toRem(0) toRem(40) toRem(40) toRem(0);
+      @include hover {
+        &::before {
+            translate: toRem(8) toRem(0);
+        }
+      }
    }
 
    &::before {
@@ -523,7 +530,7 @@
    @include hover {
       background-color: $butHovGreen;
       &::before {
-         animation: arrowMove 0.5s forwards infinite;
+
       }
       &:active {
          background-color: $brandDark;

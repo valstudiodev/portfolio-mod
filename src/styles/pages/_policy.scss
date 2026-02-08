@@ -35,7 +35,7 @@
 
    // .list-policy__item
    &__item {
-      list-style: decimal;
+      list-style: decimal !important;
       max-width: toRem(800);
    }
 
@@ -50,7 +50,7 @@
    }
 
    &__subtitle {
-      @include adaptiveValue('font-size', 22, 18);
+      @include adaptiveValue('font-size', 18, 16);
       margin-bottom: toRem(8);
    }
 
@@ -108,13 +108,10 @@
 
    // .list-terms__item
    &__item {
-      list-style: decimal;
+      list-style: decimal !important;
       span {
          @include adaptiveValue('font-size', 18, 16);
          color: $brandPrimary;
       }
    }
-
-   // .list-terms__list
-   &__list {}
 }
