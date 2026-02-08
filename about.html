@@ -39,8 +39,8 @@
       }
    </style>
    <title>About</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.6d947250.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.9dd00c17.css">
+  <script type="module" crossorigin src="/portfolio-mod/assets/main.9a5013d7.js"></script>
+  <link rel="stylesheet" href="/portfolio-mod/assets/main.8905ecef.css">
 </head>
 
 <body>
@@ -108,7 +108,8 @@
          <section class="page-about__about about-page">
             <div class="about-page__container">
                <div class="about-page__inner">
-                  <div class="about-page__header block-header block-header--about block-header--margin">
+                  <div class="about-page__header block-header block-header--about block-header--margin"
+                     data-delay="200">
                      <svg class="block-header__scroll mouse-scroll">
                         <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
                      </svg>
@@ -124,10 +125,10 @@
                   </div>
                   <div class="about-page__body body-about">
                      <div class="body-about__wrapper">
-                        <div class="body-about__image body-about__image--anim" data-threshold="0.1">
+                        <div class="body-about__image body-about__image--anim" data-threshold="0.3" data-delay="300">
                            <img src="/portfolio-mod/assets/man-works.ebe6b4d0.webp" alt="">
                         </div>
-                        <div class="body-about__inner body-about__inner--anim" data-threshold="0.1">
+                        <div class="body-about__inner body-about__inner--anim" data-threshold="0.1" data-delay="500">
                            <div class="body-about__info">
                               <div class="body-about__name">Valentyn Tkachenko</div>
                               <h2 class="body-about__title">
@@ -193,12 +194,12 @@
 
          <section class="page-approach approach">
             <div class="approach__container">
-               <svg class="approach__scroll mouse-scroll mouse-scroll--anim">
+               <svg class="approach__scroll approach__scroll--anim mouse-scroll">
                   <use href="/portfolio-mod/assets/symbol-defs.f265078e.svg#icon-scroll"></use>
                </svg>
                <div class="approach__body">
-                  <h2 class="approach__title">My <span>Approach</span></h2>
-                  <div class="approach__items approach__items--anim" data-threshold="0.2" data-step="100">
+                  <h2 class="approach__title approach__title--anim">My <span>Approach</span></h2>
+                  <div class="approach__items approach__items--anim" data-threshold="0.2" data-step="250">
                      <article class="approach-item anim-child">
                         <div class="approach-item__inner" data-accordion>
                            <div class="approach-item__top">
@@ -401,8 +402,14 @@
          </div>
          <div class="footer__bottom bottom-footer">
             <div class="bottom-footer__container">
-               <div class="bottom-footer__policy">
-                  <p>© 2025 Valentyn Tkachenko | Crafted in code & creativity ⚡</p>
+               <div class="bottom-footer__copiright">
+                  <p>&copy; <span>2025 - 2026</span> | <strong>Valentyn Tkachenko</strong> | Crafted
+                     in code &
+                     creativity ⚡</p>
+               </div>
+               <div class="bottom-footer__terms">
+                  <a href="/terms">Terms of Use</a> |
+                  <a href="/privacy">Privacy Policy</a>
                </div>
             </div>
          </div>
