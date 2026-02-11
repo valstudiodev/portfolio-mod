@@ -88,7 +88,6 @@
 }
 
 .body-about__wrapper {
-  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(37.5rem, 100%), 1fr));
 }
@@ -206,8 +205,8 @@
   color: #12F7D6;
 }
 .body-about__image {
+  position: relative;
   aspect-ratio: 1;
-  overflow: hidden;
   opacity: 0;
   scale: 0.2;
   -webkit-transform-origin: bottom left;
@@ -216,6 +215,17 @@
   -webkit-transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
   transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
   will-change: opacity, translate;
+}
+.body-about__image::after {
+  content: "";
+  position: absolute;
+  bottom: 3.75%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 7.5%;
+  border-radius: 60%;
+  z-index: -1;
 }
 [init-page-loader=ready] .body-about__image {
   opacity: 1;
@@ -569,8 +579,20 @@
   color: #00ADB5;
 }
 .contacts-page__image {
+  position: relative;
   width: 15.9375rem;
   height: 21.75rem;
+}
+.contacts-page__image::after {
+  content: "";
+  position: absolute;
+  bottom: -4.3103448276%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 70%;
+  height: 5.7471264368%;
+  border-radius: 60%;
+  z-index: -1;
 }
 .contacts-page__image img {
   width: 100%;
@@ -2263,6 +2285,25 @@ html[data-input=mouse] .menu-header__link:hover::after {
   .media-social {
     gap: 10px;
   }
+}
+.media-social__linkedin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+.media-social__linkedin svg {
+  width: 1.25rem;
+  aspect-ratio: 1;
+  fill: #12F7D6;
+  -webkit-transition: fill 0.3s;
+  transition: fill 0.3s;
+}
+html[data-input=mouse] .media-social__linkedin:hover svg {
+  fill: #00ADB5;
 }
 .media-social__link {
   position: relative;
@@ -5268,6 +5309,7 @@ html[data-input=mouse] .btn-action-less:hover {
   border-left: 0.5rem solid #0C73B8;
   padding-block: 1rem;
   padding-inline: 1.5rem;
+  max-width: 18.75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5298,10 +5340,23 @@ html[data-input=mouse] .btn-action-less:hover {
   color: #292F36;
 }
 .skill-item__skills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.625rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   color: #43454D;
 }
 .skill-item__skills span {
   position: relative;
+  font-weight: 500;
 }
 .skill-item__skills span:not(:last-child)::after {
   content: "";

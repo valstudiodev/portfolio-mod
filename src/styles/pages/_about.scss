@@ -45,7 +45,7 @@
 .body-about {
 
    &__wrapper {
-      overflow: hidden;
+      // overflow: hidden;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(min(toRem(600), 100%), 1fr));
       @include adaptiveValue('gap', 50, 25);
@@ -112,14 +112,26 @@
 
    // .body-about__image
    &__image {
+      position: relative;
       aspect-ratio: 1;
-      overflow: hidden;
+      // overflow: hidden;
       opacity: 0;
       scale: 0.2;
-      // translate: 0 toRem(60);
       transform-origin: bottom left;
       transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
       will-change: opacity,translate;
+
+      &::after {
+         content: "";
+         position: absolute;
+         bottom: percent(30,800);
+         left: 0;
+         background-color: rgba(0, 0, 0, 0.5);
+         width: 100%;
+         height: percent(60,800);
+         border-radius: 60%;
+         z-index: -1;
+      }
 
 
       [init-page-loader="ready"] & {

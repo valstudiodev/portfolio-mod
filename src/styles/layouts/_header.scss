@@ -147,11 +147,23 @@
    flex-shrink: 0;
    z-index: 5;
 
-   // .media-social__instagram
-   &__instagram {
+   &__linkedin {
+      display: flex;
+      align-items: center;
+      gap: toRem(8);
 
-      // .media-social__instagram--icon-instagram
-      &--icon-instagram {}
+      svg {
+         width: toRem(20);
+         aspect-ratio: 1;
+         fill: $brandPrimary;
+         transition: fill 0.3s;
+      }
+      @include hover {
+         svg {
+            fill: $brandDark;
+         }
+
+      }
    }
 
    // .media-social__discord

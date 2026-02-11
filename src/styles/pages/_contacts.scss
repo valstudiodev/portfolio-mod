@@ -102,8 +102,21 @@
 
    // .contacts-page__image
    &__image {
+      position: relative;
       width: toRem(255);
       height: toRem(348);
+
+      &::after {
+         content: "";
+         position: absolute;
+         bottom: percent(-15,348);
+         left: 0;
+         background-color: rgba(0, 0, 0, 0.5);
+         width: 70%;
+         height: percent(20, 348);
+         border-radius: 60%;
+         z-index: -1;
+      }
 
       img {
          width: 100%;

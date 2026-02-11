@@ -1115,6 +1115,7 @@
    border-left: toRem(8) solid $blue;
    padding-block: toRem(16);
    padding-inline: toRem(24);
+   max-width: toRem(300);
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -1142,11 +1143,16 @@
 
    // .skill-item__skills
    &__skills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: toRem(10);
+      flex-wrap: wrap;
       color: $grey;
 
       span {
          position: relative;
-
+         font-weight: 500;
          &:not(:last-child) {
             &::after {
                content: "";
