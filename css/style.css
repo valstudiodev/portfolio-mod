@@ -2228,10 +2228,10 @@ html[data-input=mouse] .menu-header__link:hover::after {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 100%;
+    width: 70%;
     height: 100vh;
     background-color: #292F36;
-    opacity: 0.97;
+    opacity: 0.98;
     padding: 7.5rem 0.9375rem 1.875rem 0.9375rem;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
@@ -2247,12 +2247,28 @@ html[data-input=mouse] .menu-header__link:hover::after {
     top: 0;
     right: -100%;
     width: 100%;
-    min-height: 4.5rem;
     background-color: #1A1E23;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     z-index: 100;
   }
+}
+@media (max-width: 40.625em) and (min-width: 105.625em) {
+  .menu-header::before {
+    height: 103px;
+  }
+}
+@media (max-width: 40.625em) and (min-width: 20em) and (max-width: 105.625em) {
+  .menu-header::before {
+    height: clamp( 72px , 64.7591240876px  +  2.2627737226vw , 103px );
+  }
+}
+@media (max-width: 40.625em) and (max-width: 20em) {
+  .menu-header::before {
+    height: 72px;
+  }
+}
+@media (max-width: 40.625em) {
   .menu-open .menu-header::before {
     right: 0;
   }
@@ -2305,6 +2321,11 @@ html[data-input=mouse] .menu-header__link:hover::after {
 html[data-input=mouse] .media-social__linkedin:hover svg {
   fill: #00ADB5;
 }
+@media (max-width: 54.375em) {
+  .media-social__linkedin span {
+    display: none;
+  }
+}
 .media-social__link {
   position: relative;
 }
@@ -2327,7 +2348,7 @@ html[data-input=mouse] .media-social__link:hover:hover {
 html[data-input=mouse] .media-social__link:hover:hover::after {
   width: 100%;
 }
-.media-social__telegram, .media-social__discord, .media-social__github {
+.media-social__telegram, .media-social__github {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2336,21 +2357,19 @@ html[data-input=mouse] .media-social__link:hover:hover::after {
           align-items: center;
   gap: 0.5rem;
 }
-.media-social__telegram::before, .media-social__discord::before, .media-social__github::before {
+.media-social__telegram::before, .media-social__github::before {
   color: #12F7D6;
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
 }
-@media (any-hover: hover) and (any-pointer: fine) {
-  .media-social__telegram:hover::before, .media-social__discord:hover::before, .media-social__github:hover::before {
-    color: rgb(8, 167, 143);
-  }
+html[data-input=mouse] .media-social__telegram:hover::before, html[data-input=mouse] .media-social__github:hover::before {
+  color: rgb(8, 167, 143);
 }
 @media (max-width: 54.375em) {
-  .media-social__telegram, .media-social__discord, .media-social__github {
+  .media-social__telegram, .media-social__github {
     font-size: 0;
   }
-  .media-social__telegram::before, .media-social__discord::before, .media-social__github::before {
+  .media-social__telegram::before, .media-social__github::before {
     font-size: 1.25rem;
   }
 }

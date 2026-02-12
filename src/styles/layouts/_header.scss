@@ -107,11 +107,10 @@
       position: fixed;
       top: 0;
       right: -100%;
-      width: 100%;
-      // height: 100%;
+      width: 70%;
       height: 100vh;
       background-color: $bgPrimary;
-      opacity: 0.97;
+      opacity: 0.98;
       padding: toRem(120) toRem(15) toRem(30) toRem(15);
       transition: all 0.3s;
       -webkit-overflow-scrolling: touch;
@@ -127,7 +126,7 @@
          top: 0;
          right: -100%;
          width: 100%;
-         min-height: toRem(72);
+         @include adaptiveValue('height',103,72);
          background-color: $bgSecondary;
          transition: all 0.3s;
          z-index: 100;
@@ -163,6 +162,11 @@
             fill: $brandDark;
          }
 
+      }
+      @media (max-width: toEm(870)) {
+        span {
+         display: none;
+        }
       }
    }
 
@@ -210,7 +214,6 @@
    }
 
    &__telegram,
-   &__discord,
    &__github {
       display: flex;
       align-items: center;
@@ -221,11 +224,9 @@
          transition: color 0.3s;
       }
 
-      @media (any-hover: hover) and (any-pointer: fine) {
-         &:hover {
-            &::before {
-               color: $butHovGreen;
-            }
+      @include hover {
+      &::before {
+            color: $butHovGreen;
          }
       }
 
