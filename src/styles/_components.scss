@@ -17,6 +17,129 @@
 }
 
 
+.icon-logo {
+   display: inline-flex;
+   align-items: center;
+   gap: 2px;
+   font-family: sans-serif; // Для базових пропорцій
+   height: toRem(40);
+   padding: 10px;
+   background: $bgPrimary;
+   border-radius: 8px;
+
+   // .icon-logo__bracket-left
+   &__bracket-left {
+      &::before {
+         transform: translateY(8px) rotate(-45deg);
+         top: 0;
+      }
+      &::after {
+         transform: translateY(17px) rotate(45deg);
+         top: 0;
+      }
+   }
+
+   &__bracket-left,
+   &__bracket-right {
+      position: relative;
+      width: toRem(15);
+      height: toRem(25);
+
+      &::before,
+      &::after {
+         content: '';
+         position: absolute;
+         translate: 0 toRem(-2);
+         width: 100%;
+         height: toRem(3);
+         background-color: $brandPrimary;
+         border-radius: 2px;
+      }
+   }
+
+   // .icon-logo__letter-v
+   &__letter-v {
+      position: relative;
+      width: 18px;
+      height: 20px;
+
+      &::before,
+      &::after {
+         content: '';
+         position: absolute;
+         width: toRem(3);
+         height: 100%;
+         // background-color: $brandSecondary;
+         background-color: $brandDark;
+         top: 0;
+      }
+
+      &::before {
+         left: 4px;
+         transform: rotate(-15deg);
+      }
+
+      &::after {
+         right: 4px;
+         transform: rotate(15deg);
+      }
+   }
+
+   // .icon-logo__slash
+   &__slash {
+      width: toRem(3);
+      height: 30px;
+      background-color: $orange; // Можна зробити іншим кольором для акценту
+      transform: rotate(20deg);
+      margin: 0 2px;
+      translate: toRem(-2) 0;
+   }
+
+   // .icon-logo__letter-t
+   &__letter-t {
+      position: relative;
+      width: 18px;
+      height: 20px;
+
+      &::before {
+         // Горизонтальна лінія
+         content: '';
+         position: absolute;
+         top: 0;
+         width: 100%;
+         height: toRem(3);
+         // background-color: $brandSecondary;
+         background-color: $brandDark;
+      }
+      &::after {
+         // Вертикальна лінія
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         width: toRem(3);
+         height: 100%;
+         // background-color: $brandSecondary;
+         background-color: $brandDark;
+      }
+   }
+
+   // .icon-logo__bracket-right
+   &__bracket-right {
+      &::before {
+         transform: translateY(8px) rotate(45deg);
+         top: 0;
+      }
+
+      &::after {
+         transform: translateY(17px) rotate(-45deg);
+         top: 0;
+      }
+   }
+}
+
+
 // ===========================================================================================
 // -----------------------------
 // Buttons-active
@@ -61,7 +184,7 @@
       transition: all 0.3s;
    }
 
-   @media (min-width: toEm(651)) {
+   @media (min-width: toEm(654.98)) {
       display: none;
    }
 }
@@ -734,6 +857,10 @@
    z-index: 5;
    flex-shrink: 0;
 
+   @media (max-width: toEm(654)) {
+         // flex-grow: 1;
+      }
+
    &__image {
       width: toRem(77);
       height: toRem(42);
@@ -743,10 +870,6 @@
    &__title {
       font-size: toRem(20);
       font-weight: 500;
-   }
-
-   @media (max-width: toEm(650)) {
-      flex-grow: 1;
    }
 }
 
