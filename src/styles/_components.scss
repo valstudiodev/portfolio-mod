@@ -138,8 +138,6 @@
       }
    }
 }
-
-
 // ===========================================================================================
 // -----------------------------
 // Buttons-active
@@ -188,7 +186,6 @@
       display: none;
    }
 }
-
 .menu-open {
    .icon-menu {
       &::before {
@@ -209,8 +206,6 @@
       }
    }
 }
-
-
 // ===========================================================================================
 // -----------------------------
 // Buttons
@@ -319,7 +314,6 @@
       }
    }
 }
-
 .button-regular {
    font-family: "Ubuntu", sans-serif;
    font-size: toRem(20);
@@ -388,7 +382,6 @@
       }
    }
 }
-
 .button-figure {
    display: inline-grid;
    position: relative;
@@ -471,7 +464,6 @@
       }
    }
 }
-
 .button-download {
    font-family: "Ubuntu", sans-serif;
    font-size: toRem(20);
@@ -505,7 +497,6 @@
       }
    }
 }
-
 .button-active {
    position: relative;
    display: inline-grid;
@@ -610,7 +601,6 @@
       }
    }
 }
-
 .button-arrow {
    background-color: $bgPrimary;
    @include adaptiveValue('padding-block',18,10);
@@ -660,7 +650,6 @@
       }
    }
 }
-
 .button-media {
    position: relative;
    display: inline-flex;
@@ -709,7 +698,6 @@
          }
    }
 }
-
 .arrow-point {
    position: absolute;
    top: 50%;
@@ -736,7 +724,6 @@
      display: none;
    }
 }
-
 .btn-action-more {
    font-family: "Ubuntu", sans-serif;
    font-size: toRem(20);
@@ -756,7 +743,6 @@
      color: $white;
    }
 }
-
 .btn-action-less {
    color: $white;
    font-size: toRem(20);
@@ -774,7 +760,6 @@
      color: $black;
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // block-header
@@ -843,14 +828,12 @@
       align-items: center;
    }
 }
-
 .mouse-scroll {
    position: relative;
    width: toRem(32);
    @include adaptiveValue('height',140,90);
    fill: $orange;
 }
-
 .logo {
    display: flex;
    align-items: center;
@@ -872,7 +855,6 @@
       font-weight: 500;
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // cart-info
@@ -891,12 +873,10 @@
       @include adaptiveValue('padding-inline-start', 24, 20);
       @include adaptiveValue('padding-inline-end', 69, 50);
       padding-block: toRem(37);
-      // @include adaptiveValue('padding-block',37,34);
    }
 
    // .cart-info__top
    &__top {
-      // align-self: center;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -936,55 +916,67 @@
    // .cart-info__label
    &__label {
       font-size: toRem(14);
+      color: $brandPrimary;
    }
-
-   // .cart-info__body
-   &__body {}
 }
-
 .body-info {
    font-size: toRem(14);
    font-weight: 500;
-
 
    &__content {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: toRem(16);
-   }
-
-   // .body-info__skills
-   &__skills {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: toRem(16);
-      align-items: flex-start;
-      text-transform: uppercase;
-
-      span {
-         color: $bgPrimary;
-         background-color: $brandPrimary;
-         padding-inline: toRem(8);
-         border-radius: toRem(8);
-      }
-   }
-
-   &__email,
-   &__location,
-   &__schedulle,
-   &__link {
-      display: flex;
-      align-items: center;
-      gap: toRem(16);
-
-      &::before {
-         color: $brandPrimary;
-      }
+      @include adaptiveValue('gap', 20, 10);
    }
 }
+.address-info {
 
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: toRem(10);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: toRem(16);
+    transition: color 0.3s;
+
+     &::before {
+       color: $brandPrimary;
+    }
+
+    @include hover {
+      color: $brandDark;
+    }
+  }
+}
+.work-status {
+  display: flex;
+  align-items: center;
+  gap: toRem(16);
+  &::before {
+    color: $brandPrimary;
+  }
+}
+.skills-hero {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: toRem(16);
+  align-items: flex-start;
+  text-transform: uppercase;
+
+  &__item {
+    color: $bgPrimary;
+    background-color: $brandPrimary;
+    padding-inline: toRem(8);
+    border-radius: toRem(8);
+  }
+}
 // ===========================================================================================
 // -----------------------------
 // items
@@ -1048,7 +1040,6 @@
       text-align: center;
    }
 }
-
 .header-approach {
    display: flex;
    align-items: center;
@@ -1083,7 +1074,6 @@
       }
    }
 }
-
 .item-step {
    position: relative;
    width: 50%;
@@ -1162,8 +1152,8 @@
       align-items: flex-start;
       border-radius: toRem(30);
       @include adaptiveValue('gap', 20, 10);
-      @include adaptiveValue('padding', 50, 25);
-      transition: opacity 0.6s,translate 0.4s ease-in-out;
+      @include adaptiveValue('padding', 30, 20);
+      transition: opacity 0.6s,translate 0.6s ease-in-out;
       @include reveal((0, toRem(50)), 1s);
    }
 
@@ -1205,7 +1195,6 @@
       }
    }
 }
-
 .item-step:nth-child(odd) {
    @include adaptiveValue('padding-left', 99.5, 40);
    padding-right: toRem(0);
@@ -1231,7 +1220,6 @@
       }
    }
 }
-
 .skill-item {
    background-color: $brandSecondary;
    border-radius: toRem(8);
@@ -1291,7 +1279,6 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // card
@@ -1305,7 +1292,6 @@
          opacity: 0.2;
       }
 }
-
 .card {
    background: $bgPrimary;
    transition: translate 0.4s ease, box-shadow 0.4s ease, opacity 0.4s;
@@ -1416,7 +1402,6 @@
       @include adaptiveValue('font-size', 16, 14);
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // sheet-overlay
@@ -1439,7 +1424,6 @@
       translate: 0 0;
    }
 }
-
 .sheet {
    position: fixed;
    left: 0;
@@ -1480,7 +1464,6 @@
       align-items: flex-start;
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // swiper
@@ -1510,7 +1493,6 @@
       width: 100%;
    }
 }
-
 .swiper-slide {
 
    img {

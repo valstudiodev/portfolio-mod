@@ -8,26 +8,25 @@
 // -----------------------------
 .page {
 
-   // > *:not(.approach) {
-   //    display: none;
-   // }
-
    // .page__hero
    &__hero {
-      @include adaptiveValue('padding-top', 150, 100);
-      @include adaptiveValue('padding-bottom', 120, 50);
+      @include adaptiveValue('padding-top', 100, 50);
+      @include adaptiveValue('padding-bottom', 100, 50);
    }
 
    // .page__about
    &__about {
-      @include adaptiveValue('padding-block', 120, 50);
+      // display: none;
+      @include adaptiveValue('padding-block', 100, 50);
    }
 
    &__work {
-      @include adaptiveValue('padding-block', 120, 50);
+      // display: none;
+      @include adaptiveValue('padding-block', 100, 50);
    }
 
    &__projects {
+      // display: none;
       @include adaptiveValue('padding-block', 120, 50);
    }
 }
@@ -39,23 +38,26 @@
 .hero {
    background-color: $bgPrimary;
 
+   &__container {
+      max-width: toRem(1430) !important;
+   }
+   
    &__inner {
       opacity: 0;
-      scale: 0.2;
-      transition: opacity 1.2s, scale 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-      transform-origin: top left;
-      will-change: opacity, scale;
+      transition: opacity 1.2s ease,traslate 1s ease;
+      @include reveal((0, toRem(50)));
+      will-change: opacity;
+
       [init-page-loader="ready"] & {
          opacity: 1;
-         scale: 1;
       }
-
    }
 
    // .hero__title
    &__title {
+      display: block;
       font-family: "Ubuntu", sans-serif;
-      @include adaptiveValue('font-size', 117, 50);
+      @include adaptiveValue('font-size', 110, 40);
       color: $brandSecondary;
       text-align: center;
       @include adaptiveValue('margin-bottom', 64, 35);
@@ -65,8 +67,8 @@
    &__body {
       display: flex;
       align-items: center;
-      @include adaptiveValue('gap', 120, 40);
-      justify-content: center;
+      @include adaptiveValue('gap', 100, 30);
+      justify-content: space-between;
 
 
       @media (max-width: toEm(735)) {
@@ -74,14 +76,12 @@
       }
    }
 }
-
 .content-hero {
    position: relative;
    display: flex;
    flex-direction: column;
-   @include adaptiveValue('gap', 32, 20);
+   @include adaptiveValue('gap', 32, 15);
    align-items: flex-start;
-   max-width: toRem(820);
 
    &::after {
      content: "";
@@ -106,8 +106,9 @@
 
    // .content-hero__title
    &__title {
-      @include adaptiveValue('font-size', 58, 30);
+      @include adaptiveValue('font-size', 58, 26);
       padding-inline-start: toRem(16);
+      text-wrap: balance;
 
       span {
          color: $brandPrimary;
@@ -118,6 +119,7 @@
    &__text {
       @include adaptiveValue('font-size', 16, 14);
       padding-inline-start: toRem(16);
+      max-width: toRem(750);
    }
 
    &__button {
@@ -141,7 +143,6 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // page__about
@@ -222,7 +223,7 @@
    }
 
    &__desc {
-      @include popIn($duration:1.6s,$origin:top left);
+      @include reveal((0, toRem(30)));
    }
 
    &__title {
@@ -239,7 +240,8 @@
       position: relative;
       aspect-ratio: 412 / 353;
       z-index: 2;
-      @include popIn($duration: 1.2s, $origin: top right);
+      // @include popIn($duration: 1.2s, $origin: top right);
+      @include reveal((0, toRem(30)));
 
       &::before {
          content: "";
@@ -272,7 +274,6 @@
       }
    }
 }
-
 .content-about {
    background-color: $bgPrimary;
    border-radius: toRem(40);
@@ -296,18 +297,16 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // page__work
 // -----------------------------
 .work {
    background-color: $bgPrimary;
-   // background-color: $bgSecondary;
    overflow: hidden;
 
    &__block {
-      @include adaptiveValue('margin-bottom', 250, 50);
+      @include adaptiveValue('margin-bottom', 170, 50);
 
       .mouse-scroll {
          fill: $butHovGreen;
@@ -373,7 +372,6 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // page__projects
@@ -439,14 +437,13 @@
       }
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // page__intro
 // -----------------------------
 .intro {
+  //  display: none;
    @include adaptiveValue('padding-block', 120, 50);
-   // display: none;
    background-color: $bgPrimary;
 
    // .intro__container
@@ -455,7 +452,7 @@
       flex-direction: column;
       align-items: center;
       @include adaptiveValue('gap', 50, 25);
-      @include popIn($duration: 1s, $origin: bottom);
+      @include reveal((0, toRem(30)));
    }
 
    // .intro__header

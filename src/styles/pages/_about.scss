@@ -3,10 +3,12 @@
 
 
 .page-about {
+  display: none;
    background-color: $bgSecondary;
 }
 
 .about-page {
+  display: none;
    @include adaptiveValue('padding-top', 200, 150);
    @include adaptiveValue('padding-bottom', 120, 50);
 

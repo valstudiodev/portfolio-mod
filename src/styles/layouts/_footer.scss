@@ -2,17 +2,10 @@
 @use '../settings/mixins' as *;
 
 .footer {
-   // display: none;
+  //  display: none;
    background-color: $bgSecondary;
    @include adaptiveValue('padding-top', 110, 50);
-
-   // .footer__body
-   &__body {}
-
-   // .footer__bottom
-   &__bottom {}
 }
-
 .body-footer {
 
    // .body-footer__container
@@ -24,14 +17,7 @@
       border-bottom: toRem(2) solid $bgPrimary;
       padding-bottom: toRem(10);
    }
-
-   // .body-footer__menu
-   &__menu {}
-
-   // .body-footer__social
-   &__social {}
 }
-
 .menu-footer {
    text-align: center;
 
@@ -105,7 +91,6 @@
       }
    }
 }
-
 .social-footer {
 
    // .social-footer__list
@@ -169,7 +154,6 @@
       }
    }
 }
-
 .bottom-footer {
    @include adaptiveValue('padding-block', 50, 25);
 
