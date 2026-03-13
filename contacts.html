@@ -1,221 +1,220 @@
 <!DOCTYPE html>
 <html lang="en" init-page-loader>
 
-<head>
-   <meta charset="UTF-8">
-   <style>
+  <head>
+    <meta charset="UTF-8">
+    <style>
       /* Миттєвий фон для всього вікна */
       html {
-         background-color: #292F36;
+        background-color: #292F36;
       }
 
       html:not([init-page-loader="ready"]) body {
-         opacity: 0 !important;
-         overflow: hidden !important;
-         visibility: hidden !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
       }
 
       html[init-page-loader="ready"] body {
-         opacity: 1;
-         overflow: visible;
-         transition: opacity 0.4s ease;
-         visibility: visible;
+        opacity: 1;
+        overflow: visible;
+        transition: opacity 0.4s ease;
+        visibility: visible;
       }
 
       /* Стиль прогрес-бару (щоб не чекати завантаження файлу CSS) */
       #loader-progress-bar {
-         position: fixed;
-         top: 0;
-         left: 0;
-         height: 2px;
-         background-color: #00ADB5;
-         z-index: 100100;
-         width: 0%;
-         transition: width 0.4s ease, opacity 0.3s ease;
-         box-shadow: 0 0 10px #0C73B8;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background-color: #00ADB5;
+        z-index: 100100;
+        width: 0%;
+        transition: width 0.4s ease, opacity 0.3s ease;
+        box-shadow: 0 0 10px #0C73B8;
       }
-   </style>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" type="image/svg+xml" href="/portfolio-mod/favicon.ico" />
-   <title>Contacts</title>
-  <script type="module" crossorigin src="/portfolio-mod/assets/main.31e4b336.js"></script>
-  <link rel="stylesheet" href="/portfolio-mod/assets/main.79885634.css">
-</head>
 
-<body>
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/portfolio-mod/favicon.ico" />
+    <title>Contacts</title>
+    <script type="module" crossorigin src="/portfolio-mod/assets/main.c650435c.js"></script>
+    <link rel="stylesheet" href="/portfolio-mod/assets/main.199e9806.css">
+  </head>
 
-   <div class="wrapper">
+  <body>
+
+    <div class="wrapper">
       <header class="header">
-         <div class="header__container">
-            <div class="header__inner">
-               <a href="./index.html" class="header__logo logo">
-                  <div class="icon-logo">
-                     <span class="icon-logo__bracket-left"></span>
-                     <span class="icon-logo__letter-v"></span>
-                     <span class="icon-logo__slash"></span>
-                     <span class="icon-logo__letter-t"></span>
-                     <span class="icon-logo__bracket-right"></span>
-                  </div>
-               </a>
-               <nav class="header__menu menu-header menu-dropdown">
-                  <ul class="menu-header__list menu-dropdown__list">
-                     <li class="menu-header__item menu-dropdown__item">
+        <div class="header__container">
+          <div class="header__inner">
+            <a href="./index.html" class="header__logo logo">
+              <div class="icon-logo">
+                <span class="icon-logo__bracket-left"></span>
+                <span class="icon-logo__letter-v"></span>
+                <span class="icon-logo__slash"></span>
+                <span class="icon-logo__letter-t"></span>
+                <span class="icon-logo__bracket-right"></span>
+              </div>
+            </a>
+            <nav class="header__menu menu-header menu-dropdown">
+              <ul class="menu-header__list menu-dropdown__list">
+                <!-- <li class="menu-header__item menu-dropdown__item">
                         <a href="./about.html" target="_blank" class="menu-header__link">About</a>
-                     </li>
-                     <li class="menu-header__item menu-dropdown__item">
+                     </li> -->
+                <!-- <li class="menu-header__item menu-dropdown__item">
                         <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
-                     </li>
-                     <li class="menu-header__item menu-dropdown__item">
+                     </li> -->
+                <!-- <li class="menu-header__item menu-dropdown__item">
                         <a href="./skills.html" target="_blank" class="menu-header__link">Skills</a>
-                     </li>
-                     <li class="menu-header__item menu-dropdown__item">
-                        <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
-                     </li>
-                     <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
-                        <a href="#"
-                           class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">
-                           Pages</a>
-                        <ul class="menu-dropdown__submenu submenu-dropdown">
-                           <li class="submenu-dropdown__item">
-                              <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
-                                 class="submenu-dropdown__link">Accordion-menu</a>
-                           </li>
-                           <li class="submenu-dropdown__item">
-                              <a href="https://valstudiodev.github.io/dropdowne-menu/" target="_blank"
-                                 class="submenu-dropdown__link">Dropdowne-menu</a>
-                           </li>
-                           <li class="submenu-dropdown__item">
-                              <a href="https://valstudiodev.github.io/animation/" target="_blank"
-                                 class="submenu-dropdown__link">Animation</a>
-                           </li>
-                        </ul>
-                     </li>
+                     </li> -->
+                <li class="menu-header__item menu-dropdown__item">
+                  <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
+                </li>
+                <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
+                  <a href="#"
+                    class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">
+                    Pages</a>
+                  <ul class="menu-dropdown__submenu submenu-dropdown">
+                    <li class="submenu-dropdown__item">
+                      <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
+                        class="submenu-dropdown__link">Accordion-menu</a>
+                    </li>
+                    <li class="submenu-dropdown__item">
+                      <a href="https://valstudiodev.github.io/dropdowne-menu/" target="_blank"
+                        class="submenu-dropdown__link">Dropdowne-menu</a>
+                    </li>
+                    <li class="submenu-dropdown__item">
+                      <a href="https://valstudiodev.github.io/animation/" target="_blank"
+                        class="submenu-dropdown__link">Animation</a>
+                    </li>
                   </ul>
-               </nav>
-               <div class="header__media media-social">
-                  <a target="_blank" href="https://www.linkedin.com/in/valentyn-tkachenko/"
-                     class="media-social__link media-social__linkedin">
-                     <svg>
-                        <use href="/portfolio-mod/assets/symbol-defs.4e9a8c8f.svg#icon-linkedin-with-circle"></use>
-                     </svg>
-                     <span>Linkedin</span>
-                  </a>
-                  <a target="_blank" href="https://t.me/Tkach06"
-                     class="media-social__link media-social__telegram media-social__telegram--icon-telegram">Telegram</a>
-                  <a target="_blank" href="https://github.com/valstudiodev"
-                     class="media-social__link media-social__github media-social__github--icon-github">Github</a>
-               </div>
-               <button class="icon-menu">
-                  <span></span>
-               </button>
+                </li>
+              </ul>
+            </nav>
+            <div class="header__media media-social">
+              <a target="_blank" href="https://www.linkedin.com/in/valentyn-tkachenko/"
+                class="media-social__link media-social__linkedin">
+                <svg>
+                  <use href="/portfolio-mod/assets/symbol-defs.4e9a8c8f.svg#icon-linkedin-with-circle"></use>
+                </svg>
+                <span>Linkedin</span>
+              </a>
+              <a target="_blank" href="https://t.me/Tkach06"
+                class="media-social__link media-social__telegram media-social__telegram--icon-telegram">Telegram</a>
+              <a target="_blank" href="https://github.com/valstudiodev"
+                class="media-social__link media-social__github media-social__github--icon-github">Github</a>
             </div>
-         </div>
+            <button class="icon-menu">
+              <span></span>
+            </button>
+          </div>
+        </div>
       </header>
 
       <main class="page-contacts contacts-page">
-         <div class="contacts-page__container">
-            <div class="contacts-page__content">
-               <h2 class="contacts-page__title">Got a project in <span>mind?</span> </h2>
-               <div class="contacts-page__image">
-                  <img src="/portfolio-mod/assets/man-step.ab92299f.png" alt="">
-               </div>
+        <div class="contacts-page__container">
+          <div class="contacts-page__content">
+            <h2 class="contacts-page__title">Got a project in <span>mind?</span> </h2>
+            <div class="contacts-page__image">
+              <img src="/portfolio-mod/assets/man-step.ab92299f.png" alt="">
             </div>
-            <!-- form -->
-            <form id="contact-form" action="https://formspree.io/f/mwveozpn" method="POST"
-               class="contacts-page__form form-contact form-contact--anim" novalidate>
-               <div class="hidden-field" style="display:none;">
-                  <label>Keep this field empty</label>
-                  <input type="text" name="_gotcha">
-               </div>
-               <div class="form-contact__fields">
-                  <div class="form-contact__field">
-                     <label for="name">Your name</label>
-                     <input type="text" id="name" name="name" class="form-contact__input" placeholder="Name" required
-                        minlength="2">
-                  </div>
-                  <div class="form-contact__field">
-                     <label for="email">Your email</label>
-                     <input type="email" id="email" name="email" class="form-contact__input" placeholder="Email"
-                        required>
-                  </div>
-               </div>
-               <div class="form-contact__text">
-                  <div class="form-contact__field">
-                     <label for="message">Your Message</label>
-                     <textarea class="form-contact__area" name="message" id="message" placeholder="Message" required
-                        minlength="10"></textarea>
-                  </div>
-               </div>
-               <button id="submit-button" type="submit" class="form-contact__button button-regular
+          </div>
+          <!-- form -->
+          <form id="contact-form" action="https://formspree.io/f/mwveozpn" method="POST"
+            class="contacts-page__form form-contact form-contact--anim" novalidate>
+            <div class="hidden-field" style="display:none;">
+              <label>Keep this field empty</label>
+              <input type="text" name="_gotcha">
+            </div>
+            <div class="form-contact__fields">
+              <div class="form-contact__field">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" class="form-contact__input" placeholder="Name" required
+                  minlength="2">
+              </div>
+              <div class="form-contact__field">
+                <label for="email">Your email</label>
+                <input type="email" id="email" name="email" class="form-contact__input" placeholder="Email" required>
+              </div>
+            </div>
+            <div class="form-contact__text">
+              <div class="form-contact__field">
+                <label for="message">Your Message</label>
+                <textarea class="form-contact__area" name="message" id="message" placeholder="Message" required
+                  minlength="10"></textarea>
+              </div>
+            </div>
+            <button id="submit-button" type="submit" class="form-contact__button button-regular
                                  button-regular--icon-send">Send
-                  Message</button>
-            </form>
-         </div>
+              Message</button>
+          </form>
+        </div>
       </main>
 
       <footer class="footer">
-         <div class="footer__body body-footer">
-            <div class="body-footer__container">
-               <div class="body-footer__menu menu-footer">
-                  <ul class="menu-footer__list menu-footer__list--anim" data-step="200">
-                     <li class="menu-footer__item anim-child">
-                        <a href="./index.html" class="menu-footer__link menu-footer__link--icon-home">Home</a>
-                     </li>
-                     <li class="menu-footer__item anim-child">
-                        <a target="_blank" href="./about.html"
-                           class="menu-footer__link menu-footer__link--icon-user">About
-                           me</a>
-                     </li>
-                     <li class="menu-footer__item anim-child">
-                        <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
-                     </li>
-                  </ul>
-               </div>
-               <address class="body-footer__social social-footer">
-                  <ul class="social-footer__list social-footer__list--anim" data-step="200">
-                     <li class="social-footer__item anim-child">
-                        <a target="_blank" href="https://t.me/Tkach06"
-                           class="social-footer__link social-footer__link--icon-telegram"></a>
-                     </li>
-                     <li class="social-footer__item anim-child">
-                        <a target="_blank" href="https://discord.gg/dpDqppvm"
-                           class="social-footer__link social-footer__link--icon-discord"></a>
-                     </li>
-                     <li class="social-footer__item anim-child">
-                        <a target="_blank" href="https://wa.me/0973906454"
-                           class="social-footer__link social-footer__link--icon-watsup"></a>
-                     </li>
-                     <li class="social-footer__item anim-child">
-                        <a target="_blank" href="https://m.me/@valentyn.tkachenko"
-                           class="social-footer__link social-footer__link--icon-fb"></a>
-                     </li>
-                  </ul>
-               </address>
+        <div class="footer__body body-footer">
+          <div class="body-footer__container">
+            <div class="body-footer__menu menu-footer">
+              <ul class="menu-footer__list menu-footer__list--anim" data-step="200">
+                <li class="menu-footer__item anim-child">
+                  <a href="./index.html" class="menu-footer__link menu-footer__link--icon-home">Home</a>
+                </li>
+                <li class="menu-footer__item anim-child">
+                  <a target="_blank" href="./about.html" class="menu-footer__link menu-footer__link--icon-user">About
+                    me</a>
+                </li>
+                <li class="menu-footer__item anim-child">
+                  <a target="_blank" href="#" class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
+                </li>
+              </ul>
             </div>
-         </div>
-         <div class="footer__bottom bottom-footer">
-            <div class="bottom-footer__container">
-               <div class="bottom-footer__copiright">
-                  <p>&copy; <span>2025 - 2026</span> | <strong>Valentyn Tkachenko</strong> | Crafted
-                     in code &
-                     creativity ⚡</p>
-               </div>
-               <div class="bottom-footer__terms">
-                  <a href="./terms.html">Terms of Use</a> |
-                  <a href="./policy.html">Privacy Policy</a>
-               </div>
+            <address class="body-footer__social social-footer">
+              <ul class="social-footer__list social-footer__list--anim" data-step="200">
+                <li class="social-footer__item anim-child">
+                  <a target="_blank" href="https://t.me/Tkach06"
+                    class="social-footer__link social-footer__link--icon-telegram"></a>
+                </li>
+                <li class="social-footer__item anim-child">
+                  <a target="_blank" href="https://discord.gg/dpDqppvm"
+                    class="social-footer__link social-footer__link--icon-discord"></a>
+                </li>
+                <li class="social-footer__item anim-child">
+                  <a target="_blank" href="https://wa.me/0973906454"
+                    class="social-footer__link social-footer__link--icon-watsup"></a>
+                </li>
+                <li class="social-footer__item anim-child">
+                  <a target="_blank" href="https://m.me/@valentyn.tkachenko"
+                    class="social-footer__link social-footer__link--icon-fb"></a>
+                </li>
+              </ul>
+            </address>
+          </div>
+        </div>
+        <div class="footer__bottom bottom-footer">
+          <div class="bottom-footer__container">
+            <div class="bottom-footer__copiright">
+              <p>&copy; <span>2025 - 2026</span> | <strong>Valentyn Tkachenko</strong> | Crafted
+                in code &
+                creativity ⚡</p>
             </div>
-         </div>
+            <div class="bottom-footer__terms">
+              <a href="./terms.html">Terms of Use</a> |
+              <a href="./policy.html">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
       </footer>
-   </div>
+    </div>
 
-   <div id="status-overlay" class="status-overlay">
+    <div id="status-overlay" class="status-overlay">
       <div class="status-modal-content">
-         <p id="status-text"></p>
+        <p id="status-text"></p>
       </div>
-   </div>
+    </div>
 
-   
-</body>
+    
+  </body>
 
 </html>
