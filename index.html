@@ -46,8 +46,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <title>Portfolio</title>
-    <script type="module" crossorigin src="/portfolio-mod/assets/main.c650435c.js"></script>
-    <link rel="stylesheet" href="/portfolio-mod/assets/main.199e9806.css">
+    <script type="module" crossorigin src="/portfolio-mod/assets/main.f4082554.js"></script>
+    <link rel="stylesheet" href="/portfolio-mod/assets/main.ec40af67.css">
   </head>
 
   <body>
@@ -68,9 +68,9 @@
             </a>
             <nav class="header__menu menu-header menu-dropdown">
               <ul class="menu-header__list menu-dropdown__list">
-                <!-- <li class="menu-header__item menu-dropdown__item">
+                <li class="menu-header__item menu-dropdown__item">
                   <a href="./about.html" target="_blank" class="menu-header__link">About</a>
-                </li> -->
+                </li>
                 <!-- <li class="menu-header__item menu-dropdown__item">
                   <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
                 </li> -->
@@ -204,32 +204,53 @@
                     class="content-hero__button button-figure button-figure--icon-mail open-btn-modal">Let's
                     talk</button>
                 </div>
+                <!-- <div class="hero__info">
+                  <article class="info-hero">
+                    <ul class="info-hero__list">
+                      <li class="info-hero__item">
+                        <span class="info-hero__amount">4</span>
+                        <p class="info-hero__text">Programming Language</p>
+                      </li>
+                      <li class="info-hero__item">
+                        <span class="info-hero__amount">6</span>
+                        <p class="info-hero__text">Development Tools</p>
+                      </li>
+                      <li class="info-hero__item">
+                        <span class="info-hero__amount">4</span>
+                        <p class="info-hero__text">Years of Experience</p>
+                      </li>
+                    </ul>
+                  </article>
+                  <button type="button" class="arrow-down arrow-down--icon-arrow-up"></button>
+                </div> -->
               </div>
             </div>
           </div>
         </section>
 
-        <section class="page__work projects-page projects-page--anim">
+        <section class="page__progects projects-page projects-page--anim" aria-labelledby="page-projects">
           <div class="projects-page__container">
             <div class="projects-page__inner projects-page__inner--anim">
               <div class="projects-page__header block-header block-header--works  block-header--margin">
-                <svg class="block-header__scroll mouse-scroll">
+                <svg class="block-header__scroll mouse-scroll" aria-hidden="true">
                   <use href="/portfolio-mod/assets/symbol-defs.4e9a8c8f.svg#icon-scroll"></use>
                 </svg>
-                <h2 class="block-header__title">My <span>projects</span></h2>
+                <h2 class="block-header__title" id="page-projects">My <span>projects</span></h2>
                 <div class="block-header__text">
                   <p>I had the pleasure of working with these awesome projects</p>
                 </div>
               </div>
 
               <div class="filter" data-filter data-visible="2" data-step="2" data-scroll-offset="300">
-                <nav class="filter__controls" data-filter-controls>
+                <nav class="filter__controls" data-filter-controls aria-label="Project categories">
                   <ul class="filter__menu menu-filter">
                     <li class="menu-filter__item">
-                      <button type="button" class="menu-filter__button is-active" data-filter-btn="all">All</button>
+                      <button type="button" class="menu-filter__button is-active" aria-current="true"
+                        data-filter-btn="all">All</button>
                     </li>
                     <li class="menu-filter__item">
-                      <button type="button" class="menu-filter__button" data-filter-btn="landing">Landing
+                      <button type="button" class="menu-filter__button" data-filter-btn="landing"
+                        aria-pressed="false">Landing
                         pages</button>
                     </li>
                     <!-- <li class="menu-filter__item">
@@ -244,19 +265,46 @@
                         Sites</button>
                     </li> -->
                     <li class="menu-filter__item">
-                      <button type="button" class="menu-filter__button" data-filter-btn="in-progress">In
+                      <button type="button" class="menu-filter__button" data-filter-btn="progress"
+                        aria-pressed="false">In
                         progress</button>
                     </li>
                   </ul>
                 </nav>
 
                 <div class="filter__body" data-filter-grid>
+                  <!-- ecobazar -->
+                  <article class="card" data-filter-item data-category="progress" aria-labelledby="Ecobazar">
+                    <div class="card__inner">
+                      <a href="https://ecobazar-mp.netlify.app/" target="_blank" class="card__image"
+                        aria-label="Open Ecobazar live demo">
+                        <img src="/portfolio-mod/assets/ecobazar.07ce0108.png" alt="Ecobazar marketplace homepage preview">
+                        <span class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true" tabindex="-1"></span>
+                      </a>
+                      <div class="card__content">
+                        <h3 class="card__title" id="Ecobazar">Ecobazar</h3>
+                        <div class="card__text">
+                          <p>The project presents the company’s story and team.
+                            The design emphasizes modern aesthetics and creative visual presentation.
+                          </p>
+                        </div>
+                        <div class="card__buttons">
+                          <a href="https://ecobazar-mp.netlify.app/" target="_blank"
+                            class="button-active button-active--demo"
+                            aria-label="View live demo of Ecobazar"><span>demo</span></a>
+                          <a href="https://github.com/valstudiodev/multi-ecobazar.git" target="_blank"
+                            class="button-active button-active--code"
+                            aria-label="View source code of Ecobazar on GitHub"><span>code</span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
                   <!-- fekra -->
                   <article class="card" data-filter-item data-category="all landing">
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/fekra.98f468e2.png" alt="card image">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">Fekra<span> - is a modern design-focused landing page.</span>
@@ -268,9 +316,11 @@
                         </div>
                         <div class="card__buttons">
                           <a href="https://valstudiodev.github.io/fekra/" target="_blank"
-                            class="button-active button-active--demo"><span>demo</span></a>
+                            class="button-active button-active--demo"
+                            aria-label="View live demo of Fekra"><span>demo</span></a>
                           <a href="https://github.com/valstudiodev/fekra.git" target="_blank"
-                            class="button-active button-active--code"><span>code</span></a>
+                            class="button-active button-active--code"
+                            aria-label="View source code of Fekra on GitHub"><span>code</span></a>
                         </div>
                       </div>
                     </div>
@@ -280,7 +330,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/vineRouge.fcfabde4.png" alt="card image">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">Vin Rouge <span> - is a modern winery website featuring brand
@@ -292,9 +342,11 @@
                         </div>
                         <div class="card__buttons">
                           <a href="https://valstudiodev.github.io/vine-rouge/" target="_blank"
-                            class="button-active button-active--demo"><span>demo</span></a>
+                            class="button-active button-active--demo"
+                            aria-label="View live demo of Vin Rouge"><span>demo</span></a>
                           <a href="https://github.com/valstudiodev/vine-rouge.git" target="_blank"
-                            class="button-active button-active--code"><span>code</span></a>
+                            class="button-active button-active--code"
+                            aria-label="View source code of Vin Rouge on GitHub"><span>code</span></a>
                         </div>
                       </div>
                     </div>
@@ -304,7 +356,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/blossomia.c14532ba.png" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">Blossomia <span> - is a bright landing page for a flower
@@ -317,9 +369,11 @@
                         </div>
                         <div class="card__buttons">
                           <a href="https://valstudiodev.github.io/blossomia/" target="_blank"
-                            class="button-active button-active--demo"><span>demo</span></a>
+                            class="button-active button-active--demo"
+                            aria-label="View live demo of Blossomia"><span>demo</span></a>
                           <a href="https://github.com/valstudiodev/blossomia.git" target="_blank"
-                            class="button-active button-active--code"><span>code</span></a>
+                            class="button-active button-active--code"
+                            aria-label="View source code of Blossomia on GitHub"><span>code</span></a>
                         </div>
                       </div>
                     </div>
@@ -329,7 +383,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/medicine.0724fff9.png" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">medicine <span> - is a landing page for a medical
@@ -342,9 +396,11 @@
                         </div>
                         <div class="card__buttons">
                           <a href="https://valstudiodev.github.io/medicine/" target="_blank"
-                            class="button-active button-active--demo"><span>demo</span></a>
+                            class="button-active button-active--demo"
+                            aria-label="View live demo of medicine"><span>demo</span></a>
                           <a href="https://github.com/valstudiodev/medicine.git" target="_blank"
-                            class="button-active button-active--code"><span>code</span></a>
+                            class="button-active button-active--code"
+                            aria-label="View source code of medicine on GitHub"><span>code</span></a>
                         </div>
                       </div>
                     </div>
@@ -354,7 +410,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/e-scooter.ab269dfa.png" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">e-scooter <span> - is a landing page for selling modern
@@ -368,9 +424,11 @@
                         </div>
                         <div class="card__buttons">
                           <a href="https://valstudiodev.github.io/e-scooter/" target="_blank"
-                            class="button-active button-active--demo"><span>demo</span></a>
+                            class="button-active button-active--demo"
+                            aria-label="View live demo of e-scooter"><span>demo</span></a>
                           <a href="https://github.com/valstudiodev/e-scooter.git" target="_blank"
-                            class="button-active button-active--code"><span>code</span></a>
+                            class="button-active button-active--code"
+                            aria-label="View source code of e-scooter on GitHub"><span>code</span></a>
                         </div>
                       </div>
                     </div>
@@ -380,7 +438,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/taste-eat.2bad0931.webp" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">taste-eat <span> - is a modern restaurant website with a menu
@@ -393,9 +451,11 @@
                         </div>
                         <div class="card__buttons">
                           <a href="https://valstudiodev.github.io/projectTasteEat/" target="_blank"
-                            class="button-active button-active--demo"><span>demo</span></a>
+                            class="button-active button-active--demo"
+                            aria-label="View live demo of taste-eat"><span>demo</span></a>
                           <a href="https://github.com/valstudiodev/projectTasteEat.git" target="_blank"
-                            class="button-active button-active--code"><span>code</span></a>
+                            class="button-active button-active--code"
+                            aria-label="View source code of taste-eat on GitHub"><span>code</span></a>
                         </div>
                       </div>
                     </div>
@@ -405,7 +465,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/meta-v.0c07a454.webp" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">meta-v<span> - is a vibrant website for VR gaming.</span>
@@ -417,9 +477,11 @@
                         </div>
                         <div class="card__buttons">
                           <a href="https://valstudiodev.github.io/metaV/" target="_blank"
-                            class="button-active button-active--demo"><span>demo</span></a>
+                            class="button-active button-active--demo"
+                            aria-label="View live demo of meta-v"><span>demo</span></a>
                           <a href="https://github.com/valstudiodev/metaV.git" target="_blank"
-                            class="button-active button-active--code"><span>code</span></a>
+                            class="button-active button-active--code"
+                            aria-label="View source code of meta-v on GitHub"><span>code</span></a>
                         </div>
                       </div>
                     </div>
@@ -429,7 +491,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/mixlab.17b8dce8.png" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">mixlab<span> - is a landing page for a veterinary
@@ -454,7 +516,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/woodendot.922f8e02.png" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">woodendot<span> - is a landing page for a modern furniture
@@ -480,7 +542,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/bean-scene.ea15c7cc.webp" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">bean-scene<span> - is a coffee landing page designed for online
@@ -505,7 +567,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/keithston.bdf6d618.webp" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">keithston<span> - is a landing page for a café, confectionery,
@@ -530,7 +592,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/toy-store.ae8e29b8.png" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">toy-store<span> - is a landing page for an online children’s
@@ -556,7 +618,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/foodi.619d4400.png" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">foodi</h3>
@@ -577,7 +639,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/spoon.f2a8fa9a.png" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">spoon</h3>
@@ -598,7 +660,7 @@
                     <div class="card__inner">
                       <div class="card__image">
                         <img src="/portfolio-mod/assets/late-cafe.85b2bdbd.webp" alt="image work">
-                        <button class="arrow-point arrow-point--icon-arrow-up"></button>
+                        <button class="arrow-point arrow-point--icon-arrow-up" aria-hidden="true"></button>
                       </div>
                       <div class="card__content">
                         <h3 class="card__title">late-cafe</h3>
@@ -617,9 +679,11 @@
                 </div>
 
                 <div class="filter__footer footer-filter" data-filter-more>
-                  <button class="footer-filter__button btn-action-more" data-filter-more-btn="more">View
+                  <button class="footer-filter__button btn-action-more" data-filter-more-btn="more"
+                    aria-controls="page-projects-grid">View
                     more</button>
-                  <button class="footer-filter__button btn-action-less" data-filter-more-btn="less" hidden>Show
+                  <button class="footer-filter__button btn-action-less" data-filter-more-btn="less" hidden
+                    aria-controls="page-projects-grid">Show
                     less</button>
                 </div>
               </div>
