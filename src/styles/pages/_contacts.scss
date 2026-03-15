@@ -4,7 +4,7 @@
 
 .contacts-page {
    background-color: $bgPrimary;
-   @include adaptiveValue('padding-top', 350, 130);
+   @include adaptiveValue('padding-top', 200, 80);
    @include adaptiveValue('padding-bottom', 120, 50);
 
    // .contacts-page__container
@@ -13,13 +13,13 @@
       display: flex;
       gap: toRem(50);
       opacity: 0;
-      scale: 0.2;
-      transform-origin: bottom;
-      transition: opacity 1.2s, scale 1.2s;
+      translate: 0 toRem(50);
+      transition: opacity 1s ease, translate 1s ease;
+      will-change: opacity,translate;
 
-      [init-page-loader="ready"] & {
-         opacity: 1;
-         scale: 1;
+      &.animate {
+          opacity: 1;
+          translate: 0 0;
       }
 
       &::before {

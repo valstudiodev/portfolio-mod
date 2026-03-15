@@ -3,28 +3,27 @@
 
 
 .page-about {
-  display: none;
+  // display: none;
    background-color: $bgSecondary;
 }
-
 .about-page {
-  display: none;
-   @include adaptiveValue('padding-top', 200, 150);
+  // display: none;
+   @include adaptiveValue('padding-top', 100, 50);
    @include adaptiveValue('padding-bottom', 120, 50);
 
    // .about-page__header
    &__header {
       &.block-header--about {
          opacity: 0;
-         scale: 0.2;
-         transition: opacity 1s, scale 1s;
-         transform-origin: top;
-         will-change: transition,opacity,scale;
-         @include adaptiveValue('margin-bottom', 60, 40);
+         translate: 0 toRem(50);
+         transition: opacity 1s ease, translate 1s ease;
+        //  transform-origin: top;
+         will-change: transition,opacity,translate;
+         @include adaptiveValue('margin-bottom', 350, 40);
 
          [init-page-loader="ready"] & {
             opacity: 1;
-            scale: 1;
+            translate: 0 0;
          }
 
       }
@@ -43,11 +42,9 @@
       max-width: toRem(800);
    }
 }
-
 .body-about {
 
    &__wrapper {
-      // overflow: hidden;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(min(toRem(600), 100%), 1fr));
       @include adaptiveValue('gap', 50, 25);
@@ -58,18 +55,14 @@
       display: flex;
       flex-direction: column;
       gap: toRem(50);
-      // @include popIn($duration: 1s, $origin: bottom right);
       opacity: 0;
-      scale: 0.2;
-      // translate: 0 toRem(60);
-      transform-origin: bottom right;
-      transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
+      translate: 0 toRem(50);
+      transition: opacity 1s, translate 1s ease;
       will-change: opacity, translate;
 
       [init-page-loader="ready"] & {
-         opacity: 1;
-         scale: 1;
-         // translate: 0 0;
+        opacity: 1;
+        translate: 0 0;
       }
    }
 
@@ -116,11 +109,9 @@
    &__image {
       position: relative;
       aspect-ratio: 1;
-      // overflow: hidden;
       opacity: 0;
-      scale: 0.2;
-      transform-origin: bottom left;
-      transition: opacity 0.8s, translate 0.8s ease, scale 0.8s;
+      translate: 0 toRem(50);
+      transition: opacity 0.8s, translate 0.8s ease;
       will-change: opacity,translate;
 
       &::after {
@@ -134,12 +125,10 @@
          border-radius: 60%;
          z-index: -1;
       }
-
-
+      
       [init-page-loader="ready"] & {
         opacity: 1;
-        scale: 1;
-      //   translate: 0 0;
+        translate: 0 0;
       }
 
       img {
@@ -174,7 +163,6 @@
       grid-column: 2 / 3;
    }
 }
-
 // ===========================================================================================
 // -----------------------------
 // page-approach

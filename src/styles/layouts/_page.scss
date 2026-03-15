@@ -75,6 +75,13 @@
          flex-direction: column;
       }
    }
+
+   &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+   }
 }
 .content-hero {
    position: relative;
@@ -143,6 +150,36 @@
       }
    }
 }
+.info-hero {
+  background-color: $bgSecondary;
+  border-radius: toRem(80);
+  
+		// .info-hero__list
+		&__list {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(15);
+      padding: toRem(50);
+		}
+
+		// .info-hero__item
+		&__item {
+      display: flex;
+      align-items: center;
+      gap: toRem(10);
+		}
+
+		// .info-hero__amount
+		&__amount {
+      @include adaptiveValue('font-size', 40, 20);
+      color: $brandPrimary;
+		}
+
+		// .info-hero__text
+		&__text {
+		}
+}
+
 // ===========================================================================================
 // -----------------------------
 // page__about

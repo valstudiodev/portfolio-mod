@@ -1,453 +1,521 @@
 <!DOCTYPE html>
 <html lang="en" init-page-loader>
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-   <style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <style>
       /* Миттєвий фон для всього вікна */
       html {
-         background-color: #292F36;
+        background-color: #292F36;
       }
 
       html:not([init-page-loader="ready"]) body {
-         opacity: 0 !important;
-         overflow: hidden !important;
-         visibility: hidden !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
       }
 
       html[init-page-loader="ready"] body {
-         opacity: 1;
-         /* overflow: hidden; */
-         overflow: visible;
-         transition: opacity 0.4s ease;
-         visibility: visible;
+        opacity: 1;
+        /* overflow: hidden; */
+        overflow: visible;
+        transition: opacity 0.4s ease;
+        visibility: visible;
       }
 
       /* Стиль прогрес-бару (щоб не чекати завантаження файлу CSS) */
       #loader-progress-bar {
-         position: fixed;
-         top: 0;
-         left: 0;
-         height: 2px;
-         background-color: #00ADB5;
-         z-index: 100100;
-         width: 0%;
-         transition: width 0.4s ease, opacity 0.3s ease;
-         box-shadow: 0 0 10px #0C73B8;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background-color: #00ADB5;
+        z-index: 100100;
+        width: 0%;
+        transition: width 0.4s ease, opacity 0.3s ease;
+        box-shadow: 0 0 10px #0C73B8;
       }
-   </style>
-   <title>About</title>
-</head>
 
-<body>
+    </style>
+    <title>About</title>
+  </head>
 
-   <div class="wrapper">
+  <body>
+
+    <div class="wrapper">
       <header class="header">
-         <div class="header__container">
-            <div class="header__inner">
-               <a href="./index.html" class="header__logo logo">
-                  <div class="icon-logo">
-                     <span class="icon-logo__bracket-left"></span>
-                     <span class="icon-logo__letter-v"></span>
-                     <span class="icon-logo__slash"></span>
-                     <span class="icon-logo__letter-t"></span>
-                     <span class="icon-logo__bracket-right"></span>
-                  </div>
-               </a>
-               <nav class="header__menu menu-header menu-dropdown">
-                  <ul class="menu-header__list menu-dropdown__list">
-                     <li class="menu-header__item menu-dropdown__item">
-                        <a href="./about.html" target="_blank" class="menu-header__link">About</a>
-                     </li>
-                     <li class="menu-header__item menu-dropdown__item">
+        <div class="header__container">
+          <div class="header__inner">
+            <a href="./index.html" class="header__logo logo">
+              <div class="icon-logo">
+                <span class="icon-logo__bracket-left"></span>
+                <span class="icon-logo__letter-v"></span>
+                <span class="icon-logo__slash"></span>
+                <span class="icon-logo__letter-t"></span>
+                <span class="icon-logo__bracket-right"></span>
+              </div>
+            </a>
+            <nav class="header__menu menu-header menu-dropdown">
+              <ul class="menu-header__list menu-dropdown__list">
+                <li class="menu-header__item menu-dropdown__item">
+                  <a href="./about.html" target="_blank" class="menu-header__link">About</a>
+                </li>
+                <!-- <li class="menu-header__item menu-dropdown__item">
                         <a href="./works.html" target="_blank" class="menu-header__link">Work</a>
-                     </li>
-                     <li class="menu-header__item menu-dropdown__item">
+                     </li> -->
+                <!-- <li class="menu-header__item menu-dropdown__item">
                         <a href="./skills.html" target="_blank" class="menu-header__link">Skills</a>
-                     </li>
-                     <li class="menu-header__item menu-dropdown__item">
-                        <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
-                     </li>
-                     <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
-                        <a href="#"
-                           class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">
-                           Pages</a>
-                        <ul class="menu-dropdown__submenu submenu-dropdown">
-                           <li class="submenu-dropdown__item">
-                              <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
-                                 class="submenu-dropdown__link">Accordion-menu</a>
-                           </li>
-                           <li class="submenu-dropdown__item">
-                              <a href="https://valstudiodev.github.io/dropdowne-menu/" target="_blank"
-                                 class="submenu-dropdown__link">Dropdowne-menu</a>
-                           </li>
-                           <li class="submenu-dropdown__item">
-                              <a href="https://valstudiodev.github.io/animation/" target="_blank"
-                                 class="submenu-dropdown__link">Animation</a>
-                           </li>
-                        </ul>
-                     </li>
+                     </li> -->
+                <li class="menu-header__item menu-dropdown__item">
+                  <a href="./contacts.html" target="_blank" class="menu-header__link">Contacts</a>
+                </li>
+                <li class="menu-header__item menu-dropdown__item menu-dropdown__item--submenu">
+                  <a href="#"
+                    class="menu-header__link menu-header__link--submenu menu-dropdown__link menu-header__link--icon-chevron">
+                    Pages</a>
+                  <ul class="menu-dropdown__submenu submenu-dropdown">
+                    <li class="submenu-dropdown__item">
+                      <a href="https://valstudiodev.github.io/accordion-menu/" target="_blank"
+                        class="submenu-dropdown__link">Accordion-menu</a>
+                    </li>
+                    <li class="submenu-dropdown__item">
+                      <a href="https://valstudiodev.github.io/dropdowne-menu/" target="_blank"
+                        class="submenu-dropdown__link">Dropdowne-menu</a>
+                    </li>
+                    <li class="submenu-dropdown__item">
+                      <a href="https://valstudiodev.github.io/animation/" target="_blank"
+                        class="submenu-dropdown__link">Animation</a>
+                    </li>
                   </ul>
-               </nav>
-               <div class="header__media media-social">
-                  <a target="_blank" href="https://www.linkedin.com/in/valentyn-tkachenko/"
-                     class="media-social__link media-social__linkedin">
-                     <svg>
-                        <use href="/src/assets/icons/symbol-defs.svg#icon-linkedin-with-circle"></use>
-                     </svg>
-                     <span>Linkedin</span>
-                  </a>
-                  <a target="_blank" href="https://t.me/Tkach06"
-                     class="media-social__link media-social__telegram media-social__telegram--icon-telegram">Telegram</a>
-                  <a target="_blank" href="https://github.com/valstudiodev"
-                     class="media-social__link media-social__github media-social__github--icon-github">Github</a>
-               </div>
-               <button class="icon-menu">
-                  <span></span>
-               </button>
+                </li>
+              </ul>
+            </nav>
+            <div class="header__media media-social">
+              <a target="_blank" href="https://www.linkedin.com/in/valentyn-tkachenko/"
+                class="media-social__link media-social__linkedin">
+                <svg>
+                  <use href="/src/assets/icons/symbol-defs.svg#icon-linkedin-with-circle"></use>
+                </svg>
+                <span>Linkedin</span>
+              </a>
+              <a target="_blank" href="https://t.me/Tkach06"
+                class="media-social__link media-social__telegram media-social__telegram--icon-telegram">Telegram</a>
+              <a target="_blank" href="https://github.com/valstudiodev"
+                class="media-social__link media-social__github media-social__github--icon-github">Github</a>
             </div>
-         </div>
+            <button class="icon-menu">
+              <span></span>
+            </button>
+          </div>
+        </div>
       </header>
 
       <main class="page-about">
-         <section class="page-about__about about-page">
-            <div class="about-page__container">
-               <div class="about-page__inner">
-                  <div class="about-page__header block-header block-header--about block-header--margin"
-                     data-delay="200">
-                     <svg class="block-header__scroll mouse-scroll">
-                        <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
-                     </svg>
-                     <h2 class="block-header__title">A bit about
-                        <span>me</span>
-                     </h2>
-                     <div class="block-header__text">
-                        <p>From concept to code — I craft modern, engaging websites that tell your story and make
-                           users
-                           stay longer.
-                        </p>
-                     </div>
+        <section class="page-about__about about-page">
+          <div class="about-page__container">
+            <div class="about-page__inner">
+              <div class="about-page__header block-header block-header--about block-header--margin" data-delay="200">
+                <svg class="block-header__scroll mouse-scroll" aria-hidden="true">
+                  <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
+                </svg>
+                <h2 class="block-header__title">A bit about
+                  <span>me</span>
+                </h2>
+                <div class="block-header__text block-header__text--margin">
+                  <p>From concept to code — I craft modern, engaging websites that tell your story and make
+                    users
+                    stay longer.
+                  </p>
+                </div>
+                <a href="#about" type="button" class="arrow-down arrow-down--light arrow-down--icon-arrow-up"></a>
+              </div>
+              <div class="about-page__body body-about" id="about">
+                <div class="body-about__wrapper">
+                  <div class="body-about__image body-about__image--anim" data-threshold="0.1" data-delay="100">
+                    <img src="/src/assets/img/png/man-works.webp" alt="">
                   </div>
-                  <div class="about-page__body body-about">
-                     <div class="body-about__wrapper">
-                        <div class="body-about__image body-about__image--anim" data-threshold="0.3" data-delay="300">
-                           <img src="/src/assets/img/png/man-works.webp" alt="">
-                        </div>
-                        <div class="body-about__inner body-about__inner--anim" data-threshold="0.1" data-delay="500">
-                           <div class="body-about__info">
-                              <div class="body-about__name">Valentyn Tkachenko</div>
-                              <h2 class="body-about__title">
-                                 Your Partner in Bringing Your Web Design Vision to Life
-                              </h2>
-                              <div class="body-about__desc">
-                                 <svg class="body-about__teg">
-                                    <use href="/src/assets/icons/symbol-defs.svg#icon-p-open"></use>
-                                 </svg>
-                                 <p>
-                                    Hi, I’m <span>Valentyn Tkachenko</span>, a passionate Front-End Developer focused on
-                                    creating
-                                    clean,
-                                    responsive, and engaging <span>web
-                                       experiences.</span>
-                                    I love turning creative ideas into functional, user-friendly interfaces using
-                                    <span>HTML</span>,
-                                    <span>CSS</span>,
-                                    and <span>JavaScript</span>.
-                                    Right now, I’m sharpening my JavaScript skills and exploring modern tools to bring
-                                    even
-                                    more interactivity to my
-                                    projects.
-                                 </p>
-                                 <svg class="body-about__teg">
-                                    <use href="/src/assets/icons/symbol-defs.svg#icon-p-closed"></use>
-                                 </svg>
-                                 <svg class="body-about__teg">
-                                    <use href="/src/assets/icons/symbol-defs.svg#icon-p-open"></use>
-                                 </svg>
-                                 <p>I believe that good design is more than just visuals — it’s about usability, logic,
-                                    and
-                                    flow. My goal is to craft
-                                    websites that not only look great but also perform smoothly across all devices.
-                                 </p>
-                                 <svg class="body-about__teg">
-                                    <use href="/src/assets/icons/symbol-defs.svg#icon-p-closed"></use>
-                                 </svg>
-                                 <svg class="body-about__teg">
-                                    <use href="/src/assets/icons/symbol-defs.svg#icon-p-open"></use>
-                                 </svg>
-                                 <p>When I’m not coding, you’ll probably find me playing basketball, enjoying nature,
-                                    fishing,
-                                    or diving into video games.
-                                    I’m also an animal lover — I share my space with a very curious cat who often
-                                    supervises
-                                    my coding sessions. 🐾
-                                 </p>
-                                 <svg class="body-about__teg">
-                                    <use href="/src/assets/icons/symbol-defs.svg#icon-p-closed"></use>
-                                 </svg>
-                              </div>
-                              <!-- <div class="body-about__img">
+                  <div class="body-about__inner body-about__inner--anim" data-threshold="0.1" data-delay="500">
+                    <div class="body-about__info">
+                      <div class="body-about__name">Valentyn Tkachenko</div>
+                      <h2 class="body-about__title">
+                        Your Partner in Bringing Your Web Design Vision to Life
+                      </h2>
+                      <div class="body-about__desc">
+                        <svg class="body-about__teg">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-p-open"></use>
+                        </svg>
+                        <p>
+                          Hi, I’m <span>Valentyn Tkachenko</span>, a passionate Front-End Developer focused on
+                          creating
+                          clean,
+                          responsive, and engaging <span>web
+                            experiences.</span>
+                          I love turning creative ideas into functional, user-friendly interfaces using
+                          <span>HTML</span>,
+                          <span>CSS</span>,
+                          and <span>JavaScript</span>.
+                          Right now, I’m sharpening my JavaScript skills and exploring modern tools to bring
+                          even
+                          more interactivity to my
+                          projects.
+                        </p>
+                        <svg class="body-about__teg">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-p-closed"></use>
+                        </svg>
+                        <svg class="body-about__teg">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-p-open"></use>
+                        </svg>
+                        <p>I believe that good design is more than just visuals — it’s about usability, logic,
+                          and
+                          flow. My goal is to craft
+                          websites that not only look great but also perform smoothly across all devices.
+                        </p>
+                        <svg class="body-about__teg">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-p-closed"></use>
+                        </svg>
+                        <svg class="body-about__teg">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-p-open"></use>
+                        </svg>
+                        <p>When I’m not coding, you’ll probably find me playing basketball, enjoying nature,
+                          fishing,
+                          or diving into video games.
+                          I’m also an animal lover — I share my space with a very curious cat who often
+                          supervises
+                          my coding sessions. 🐾
+                        </p>
+                        <svg class="body-about__teg">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-p-closed"></use>
+                        </svg>
+                      </div>
+                      <!-- <div class="body-about__img">
                                  <img src="/src/assets/img/png/man-works.webp" alt="">
                               </div> -->
-                           </div>
-                        </div>
-                     </div>
+                    </div>
                   </div>
-               </div>
+                </div>
+              </div>
             </div>
-         </section>
+          </div>
+        </section>
 
-         <section class="page-approach approach">
-            <div class="approach__container">
-               <svg class="approach__scroll approach__scroll--anim mouse-scroll">
-                  <use href="src/assets/icons/symbol-defs.svg#icon-scroll"></use>
-               </svg>
-               <div class="approach__body">
-                  <h2 class="approach__title approach__title--anim">My <span>Approach</span></h2>
-                  <div class="approach__items approach__items--anim" data-threshold="0.2" data-step="250">
-
-                     <article class="approach-item anim-child accordion-menu" data-accordion>
-                        <div class="approach-item__inner accordion-menu__inner">
-                           <div class="approach-item__top accordion-menu__top">
-                              <svg class="approach-item__icon">
-                                 <use href="/src/assets/icons/symbol-defs.svg#icon-power"></use>
-                              </svg>
-                              <div class="approach-item__header header-approach accordion-menu__header header-accordion"
-                                 data-accordion-btn>
-                                 <h3 class="header-approach__title header-accordion__title">Reliability</h3>
-                                 <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
-                                    data-accordion-icon>
-                                    <span></span>
-                                 </button>
-                              </div>
-                           </div>
-                           <div class="approach-item__content accordion-menu__content" data-accordion-body>
-                              <div class="approach-item__text accordion-menu__text">
-                                 <p>I build websites that stay stable even after content updates or changes. Everything
-                                    remains in its
-                                    place.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
-                     <article class="approach-item anim-child accordion-menu" data-accordion>
-                        <div class="approach-item__inner accordion-menu__inner">
-                           <div class="approach-item__top accordion-menu__top">
-                              <svg class="approach-item__icon">
-                                 <use href="/src/assets/icons/symbol-defs.svg#icon-mouse-pointer"></use>
-                              </svg>
-                              <div class="approach-item__header header-approach accordion-menu__header header-accordion"
-                                 data-accordion-btn>
-                                 <h3 class="header-approach__title header-accordion__title">Responsiveness</h3>
-                                 <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
-                                    data-accordion-icon>
-                                    <span></span>
-                                 </button>
-                              </div>
-                           </div>
-                           <div class="approach-item__content accordion-menu__content" data-accordion-body>
-                              <div class="approach-item__text accordion-menu__text">
-                                 <p>I use adaptive techniques instead of relying only on breakpoints, ensuring perfect
-                                    display
-                                    on any screen size.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
-                     <article class="approach-item anim-child accordion-menu" data-accordion>
-                        <div class="approach-item__inner accordion-menu__inner">
-                           <div class="approach-item__top accordion-menu__top">
-                              <svg class="approach-item__icon">
-                                 <use href="/src/assets/icons/symbol-defs.svg#icon-smartphone"></use>
-                              </svg>
-                              <div class="approach-item__header header-approach accordion-menu__header header-accordion"
-                                 data-accordion-btn>
-                                 <h3 class="header-approach__title header-accordion__title">Usability</h3>
-                                 <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
-                                    data-accordion-icon>
-                                    <span></span>
-                                 </button>
-                              </div>
-                           </div>
-                           <div class="approach-item__content accordion-menu__content" data-accordion-body>
-                              <div class="approach-item__text accordion-menu__text">
-                                 <p>I focus on creating an intuitive experience across all devices — desktop, laptop, or
-                                    mobile.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
-                     <article class="approach-item anim-child accordion-menu" data-accordion>
-                        <div class="approach-item__inner accordion-menu__inner">
-                           <div class="approach-item__top accordion-menu__top">
-                              <svg class="approach-item__icon">
-                                 <use href="/src/assets/icons/symbol-defs.svg#icon-monitor"></use>
-                              </svg>
-                              <div class="approach-item__header header-approach accordion-menu__header header-accordion"
-                                 data-accordion-btn>
-                                 <h3 class="header-approach__title header-accordion__title">Optimization</h3>
-                                 <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
-                                    data-accordion-icon>
-                                    <span></span>
-                                 </button>
-                              </div>
-                           </div>
-                           <div class="approach-item__content accordion-menu__content" data-accordion-body>
-                              <div class="approach-item__text accordion-menu__text">
-                                 <p>I carefully optimize all images to reduce weight while preserving quality.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
-                     <article class="approach-item anim-child accordion-menu" data-accordion>
-                        <div class="approach-item__inner accordion-menu__inner">
-                           <div class="approach-item__top accordion-menu__top">
-                              <svg class="approach-item__icon">
-                                 <use href="/src/assets/icons/symbol-defs.svg#icon-slash"></use>
-                              </svg>
-                              <div class="approach-item__header header-approach accordion-menu__header header-accordion"
-                                 data-accordion-btn>
-                                 <h3 class="header-approach__title header-accordion__title">Semantics</h3>
-                                 <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
-                                    data-accordion-icon>
-                                    <span></span>
-                                 </button>
-                              </div>
-                           </div>
-                           <div class="approach-item__content accordion-menu__content" data-accordion-body>
-                              <div class="approach-item__text accordion-menu__text">
-                                 <p>I apply semantic HTML to improve accessibility and SEO visibility.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
-                     <article class="approach-item anim-child accordion-menu" data-accordion>
-                        <div class="approach-item__inner accordion-menu__inner">
-                           <div class="approach-item__top accordion-menu__top">
-                              <svg class="approach-item__icon">
-                                 <use href="/src/assets/icons/symbol-defs.svg#icon-rocket"></use>
-                              </svg>
-                              <div class="approach-item__header header-approach accordion-menu__header header-accordion"
-                                 data-accordion-btn>
-                                 <h3 class="header-approach__title header-accordion__title">Responsibility</h3>
-                                 <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
-                                    data-accordion-icon>
-                                    <span></span>
-                                 </button>
-                              </div>
-                           </div>
-                           <div class="approach-item__content accordion-menu__content" data-accordion-body>
-                              <div class="approach-item__text accordion-menu__text">
-                                 <p>I treat every project as my own, ensuring reliability, precision, and timely
-                                    delivery at
-                                    every stage.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                     </article>
+        <section class="page__skills skills">
+          <div class="skills__container">
+            <div class="skills__inner">
+              <div class="skills__top top-skills" data-delay="800">
+                <svg class="top-skills__scroll mouse-scroll">
+                  <use href="/src/assets/icons/symbol-defs.svg#icon-scroll"></use>
+                </svg>
+                <div class="top-skills__block">
+                  <h2 class="top-skills__title">Skills</h2>
+                  <div class="top-skills__text">
+                    <p>I am striving to never stop learning and improving.</p>
                   </div>
-               </div>
+                </div>
+              </div>
+              <div class="skills__body body-skills" data-delay="850">
+                <div class="body-skills__inner">
+                  <article class="body-skills__item skill-item" data-delay="750">
+                    <svg class="skill-item__icon">
+                      <use href="src/assets/icons/symbol-defs.svg#icon-monitor"></use>
+                    </svg>
+                    <h4 class="skill-item__title">web developement</h4>
+                    <div class="skill-item__skills">
+                      <span>HTML</span>
+                      <span>CSS</span>
+                      <span>SCSS</span>
+                      <span>BEM</span>
+                      <span>JS</span>
+                      <!-- <span>JS</span>
+                                      <span>JS</span>
+                                      <span>JS</span>
+                                      <span>JS</span>
+                                      <span>JS</span>
+                                      <span>JS</span> -->
+                    </div>
+                  </article>
+                  <div class="body-skills__lang lang-skill lang-skill--anim" data-threshold="0.2" data-step="250">
+                    <div class="lang-skill__wrap anim-child">
+                      <div class="lang-skill__item lang-skill__item--html">
+                        <svg class="lang-skill__icon">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-html"></use>
+                        </svg>
+                      </div>
+                      <span class="lang-skill__title lang-skill__title--html">HTML</span>
+                    </div>
+                    <div class="lang-skill__wrap anim-child">
+                      <div class="lang-skill__item lang-skill__item--css">
+                        <svg class="lang-skill__icon">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-css"></use>
+                        </svg>
+                      </div>
+                      <span class="lang-skill__title lang-skill__title--css">css</span>
+                    </div>
+                    <div class="lang-skill__wrap anim-child">
+                      <div class="lang-skill__item lang-skill__item--js">
+                        <svg class="lang-skill__icon">
+                          <use href="/src/assets/icons/symbol-defs.svg#icon-js"></use>
+                        </svg>
+                      </div>
+                      <span class="lang-skill__title lang-skill__title--js">js</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
 
-         </section>
+        <section class="page-approach approach">
+          <div class="approach__container">
+            <svg class="approach__scroll approach__scroll--anim mouse-scroll">
+              <use href="src/assets/icons/symbol-defs.svg#icon-scroll"></use>
+            </svg>
+            <div class="approach__body">
+              <h2 class="approach__title approach__title--anim">My <span>Approach</span></h2>
+              <div class="approach__items approach__items--anim" data-threshold="0.2" data-step="250">
+
+                <article class="approach-item anim-child accordion-menu" data-accordion>
+                  <div class="approach-item__inner accordion-menu__inner">
+                    <div class="approach-item__top accordion-menu__top">
+                      <svg class="approach-item__icon">
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-power"></use>
+                      </svg>
+                      <div class="approach-item__header header-approach accordion-menu__header header-accordion"
+                        data-accordion-btn>
+                        <h3 class="header-approach__title header-accordion__title">Reliability</h3>
+                        <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
+                          data-accordion-icon>
+                          <span></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="approach-item__content accordion-menu__content" data-accordion-body>
+                      <div class="approach-item__text accordion-menu__text">
+                        <p>I build websites that stay stable even after content updates or changes. Everything
+                          remains in its
+                          place.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <article class="approach-item anim-child accordion-menu" data-accordion>
+                  <div class="approach-item__inner accordion-menu__inner">
+                    <div class="approach-item__top accordion-menu__top">
+                      <svg class="approach-item__icon">
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-mouse-pointer"></use>
+                      </svg>
+                      <div class="approach-item__header header-approach accordion-menu__header header-accordion"
+                        data-accordion-btn>
+                        <h3 class="header-approach__title header-accordion__title">Responsiveness</h3>
+                        <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
+                          data-accordion-icon>
+                          <span></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="approach-item__content accordion-menu__content" data-accordion-body>
+                      <div class="approach-item__text accordion-menu__text">
+                        <p>I use adaptive techniques instead of relying only on breakpoints, ensuring perfect
+                          display
+                          on any screen size.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <article class="approach-item anim-child accordion-menu" data-accordion>
+                  <div class="approach-item__inner accordion-menu__inner">
+                    <div class="approach-item__top accordion-menu__top">
+                      <svg class="approach-item__icon">
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-smartphone"></use>
+                      </svg>
+                      <div class="approach-item__header header-approach accordion-menu__header header-accordion"
+                        data-accordion-btn>
+                        <h3 class="header-approach__title header-accordion__title">Usability</h3>
+                        <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
+                          data-accordion-icon>
+                          <span></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="approach-item__content accordion-menu__content" data-accordion-body>
+                      <div class="approach-item__text accordion-menu__text">
+                        <p>I focus on creating an intuitive experience across all devices — desktop, laptop, or
+                          mobile.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <article class="approach-item anim-child accordion-menu" data-accordion>
+                  <div class="approach-item__inner accordion-menu__inner">
+                    <div class="approach-item__top accordion-menu__top">
+                      <svg class="approach-item__icon">
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-monitor"></use>
+                      </svg>
+                      <div class="approach-item__header header-approach accordion-menu__header header-accordion"
+                        data-accordion-btn>
+                        <h3 class="header-approach__title header-accordion__title">Optimization</h3>
+                        <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
+                          data-accordion-icon>
+                          <span></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="approach-item__content accordion-menu__content" data-accordion-body>
+                      <div class="approach-item__text accordion-menu__text">
+                        <p>I carefully optimize all images to reduce weight while preserving quality.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <article class="approach-item anim-child accordion-menu" data-accordion>
+                  <div class="approach-item__inner accordion-menu__inner">
+                    <div class="approach-item__top accordion-menu__top">
+                      <svg class="approach-item__icon">
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-slash"></use>
+                      </svg>
+                      <div class="approach-item__header header-approach accordion-menu__header header-accordion"
+                        data-accordion-btn>
+                        <h3 class="header-approach__title header-accordion__title">Semantics</h3>
+                        <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
+                          data-accordion-icon>
+                          <span></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="approach-item__content accordion-menu__content" data-accordion-body>
+                      <div class="approach-item__text accordion-menu__text">
+                        <p>I apply semantic HTML to improve accessibility and SEO visibility.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <article class="approach-item anim-child accordion-menu" data-accordion>
+                  <div class="approach-item__inner accordion-menu__inner">
+                    <div class="approach-item__top accordion-menu__top">
+                      <svg class="approach-item__icon">
+                        <use href="/src/assets/icons/symbol-defs.svg#icon-rocket"></use>
+                      </svg>
+                      <div class="approach-item__header header-approach accordion-menu__header header-accordion"
+                        data-accordion-btn>
+                        <h3 class="header-approach__title header-accordion__title">Responsibility</h3>
+                        <button class="button-more header-approach__icon header-approach__icon--icon-arrow-up"
+                          data-accordion-icon>
+                          <span></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="approach-item__content accordion-menu__content" data-accordion-body>
+                      <div class="approach-item__text accordion-menu__text">
+                        <p>I treat every project as my own, ensuring reliability, precision, and timely
+                          delivery at
+                          every stage.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+        </section>
       </main>
 
       <aside class="page-intro intro">
-         <div class="intro__container intro__container--anim" data-threshold="0.3">
-            <div class="intro__header">
-               <div class="intro__content">
-                  <span class="intro__label">Got a project in mind?</span>
-                  <h2 class="intro__title">Let’s make your <br> <span>Website unforgettable</span></h2>
-                  <div class="intro__text">
-                     <p>Modern, responsive, and visually clean websites that reflect your vision and keep users
-                        engaged.
-                     </p>
-                  </div>
-               </div>
+        <div class="intro__container intro__container--anim" data-threshold="0.3">
+          <div class="intro__header">
+            <div class="intro__content">
+              <span class="intro__label">Got a project in mind?</span>
+              <h2 class="intro__title">Let’s make your <br> <span>Website unforgettable</span></h2>
+              <div class="intro__text">
+                <p>Modern, responsive, and visually clean websites that reflect your vision and keep users
+                  engaged.
+                </p>
+              </div>
             </div>
-            <button type="button" id="open-btn-modal"
-               class="intro__button intro__button--anim button-figure button-figure--green open-btn-modal">
-               Send me a message
-            </button>
-         </div>
+          </div>
+          <button type="button" id="open-btn-modal"
+            class="intro__button intro__button--anim button-figure button-figure--green open-btn-modal">
+            Send me a message
+          </button>
+        </div>
       </aside>
 
       <footer class="footer">
-         <div class="footer__body body-footer">
-            <div class="body-footer__container">
-               <div class="body-footer__menu menu-footer">
-                  <ul class="menu-footer__list menu-footer__list--anim" data-threshold="0.1" data-step="200">
-                     <li class="menu-footer__item anim-child">
-                        <a href="./index.html" class="menu-footer__link menu-footer__link--icon-home">Home</a>
-                     </li>
-                     <li class="menu-footer__item anim-child">
-                        <a href="#" class="menu-footer__link menu-footer__link--icon-user">About
-                           me</a>
-                     </li>
-                     <li class="menu-footer__item anim-child">
-                        <a target="_blank" href="./contacts.html"
-                           class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
-                     </li>
-                  </ul>
-               </div>
-               <address class="body-footer__social social-footer">
-                  <ul class="social-footer__list social-footer__list--anim" data-threshold="0.1" data-step="200">
-                     <li class="social-footer__item anim-child">
-                        <a target="_blank" href="https://t.me/Tkach06"
-                           class="social-footer__link social-footer__link--icon-telegram"></a>
-                     </li>
-                     <li class="social-footer__item anim-child">
-                        <a target="_blank" href="https://discord.gg/dpDqppvm"
-                           class="social-footer__link social-footer__link--icon-discord"></a>
-                     </li>
-                     <li class="social-footer__item anim-child">
-                        <a target="_blank" href="https://wa.me/0973906454"
-                           class="social-footer__link social-footer__link--icon-watsup"></a>
-                     </li>
-                     <li class="social-footer__item anim-child">
-                        <a target="_blank" href="https://m.me/@valentyn.tkachenko"
-                           class="social-footer__link social-footer__link--icon-fb"></a>
-                     </li>
-                  </ul>
-               </address>
+        <div class="footer__body body-footer">
+          <div class="body-footer__container">
+            <div class="body-footer__menu menu-footer">
+              <ul class="menu-footer__list menu-footer__list--anim" data-threshold="0.1" data-step="200">
+                <li class="menu-footer__item anim-child">
+                  <a href="./index.html" class="menu-footer__link menu-footer__link--icon-home">Home</a>
+                </li>
+                <li class="menu-footer__item anim-child">
+                  <a href="#" class="menu-footer__link menu-footer__link--icon-user">About
+                    me</a>
+                </li>
+                <li class="menu-footer__item anim-child">
+                  <a target="_blank" href="./contacts.html"
+                    class="menu-footer__link menu-footer__link--icon-phone">Contact</a>
+                </li>
+              </ul>
             </div>
-         </div>
-         <div class="footer__bottom bottom-footer">
-            <div class="bottom-footer__container">
-               <div class="bottom-footer__copiright">
-                  <p>&copy; <span>2025 - 2026</span> | <strong>Valentyn Tkachenko</strong> | Crafted
-                     in code &
-                     creativity ⚡</p>
-               </div>
-               <div class="bottom-footer__terms">
-                  <a href="./terms.html">Terms of Use</a> |
-                  <a href="./policy.html">Privacy Policy</a>
-               </div>
+            <address class="body-footer__social social-footer">
+              <ul class="social-footer__list social-footer__list--anim" data-threshold="0.1" data-step="200">
+                <li class="social-footer__item anim-child">
+                  <a target="_blank" href="https://t.me/Tkach06"
+                    class="social-footer__link social-footer__link--icon-telegram"></a>
+                </li>
+                <li class="social-footer__item anim-child">
+                  <a target="_blank" href="https://discord.gg/dpDqppvm"
+                    class="social-footer__link social-footer__link--icon-discord"></a>
+                </li>
+                <li class="social-footer__item anim-child">
+                  <a target="_blank" href="https://wa.me/0973906454"
+                    class="social-footer__link social-footer__link--icon-watsup"></a>
+                </li>
+                <li class="social-footer__item anim-child">
+                  <a target="_blank" href="https://m.me/@valentyn.tkachenko"
+                    class="social-footer__link social-footer__link--icon-fb"></a>
+                </li>
+              </ul>
+            </address>
+          </div>
+        </div>
+        <div class="footer__bottom bottom-footer">
+          <div class="bottom-footer__container">
+            <div class="bottom-footer__copiright">
+              <p>&copy; <span>2025 - 2026</span> | <strong>Valentyn Tkachenko</strong> | Crafted
+                in code &
+                creativity ⚡</p>
             </div>
-         </div>
+            <div class="bottom-footer__terms">
+              <a href="./terms.html">Terms of Use</a> |
+              <a href="./policy.html">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
       </footer>
-   </div>
+    </div>
 
-   <div id="modal-overlay" class="modal-overlay">
+    <div id="modal-overlay" class="modal-overlay">
       <div id="modal-content" class="modal-window">
       </div>
-   </div>
+    </div>
 
-   <div id="status-overlay" class="status-overlay">
+    <div id="status-overlay" class="status-overlay">
       <div class="status-modal-content">
-         <p id="status-text"></p>
+        <p id="status-text"></p>
       </div>
-   </div>
+    </div>
 
-   <script type="module" src="/src/main.js"></script>
-</body>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 
 </html>
